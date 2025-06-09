@@ -3,8 +3,14 @@ import { supabase } from '../../lib/supabaseClient';
 import CourseCreateModal from '@/components/CourseCreateModal';
 import Link from 'next/link';
 
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export default function Courses() {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [userRole, setUserRole] = useState('');
 
   const fetchCourses = async () => {
@@ -50,8 +56,11 @@ export default function Courses() {
           <div key={course.id} className="border p-4 rounded-lg">
             <h2 className="text-lg font-semibold">{course.title}</h2>
             <p className="mt-2">{course.description}</p>
-            <Link href={`/courses/${course.id}`}>
-              <a className="text-blue-600 hover:underline mt-2 inline-block">View Course</a>
+            <Link
+              href={`/courses/${course.id}`}
+              className="text-blue-600 hover:underline mt-2 inline-block"
+            >
+              View Course
             </Link>
           </div>
         ))}
