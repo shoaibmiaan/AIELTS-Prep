@@ -1,8 +1,15 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
+type Profile = {
+  id: string;
+  email: string;
+  created_at: string;
+  role: 'admin' | 'teacher' | 'student' | string;
+};
+
 export default function ProfilePage() {
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,7 +23,7 @@ export default function ProfilePage() {
         .eq('id', user?.id)
         .single();
 
-      console.log("Fetched profile:", data); // 🔍 Debug log
+      console.log("Fetched profile:", data);
       if (!error) setProfile(data);
       setLoading(false);
     };
@@ -25,6 +32,8 @@ export default function ProfilePage() {
 
   const handleRoleChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newRole = e.target.value;
+    if (!profile) return;
+
     const { error } = await supabase
       .from('profiles')
       .update({ role: newRole })
@@ -43,18 +52,18 @@ export default function ProfilePage() {
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded shadow mt-10">
       <h1 className="text-xl font-bold mb-4">Your Profile</h1>
-      <p><strong>Email:</strong> {profile.email}</p>
-      <p><strong>Joined:</strong> {new Date(profile.created_at).toLocaleString()}</p>
+      <p><strong>Email:</strong> {profile?.email}</p>
+      <p><strong>Joined:</strong> {new Date(profile?.created_at || '').toLocaleString()}</p>
       <p className="mt-4">
         <strong>Role:</strong>
-        {profile.role === 'admin' ? (
+        {profile?.role === 'admin' ? (
           <select value={profile.role} onChange={handleRoleChange} className="ml-2 border px-2 py-1">
             <option value="student">Student</option>
             <option value="teacher">Teacher</option>
             <option value="admin">Admin</option>
           </select>
         ) : (
-          <span className="ml-2">{profile.role}</span>
+          <span className="ml-2">{profile?.role}</span>
         )}
       </p>
     </div>

@@ -3,8 +3,14 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabaseClient';
 import toast from 'react-hot-toast';
 
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export default function Courses() {
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [userRole, setUserRole] = useState('');
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
