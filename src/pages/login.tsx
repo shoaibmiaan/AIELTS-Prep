@@ -1,5 +1,3 @@
-// src/pages/login.tsx
-
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -17,7 +15,7 @@ export default function LoginPage() {
     setError(null)
     setLoading(true)
 
-    const { data, error: signInError } = await supabase.auth.signInWithPassword({
+    const { error: signInError } = await supabase.auth.signInWithPassword({
       email,
       password,
     })

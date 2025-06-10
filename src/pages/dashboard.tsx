@@ -1,10 +1,10 @@
-// src/pages/dashboard.tsx
-
-import { useEffect, useState } from 'react';
+'use client';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import CourseCreateModal from '@/components/CourseCreateModal';
+import Avatar from '@/components/Avatar';
 
 type Course = {
   id: string;
@@ -57,7 +57,7 @@ export default function Dashboard() {
     window.location.reload(); // refresh to reflect new image
   };
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const sessionRes = await supabase.auth.getSession();
     if (!sessionRes.data.session) {
       router.replace('/login');
@@ -111,11 +111,11 @@ export default function Dashboard() {
     }
 
     setLoading(false);
-  };
+  }, [router]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   if (loading) return <p className="p-6">Loading…</p>;
 
@@ -124,18 +124,7 @@ export default function Dashboard() {
       {/* ✅ Profile with Avatar Upload */}
       <div className="flex items-center gap-4 mb-6">
         <div className="relative">
-          {profile?.avatar_url ? (
-            <img
-              src={profile.avatar_url}
-              alt="Profile"
-              className="w-14 h-14 rounded-full border shadow object-cover"
-              onError={(e) => (e.currentTarget.style.display = 'none')}
-            />
-          ) : (
-            <div className="w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center text-xl font-bold border shadow">
-              {profile?.full_name?.[0]?.toUpperCase() || userEmail?.[0]?.toUpperCase()}
-            </div>
-          )}
+          <Avatar src={profile?.avatar_url || ''} />
           <input
             type="file"
             accept="image/*"

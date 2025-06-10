@@ -11,7 +11,6 @@ interface UserProfile {
 export default function Users() {
   const [users, setUsers] = useState<UserProfile[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -22,8 +21,6 @@ export default function Users() {
           alert('Error fetching user authentication data.');
           return;
         }
-
-        setCurrentUser(authData.user);
 
         const { data: myProfile, error: profileError } = await supabase
           .from('profiles')

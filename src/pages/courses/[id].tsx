@@ -1,39 +1,39 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 
 export default function CourseDetails() {
   const router = useRouter();
-  const { id } = router.query as { id?: string };
+  const { id } = router.query;
 
-  // Loading states
   const [loading, setLoading] = useState(true);
   const [loadingEnroll, setLoadingEnroll] = useState(false);
   const [loadingSave, setLoadingSave] = useState(false);
   const [loadingAdd, setLoadingAdd] = useState(false);
 
-  // Data
   const [course, setCourse] = useState<any>(null);
   const [lessons, setLessons] = useState<any[]>([]);
   const [enrolled, setEnrolled] = useState(false);
   const [profile, setProfile] = useState<any>(null);
 
-  // Edit course
   const [editing, setEditing] = useState(false);
   const [titleInput, setTitleInput] = useState('');
   const [descInput, setDescInput] = useState('');
 
-  // Add lesson
   const [showAdd, setShowAdd] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newContent, setNewContent] = useState('');
 
   useEffect(() => {
     if (!id) return;
+
     async function fetchData() {
       setLoading(true);
-      const { data: { user } } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error: userError
+      } = await supabase.auth.getUser();
 
       if (user) {
         const { data: profileData } = await supabase
@@ -41,7 +41,7 @@ export default function CourseDetails() {
           .select('id, role')
           .eq('id', user.id)
           .single();
-        setProfile(profileData);
+        setProfile(profileData || null);
       }
 
       const { data: courseData } = await supabase
@@ -60,6 +60,7 @@ export default function CourseDetails() {
         .select('*')
         .eq('course_id', id)
         .order('order', { ascending: true });
+
       setLessons(lessonsData || []);
 
       if (user) {
@@ -69,11 +70,13 @@ export default function CourseDetails() {
           .eq('user_id', user.id)
           .eq('course_id', id)
           .single();
-        setEnrolled(Boolean(enrollmentData));
+
+        setEnrolled(!!enrollmentData);
       }
 
       setLoading(false);
     }
+
     fetchData();
   }, [id]);
 
@@ -83,17 +86,23 @@ export default function CourseDetails() {
 
   async function handleEnroll() {
     setLoadingEnroll(true);
-    const { data: { user } } = await supabase.auth.getUser();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
     if (!user) {
       alert('Please log in to enroll.');
       setLoadingEnroll(false);
       return;
     }
+
     const { error } = await supabase
       .from('enrollments')
       .insert({ user_id: user.id, course_id: id });
-    if (error) alert(JSON.stringify(error));
+
+    if (error) alert('Enrollment failed.');
     else setEnrolled(true);
+
     setLoadingEnroll(false);
   }
 
@@ -107,43 +116,56 @@ export default function CourseDetails() {
       .from('courses')
       .update({ title: titleInput, description: descInput })
       .eq('id', id);
-    if (error) alert(JSON.stringify(error));
+
+    if (error) alert('Error saving course.');
     else {
       setCourse({ ...course, title: titleInput, description: descInput });
       setEditing(false);
     }
+
     setLoadingSave(false);
   }
 
   async function handleAddLesson() {
     setLoadingAdd(true);
     const lastOrder = lessons.length ? Math.max(...lessons.map(l => l.order)) : 0;
+
     const { error } = await supabase
       .from('lessons')
       .insert({
         course_id: id,
         title: newTitle,
         content: newContent,
-        order: lastOrder + 1
+        order: lastOrder + 1,
       });
+
     setLoadingAdd(false);
+
     if (error) {
-      alert(JSON.stringify(error));
+      alert('Failed to add lesson.');
       return;
     }
+
     setNewTitle('');
     setNewContent('');
     setShowAdd(false);
+
     const { data: lessonsData } = await supabase
       .from('lessons')
       .select('*')
       .eq('course_id', id)
       .order('order', { ascending: true });
+
     setLessons(lessonsData || []);
   }
 
-  if (loading) return <div className="p-4"><p>Loading course…</p></div>;
-  if (!course) return <div className="p-4"><p className="text-red-500">Course not found.</p></div>;
+  if (loading) {
+    return <div className="p-4">Loading course…</div>;
+  }
+
+  if (!course) {
+    return <div className="p-4 text-red-600">Course not found.</div>;
+  }
 
   return (
     <div className="p-4 max-w-3xl mx-auto bg-white rounded shadow">
@@ -177,6 +199,7 @@ export default function CourseDetails() {
       ) : (
         <p className="mt-4">{course.description}</p>
       )}
+
       {editing && (
         <div className="mt-2 space-x-2">
           <button
@@ -219,6 +242,7 @@ export default function CourseDetails() {
           </button>
         </div>
       )}
+
       {showAdd && (
         <div className="mt-4 bg-gray-50 p-4 rounded shadow-sm">
           <input
