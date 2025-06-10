@@ -1,39 +1,56 @@
-//Users/shoaib/learn-with-solvio/src/pages/courses/[id].tsx
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
+import { supabase } from '@/lib/supabaseClient'; // ✅ Use alias if tsconfig allows
+
+// Types
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+  owner: string;
+};
+
+type Lesson = {
+  id: string;
+  title: string;
+  content: string;
+  order: number;
+};
+
+type Profile = {
+  id: string;
+  role: string;
+};
 
 export default function CourseDetails() {
   const router = useRouter();
   const { id } = router.query as { id?: string };
 
-  // Loading states
   const [loading, setLoading] = useState(true);
   const [loadingEnroll, setLoadingEnroll] = useState(false);
   const [loadingSave, setLoadingSave] = useState(false);
   const [loadingAdd, setLoadingAdd] = useState(false);
 
-  // Data
   const [course, setCourse] = useState<Course | null>(null);
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [enrolled, setEnrolled] = useState(false);
   const [profile, setProfile] = useState<Profile | null>(null);
 
-  // Edit course
   const [editing, setEditing] = useState(false);
   const [titleInput, setTitleInput] = useState('');
   const [descInput, setDescInput] = useState('');
 
-  // Add lesson
   const [showAdd, setShowAdd] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newContent, setNewContent] = useState('');
 
   useEffect(() => {
     if (!id) return;
+
     async function fetchData() {
       setLoading(true);
+
       const { data: { user } } = await supabase.auth.getUser();
 
       if (user) {
@@ -42,7 +59,7 @@ export default function CourseDetails() {
           .select('id, role')
           .eq('id', user.id)
           .single();
-        setProfile(profileData);
+        setProfile(profileData ?? null);
       }
 
       const { data: courseData } = await supabase
@@ -61,7 +78,7 @@ export default function CourseDetails() {
         .select('*')
         .eq('course_id', id)
         .order('order', { ascending: true });
-      setLessons(lessonsData || []);
+      setLessons(lessonsData ?? []);
 
       if (user) {
         const { data: enrollmentData } = await supabase
@@ -70,11 +87,12 @@ export default function CourseDetails() {
           .eq('user_id', user.id)
           .eq('course_id', id)
           .single();
-        setEnrolled(Boolean(enrollmentData));
+        setEnrolled(!!enrollmentData);
       }
 
       setLoading(false);
     }
+
     fetchData();
   }, [id]);
 
@@ -110,7 +128,7 @@ export default function CourseDetails() {
       .eq('id', id);
     if (error) alert(JSON.stringify(error));
     else {
-      setCourse({ ...course, title: titleInput, description: descInput });
+      setCourse(prev => prev ? { ...prev, title: titleInput, description: descInput } : null);
       setEditing(false);
     }
     setLoadingSave(false);
@@ -125,7 +143,7 @@ export default function CourseDetails() {
         course_id: id,
         title: newTitle,
         content: newContent,
-        order: lastOrder + 1
+        order: lastOrder + 1,
       });
     setLoadingAdd(false);
     if (error) {
@@ -135,19 +153,20 @@ export default function CourseDetails() {
     setNewTitle('');
     setNewContent('');
     setShowAdd(false);
-    const { data: lessonsData } = await supabase
+    const { data: updatedLessons } = await supabase
       .from('lessons')
       .select('*')
       .eq('course_id', id)
       .order('order', { ascending: true });
-    setLessons(lessonsData || []);
+    setLessons(updatedLessons ?? []);
   }
 
-  if (loading) return <div className="p-4"><p>Loading course…</p></div>;
-  if (!course) return <div className="p-4"><p className="text-red-500">Course not found.</p></div>;
+  if (loading) return <div className="p-4">Loading course…</div>;
+  if (!course) return <div className="p-4 text-red-600">Course not found.</div>;
 
   return (
     <div className="p-4 max-w-3xl mx-auto bg-white rounded shadow">
+      {/* Course Header */}
       <div className="flex items-center justify-between">
         {editing ? (
           <input
@@ -168,6 +187,7 @@ export default function CourseDetails() {
         )}
       </div>
 
+      {/* Description */}
       {editing ? (
         <textarea
           className="border p-2 w-full mt-4"
@@ -196,6 +216,7 @@ export default function CourseDetails() {
         </div>
       )}
 
+      {/* Enroll Button */}
       <div className="mt-6">
         {!enrolled ? (
           <button
@@ -210,6 +231,7 @@ export default function CourseDetails() {
         )}
       </div>
 
+      {/* Add Lesson */}
       {canEdit && (
         <div className="mt-6">
           <button
@@ -246,12 +268,13 @@ export default function CourseDetails() {
         </div>
       )}
 
+      {/* Lessons */}
       <h2 className="mt-8 text-lg font-semibold">Lessons:</h2>
       {lessons.length === 0 ? (
         <p className="italic mt-2">No lessons added yet.</p>
       ) : (
         <ul className="mt-2 space-y-2">
-          {lessons.map(lesson => (
+          {lessons.map((lesson) => (
             <li key={lesson.id}>
               <Link
                 href={`/courses/${id}/lessons/${lesson.id}`}

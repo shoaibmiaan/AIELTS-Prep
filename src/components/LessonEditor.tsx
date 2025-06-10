@@ -20,7 +20,7 @@ export default function LessonEditor({ initialContent = '', onSave }: Props) {
     extensions: [
       StarterKit.configure({
         // disables built-in table so custom table extensions work
-        table: false,
+        //table: false,
       }),
       Underline,
       Image,

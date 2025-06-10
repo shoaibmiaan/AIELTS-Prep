@@ -42,7 +42,7 @@ export default function WritingPractice() {
   };
 
   const handlePromptChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const prompt = writingPrompts.find((p) => p.id === e.target.value);
+const prompt = writingPrompts.find((p) => p.id === Number(e.target.value));
     if (prompt) {
       setSelectedPrompt(prompt);
       editor?.commands.clearContent();

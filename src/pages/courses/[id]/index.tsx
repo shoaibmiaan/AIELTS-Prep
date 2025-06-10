@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { supabase } from '../../lib/supabaseClient';
+import { supabase } from '@/lib/supabaseClient';
 import CourseCreateModal from '@/components/CourseCreateModal';
 import Link from 'next/link';
 

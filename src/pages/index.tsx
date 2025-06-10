@@ -1,6 +1,6 @@
-import CourseCreateModal from '../components/CourseCreateModal';
+import CourseCreateModal from '@/components/CourseCreateModal';
 import { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '@/lib/supabaseClient';
 import toast from 'react-hot-toast';
 
 type Course = {
@@ -17,24 +17,44 @@ export default function Courses() {
 
   const fetchCourses = async () => {
     setLoading(true);
-    const { data: { user } } = await supabase.auth.getUser();
 
-    const { data: profile } = await supabase
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (userError || !user) {
+      toast.error('Failed to fetch user.');
+      setLoading(false);
+      return;
+    }
+
+    const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('role')
-      .eq('id', user?.id)
+      .eq('id', user.id)
       .single();
+
+    if (profileError || !profile) {
+      toast.error('Failed to fetch user role.');
+      setLoading(false);
+      return;
+    }
 
     setUserRole(profile.role);
 
-    const query = profile.role === 'teacher'
-      ? supabase.from('courses').select('*').eq('owner', user?.id)
-      : supabase.from('courses').select('*').eq('published', true);
+    const query =
+      profile.role === 'teacher'
+        ? supabase.from('courses').select('*').eq('owner', user.id)
+        : supabase.from('courses').select('*').eq('published', true);
 
     const { data, error } = await query;
 
-    if (error) toast.error(error.message);
-    else setCourses(data || []);
+    if (error) {
+      toast.error(error.message);
+    } else {
+      setCourses(data || []);
+    }
 
     setLoading(false);
   };
@@ -45,8 +65,9 @@ export default function Courses() {
 
   const handleDelete = async (id: string) => {
     const { error } = await supabase.from('courses').delete().eq('id', id);
-    if (error) toast.error('Delete failed');
-    else {
+    if (error) {
+      toast.error('Delete failed');
+    } else {
       toast.success('Course deleted');
       fetchCourses();
     }
@@ -68,9 +89,7 @@ export default function Courses() {
         className="mb-4 px-3 py-2 border rounded w-full max-w-sm"
       />
 
-      {userRole === 'teacher' && (
-        <CourseCreateModal onCreated={fetchCourses} />
-      )}
+      {userRole === 'teacher' && <CourseCreateModal onCreated={fetchCourses} />}
 
       {loading ? (
         <div className="mt-8 text-gray-600">Loading courses...</div>

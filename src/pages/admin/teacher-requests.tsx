@@ -25,15 +25,19 @@ export default function TeacherRequestsPage() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      if (!user) return router.replace('/login');
 
-      const { data: me } = await supabase
+      if (!user) {
+        router.replace('/login');
+        return;
+      }
+
+      const { data: me, error: meError } = await supabase
         .from('profiles')
         .select('role')
         .eq('id', user.id)
         .single();
 
-      if (me?.role !== 'admin') {
+      if (meError || me?.role !== 'admin') {
         router.replace('/');
       } else {
         fetchRequests();
@@ -44,26 +48,36 @@ export default function TeacherRequestsPage() {
   // Fetch pending teacher sign-ups
   const fetchRequests = async () => {
     setLoading(true);
+    setError(null);
+
     const { data, error } = await supabase
-      .from<Profile>('profiles')
+      .from('profiles')
       .select('id, first_name, last_name, email, year_of_education, subject')
       .eq('role', 'teacher')
       .eq('status', 'pending');
-    if (error) setError(error.message);
-    else setRequests(data || []);
+
+    if (error) {
+      setError(error.message);
+      setRequests([]);
+    } else {
+      setRequests(data as Profile[] || []);
+    }
+
     setLoading(false);
   };
 
   // Approve a single request
   const handleApprove = async (id: string) => {
+    setError(null);
+
     const { error } = await supabase
       .from('profiles')
       .update({ status: 'active' })
       .eq('id', id);
+
     if (error) {
       setError(error.message);
     } else {
-      // refresh list
       fetchRequests();
     }
   };

@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
@@ -21,12 +22,13 @@ type Profile = {
 
 export default function Dashboard() {
   const router = useRouter();
+
   const [loading, setLoading] = useState(true);
+  const [userEmail, setUserEmail] = useState('');
   const [userRole, setUserRole] = useState('');
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [courses, setCourses] = useState<Course[]>([]);
   const [enrollmentCount, setEnrollmentCount] = useState<number>(0);
-  const [profile, setProfile] = useState<Profile | null>(null);
-  const [userEmail, setUserEmail] = useState('');
 
   const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -41,20 +43,34 @@ export default function Dashboard() {
       .upload(filePath, file);
 
     if (uploadError) {
-      alert('Upload failed.');
+      console.error('Avatar upload failed:', uploadError.message);
       return;
     }
 
     const { data } = supabase.storage.from('avatars').getPublicUrl(filePath);
     const publicUrl = data?.publicUrl;
 
-    const { data: { user } } = await supabase.auth.getUser();
-    await supabase
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
+
+    if (!user || userError) {
+      console.error('User fetch failed during avatar upload.');
+      return;
+    }
+
+    const { error: updateError } = await supabase
       .from('profiles')
       .update({ avatar_url: publicUrl })
       .eq('id', user.id);
 
-    window.location.reload(); // refresh to reflect new image
+    if (updateError) {
+      console.error('Failed to update avatar URL in profile:', updateError.message);
+      return;
+    }
+
+    window.location.reload();
   };
 
   const fetchData = useCallback(async () => {
@@ -64,19 +80,35 @@ export default function Dashboard() {
       return;
     }
 
-    const { data: { user } } = await supabase.auth.getUser();
-    setUserEmail(user?.email);
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser();
 
-    const { data: profile } = await supabase
+    if (!user || userError) {
+      console.error('User not found or error occurred:', userError?.message);
+      router.replace('/login');
+      return;
+    }
+
+    setUserEmail(user.email || '');
+
+    const { data: profile, error: profileError } = await supabase
       .from('profiles')
       .select('role, full_name, avatar_url')
-      .eq('id', user?.id)
+      .eq('id', user.id)
       .single();
 
-    setUserRole(profile?.role);
-    setProfile(profile);
+    if (!profile || profileError) {
+      console.error('Profile not found:', profileError?.message);
+      router.replace('/login');
+      return;
+    }
 
-    if (profile?.role === 'student') {
+    setProfile(profile);
+    setUserRole(profile.role);
+
+    if (profile.role === 'student') {
       const { data: enrollments } = await supabase
         .from('enrollments')
         .select('course_id')
@@ -84,17 +116,20 @@ export default function Dashboard() {
 
       setEnrollmentCount(enrollments?.length || 0);
 
-      const courseIds = enrollments?.map(e => e.course_id);
-      const { data: myCourses } = courseIds?.length
-        ? await supabase.from('courses').select('*').in('id', courseIds).limit(3)
-        : { data: [] };
-
-      setCourses(myCourses || []);
-    } else {
+      const courseIds = enrollments?.map((e) => e.course_id);
+      if (courseIds?.length) {
+        const { data: myCourses } = await supabase
+          .from('courses')
+          .select('*')
+          .in('id', courseIds)
+          .limit(3);
+        setCourses(myCourses || []);
+      }
+    } else if (profile.role === 'teacher') {
       const { data: teacherCourses } = await supabase
         .from('courses')
         .select('*')
-        .eq('owner', user?.id)
+        .eq('owner', user.id)
         .limit(3);
 
       setCourses(teacherCourses || []);
@@ -121,7 +156,7 @@ export default function Dashboard() {
 
   return (
     <div className="p-6">
-      {/* ✅ Profile with Avatar Upload */}
+      {/* Profile Section */}
       <div className="flex items-center gap-4 mb-6">
         <div className="relative">
           <Avatar src={profile?.avatar_url || ''} />
@@ -134,14 +169,12 @@ export default function Dashboard() {
           />
         </div>
         <div>
-          <p className="text-lg font-semibold">
-            {profile?.full_name || userEmail}
-          </p>
+          <p className="text-lg font-semibold">{profile?.full_name || userEmail}</p>
           <p className="text-sm text-gray-500 capitalize">{userRole} account</p>
         </div>
       </div>
 
-      {/* ✅ Header */}
+      {/* Welcome Header */}
       <h1 className="text-2xl font-bold">
         {userRole === 'teacher' ? 'Teacher Dashboard' : 'Welcome Back!'}
       </h1>
@@ -161,7 +194,7 @@ export default function Dashboard() {
         </div>
       )}
 
-      {/* ✅ Recent Courses */}
+      {/* Recent Courses */}
       <p className="mt-6 text-gray-600">
         {userRole === 'student' ? 'Your enrolled courses:' : 'Your recent courses:'}
       </p>
@@ -191,7 +224,7 @@ export default function Dashboard() {
         {userRole === 'teacher' ? 'Manage All Courses' : 'Explore More Courses'}
       </Link>
 
-      {/* ✅ Practice Section */}
+      {/* Practice Section */}
       <div className="mt-10">
         <h2 className="text-xl font-bold mb-2">Practice Section</h2>
         <p className="text-sm text-gray-600 mb-4">
