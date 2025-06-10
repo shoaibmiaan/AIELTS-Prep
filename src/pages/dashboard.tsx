@@ -6,13 +6,26 @@ import { supabase } from '../lib/supabaseClient';
 import Link from 'next/link';
 import CourseCreateModal from '@/components/CourseCreateModal';
 
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+  owner: string;
+};
+
+type Profile = {
+  role: 'student' | 'teacher' | string;
+  full_name: string;
+  avatar_url?: string;
+};
+
 export default function Dashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState('');
-  const [courses, setCourses] = useState<any[]>([]);
+  const [courses, setCourses] = useState<Course[]>([]);
   const [enrollmentCount, setEnrollmentCount] = useState<number>(0);
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [userEmail, setUserEmail] = useState('');
 
   const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {

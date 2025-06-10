@@ -1,50 +1,76 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
-export default function AdminUsersPage() {
-  const [users, setUsers] = useState<any[]>([]);
+interface UserProfile {
+  id: string;
+  email: string;
+  role: string;
+  created_at: string;
+}
+
+export default function Users() {
+  const [users, setUsers] = useState<UserProfile[]>([]);
   const [loading, setLoading] = useState(true);
-  const [currentUser, setCurrentUser] = useState<any>(null);
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      setCurrentUser(user);
+      try {
+        const { data: authData, error: authError } = await supabase.auth.getUser();
 
-      const { data: myProfile } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user?.id)
-        .single();
+        if (authError || !authData?.user) {
+          alert('Error fetching user authentication data.');
+          return;
+        }
 
-      if (myProfile?.role !== 'admin') {
-        alert('Access denied');
-        return;
+        setCurrentUser(authData.user);
+
+        const { data: myProfile, error: profileError } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', authData.user.id)
+          .single();
+
+        if (profileError || myProfile?.role !== 'admin') {
+          alert('Access denied: Admin privileges required.');
+          return;
+        }
+
+        const { data: fetchedUsers, error: usersError } = await supabase
+          .from('profiles')
+          .select('id, email, role, created_at');
+
+        if (usersError) {
+          alert('Error fetching user profiles.');
+        } else {
+          setUsers(fetchedUsers);
+        }
+
+        setLoading(false);
+      } catch (error) {
+        console.error('Unexpected error:', error);
       }
-
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('id, email, role, created_at');
-
-      if (!error) setUsers(data);
-      setLoading(false);
     };
 
     fetchUsers();
   }, []);
 
   const handleRoleChange = async (id: string, newRole: string) => {
-    const { error } = await supabase
-      .from('profiles')
-      .update({ role: newRole })
-      .eq('id', id);
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ role: newRole })
+        .eq('id', id);
 
-    if (!error) {
-      setUsers(prev =>
-        prev.map(u => (u.id === id ? { ...u, role: newRole } : u))
-      );
-    } else {
-      alert('Error updating role');
+      if (error) {
+        alert('Error updating role.');
+      } else {
+        setUsers(prev =>
+          prev.map(user => (user.id === id ? { ...user, role: newRole } : user))
+        );
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
     }
   };
 

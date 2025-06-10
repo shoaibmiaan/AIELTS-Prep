@@ -7,22 +7,33 @@ import { supabase } from '@/lib/supabaseClient'
 
 type Role = 'student' | 'teacher'
 
+interface ProfileData {
+  id: string
+  email: string
+  role: Role
+  first_name: string
+  last_name: string
+  year_of_education: string
+  status: 'pending' | 'active'
+  subject?: string
+}
+
 export default function SignUpPage() {
   const router = useRouter()
   const [role, setRole] = useState<Role>('student')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [submissionStatus, setSubmissionStatus] = useState<'pending' | null>(null)
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [yearOfEducation, setYearOfEducation] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirm, setConfirm] = useState('')
-  const [subject, setSubject] = useState('') // teacher-only
+  const [firstName, setFirstName] = useState<string>('')
+  const [lastName, setLastName] = useState<string>('')
+  const [yearOfEducation, setYearOfEducation] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [confirm, setConfirm] = useState<string>('')
+  const [subject, setSubject] = useState<string>('') // teacher-only
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     setError(null)
 
@@ -52,7 +63,7 @@ export default function SignUpPage() {
       }
 
       // 2) Insert into 'profiles' table
-      const profileData = {
+      const profileData: ProfileData = {
         id: authData.user.id,
         email,
         role,
@@ -73,8 +84,8 @@ export default function SignUpPage() {
       } else {
         router.push('/profile')
       }
-    } catch (err: any) {
-      setError(err.message || 'An unknown error occurred.')
+    } catch (err) {
+      setError((err as Error).message || 'An unknown error occurred.')
     } finally {
       setLoading(false)
     }

@@ -1,29 +1,36 @@
-// src/components/CourseCreateModal.tsx
-
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
-export default function CourseCreateModal({ onCreated }: { onCreated: () => void }) {
+interface CourseCreateModalProps {
+  onCreated: () => void;
+}
+
+export default function CourseCreateModal({ onCreated }: CourseCreateModalProps) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [published, setPublished] = useState(false);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      alert('Error: User not found.');
+      return;
+    }
 
     const { error } = await supabase.from('courses').insert({
       title,
       description,
       published,
-      owner: user!.id,
+      owner: user.id,
     });
 
     if (error) {
-      alert('Error: ' + error.message);
+      alert(`Error: ${error.message}`);
     } else {
-      onCreated(); // refresh dashboard
+      onCreated(); // Refresh dashboard
       setOpen(false);
       setTitle('');
       setDescription('');

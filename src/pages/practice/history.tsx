@@ -1,19 +1,25 @@
-// src/pages/practice/history.tsx
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
+interface Submission {
+  id: string;
+  content: string;
+  feedback: string | null;
+  created_at: string;
+}
+
 export default function WritingHistory() {
-  const [submissions, setSubmissions] = useState<any[]>([]);
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) return;
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+      if (authError || !authData?.user) return;
 
       const { data, error } = await supabase
         .from('writing_submissions')
         .select('*')
-        .eq('user_id', user.id)
+        .eq('user_id', authData.user.id)
         .order('created_at', { ascending: false });
 
       if (!error && data) {
@@ -40,9 +46,7 @@ export default function WritingHistory() {
             </p>
             <p className="mb-2 whitespace-pre-line">{entry.content}</p>
             <div className="text-sm text-green-700 border-t pt-2 mt-2">
-              {entry.feedback
-                ? entry.feedback
-                : '⏳ Pending feedback. Please try again later.'}
+              {entry.feedback ?? '⏳ Pending feedback. Please try again later.'}
             </div>
           </div>
         ))
