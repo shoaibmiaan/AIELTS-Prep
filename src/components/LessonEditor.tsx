@@ -1,14 +1,11 @@
-// src/components/LessonEditor.tsx
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Underline from '@tiptap/extension-underline'
 import Image from '@tiptap/extension-image'
-import {
-  Table,
-  TableRow,
-  TableHeader,
-  TableCell,
-} from '@tiptap/extension-table'
+import Table from '@tiptap/extension-table'
+import TableRow from '@tiptap/extension-table-row'
+import TableHeader from '@tiptap/extension-table-header'
+import TableCell from '@tiptap/extension-table-cell'
 import { useState } from 'react'
 
 interface Props {
@@ -21,10 +18,18 @@ export default function LessonEditor({ initialContent = '', onSave }: Props) {
 
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        // disables built-in table so custom table extensions work
+        table: false,
+      }),
       Underline,
       Image,
-      Table.configure({ resizable: true }),
+      Table.configure({
+        resizable: true,
+        HTMLAttributes: {
+          class: 'table-auto border-collapse border border-gray-300',
+        },
+      }),
       TableRow,
       TableHeader,
       TableCell,
