@@ -1,0 +1,366 @@
+{
+  "test_name": "IELTS Listening Test 02",
+  "sections": [
+    {
+      "section_number": 1,
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "multiple_choice",
+          "question": "The teacher praised student Emma for",
+          "options": [
+            "her good performance in a public show",
+            "setting a good example for others",
+            "settling in quickly"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 2,
+          "question_type": "multiple_choice",
+          "question": "Why has the timetable for drama class changed?",
+          "options": [
+            "Because of falling enrollment",
+            "Because the class size is too big",
+            "Because of the availability of music room"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 3,
+          "question_type": "multiple_choice",
+          "question": "What is the new time for the drama class?",
+          "options": [
+            "3.15 pm",
+            "4.15 pm",
+            "4.45 pm"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 4,
+          "question_type": "matching",
+          "question": "Dance class",
+          "options": [
+            "The course is full",
+            "The course fee is too expensive",
+            "She has another activity at that time",
+            "She has another activity that evening",
+            "The class is too late"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 5,
+          "question_type": "matching",
+          "question": "Singing class",
+          "options": [
+            "The course is full",
+            "The course fee is too expensive",
+            "She has another activity at that time",
+            "She has another activity that evening",
+            "The class is too late"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 6,
+          "question_type": "matching",
+          "question": "Vocal class",
+          "options": [
+            "The course is full",
+            "The course fee is too expensive",
+            "She has another activity at that time",
+            "She has another activity that evening",
+            "The class is too late"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 7,
+          "question_type": "short_answer",
+          "question": "The class teaches children to play instruments and how to",
+          "answer": ""
+        },
+        {
+          "question_number": 8,
+          "question_type": "short_answer",
+          "question": "Cost of the course:",
+          "answer": ""
+        },
+        {
+          "question_number": 9,
+          "question_type": "short_answer",
+          "question": "Date Emma starts the course:",
+          "answer": ""
+        },
+        {
+          "question_number": 10,
+          "question_type": "short_answer",
+          "question": "Teacher:",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section_number": 2,
+      "questions": [
+        {
+          "question_number": 11,
+          "question_type": "multiple_choice",
+          "question": "Why does the speaker recommend the sky hotel?",
+          "options": [
+            "Because it is quite comfortable",
+            "Because it provides ski and snowboard equipment rentals",
+            "Because it has health and sports club"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 12,
+          "question_type": "multiple_choice",
+          "question": "What is new in this year's exhibition?",
+          "options": [
+            "photos of top ski resorts worldwide",
+            "ski equipment",
+            "computer simulation"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 13,
+          "question_type": "multiple_choice",
+          "question": "How do people enter the skiing and snowboarding competition?",
+          "options": [
+            "They can send emails to the committee",
+            "They can fill out the back of the entrance ticket",
+            "They can check out the exhibition newsletter"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 14,
+          "question_type": "multiple_choice",
+          "question": "What did the media focus on this year?",
+          "options": [
+            "not enough snow",
+            "reduction in fee",
+            "the decline of participants"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 15,
+          "question_type": "multiple_choice",
+          "question": "Why does the speaker recommend the ski program?",
+          "options": [
+            "The instructors are quite friendly and patient",
+            "It includes lessons and sessions that suit only beginners",
+            "It provides special offers at the moment"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 16,
+          "question_type": "matching",
+          "question": "Simon's talk",
+          "options": [
+            "exploring new destinations",
+            "how to make the skiing boots comfortable",
+            "how to become a ski instructor",
+            "how to combine other activities with skiing",
+            "how to improve the skills of skiing",
+            "information about skiing safety"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 17,
+          "question_type": "matching",
+          "question": "Solution",
+          "options": [
+            "exploring new destinations",
+            "how to make the skiing boots comfortable",
+            "how to become a ski instructor",
+            "how to combine other activities with skiing",
+            "how to improve the skills of skiing",
+            "information about skiing safety"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 18,
+          "question_type": "matching",
+          "question": "Film",
+          "options": [
+            "exploring new destinations",
+            "how to make the skiing boots comfortable",
+            "how to become a ski instructor",
+            "how to combine other activities with skiing",
+            "how to improve the skills of skiing",
+            "information about skiing safety"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 19,
+          "question_type": "matching",
+          "question": "Tricks",
+          "options": [
+            "exploring new destinations",
+            "how to make the skiing boots comfortable",
+            "how to become a ski instructor",
+            "how to combine other activities with skiing",
+            "how to improve the skills of skiing",
+            "information about skiing safety"
+          ],
+          "answer": ""
+        },
+        {
+          "question_number": 20,
+          "question_type": "matching",
+          "question": "Johnson's talk",
+          "options": [
+            "exploring new destinations",
+            "how to make the skiing boots comfortable",
+            "how to become a ski instructor",
+            "how to combine other activities with skiing",
+            "how to improve the skills of skiing",
+            "information about skiing safety"
+          ],
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section_number": 3,
+      "questions": [
+        {
+          "question_number": 21,
+          "question_type": "short_answer",
+          "question": "The new teacher who is very popular among students wrote a book titled",
+          "answer": ""
+        },
+        {
+          "question_number": 22,
+          "question_type": "short_answer",
+          "question": "It covers techniques including doing research as part of a",
+          "answer": ""
+        },
+        {
+          "question_number": 23,
+          "question_type": "short_answer",
+          "question": "The objective is for the students to present",
+          "answer": ""
+        },
+        {
+          "question_number": 24,
+          "question_type": "short_answer",
+          "question": "Students examine the",
+          "answer": ""
+        },
+        {
+          "question_number": 25,
+          "question_type": "short_answer",
+          "question": "Keep a",
+          "answer": ""
+        },
+        {
+          "question_number": 26,
+          "question_type": "short_answer",
+          "question": "Carry out",
+          "answer": ""
+        },
+        {
+          "question_number": 27,
+          "question_type": "short_answer",
+          "question": "In-class",
+          "answer": ""
+        },
+        {
+          "question_number": 28,
+          "question_type": "short_answer",
+          "question": "Evaluate",
+          "answer": ""
+        },
+        {
+          "question_number": 29,
+          "question_type": "short_answer",
+          "question": "With the help of",
+          "answer": ""
+        },
+        {
+          "question_number": 30,
+          "question_type": "short_answer",
+          "question": "Choose own respondents to do",
+          "answer": ""
+        }
+      ]
+    },
+    {
+      "section_number": 4,
+      "questions": [
+        {
+          "question_number": 31,
+          "question_type": "short_answer",
+          "question": "consume more",
+          "answer": ""
+        },
+        {
+          "question_number": 32,
+          "question_type": "short_answer",
+          "question": "good for some",
+          "answer": ""
+        },
+        {
+          "question_number": 33,
+          "question_type": "short_answer",
+          "question": "poor",
+          "answer": ""
+        },
+        {
+          "question_number": 34,
+          "question_type": "short_answer",
+          "question": "clean energy: recycling of methane gas produced from",
+          "answer": ""
+        },
+        {
+          "question_number": 35,
+          "question_type": "short_answer",
+          "question": "better chance of getting a",
+          "answer": ""
+        },
+        {
+          "question_number": 36,
+          "question_type": "short_answer",
+          "question": "possible to lose",
+          "answer": ""
+        },
+        {
+          "question_number": 37,
+          "question_type": "short_answer",
+          "question": "higher rates of",
+          "answer": ""
+        },
+        {
+          "question_number": 38,
+          "question_type": "short_answer",
+          "question": "poor quality of",
+          "answer": ""
+        },
+        {
+          "question_number": 39,
+          "question_type": "short_answer",
+          "question": "Increased",
+          "answer": ""
+        },
+        {
+          "question_number": 40,
+          "question_type": "short_answer",
+          "question": "people find the heavy",
+          "answer": ""
+        }
+      ]
+    }
+  ]
+}
