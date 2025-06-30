@@ -1,0 +1,21 @@
+'use client';
+
+import Link from 'next/link';
+import { ieltsPastPapers } from '@/lib/readingData/paper11';
+
+export default function ReadingHome() {
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h2>📘 IELTS Past Reading Papers</h2>
+      <ul>
+        {ieltsPastPapers.map((paper) => (
+          <li key={paper.id} style={{ marginBottom: '1rem' }}>
+            <Link href={`/practice/reading/${paper.id}`}>
+              <strong>{paper.title}</strong> – Start Practice →
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

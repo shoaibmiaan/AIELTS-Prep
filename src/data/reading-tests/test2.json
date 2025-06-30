@@ -1,0 +1,109 @@
+{
+  "title": "IELTS Academic Reading Test 2",
+  "type": "academic",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "Save the Turtles",
+      "body": "A. Leatherback turtles follow the general sea turtle body plan of having a large, flattened, round body with two pairs of very large flippers and a short tail. Like other sea turtles, the leatherback's flattened forelimbs are adapted for swimming in the open ocean. Claws are absent from both pairs of flippers. The Leatherback's flippers are the largest in proportion to its body among extant sea turtles. Leatherback's front flippers can grow up to 2.7 meters (9 ft) in large specimens, the largest flippers (even in comparison to its body) of any sea turtle. As the last surviving member of its family, the leatherback turtle has several distinguishing characteristics that differentiate it from other sea turtles. Its most notable feature is that it lacks the bony carapace of the other extant sea turtles.\n\nB. During the past month, four turtles have washed up along Irish coasts from Wexford to Kerry. These turtles are more typical of warmer waters and only occur in Irish waters when they stray off course. It is likely that they may have originated from Florida, America. Two specimens have been taken to Coastal and Marine Resources Centre (stored at the National Maritime College), University College Cork, where a necropsy will be conducted to establish their age, sex and origin. During this same period, two leatherback turtles were found in Scotland, and a rare Kemp's Ridley turtle was found in Wales, making it an exceptional month for stranded turtles in Ireland and the UK.\n\nC. There has been extensive research conducted regarding the sea turtles’ abilities to return to their nesting regions and sometimes exact locations from hundreds of miles away. In the water, their path is greatly affected by powerful currents. Despite limited vision and lack of landmarks in the open water, turtles are able to retrace their migratory paths. Some explanations suggest that sea turtles can detect the angle and intensity of the earth’s magnetic fields.\n\nD. Loggerhead turtles are not normally found in Irish waters due to cold temperatures. Instead, they prefer warmer waters of the Mediterranean, the Caribbean, and North America's east coast. The four turtles likely originated from the North American population. After leaving their nesting beach as hatchlings, they enter the North Atlantic Gyre, a circular current that carries them from America to Europe, down to North Africa, and back again. This round trip may take years, during which the turtles grow steadily. They may circulate the North Atlantic several times before settling in Florida or the Caribbean.\n\nE. These four turtles were probably on their Atlantic journey when they strayed too far north from the Gulf Stream. The North East Atlantic is too cold for loggerheads. Once in cold waters, their bodies shut down, causing them to get cold-stunned and die.\n\nF. Leatherbacks are in imminent danger of extinction. A critical factor is egg harvesting. Valued as a delicacy with supposed aphrodisiac effects, leatherback eggs are heavily poached. Leatherbacks are not often killed for meat like Green Sea turtles, but egg depletion, pollution, fishing practices, and habitat loss all contribute to their decline. Only about 35,000 Leatherback turtles remain in the world.\n\nG. We often fail to recognize a species' role in the environment until it's gone. The Leatherback helps control jellyfish populations by consuming large amounts daily. Since jellyfish eat fish larvae, their overpopulation leads to fewer fish. The Leatherback's decline has been accompanied by jellyfish increases and fish population drops. Saving sea turtles is a global effort.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Headings",
+          "text": "Paragraph B",
+          "options": [
+            "i. Sea turtles are found in unusual locations",
+            "ii. Unique features of the Leatherbacks",
+            "iii. The Leatherback’s contribution",
+            "iv. Methods used for routes tracking",
+            "v. Predict the migration routes",
+            "vi. Remains multiplicity within the species",
+            "vii. The progress of hatching",
+            "viii. The fate of the lost turtles",
+            "ix. How trips suppose to look like?",
+            "x. Factors leading to population decline"
+          ],
+          "answer": "i"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Headings",
+          "text": "Paragraph C",
+          "options": null,
+          "answer": "iv"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Headings",
+          "text": "Paragraph D",
+          "options": null,
+          "answer": "ix"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Headings",
+          "text": "Paragraph E",
+          "options": null,
+          "answer": "viii"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Headings",
+          "text": "Paragraph F",
+          "options": null,
+          "answer": "x"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Matching Headings",
+          "text": "Paragraph G",
+          "options": null,
+          "answer": "iii"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Short-answer Questions",
+          "text": "How many Leatherback turtles are there in the world?",
+          "answer": "35,000"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Short-answer Questions",
+          "text": "What is the most noticeable difference between other sea turtles and leatherbacks?",
+          "answer": "lack of bony carapace"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Short-answer Questions",
+          "text": "What caused leatherback turtles to die in Irish waters?",
+          "answer": "cold stunned"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Short-answer Questions",
+          "text": "Where did the four turtles probably come from?",
+          "answer": "North America"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Short-answer Questions",
+          "text": "By which means can sea turtles retrace their migratory paths?",
+          "answer": "earth’s magnetic fields"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Short-answer Questions",
+          "text": "For what purpose are Green Sea turtles killed by people?",
+          "answer": "meat"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Short-answer Questions",
+          "text": "What kind of species will benefit from a decline in Leatherback populations?",
+          "answer": "jellyfish"
+        }
+      ]
+    }
+  ]
+}

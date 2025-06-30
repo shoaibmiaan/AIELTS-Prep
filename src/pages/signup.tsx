@@ -1,94 +1,87 @@
 // src/pages/signup.tsx
-
-import { useState, FormEvent } from 'react'
+import React, { useState, FormEvent } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
 
 type Role = 'student' | 'teacher'
 
-interface ProfileData {
-  id: string
-  email: string
-  role: Role
-  first_name: string
-  last_name: string
-  year_of_education: string
-  status: 'pending' | 'active'
-  subject?: string
-}
-
 export default function SignUpPage() {
   const router = useRouter()
   const [role, setRole] = useState<Role>('student')
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [submissionStatus, setSubmissionStatus] = useState<'pending' | null>(null)
+  const [submissionStatus, setSubmissionStatus] = useState<'pending' | 'emailSent' | null>(null)
 
-  const [firstName, setFirstName] = useState<string>('')
-  const [lastName, setLastName] = useState<string>('')
-  const [yearOfEducation, setYearOfEducation] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const [confirm, setConfirm] = useState<string>('')
-  const [subject, setSubject] = useState<string>('') // teacher-only
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [yearOfEducation, setYearOfEducation] = useState('')
+  const [subject, setSubject] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirm, setConfirm] = useState('')
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  const roleLabel = role === 'student' ? 'Student' : 'Teacher'
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
-
     if (password !== confirm) {
       setError("Passwords don't match")
       return
     }
 
     setLoading(true)
-
     try {
-      // 1) Create the auth user
       const { data: authData, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          data: {
-            role,
-            first_name: firstName,
-            last_name: lastName,
-          },
+          data: { role, first_name: firstName, last_name: lastName },
         },
       })
+      if (signUpError) throw signUpError
 
-      if (signUpError || !authData?.user) {
-        throw new Error(signUpError?.message || 'Signup failed')
+      // If your Supabase requires email confirmation, user object isn't returned until verified
+      if (!authData.user) {
+        setSubmissionStatus('emailSent')
+        return
       }
 
-      // 2) Insert into 'profiles' table
-      const profileData: ProfileData = {
+      // Insert into profiles
+      const profile = {
         id: authData.user.id,
         email,
         role,
         first_name: firstName,
         last_name: lastName,
-        year_of_education: yearOfEducation,
+        ...(role === 'student' ? { year_of_education: yearOfEducation } : {}),
         status: role === 'teacher' ? 'pending' : 'active',
-        ...(role === 'teacher' && { subject }),
+        ...(role === 'teacher' ? { subject } : {}),
       }
+      const { error: profileError } = await supabase.from('profiles').insert(profile)
+      if (profileError) throw profileError
 
-      const { error: profileError } = await supabase.from('profiles').insert(profileData)
-
-      if (profileError) throw new Error(profileError.message)
-
-      // 3) Handle post-signup flow
-      if (role === 'teacher') {
-        setSubmissionStatus('pending')
-      } else {
-        router.push('/profile')
-      }
+      if (role === 'teacher') setSubmissionStatus('pending')
+      else router.push('/profile')
     } catch (err) {
+      console.error(err)
       setError((err as Error).message || 'An unknown error occurred.')
     } finally {
       setLoading(false)
     }
+  }
+
+  if (submissionStatus === 'emailSent') {
+    return (
+      <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded shadow text-center">
+        <h1 className="text-2xl font-semibold mb-4">Check Your Email</h1>
+        <p className="mb-4">
+          A confirmation link has been sent to {email}. Please confirm to complete sign-up.
+        </p>
+        <Link href="/login" className="text-blue-600 hover:underline">Back to Log In</Link>
+      </div>
+    )
   }
 
   if (submissionStatus === 'pending') {
@@ -99,9 +92,7 @@ export default function SignUpPage() {
           Your teacher account is pending approval by the administrator.
           You will receive an email once it’s approved.
         </p>
-        <Link href="/login" className="text-blue-600 hover:underline">
-          Back to Log In
-        </Link>
+        <Link href="/login" className="text-blue-600 hover:underline">Back to Log In</Link>
       </div>
     )
   }
@@ -109,32 +100,27 @@ export default function SignUpPage() {
   return (
     <div className="max-w-md mx-auto mt-12 p-6 bg-white rounded shadow">
       <h1 className="text-2xl font-semibold mb-4">Sign Up</h1>
-
       <div className="flex mb-6">
         <button
           type="button"
-          className={`flex-1 py-2 rounded-l ${
-            role === 'student' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-          }`}
           onClick={() => setRole('student')}
+          className={`flex-1 py-2 rounded-l ${role === 'student' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
           Student
         </button>
         <button
           type="button"
-          className={`flex-1 py-2 rounded-r ${
-            role === 'teacher' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-          }`}
           onClick={() => setRole('teacher')}
+          className={`flex-1 py-2 rounded-r ${role === 'teacher' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
         >
           Teacher
         </button>
       </div>
-
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block font-medium">First Name</label>
+          <label htmlFor="firstName" className="block font-medium">First Name</label>
           <input
+            id="firstName"
             type="text"
             required
             value={firstName}
@@ -142,10 +128,10 @@ export default function SignUpPage() {
             className="w-full border rounded px-3 py-2"
           />
         </div>
-
         <div>
-          <label className="block font-medium">Last Name</label>
+          <label htmlFor="lastName" className="block font-medium">Last Name</label>
           <input
+            id="lastName"
             type="text"
             required
             value={lastName}
@@ -154,22 +140,26 @@ export default function SignUpPage() {
           />
         </div>
 
-        <div>
-          <label className="block font-medium">Year of Education</label>
-          <input
-            type="text"
-            required
-            value={yearOfEducation}
-            onChange={e => setYearOfEducation(e.target.value)}
-            placeholder="e.g. 1st Year, 2025"
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
+        {role === 'student' && (
+          <div>
+            <label htmlFor="yearOfEducation" className="block font-medium">Year of Education</label>
+            <input
+              id="yearOfEducation"
+              type="text"
+              required
+              value={yearOfEducation}
+              onChange={e => setYearOfEducation(e.target.value)}
+              placeholder="e.g. 1st Year, 2025"
+              className="w-full border rounded px-3 py-2"
+            />
+          </div>
+        )}
 
         {role === 'teacher' && (
           <div>
-            <label className="block font-medium">Subject Expertise</label>
+            <label htmlFor="subject" className="block font-medium">Subject Expertise</label>
             <input
+              id="subject"
               type="text"
               required
               value={subject}
@@ -181,8 +171,9 @@ export default function SignUpPage() {
         )}
 
         <div>
-          <label className="block font-medium">Email</label>
+          <label htmlFor="email" className="block font-medium">Email</label>
           <input
+            id="email"
             type="email"
             required
             value={email}
@@ -190,10 +181,10 @@ export default function SignUpPage() {
             className="w-full border rounded px-3 py-2"
           />
         </div>
-
         <div>
-          <label className="block font-medium">Password</label>
+          <label htmlFor="password" className="block font-medium">Password</label>
           <input
+            id="password"
             type="password"
             required
             value={password}
@@ -201,10 +192,10 @@ export default function SignUpPage() {
             className="w-full border rounded px-3 py-2"
           />
         </div>
-
         <div>
-          <label className="block font-medium">Confirm Password</label>
+          <label htmlFor="confirm" className="block font-medium">Confirm Password</label>
           <input
+            id="confirm"
             type="password"
             required
             value={confirm}
@@ -212,25 +203,18 @@ export default function SignUpPage() {
             className="w-full border rounded px-3 py-2"
           />
         </div>
-
         {error && <p className="text-red-600">{error}</p>}
-
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 disabled:opacity-50"
         >
-          {loading
-            ? 'Registering…'
-            : `Sign Up as ${role.charAt(0).toUpperCase() + role.slice(1)}`}
+          {loading ? 'Registering…' : `Sign Up as ${roleLabel}`}
         </button>
       </form>
-
       <p className="mt-4 text-center text-sm">
         Already have an account?{' '}
-        <Link href="/login" className="text-blue-600 hover:underline">
-          Log In
-        </Link>
+        <Link href="/login" className="text-blue-600 hover:underline">Log In</Link>
       </p>
     </div>
   )

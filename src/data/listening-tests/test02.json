@@ -1,46 +1,49 @@
 {
-  "test_name": "IELTS Listening Test 02",
+  "id": "test02",
+  "title": "IELTS Listening Test 02",
+  "audioUrl": "/audio/test02.mp3",
   "sections": [
     {
-      "section_number": 1,
+      "section": 1,
+      "instructions": "SECTION 1 Questions 1–10: Mixed question types (MCQ, Matching, Fill in the Blank).",
       "questions": [
         {
-          "question_number": 1,
-          "question_type": "multiple_choice",
-          "question": "The teacher praised student Emma for",
+          "questionNumber": 1,
+          "questionText": "The teacher praised student Emma for",
+          "type": "mcq",
           "options": [
             "her good performance in a public show",
             "setting a good example for others",
             "settling in quickly"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 2,
-          "question_type": "multiple_choice",
-          "question": "Why has the timetable for drama class changed?",
+          "questionNumber": 2,
+          "questionText": "Why has the timetable for drama class changed?",
+          "type": "mcq",
           "options": [
             "Because of falling enrollment",
             "Because the class size is too big",
             "Because of the availability of music room"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 3,
-          "question_type": "multiple_choice",
-          "question": "What is the new time for the drama class?",
+          "questionNumber": 3,
+          "questionText": "What is the new time for the drama class?",
+          "type": "mcq",
           "options": [
             "3.15 pm",
             "4.15 pm",
             "4.45 pm"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 4,
-          "question_type": "matching",
-          "question": "Dance class",
+          "questionNumber": 4,
+          "questionText": "Dance class",
+          "type": "matching",
           "options": [
             "The course is full",
             "The course fee is too expensive",
@@ -48,12 +51,12 @@
             "She has another activity that evening",
             "The class is too late"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 5,
-          "question_type": "matching",
-          "question": "Singing class",
+          "questionNumber": 5,
+          "questionText": "Singing class",
+          "type": "matching",
           "options": [
             "The course is full",
             "The course fee is too expensive",
@@ -61,12 +64,12 @@
             "She has another activity that evening",
             "The class is too late"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 6,
-          "question_type": "matching",
-          "question": "Vocal class",
+          "questionNumber": 6,
+          "questionText": "Vocal class",
+          "type": "matching",
           "options": [
             "The course is full",
             "The course fee is too expensive",
@@ -74,96 +77,97 @@
             "She has another activity that evening",
             "The class is too late"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 7,
-          "question_type": "short_answer",
-          "question": "The class teaches children to play instruments and how to",
-          "answer": ""
+          "questionNumber": 7,
+          "questionText": "The class teaches children to play instruments and how to",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 8,
-          "question_type": "short_answer",
-          "question": "Cost of the course:",
-          "answer": ""
+          "questionNumber": 8,
+          "questionText": "Cost of the course:",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 9,
-          "question_type": "short_answer",
-          "question": "Date Emma starts the course:",
-          "answer": ""
+          "questionNumber": 9,
+          "questionText": "Date Emma starts the course:",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 10,
-          "question_type": "short_answer",
-          "question": "Teacher:",
-          "answer": ""
+          "questionNumber": 10,
+          "questionText": "Teacher:",
+          "type": "fill-blank",
+          "correctAnswer": ""
         }
       ]
     },
     {
-      "section_number": 2,
+      "section": 2,
+      "instructions": "SECTION 2 Questions 11–20: Mixed question types (MCQ and Matching).",
       "questions": [
         {
-          "question_number": 11,
-          "question_type": "multiple_choice",
-          "question": "Why does the speaker recommend the sky hotel?",
+          "questionNumber": 11,
+          "questionText": "Why does the speaker recommend the sky hotel?",
+          "type": "mcq",
           "options": [
             "Because it is quite comfortable",
             "Because it provides ski and snowboard equipment rentals",
             "Because it has health and sports club"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 12,
-          "question_type": "multiple_choice",
-          "question": "What is new in this year's exhibition?",
+          "questionNumber": 12,
+          "questionText": "What is new in this year's exhibition?",
+          "type": "mcq",
           "options": [
             "photos of top ski resorts worldwide",
             "ski equipment",
             "computer simulation"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 13,
-          "question_type": "multiple_choice",
-          "question": "How do people enter the skiing and snowboarding competition?",
+          "questionNumber": 13,
+          "questionText": "How do people enter the skiing and snowboarding competition?",
+          "type": "mcq",
           "options": [
             "They can send emails to the committee",
             "They can fill out the back of the entrance ticket",
             "They can check out the exhibition newsletter"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 14,
-          "question_type": "multiple_choice",
-          "question": "What did the media focus on this year?",
+          "questionNumber": 14,
+          "questionText": "What did the media focus on this year?",
+          "type": "mcq",
           "options": [
             "not enough snow",
             "reduction in fee",
             "the decline of participants"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 15,
-          "question_type": "multiple_choice",
-          "question": "Why does the speaker recommend the ski program?",
+          "questionNumber": 15,
+          "questionText": "Why does the speaker recommend the ski program?",
+          "type": "mcq",
           "options": [
             "The instructors are quite friendly and patient",
             "It includes lessons and sessions that suit only beginners",
             "It provides special offers at the moment"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 16,
-          "question_type": "matching",
-          "question": "Simon's talk",
+          "questionNumber": 16,
+          "questionText": "Simon's talk",
+          "type": "matching",
           "options": [
             "exploring new destinations",
             "how to make the skiing boots comfortable",
@@ -172,12 +176,12 @@
             "how to improve the skills of skiing",
             "information about skiing safety"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 17,
-          "question_type": "matching",
-          "question": "Solution",
+          "questionNumber": 17,
+          "questionText": "Solution",
+          "type": "matching",
           "options": [
             "exploring new destinations",
             "how to make the skiing boots comfortable",
@@ -186,12 +190,12 @@
             "how to improve the skills of skiing",
             "information about skiing safety"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 18,
-          "question_type": "matching",
-          "question": "Film",
+          "questionNumber": 18,
+          "questionText": "Film",
+          "type": "matching",
           "options": [
             "exploring new destinations",
             "how to make the skiing boots comfortable",
@@ -200,12 +204,12 @@
             "how to improve the skills of skiing",
             "information about skiing safety"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 19,
-          "question_type": "matching",
-          "question": "Tricks",
+          "questionNumber": 19,
+          "questionText": "Tricks",
+          "type": "matching",
           "options": [
             "exploring new destinations",
             "how to make the skiing boots comfortable",
@@ -214,12 +218,12 @@
             "how to improve the skills of skiing",
             "information about skiing safety"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 20,
-          "question_type": "matching",
-          "question": "Johnson's talk",
+          "questionNumber": 20,
+          "questionText": "Johnson's talk",
+          "type": "matching",
           "options": [
             "exploring new destinations",
             "how to make the skiing boots comfortable",
@@ -228,138 +232,90 @@
             "how to improve the skills of skiing",
             "information about skiing safety"
           ],
-          "answer": ""
+          "correctAnswer": ""
         }
       ]
     },
     {
-      "section_number": 3,
+      "section": 3,
+      "instructions": "SECTION 3 Questions 21–30: Fill in the blanks using ONE OR TWO WORDS.",
       "questions": [
         {
-          "question_number": 21,
-          "question_type": "short_answer",
-          "question": "The new teacher who is very popular among students wrote a book titled",
-          "answer": ""
+          "questionNumber": 21,
+          "questionText": "The new teacher who is very popular among students wrote a book titled",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 22,
-          "question_type": "short_answer",
-          "question": "It covers techniques including doing research as part of a",
-          "answer": ""
+          "questionNumber": 22,
+          "questionText": "It covers techniques including doing research as part of a",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 23,
-          "question_type": "short_answer",
-          "question": "The objective is for the students to present",
-          "answer": ""
+          "questionNumber": 23,
+          "questionText": "The objective is for the students to present",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 24,
-          "question_type": "short_answer",
-          "question": "Students examine the",
-          "answer": ""
+          "questionNumber": 24,
+          "questionText": "Students examine the",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 25,
-          "question_type": "short_answer",
-          "question": "Keep a",
-          "answer": ""
+          "questionNumber": 25,
+          "questionText": "Keep a",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 26,
-          "question_type": "short_answer",
-          "question": "Carry out",
-          "answer": ""
+          "questionNumber": 26,
+          "questionText": "Carry out",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 27,
-          "question_type": "short_answer",
-          "question": "In-class",
-          "answer": ""
+          "questionNumber": 27,
+          "questionText": "In-class",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 28,
-          "question_type": "short_answer",
-          "question": "Evaluate",
-          "answer": ""
+          "questionNumber": 28,
+          "questionText": "Evaluate",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 29,
-          "question_type": "short_answer",
-          "question": "With the help of",
-          "answer": ""
+          "questionNumber": 29,
+          "questionText": "With the help of",
+          "type": "fill-blank",
+          "correctAnswer": ""
         },
         {
-          "question_number": 30,
-          "question_type": "short_answer",
-          "question": "Choose own respondents to do",
-          "answer": ""
+          "questionNumber": 30,
+          "questionText": "Choose own respondents to do",
+          "type": "fill-blank",
+          "correctAnswer": ""
         }
       ]
     },
     {
-      "section_number": 4,
+      "section": 4,
+      "instructions": "SECTION 4 Questions 31–40: Complete the sentences with ONE WORD ONLY.",
       "questions": [
-        {
-          "question_number": 31,
-          "question_type": "short_answer",
-          "question": "consume more",
-          "answer": ""
-        },
-        {
-          "question_number": 32,
-          "question_type": "short_answer",
-          "question": "good for some",
-          "answer": ""
-        },
-        {
-          "question_number": 33,
-          "question_type": "short_answer",
-          "question": "poor",
-          "answer": ""
-        },
-        {
-          "question_number": 34,
-          "question_type": "short_answer",
-          "question": "clean energy: recycling of methane gas produced from",
-          "answer": ""
-        },
-        {
-          "question_number": 35,
-          "question_type": "short_answer",
-          "question": "better chance of getting a",
-          "answer": ""
-        },
-        {
-          "question_number": 36,
-          "question_type": "short_answer",
-          "question": "possible to lose",
-          "answer": ""
-        },
-        {
-          "question_number": 37,
-          "question_type": "short_answer",
-          "question": "higher rates of",
-          "answer": ""
-        },
-        {
-          "question_number": 38,
-          "question_type": "short_answer",
-          "question": "poor quality of",
-          "answer": ""
-        },
-        {
-          "question_number": 39,
-          "question_type": "short_answer",
-          "question": "Increased",
-          "answer": ""
-        },
-        {
-          "question_number": 40,
-          "question_type": "short_answer",
-          "question": "people find the heavy",
-          "answer": ""
-        }
+        { "questionNumber": 31, "questionText": "consume more", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 32, "questionText": "good for some", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 33, "questionText": "poor", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 34, "questionText": "clean energy: recycling of methane gas produced from", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 35, "questionText": "better chance of getting a", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 36, "questionText": "possible to lose", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 37, "questionText": "higher rates of", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 38, "questionText": "poor quality of", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 39, "questionText": "Increased", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 40, "questionText": "people find the heavy", "type": "fill-blank", "correctAnswer": "" }
       ]
     }
   ]

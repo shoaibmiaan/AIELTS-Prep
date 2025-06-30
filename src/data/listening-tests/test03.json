@@ -1,144 +1,98 @@
 {
-  "test_name": "IELTS Listening Test 03",
+  "id": "test03",
+  "title": "IELTS Listening Test 03",
+  "audioUrl": "/audio/test03.mp3",
   "sections": [
     {
-      "section_number": 1,
+      "section": 1,
+      "instructions": "SECTION 1 Questions 1–10: Complete the form below. Write NO MORE THAN THREE WORDS AND/OR A NUMBER for each answer.",
       "questions": [
-        {
-          "question_number": 1,
-          "question_type": "short_answer",
-          "question": "Four-bed room available in",
-          "answer": ""
-        },
-        {
-          "question_number": 2,
-          "question_type": "short_answer",
-          "question": "Room price: * in high season:",
-          "answer": ""
-        },
-        {
-          "question_number": 3,
-          "question_type": "short_answer",
-          "question": "* cheaper if you booked",
-          "answer": ""
-        },
-        {
-          "question_number": 4,
-          "question_type": "short_answer",
-          "question": "Meal included in price:",
-          "answer": ""
-        },
-        {
-          "question_number": 5,
-          "question_type": "short_answer",
-          "question": "Meal bring your own:",
-          "answer": ""
-        },
-        {
-          "question_number": 6,
-          "question_type": "short_answer",
-          "question": "a lounge with a variety of",
-          "answer": ""
-        },
-        {
-          "question_number": 7,
-          "question_type": "short_answer",
-          "question": "room",
-          "answer": ""
-        },
-        {
-          "question_number": 8,
-          "question_type": "short_answer",
-          "question": "",
-          "answer": ""
-        },
-        {
-          "question_number": 9,
-          "question_type": "short_answer",
-          "question": "collect",
-          "answer": ""
-        },
-        {
-          "question_number": 10,
-          "question_type": "short_answer",
-          "question": "hire",
-          "answer": ""
-        }
+        { "questionNumber": 1, "questionText": "Four-bed room available in", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 2, "questionText": "Room price: * in high season:", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 3, "questionText": "* cheaper if you booked", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 4, "questionText": "Meal included in price:", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 5, "questionText": "Meal bring your own:", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 6, "questionText": "a lounge with a variety of", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 7, "questionText": "room", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 8, "questionText": "[Missing question text]", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 9, "questionText": "collect", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 10, "questionText": "hire", "type": "fill-blank", "correctAnswer": "" }
       ]
     },
     {
-      "section_number": 2,
+      "section": 2,
+      "instructions": "SECTION 2 Questions 11–20: Choose the correct letter, A, B or C. Match the places with the descriptions.",
       "questions": [
         {
-          "question_number": 11,
-          "question_type": "multiple_choice",
-          "question": "What is the purpose of the talk?",
+          "questionNumber": 11,
+          "questionText": "What is the purpose of the talk?",
+          "type": "mcq",
           "options": [
             "to welcome its new members",
             "to commemorate its 10th anniversary",
             "to celebrate the award it received recently"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 12,
-          "question_type": "multiple_choice",
-          "question": "What's the audience of this speech?",
+          "questionNumber": 12,
+          "questionText": "What's the audience of this speech?",
+          "type": "mcq",
           "options": [
             "journalists",
             "local residents",
             "school children"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 13,
-          "question_type": "multiple_choice",
-          "question": "Why is the speaker most proud of the skating rink?",
+          "questionNumber": 13,
+          "questionText": "Why is the speaker most proud of the skating rink?",
+          "type": "mcq",
           "options": [
             "Because two world champions have been trained there.",
             "Because people in this area are fitter than the rest of our country.",
             "Because they have encouraged local school children to participate more in sports."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 14,
-          "question_type": "multiple_choice",
-          "question": "The complex has recently opened a new venue for",
+          "questionNumber": 14,
+          "questionText": "The complex has recently opened a new venue for",
+          "type": "mcq",
           "options": [
             "the unemployed",
             "mothers and babies",
             "pensioners"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 15,
-          "question_type": "multiple_choice",
-          "question": "What does the complex plan to do next year?",
+          "questionNumber": 15,
+          "questionText": "What does the complex plan to do next year?",
+          "type": "mcq",
           "options": [
             "extend opening hours",
             "expand the space",
             "sell fitness equipment"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 16,
-          "question_type": "multiple_choice",
-          "question": "What does the complex encourage people to do?",
+          "questionNumber": 16,
+          "questionText": "What does the complex encourage people to do?",
+          "type": "mcq",
           "options": [
             "become a coach",
             "be on the committee",
             "work as volunteers"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 17,
-          "question_type": "matching",
-          "question": "Swimming pool",
+          "questionNumber": 17,
+          "questionText": "Swimming pool",
+          "type": "matching",
           "options": [
             "A one-on-one coach is bookable.",
             "It is featured in a TV drama.",
@@ -148,12 +102,12 @@
             "It can be booked for parties.",
             "It is a place to hold courses for school children."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 18,
-          "question_type": "matching",
-          "question": "Climbing wall",
+          "questionNumber": 18,
+          "questionText": "Climbing wall",
+          "type": "matching",
           "options": [
             "A one-on-one coach is bookable.",
             "It is featured in a TV drama.",
@@ -163,12 +117,12 @@
             "It can be booked for parties.",
             "It is a place to hold courses for school children."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 19,
-          "question_type": "matching",
-          "question": "Skating rink",
+          "questionNumber": 19,
+          "questionText": "Skating rink",
+          "type": "matching",
           "options": [
             "A one-on-one coach is bookable.",
             "It is featured in a TV drama.",
@@ -178,12 +132,12 @@
             "It can be booked for parties.",
             "It is a place to hold courses for school children."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 20,
-          "question_type": "matching",
-          "question": "Gym",
+          "questionNumber": 20,
+          "questionText": "Gym",
+          "type": "matching",
           "options": [
             "A one-on-one coach is bookable.",
             "It is featured in a TV drama.",
@@ -193,177 +147,102 @@
             "It can be booked for parties.",
             "It is a place to hold courses for school children."
           ],
-          "answer": ""
+          "correctAnswer": ""
         }
       ]
     },
     {
-      "section_number": 3,
+      "section": 3,
+      "instructions": "SECTION 3 Questions 21–30: Complete the sentences and choose the correct answers.",
       "questions": [
+        { "questionNumber": 21, "questionText": "Kites in Germany used in different", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 22, "questionText": "Vehicles in America powered by", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 23, "questionText": "Gas canister in South Africa invented to reduce its chance to", "type": "fill-blank", "correctAnswer": "" },
         {
-          "question_number": 21,
-          "question_type": "short_answer",
-          "question": "Kites in Germany used in different",
-          "answer": ""
+          "questionNumber": 24,
+          "questionText": "Which TWO types of interviews do Greg and Syria choose to do the survey?",
+          "type": "mcq",
+          "options": ["staff on campus", "professors", "local residents", "companies", "university students"],
+          "correctAnswer": ""
         },
         {
-          "question_number": 22,
-          "question_type": "short_answer",
-          "question": "Vehicles in America powered by",
-          "answer": ""
+          "questionNumber": 25,
+          "questionText": "Which TWO types of interviews do Greg and Syria choose to do the survey?",
+          "type": "mcq",
+          "options": ["staff on campus", "professors", "local residents", "companies", "university students"],
+          "correctAnswer": ""
         },
         {
-          "question_number": 23,
-          "question_type": "short_answer",
-          "question": "Gas canister in South Africa invented to reduce its chance to",
-          "answer": ""
-        },
-        {
-          "question_number": 24,
-          "question_type": "multiple_choice",
-          "question": "Which TWO types of interviews do Greg and Syria choose to do the survey?",
-          "options": [
-            "staff on campus",
-            "professors",
-            "local residents",
-            "companies",
-            "university students"
-          ],
-          "answer": ""
-        },
-        {
-          "question_number": 25,
-          "question_type": "multiple_choice",
-          "question": "Which TWO types of interviews do Greg and Syria choose to do the survey?",
-          "options": [
-            "staff on campus",
-            "professors",
-            "local residents",
-            "companies",
-            "university students"
-          ],
-          "answer": ""
-        },
-        {
-          "question_number": 26,
-          "question_type": "multiple_choice",
-          "question": "What does Syria think about renewable energy?",
+          "questionNumber": 26,
+          "questionText": "What does Syria think about renewable energy?",
+          "type": "mcq",
           "options": [
             "Most people know very little about renewable energy.",
             "The general public can distinguish different kinds of renewable energy.",
             "The majority of people feel the need to replace fossil fuels with renewable energy."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 27,
-          "question_type": "multiple_choice",
-          "question": "What do the speakers say about modern windmills?",
+          "questionNumber": 27,
+          "questionText": "What do the speakers say about modern windmills?",
+          "type": "mcq",
           "options": [
             "They can be used to pump water from wells.",
             "The location to build them should be carefully chosen.",
             "Farmers use them to grind grain."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 28,
-          "question_type": "multiple_choice",
-          "question": "What aspect of traditional fuels are they going to address?",
+          "questionNumber": 28,
+          "questionText": "What aspect of traditional fuels are they going to address?",
+          "type": "mcq",
           "options": [
             "how to avoid fossil fuels from being depleted",
             "the possible future of traditional resources",
             "how to prevent pollution of traditional resources"
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 29,
-          "question_type": "multiple_choice",
-          "question": "What does Greg say about nuclear plants?",
+          "questionNumber": 29,
+          "questionText": "What does Greg say about nuclear plants?",
+          "type": "mcq",
           "options": [
             "They are cleaner and less expensive than fossil fuel.",
             "It is the best way to fight climate change.",
             "Few people think they are safe."
           ],
-          "answer": ""
+          "correctAnswer": ""
         },
         {
-          "question_number": 30,
-          "question_type": "multiple_choice",
-          "question": "What does Syria think of hydrogen fuel?",
+          "questionNumber": 30,
+          "questionText": "What does Syria think of hydrogen fuel?",
+          "type": "mcq",
           "options": [
             "The price of it will drop eventually.",
             "It entails environmental problems.",
             "The benefits of it overweigh its high cost."
           ],
-          "answer": ""
+          "correctAnswer": ""
         }
       ]
     },
     {
-      "section_number": 4,
+      "section": 4,
+      "instructions": "SECTION 4 Questions 31–40: Complete the notes below. Write NO MORE THAN TWO WORDS for each answer.",
       "questions": [
-        {
-          "question_number": 31,
-          "question_type": "short_answer",
-          "question": "Local fish farmers are afraid that genetically modified fish will",
-          "answer": ""
-        },
-        {
-          "question_number": 32,
-          "question_type": "short_answer",
-          "question": "like to breed fish with special features, like",
-          "answer": ""
-        },
-        {
-          "question_number": 33,
-          "question_type": "short_answer",
-          "question": "other solutions: - to build some cages to prevent the fish from",
-          "answer": ""
-        },
-        {
-          "question_number": 34,
-          "question_type": "short_answer",
-          "question": "to use",
-          "answer": ""
-        },
-        {
-          "question_number": 35,
-          "question_type": "short_answer",
-          "question": "lack of land on the",
-          "answer": ""
-        },
-        {
-          "question_number": 36,
-          "question_type": "short_answer",
-          "question": "lack of",
-          "answer": ""
-        },
-        {
-          "question_number": 37,
-          "question_type": "short_answer",
-          "question": "encourages fish farmers to",
-          "answer": ""
-        },
-        {
-          "question_number": 38,
-          "question_type": "short_answer",
-          "question": "Seaweed can be used to make",
-          "answer": ""
-        },
-        {
-          "question_number": 39,
-          "question_type": "short_answer",
-          "question": "Oyster is a source of seafood which can supply local",
-          "answer": ""
-        },
-        {
-          "question_number": 40,
-          "question_type": "short_answer",
-          "question": "saves local fishing business by encouraging aquaculture recreation and",
-          "answer": ""
-        }
+        { "questionNumber": 31, "questionText": "Local fish farmers are afraid that genetically modified fish will", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 32, "questionText": "like to breed fish with special features, like", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 33, "questionText": "other solutions: - to build some cages to prevent the fish from", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 34, "questionText": "to use", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 35, "questionText": "lack of land on the", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 36, "questionText": "lack of", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 37, "questionText": "encourages fish farmers to", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 38, "questionText": "Seaweed can be used to make", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 39, "questionText": "Oyster is a source of seafood which can supply local", "type": "fill-blank", "correctAnswer": "" },
+        { "questionNumber": 40, "questionText": "saves local fishing business by encouraging aquaculture recreation and", "type": "fill-blank", "correctAnswer": "" }
       ]
     }
   ]

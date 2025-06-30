@@ -1,0 +1,740 @@
+{
+  "paper_id": "ielts-academic-reading-006",
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 6",
+  "status": "published",
+  "created_at": "2025-06-29T13:00:00Z",
+  "passages": [
+    {
+      "id": "p1-ielts-academic-reading-006",
+      "paper_id": "ielts-academic-reading-006",
+      "passage_number": 1,
+      "title": "Otter",
+      "body": "A. Otters have long, thin bodies and short legs - ideal for pushing through dense undergrowth or hunting in tunnels... [full passage content]",
+      "section_instruction": "You should spend about 20 minutes on Questions 1-13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:00:00Z",
+      "questions": [
+        {
+          "id": "q1-p1",
+          "question_number": 1,
+          "question_type": "Matching Information",
+          "question_text": "A description of how otters regulate vision underwater",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "B",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q2-p1",
+          "question_number": 2,
+          "question_type": "Matching Information",
+          "question_text": "The fit-for-purpose characteristics of otter's body shape",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "A",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q3-p1",
+          "question_number": 3,
+          "question_type": "Matching Information",
+          "question_text": "A reference to an underdeveloped sense",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "B",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q4-p1",
+          "question_number": 4,
+          "question_type": "Matching Information",
+          "question_text": "An explanation of why agriculture failed in otter conservation efforts",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "F",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q5-p1",
+          "question_number": 5,
+          "question_type": "Matching Information",
+          "question_text": "A description of some of the otter's social characteristics",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "C",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q6-p1",
+          "question_number": 6,
+          "question_type": "Matching Information",
+          "question_text": "A description of how baby otters grow",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "E",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q7-p1",
+          "question_number": 7,
+          "question_type": "Matching Information",
+          "question_text": "The conflicted opinions on how to preserve",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "G",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q8-p1",
+          "question_number": 8,
+          "question_type": "Matching Information",
+          "question_text": "A reference to legislative act",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "G",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q9-p1",
+          "question_number": 9,
+          "question_type": "Matching Information",
+          "question_text": "An explanation of how otters compensate for heat loss",
+          "instruction": "Which paragraph contains the following information?",
+          "correct_answer": "A",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q10-p1",
+          "question_number": 10,
+          "question_type": "Short-answer Questions",
+          "question_text": "What affects the outer fur of otters?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage",
+          "correct_answer": "sea water",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q11-p1",
+          "question_number": 11,
+          "question_type": "Short-answer Questions",
+          "question_text": "What skill is not necessary for Asian short-clawed otters?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage",
+          "correct_answer": "swimming speed",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q12-p1",
+          "question_number": 12,
+          "question_type": "Short-answer Questions",
+          "question_text": "Which type of otters has the shortest range?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage",
+          "correct_answer": "coastal otters",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q13-p1",
+          "question_number": 13,
+          "question_type": "Short-answer Questions",
+          "question_text": "Which type of animals do otters hunt occasionally?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage",
+          "correct_answer": "small mammals",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        }
+      ]
+    },
+    {
+      "id": "p2-ielts-academic-reading-006",
+      "paper_id": "ielts-academic-reading-006",
+      "passage_number": 2,
+      "title": "Bird Migration",
+      "body": "A. Birds have many unique design features that enable them to perform such amazing feats of endurance... [full passage content]",
+      "section_instruction": "You should spend about 20 minutes on Questions 14-26 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:00:00Z",
+      "questions": [
+        {
+          "id": "q14-p2",
+          "question_number": 14,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph A",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "iv",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q15-p2",
+          "question_number": 15,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph B",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "v",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q16-p2",
+          "question_number": 16,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph C",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "ii",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q17-p2",
+          "question_number": 17,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph D",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "x",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q18-p2",
+          "question_number": 18,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph E",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "vii",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q19-p2",
+          "question_number": 19,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph F",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "i",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q20-p2",
+          "question_number": 20,
+          "question_type": "Matching Headings",
+          "question_text": "Paragraph G",
+          "instruction": "Choose the correct heading for each paragraph from the list of headings below",
+          "correct_answer": "viii",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix",
+            "x"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q21-p2",
+          "question_number": 21,
+          "question_type": "Multiple Choice",
+          "question_text": "Which TWO of the following statements are true of bird migration?",
+          "instruction": "Choose TWO letters, A-E",
+          "correct_answer": [
+            "A",
+            "C"
+          ],
+          "options": [
+            "A. Birds often fly further than they need to.",
+            "B. Birds traveling in family groups are safe",
+            "C. Birds flying at night need less water",
+            "D. Birds have much sharper eye-sight than humans",
+            "E. Only share birds are resistant to strong winds"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q22-p2",
+          "question_number": 22,
+          "question_type": "Multiple Choice",
+          "question_text": "Which TWO of the following statements are true of bird migration?",
+          "instruction": "Choose TWO letters, A-E",
+          "correct_answer": [
+            "A",
+            "C"
+          ],
+          "options": [
+            "A. Birds often fly further than they need to.",
+            "B. Birds traveling in family groups are safe",
+            "C. Birds flying at night need less water",
+            "D. Birds have much sharper eye-sight than humans",
+            "E. Only share birds are resistant to strong winds"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q23-p2",
+          "question_number": 23,
+          "question_type": "Sentence Completion",
+          "question_text": "It is a great mystery that young birds like cuckoos can find their wintering grounds without",
+          "instruction": "Complete the sentence using NO MORE THAN TWO WORDS from the passage",
+          "correct_answer": "parental guidance",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q24-p2",
+          "question_number": 24,
+          "question_type": "Sentence Completion",
+          "question_text": "Evidence shows birds can tell directions nice a by observing the sun and theaters.",
+          "instruction": "Complete the sentence using NO MORE THAN TWO WORDS from the passage",
+          "correct_answer": "compass directions",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q25-p2",
+          "question_number": 25,
+          "question_type": "Sentence Completion",
+          "question_text": "One advantage for birds flying at night is that they can avoid contact with",
+          "instruction": "Complete the sentence using NO MORE THAN TWO WORDS from the passage",
+          "correct_answer": "daytime predators",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q26-p2",
+          "question_number": 26,
+          "question_type": "Sentence Completion",
+          "question_text": "Laboratory tests show that birds can detect weather without signs.",
+          "instruction": "Complete the sentence using NO MORE THAN TWO WORDS from the passage",
+          "correct_answer": "visible",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        }
+      ]
+    },
+    {
+      "id": "p3-ielts-academic-reading-006",
+      "paper_id": "ielts-academic-reading-006",
+      "passage_number": 3,
+      "title": "Talc Powder",
+      "body": "A. Peter Brigg discovers how talc from Luzenac's Trimouns in France find its way into food and agricultural products... [full passage content]",
+      "section_instruction": "You should spend about 20 minutes on Questions 27-40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:00:00Z",
+      "questions": [
+        {
+          "id": "q27-p3",
+          "question_number": 27,
+          "question_type": "Matching Features",
+          "question_text": "Talc is used to increase the size of drops.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "C",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q28-p3",
+          "question_number": 28,
+          "question_type": "Matching Features",
+          "question_text": "Talc is applied to reduce foaming.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "C",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q29-p3",
+          "question_number": 29,
+          "question_type": "Matching Features",
+          "question_text": "Talc is employed as a filler of base.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "B",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q30-p3",
+          "question_number": 30,
+          "question_type": "Matching Features",
+          "question_text": "Talc is modified and prevented sunburn.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "A",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q31-p3",
+          "question_number": 31,
+          "question_type": "Matching Features",
+          "question_text": "Talc is added to stop stickiness.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "B",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q32-p3",
+          "question_number": 32,
+          "question_type": "Matching Features",
+          "question_text": "Talc is used to increase production.",
+          "instruction": "Match each use of talc power with correct application from A, B or C",
+          "correct_answer": "C",
+          "options": [
+            "A. Fruit protection",
+            "B. Chewing gum business",
+            "C. Olive oil extraction"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q33-p3",
+          "question_number": 33,
+          "question_type": "Summary Completion",
+          "question_text": "Spanish olive oil industry has been using talc in oil extraction process for about",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "20",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q34-p3",
+          "question_number": 34,
+          "question_type": "Summary Completion",
+          "question_text": "It is useful in dealing with difficult olives which often produce high amount of",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "extra foam",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q35-p3",
+          "question_number": 35,
+          "question_type": "Summary Completion",
+          "question_text": "When smaller factories release",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "waste water",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q36-p3",
+          "question_number": 36,
+          "question_type": "Summary Completion",
+          "question_text": "it could be to the environment because it is hard to",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "harmful",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q37-p3",
+          "question_number": 37,
+          "question_type": "Summary Completion",
+          "question_text": "and usually takes time as it contains emulsified oil. However, talc power added in the process is able to absorb the emulsifier oil. It improves the oil extraction production, because with aid of talc powder, size of oil",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "droplets liberated",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q38-p3",
+          "question_number": 38,
+          "question_type": "Summary Completion",
+          "question_text": "increased.",
+          "instruction": "Complete the summary using no more than two words from the passage",
+          "correct_answer": "",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q39-p3",
+          "question_number": 39,
+          "question_type": "Short-answer Questions",
+          "question_text": "In which process is talc used to clear the stickiness of chewing gum?",
+          "instruction": "Answer using NO MORE THAN THREE WORDS from the passage",
+          "correct_answer": "lamination and packing",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        },
+        {
+          "id": "q40-p3",
+          "question_number": 40,
+          "question_type": "Short-answer Questions",
+          "question_text": "Which group of farmers does Invelop intend to target in a long view?",
+          "instruction": "Answer using NO MORE THAN THREE WORDS from the passage",
+          "correct_answer": "grape growers",
+          "status": "published",
+          "created_at": "2025-06-29T13:00:00Z",
+          "text": "TBD",
+          "answer": "N/A"
+        }
+      ]
+    }
+  ]
+}

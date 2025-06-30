@@ -1,0 +1,477 @@
+{
+  "paper_id": "ielts-academic-reading-005",
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 5",
+  "status": "published",
+  "created_at": "2025-06-28T13:00:00Z",
+  "passages": [
+    {
+      "id": "p1-ielts-academic-reading-005",
+      "paper_id": "ielts-academic-reading-005",
+      "passage_number": 1,
+      "title": "Terminated Dinosaur Era",
+      "body": "A. The age of dinosaurs, which ended with the cataclysmic bang of a meteor impact 65 million years ago, may also have begun with one. Researchers found recently the first direct, though tentative, geological evidence of a meteor impact 200 million years ago, coinciding with a mass extinction that eliminated half of the major groups of life and opened the evolutionary door for what was then a relatively small group of animals: dinosaurs.\n\nB. The cause and timing of the ascent of dinosaurs has have been much debated. It has been impossible to draw any specific conclusions because the transition between the origin of dinosaurs and their ascent to dominance has not been sampled in detail. \"There is a geochemical signature of something important happening, probably an asteroid impact, just before the time in which familiar dinosaur-dominated communities appear,\" said Dr. Paul E. Olsen, a professor of earth and environmental sciences at Columbia University's Lamont-Doherty Earth Observatory in Palisades, N.Y.\n\nC. Olsen and his colleagues studied vertebrate fossils from 80 sites in four different ancient rift basins, part of a chain of rifts that formed as North America began to split apart from the supercontinent that existed 230-190 million years ago. In the layer of rock corresponding to the extinction, the scientists found elevated amounts of the rare element iridium. A precious metal belonging to the platinum group of elements, iridium is more abundant in meteorites than in rocks.\n\nD. On Earth, A similar spike of iridium in 65 million-year-old rocks gave rise in the 1970s to the theory that a meteor caused the demise of the dinosaurs. That theory remained controversial for years until it was corroborated by other evidence and the impact site was found off the Yucatan Peninsula. Scientists will need to examine the new iridium anomaly similarly. The levels are only about one-tenth as high as those found at the later extinction. That could mean that the meteor was smaller or contained less iridium or that a meteor was not involved—iridium can also come from the Earth's interior, belched out by volcanic eruptions. Dr. Michael J. Benton, a professor of vertebrate paleontology at the University of Bristol in England, described the data as \"the first reasonably convincing evidence of an iridium spike\".\n\nE. The scientists found more evidence of rapid extinction in a database of 10,000 fossilized footprints in former lake basins from Virginia to Nova Scotia. Although individual species cannot usually be identified solely from their footprints — the tracks of a house cat, for example, resemble those of a baby tiger — footprints are much more plentiful than fossil bones and can provide a more complete picture of the types of animals walking around. \"It makes it very easy for us to tell the very obvious signals of massive fauna change,\" Dr. Olsen said. Because the sediment piles up quickly in lake basins, the researchers were able to assign a date to each footprint, based on the layer of rock where it was found. They determined that the mix of animals walking across what is now the East Coast of North America changed suddenly about 200 million years ago.\n\nF. The tracks of several major reptile groups continue almost up to the layer of rock marking the end of the Triassic geologic period 202 million years ago, and then vanish in younger layers from the Jurassic period. \"I think the footprint methodology is very novel and very exciting,\" said Dr. Peter D. Ward, a professor of geology at the University of Washington. He called the data \"very required more research.\" Last year, researchers led by Dr. Ward reported that the types of carbon in rock changed abruptly at this time, indicating a sudden dying off of plants over less than 50,000 years. The footprint research reinforces the hypothesis that the extinction was sudden.\n\nG. Several groups of dinosaurs survived that extinction, and the footprints show that new groups emerged soon afterward. Before the extinction, about one-fifth of the footprints were left by dinosaurs; after the extinction, more than half were from dinosaurs. The changes, the researchers said, occurred within 30,000 years—a geological blink of an eye. The scientists postulate that the asteroid or comet impact and the resulting death of Triassic competitors allowed a few groups of carnivorous dinosaurs to evolve in size very quickly and dominate the top of the terrestrial food chain globally.\n\nH. Among the creatures that disappeared in the extinction were the dominant predators at the time: 15-foot-long rauisuchians with great knife-like teeth and phytosaurs that resembled large crocodiles. Dinosaurs first evolved about 230 million years ago, but they were small, competing in a crowded ecological niche. Before the extinction 200 million years ago. the largest of the meat-eating dinosaurs were about the see of large dogs. Not terribly impressive.\" Dr. Olsen said. The dinosaurs quickly grew. The toe-to-heel length of the foot of a meat eater from the Jurassic period was on average 20 percent longer than its Triassic ancestor. Larger feet can carry bigger bodies; the scientists infer the dinosaurs doubled in weight, eventually evolving into fearsome velociraptors, Tyrannosaurus rex and other large carnivorous dinosaurs.\n\nI. The spurt in evolution is similar to the rise of mammals after the extinction of dinosaurs. Mammals, no larger than small dogs during the age of dinosaurs, diversified into tigers, elephants, whales and people after the reptilian competition died away. The success of the dinosaurs after the Triassic-Jurassic extinction may be why they did not survive the second extinction. \"Small animals always do better in catastrophic situations. Dr. Olsen said, because they can survive on smaller amounts of food.\" He also pointed out that scientists now believe the small dinosaurs did survive. \"We just call them birds,\" he said.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-28T13:00:00Z",
+      "questions": [
+        {
+          "id": "q1-p1",
+          "question_number": 1,
+          "question_type": "Matching Features",
+          "question_text": "Large animals are in a disadvantageous position when disasters happen.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "A",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q2-p1",
+          "question_number": 2,
+          "question_type": "Matching Features",
+          "question_text": "Radical changes in carbon types are related to massive extinction of vegetation.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "C",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q3-p1",
+          "question_number": 3,
+          "question_type": "Matching Features",
+          "question_text": "The changes in earth's animal species become easier to identify by adding footprint investigation.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "A",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q4-p1",
+          "question_number": 4,
+          "question_type": "Matching Features",
+          "question_text": "Geochemical evidence suggests an asteroid impact before dinosaurs appeared.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "A",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q5-p1",
+          "question_number": 5,
+          "question_type": "Matching Features",
+          "question_text": "Footprint study is a way of research.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "C",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q6-p1",
+          "question_number": 6,
+          "question_type": "Matching Features",
+          "question_text": "Persuasive clues of an iridium spike were discovered for the first time.",
+          "instruction": "Match the people (A-C) with the correct opinions or deeds.",
+          "correct_answer": "B",
+          "options": ["A. Paul Olsen", "B. Michael Benton", "C. Peter Ward"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q7-p1",
+          "question_number": 7,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The rare element, iridium, was presented both on earth and in meteorites.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q8-p1",
+          "question_number": 8,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The meteor impact theory had been suspected before the discovery of the impact site and other supporting evidence.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q9-p1",
+          "question_number": 9,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Footprints are of little value in providing information, in comparison to fossil bones, because individual species cannot be identified with footprints.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q10-p1",
+          "question_number": 10,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "According to scientists, the transition to a dinosaur-dominated era took place very quickly by geological time scales.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q11-p1",
+          "question_number": 11,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The creatures that disappeared in the extinction were dominantly the 15-foot-long rauisuchians and large crocodiles.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q12-p1",
+          "question_number": 12,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Tyrannosaurus rex was larger in body size than other carnivorous dinosaurs.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q13-p1",
+          "question_number": 13,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Large dinosaurs died out but small ones evolved and competed with birds and mammals.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "p2-ielts-academic-reading-005",
+      "paper_id": "ielts-academic-reading-005",
+      "passage_number": 2,
+      "title": "Detection of a Meteorite Lake",
+      "body": "A. AS THE SUN rose over picturesque Lake Bosumtwi, a team of Syracuse University researchers prepared for another day of using state-of-the-art equipment to help unlock the mysteries hidden below the lake bottom. Nestled in the heart of Ghana, the lake holds an untapped reservoir of information that could help scientists predict future climate changes by looking at evidence from the past. This information will also improve the scientists' understanding of the changes that occur in a region struck by a massive meteorite.\n\nB. The project, led by earth sciences professor Christopher Scholz of the College of Arts and Sciences and funded by the National Science Foundation (NSF), is the first large-scale effort to study Lake Bosumtwi, which formed 1.1 million years ago when a giant meteor crashed into the Earth's surface. The resulting crater is one of the largest and most well-preserved geologically young craters in the world, says Scholz, who is collaborating on the project with researchers from the University of Arizona, the University of South Carolina, the University of Rhode Island, and several Ghanaian institutions. \"Our data should provide information about what happens when an impact hits hard, pre-Cambrian, crystalline rocks that are a billion years old,\" he says.\n\nC. Equally important is the fact that the lake, which is about 8 kilometers in diameter, has no natural outlet. The rim of the crater rises about 250 meters above the water's surface. Streams flow into the lake, Scholz says, but the water leaves only by evaporation, or by seeping through the lake sediments. For the past million years, the lake has acted as a tropical rain, filling and drying with changes in precipitation and the tropical climate. The record of those changes is hidden in sediment below the lake bottom. \"The lake is one of the best sites in the world for the study of tropical climate changes,\" Scholz says. \"The tropics are the heat engine for the Earth's climate. To understand global climate, we need to have records of climate changes from many sites around the world, including the tropics.\"\n\nD. Before the researchers could explore the lake's subsurface, they needed a boat with a large, working deck area that could carry eight tons of scientific equipment. The boat dubbed R/V Kilindi was built in Florida last year. It was constructed in modules that were dismantled, packed inside a shipping container, and reassembled over a 10-day period in late November and early December 1999 in the rural village of Abono, Ghana. The research team then spent the next two weeks testing the boat and equipment before returning to the United States for the holidays.\n\nE. In mid-January, five members of the team—Keely Brooks, an earth sciences graduate student; Peter Cattaneo, a research analyst; and Kiram Lezzar, a postdoctoral scholar, all from SU; James McGill, a geophysical field engineer; and Nick Peters, a Ph.D. student in geophysics from the University of Miami—returned to Abono to begin collecting data about the lake's subsurface using a technique called seismic reflection profiling. In this process, a high-pressure air gun is used to create small, pneumatic explosions in the water. The sound energy penetrates about 1,000 to 2,000 meters into the lake's subsurface before bouncing back to the surface of the water.\n\nF. The reflected sound energy is detected by underwater microphones-called hydrophones—embedded in a 50-meter-long cable that is towed behind the boat as it crosses the lake in a carefully designed grid pattern. On-board computers record the signals, and the resulting data are then processed and analyzed in the laboratory. “The results will give us a good idea of the shape of the basin, how thick the layers of sediment are, and when and where there were major changes in sediment accumulation,” Scholz says. “We are now developing three-dimensional perspective of the lake’s subsurface and the layers of sediment that have been laid down.”\n\nG. Team members spent about four weeks in Ghana collecting the data. They worked seven days a week, arriving at the lake just after sunrise. On a good day, when everything went as planned, the team could collect data and be back at the dock by early afternoon. Except for a few relatively minor adjustments, the equipment and the boat worked well. Problems that arose were primarily non-scientific—tree stumps, fishing nets, cultural barriers, and occasional misunderstandings with local villagers.\n\nH. Lake Bosumtwi, the largest natural freshwater lake in the country, is sacred to the Ashanti people, who believe their souls come to the lake to bid farewell to their god. The lake is also the primary source of fish for the 26 surrounding villages. Conventional canoes and boats are forbidden. Fishermen travel on the lake by floating on traditional planks they propel with small paddles. Before the research project could begin, Scholz and his Ghanaian counterparts had to secure special permission from tribal chiefs to put the R/V Kilindi on the lake.\n\nI. When the team began gathering data, rumors flew around the lake as to why the researchers were there. \"Some thought we were dredging the lake for gold, others thought we were going to drain the lake or that we had bought the lake,\" Cattaneo says. \"But once the local people understood why we were there, they were very helpful.\"",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–27 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-28T13:00:00Z",
+      "questions": [
+        {
+          "id": "q14-p2",
+          "question_number": 14,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "With the investigation of the lake, scientists may predict the climate changes in the future.",
+          "instruction": "",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q15-p2",
+          "question_number": 15,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The crater resulted from a meteorite impact is the largest and most preserved one in the world.",
+          "instruction": "",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q16-p2",
+          "question_number": 16,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The water stored in lake Bosumtwi was gone only by seeping through the lake sediments.",
+          "instruction": "",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q17-p2",
+          "question_number": 17,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Historical climate changes can be detected by the analysis of the sediment in the lake.",
+          "instruction": "",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q18-p2",
+          "question_number": 18,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "The greatest obstacle to research of scientists had been the interference by the locals due to the indigenous beliefs.",
+          "instruction": "",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q19-p2",
+          "question_number": 19,
+          "question_type": "Flow-chart Completion",
+          "question_text": "There are three steps of collecting data from the lake as followings, please fill in the blanks in the Flow Chart below:",
+          "instruction": "",
+          "correct_answer": [
+            "Assembling the boat",
+            "Seismic reflection profiling",
+            "Data analysis"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q23-p2",
+          "question_number": 23,
+          "question_type": "Summary Completion",
+          "question_text": "The boat-double R/V Kilindi crossed the lake was dismantled and stored in a ........23........... The technology they used called........24......; They created sound energy in to 1000-2000 metres in to the bottom of the lake, and used separate equipment to collect the returned waves. Then the data had been analyzed and processed in the........25....... Scholz also added that they were now building ........26......view of the sediment or sub-image in the bottom of the lake. Whole set of equipment works well yet the ship should avoid physical barrier including tree stumps or........27......floating on the surface of the lake.",
+          "instruction": "",
+          "correct_answer": [
+            "shipping container",
+            "seismic reflection profiling",
+            "laboratory",
+            "three-dimensional",
+            "fishing nets"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "p3-ielts-academic-reading-005",
+      "paper_id": "ielts-academic-reading-005",
+      "passage_number": 3,
+      "title": "Internal and External Marketing",
+      "body": "A. Employees need to hear the same messages that you send out to the marketplace. At most companies, however, internal and external communications are often mismatched. This can be very confusing, and it threatens employees' perceptions of the company's integrity: They are told one thing by management but observe that a different message is being sent to the public. One health insurance company, for instance, advertised that the welfare of patients was the company's number one priority, while employees were told that their main goal was to increase the value of their stock options through cost reductions. And one major financial services institution told customers that it was making a major shift in focus from being a financial retailer to a financial adviser, but, a year later, research showed that the customer experience with the company had not changed. It turned out that company leaders had not made an effort to sell the change internally, so employees were still churning out transactions and hadn't changed their behavior to match their new adviser role.\n\nB. Enabling employees to deliver on customer expectations is important, of course, but it's not the only reason a company needs to match internal and external messages. Another reason is to help push the company to achieve goals that might otherwise be out of reach. In 1997, when IBM launched its e-business campaign (which is widely credited for turning around the company's image), it chose to ignore research that suggested consumers were unprepared to embrace IBM as a leader in e-business. Although to the outside world this looked like an external marketing effort, IBM was also using the campaign to align employees around the idea of the Internet as the future of technology. The internal campaign changed the way employees thought about everything they did, from how they named products to how they organized staff to how they approached selling. The campaign was successful largely because it gave employees a sense of direction and purpose, which in turn restored their confidence in IBM's ability to predict the future and lead the technology industry. Today, research shows that people are four times more likely to associate the term \"e-business\" with IBM than with its nearest competitor, Microsoft.\n\nC. The type of \"two-way branding\" that IBM did so successfully strengthens both sides of the equation. Internal marketing becomes stronger because it can draw on the same \"big idea\" as advertising. Consumer marketing becomes stronger because the messages are developed based on employees' behavior and attitudes, as well as on the company's strengths and capabilities—indeed, the themes are drawn from the company's very soul. This process can result in a more distinct advertising idea because marketers are more likely to create a message that's unique to the company.\n\nD. Perhaps even more important, by taking employees into account, a company can avoid creating a message that doesn't resonate with staff or, worse, one that builds resentment. In 1996, United Airlines shelved its \"Come Fly the Friendly Skies\" slogan when presented with a survey that revealed the depth of customer resentment toward the airline industry. In an effort to own up to the industry's shortcomings, United launched a new campaign, \"Rising,\" in which it sought to differentiate itself by acknowledging poor service and promising incremental improvements such as better meals. While this was a logical premise for the campaign given the tenor of the times, a campaign focusing on customers' distaste for flying was deeply discouraging to the staff. Employee resentment ultimately made it impossible for United to deliver the improvements it was promising, which in turn undermined the \"Rising\" pledge. Three years later, United decided employee opposition was undermining its success and pulled the campaign. It has since moved to a more inclusive brand message with the line \"United,\" which both audiences can embrace. Here, a fundamental principle of advertising—find and address a customer concern—failed United because it did not consider the internal market.\n\nE. When it comes to execution, the most common and effective way to link internal and external marketing campaigns is to create external advertising that targets both audiences. IBM used this tactic very effectively when it launched its e-business campaign. It took out an eight-page ad in the Wall Street Journal declaring its new vision, a message directed at both customers and internal stakeholders. This is an expensive way to capture attention, but if used sparingly, it is the most powerful form of communication; in fact, you need do it only once for everyone in the company to read it. There's a symbolic advantage as well. Such a tactic signals that the company is taking its pledge very seriously; it also signals transparency—the same message going out to both audiences.\n\nF. Advertising isn't the only way to link internal and external marketing. At Nike, a number of senior executives now hold the additional title of \"Corporate Storyteller.\" They deliberately avoid stories of financial successes and concentrate on parables of \"just doing it,\" reflecting and reinforcing the company's ad campaigns. One tale, for example, recalls how legendary coach and Nike cofounder Bill Bowerman, in an effort to build a better shoe for his team, poured rubber into the family waffle iron, giving birth to the prototype of Nike's famous Waffle Sole. By talking about such inventive moves, the company hopes to keep the spirit of innovation that characterizes its ad campaigns alive and well within the company.\n\nG. But while their messages must be aligned, companies must also keep external promises a little ahead of internal realities. Such promises provide incentives for employees and give them something to live up to. In the 1980s, Ford turned \"Quality is Job 1\" from an internal rallying cry into a consumer slogan in response to the threat from cheaper, more reliable Japanese cars. It did so before the claim was fully justified, but by placing it in the public arena, it gave employees an incentive to match the Japanese. If the promise is pushed too far ahead, however, it loses credibility. When a beleaguered British Rail launched a campaign announcing service improvement under the banner \"We're Getting There,\" it did so prematurely. By drawing attention to the gap between the promise and the reality, it prompted destructive press coverage. This, in turn, demoralized staff, who had been legitimately proud of the service advances they had made.",
+      "section_instruction": "You should spend about 20 minutes on Questions 28–40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-28T13:00:00Z",
+      "questions": [
+        {
+          "id": "q28-p3",
+          "question_number": 28,
+          "question_type": "Matching Features",
+          "question_text": "Legendary anecdote inspire employee successfully",
+          "instruction": "Use the information in the passage to match the company (A-F) with correct category or deeds below.",
+          "correct_answer": "A",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q29-p3",
+          "question_number": 29,
+          "question_type": "Matching Features",
+          "question_text": "Advertisement campaign inspire employees and ensure leading role in business",
+          "instruction": "",
+          "correct_answer": "B",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q30-p3",
+          "question_number": 30,
+          "question_type": "Matching Features",
+          "question_text": "Improper ads campaign brings negative effect",
+          "instruction": "",
+          "correct_answer": "C",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q31-p3",
+          "question_number": 31,
+          "question_type": "Matching Features",
+          "question_text": "Internal and external announcement are different",
+          "instruction": "",
+          "correct_answer": "D",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q32-p3",
+          "question_number": 32,
+          "question_type": "Matching Features",
+          "question_text": "Campaign brings positive and realistic expectation internally",
+          "instruction": "",
+          "correct_answer": "E",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q33-p3",
+          "question_number": 33,
+          "question_type": "Matching Features",
+          "question_text": "A bad slogan that failed both to win support internally and raise standard to its poor service",
+          "instruction": "",
+          "correct_answer": "F",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q34-p3",
+          "question_number": 34,
+          "question_type": "Matching Features",
+          "question_text": "A company focused on both internal and external marketing.",
+          "instruction": "",
+          "correct_answer": "B",
+          "options": [
+            "A. legendary anecdote inspire employee successfully",
+            "B. advertisement campaign inspire employees and ensure leading role in business",
+            "C. improper ads campaign brings negative effect",
+            "D. internal and external announcement are different",
+            "E. campaign brings positive and realistic expectation internally",
+            "F. a bad slogan that failed both to win support internally and raise standard to its poor service"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q35-p3",
+          "question_number": 35,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Employers in almost all companies successfully make their employees fully understand the outside campaign.",
+          "instruction": "",
+          "correct_answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q36-p3",
+          "question_number": 36,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Currently IBM is more prominent in the area of E-business.",
+          "instruction": "",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q37-p3",
+          "question_number": 37,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "United Airline finally gave up an ads slogan due to a survey in 1996.",
+          "instruction": "",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q38-p3",
+          "question_number": 38,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "question_text": "Nike had improved company performance through telling employees legendary corporation stories.",
+          "instruction": "",
+          "correct_answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q39-p3",
+          "question_number": 39,
+          "question_type": "Multiple Choice",
+          "question_text": "Please choose TWO approaches in the passage mentioned that were employed as company strategy:",
+          "instruction": "",
+          "options": [
+            "A. promoting the visual effect of their products’ advertisement",
+            "B. launching inspiring campaigns internally",
+            "C. introducing inner competition",
+            "D. learning how to tell stories among senior executives",
+            "E. applying an appropriate slogan"
+          ],
+          "correct_answer": ["B", "D"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        },
+        {
+          "id": "q40-p3",
+          "question_number": 40,
+          "question_type": "Multiple Choice",
+          "question_text": "Which TWO approaches in the passage were employed as a company strategy?",
+          "instruction": "",
+          "options": [
+            "A. promoting the visual effect of their products’ advertisement",
+            "B. launching inspiring campaigns internally",
+            "C. introducing inner competition",
+            "D. learning how to tell stories among senior executives",
+            "E. applying an appropriate slogan"
+          ],
+          "correct_answer": ["B", "E"],
+          "status": "published",
+          "created_at": "2025-06-28T13:00:00Z"
+        }
+      ]
+    }
+  ]
+}

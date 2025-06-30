@@ -1,0 +1,135 @@
+{
+  "title": "IELTS Academic Reading Test 0",
+  "type": "academic",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "Timekeeper 2 Invention of Marine Chronometer",
+      "body": "A. It was, as Dava Sobel has described, ‘the greatest scientific problem of the age’. In the 18th century, clocks could not withstand the motion and temperature shifts at sea while keeping accurate time...\n\nB. The longitude is a measure of how far around the world one has come from home...\n\nC. Navigators were unable to determine their position at sea accurately...\n\nD. The simple answer is to bring a clock set to home time...\n\nE. In 1714, a reward of £20,000 was offered to anyone who could solve the problem of measuring longitude...\n\nF. This inspired John Harrison to build a marine clock...\n\nG. H4, his final design, looked like a pocket watch...\n\nH. John Hadley developed the sextant to measure angles...\n\nI. Later improvements were made by pioneers like Pierre Le Roy and Thomas Earnshaw.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Information",
+          "text": "introduction of a millman under awards",
+          "answer": "F"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Information",
+          "text": "the definition of an important geographical term",
+          "answer": "B"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Information",
+          "text": "a rival against Harrison’s invention emerged",
+          "answer": "H"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Information",
+          "text": "problems of sailor encountered in identifying the position on the sea",
+          "answer": "C"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Information",
+          "text": "economic assist from another counterpart",
+          "answer": "F"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "It is with no great effort by sailors to calculate the position when in the center of the ocean theoretically.",
+          "answer": "YES"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "To determine the longitude, a measurement of distance from moon to a given star is a must.",
+          "answer": "YES"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "In theory, by calculating the longitude degrees covered by a sail journey, the distance between the start and the end points can be obtained.",
+          "answer": "NOT GIVEN"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Summary Completion",
+          "text": "They did need a reliable clock which showed time of...",
+          "answer": "home"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Summary Completion",
+          "text": "The timekeeper required would be to precisely tell a tangible time lapse confined to...",
+          "answer": "2.8 seconds"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Summary Completion",
+          "text": "A novel clock which did not rely on...",
+          "answer": "lubrication"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Summary Completion",
+          "text": "Competitive mode of ... was another prominent device designed by Hadley",
+          "answer": "navigation"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Summary Completion",
+          "text": "Earnshaw eventually implemented key components for...",
+          "answer": "marine chronometer"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "Father of Modern Management",
+      "body": "A. Peter Drucker invented the discipline of management and popularized the idea of lifelong learning and decentralization...\n\nB. His first book 'The End of Economic Man' studied the rise of fascism, and in 1943 he began studying General Motors...\n\nC. He introduced 'management by objectives' and emphasized workers evaluating themselves...\n\nD. He promoted decentralization and viewing workers as valuable resources rather than costs...\n\nE. He was sometimes criticized for being loose with facts or overselling concepts...\n\nF. Drucker believed that management was a liberal art that should account for social responsibility and demographic shifts.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–27 which are based on Reading Passage 2 below.",
+      "questions": [
+        { "question_number": 14, "question_type": "Matching Headings", "text": "Paragraph A", "answer": "v" },
+        { "question_number": 15, "question_type": "Matching Headings", "text": "Paragraph B", "answer": "iii" },
+        { "question_number": 16, "question_type": "Matching Headings", "text": "Paragraph C", "answer": "ii" },
+        { "question_number": 17, "question_type": "Matching Headings", "text": "Paragraph D", "answer": "i" },
+        { "question_number": 18, "question_type": "Matching Headings", "text": "Paragraph E", "answer": "viii" },
+        { "question_number": 19, "question_type": "Matching Headings", "text": "Paragraph F", "answer": "vi" },
+        { "question_number": 20, "question_type": "Identifying Information (True/False/Not Given)", "text": "Drucker believed the employees should enjoy the same status as the employers in a company", "answer": "NOT GIVEN" },
+        { "question_number": 21, "question_type": "Identifying Information (True/False/Not Given)", "text": "Middle management tasks will change since companies become more complicated and run business globally", "answer": "TRUE" },
+        { "question_number": 22, "question_type": "Identifying Information (True/False/Not Given)", "text": "Drucker strongly supports that economists of schools have resources to explain the problems of modern economies", "answer": "FALSE" },
+        { "question_number": 23, "question_type": "Identifying Information (True/False/Not Given)", "text": "Drucker’s ideas proposed half a century ago are out of date in modern days", "answer": "FALSE" },
+        { "question_number": 24, "question_type": "Multiple Choice", "text": "Drucker believed...", "answer": ["A", "D"] },
+        { "question_number": 25, "question_type": "Multiple Choice", "text": "Drucker believed...", "answer": ["E"] },
+        { "question_number": 26, "question_type": "Multiple Choice", "text": "Criticisms of Drucker", "answer": ["B", "D"] },
+        { "question_number": 27, "question_type": "Multiple Choice", "text": "Criticisms of Drucker", "answer": ["A"] }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Extinct: the Giant Deer",
+      "body": "A. The Irish elk, also known as the giant deer, survived until about 5,000 B.C., later than previously believed...\n\nB. The Irish elk first appeared 400,000 years ago and was widespread before the last ice age...\n\nC. It made its last stand in Siberia and was pushed into the plains by forestation...\n\nD. Neolithic humans contributed to extinction via hunting and habitat clearing...\n\nE. Theories around antler size being a problem are debated. Antler growth required huge mineral intake...\n\nF. Megafauna extinction followed glacial conditions and warmer climates, especially in aridified Australia and not in Africa...\n\nG. Stuart’s research shows extinctions in Europe were moderate and staggered, unlike sudden ones in North America.",
+      "section_instruction": "You should spend about 20 minutes on Questions 28–40 which are based on Reading Passage 3 below.",
+      "questions": [
+        { "question_number": 28, "question_type": "Summary Completion", "text": "Remains of Irish elk found about...", "answer": "400,000 years ago" },
+        { "question_number": 29, "question_type": "Summary Completion", "text": "They were driven to live in the plain around...", "answer": "8,000 years ago" },
+        { "question_number": 30, "question_type": "Summary Completion", "text": "Hunting began around...", "answer": "7,000 years ago" },
+        { "question_number": 31, "question_type": "Summary Completion", "text": "They lived through the span of...", "answer": "wooded interglacials" },
+        { "question_number": 32, "question_type": "Summary Completion", "text": "Mammals became extinct about...", "answer": "10,500 years ago" },
+        { "question_number": 33, "question_type": "Short-answer Questions", "text": "What physical feature possibly contributed to extinction?", "answer": "huge antlers" },
+        { "question_number": 34, "question_type": "Short-answer Questions", "text": "What nutrient was needed to grow the antlers?", "answer": "calcium and phosphate" },
+        { "question_number": 35, "question_type": "Short-answer Questions", "text": "What evidence suggests human impact on extinction?", "answer": "land clearance" },
+        { "question_number": 36, "question_type": "Matching Headings", "text": "Continent with little human impact on extinction", "answer": "D" },
+        { "question_number": 37, "question_type": "Matching Headings", "text": "Continent with mild climate and stable fauna", "answer": "C" },
+        { "question_number": 38, "question_type": "Matching Headings", "text": "Continent where both climate and humans caused extinction", "answer": "A" },
+        { "question_number": 39, "question_type": "Matching Headings", "text": "Continent where climate alone caused extinction", "answer": "B" },
+        { "question_number": 40, "question_type": "Multiple Choice", "text": "Which is true according to Stuart’s team?", "answer": "C" }
+      ]
+    }
+  ]
+}

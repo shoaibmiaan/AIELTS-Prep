@@ -1,0 +1,554 @@
+{
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 18",
+  "status": "published",
+  "created_at": "2025-06-29T13:26:00Z",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "The Mozart Effect",
+      "body": "Music has been used for centuries to heal the body. In the Ebers Papyrus (one of the earliest medical documents, circa 1500 B.C.), it was recorded that physicians chanted to heal the sick (Castleman, 1994). In various cultures, we have observed singing as part of healing rituals. In the world of Western medicine, however, using music in medicine lost popularity until the introduction of the radio. Researchers then started to notice that listening to music could have specific physical effects. Mozart's music could help calm many, and researchers saw that listening to music could cause a drop in blood pressure. In addition to these two areas, music has been used with cancer chemotherapy to reduce nausea, during surgery to reduce stress hormone production, during childbirth, and in stroke recovery (Castleman, 1994 and Westley, 1998). It has been shown to decrease pain as well as enhance the effectiveness of the immune system. In Japan, compilations of music are used as medication, of sorts. For example, if you want to cure a headache or migraine, the album suggested includes Mendelssohn's 'Spring Song,' Dvorak's 'Humoresque,' or part of George Gershwin's 'An American in Paris' (Campbell, 1998). Music is also being used to assist in learning, in a phenomenon called the Mozart Effect. Frances H. Rauscher, Ph.D., first demonstrated the correlation between music and learning in an experiment in 1993. Her experiments indicated that a 10-minute dose of Mozart could temporarily boost intelligence. Groups of students were given intelligence tests after listening to silence, relaxation tapes, or Mozart's Sonata for Two Pianos in D Major for a short time. She found that after silence, the average IQ score was 110, and after the relaxation tape, scores rose a point. After listening to Mozart, however, the scores jumped to 119 (Westley, 1998). Even students who did not like the music still had an increased score on the IQ test. Rauscher hypothesized that 'listening to complex, non-repetitive music, like Mozart, may stimulate neural pathways that are important in thinking' (Castleman, 1994). The same experiment was repeated on rats by Rauscher and Hong Hua Li from Stanford. Rats also demonstrated enhancement in their intelligence performance. These new studies indicate that rats that were exposed to Mozart showed 'increased gene expression of BDNF (a neural growth factor), CREB (a learning and memory compound), and Synapsin (a synaptic growth protein) in the brain's hippocampus, compared with rats in the control group, which heard only white noise (e.g., the whooshing sound of a radio tuned between stations). How exactly does the Mozart Effect work? Researchers are still trying to determine the actual mechanisms for the formation of these enhanced learning pathways. Neuroscientists suspect that music can actually help build and strengthen connections between neurons in the cerebral cortex in a process similar to what occurs in brain development. When a baby is born, certain connections have already been made—like connections for heartbeat and breathing. As new information is learned and motor skills develop, new neural connections are formed. Neurons that are not used will eventually die, while those used repeatedly will form strong connections. Although a large number of these neural connections require experience, they also must occur within a certain time frame. For example, a child born with cataracts cannot develop connections within the visual cortex. If the cataracts are removed by surgery right away, the child’s vision develops normally. However, after the age of 2, if the cataracts are removed, the child will remain blind because those pathways cannot establish themselves. Music seems to work in the same way. In October of 1997, researchers at the University of Konstanz in Germany found that music actually rewires neural circuits (Begley, 1996). Although some of these circuits are formed for physical skills needed to play an instrument, just listening to music can be thought of as 'exercise' for the brain, improving concentration and enhancing imitation. If you’re a little skeptical about the claims made by supporters of the Mozart Effect, you’re not alone. Many people attribute the advanced learning of some children who take music lessons to other personality traits, such as motivation and persistence, which are required in all types of learning. There have also been claims of bias influencing the results of some experiments. Furthermore, many people are critical of the role the media had in turning an isolated study into a trend for parents and music educators. After the Mozart Effect was published to the public, the sales of Mozart CDs stayed on the top of the hit list for three weeks. In an article by Michael Linton, he wrote about research that began and a presentation; the study by researchers at the University of California showed only a temporary boost of IQ, which was not significant enough throughout the course of the experiment. Using music to influence intelligence was used in Confucian civilization, and Plato alluded to Pythagorean music when he described his ideal state in The Republic. In both of these examples, music did not cause any overwhelming changes, and the theory eventually died out. Linton also asks, 'If Mozart’s music were able to improve health, why was Mozart himself so frequently sick? If listening to Mozart’s music increases intelligence and encourages spirituality, why aren’t the world’s smartest and most spiritual people Mozart specialists?' Linton raises an interesting point: if the Mozart Effect causes such significant changes, why isn’t there more documented evidence? The 'trendiness' of the Mozart Effect may have died out somewhat, but there are still strong supporters (and opponents) of the claims made in 1993. Since that initial experiment, there has not been a surge of supporting evidence. However, many parents, after playing classical music while pregnant or when their children are young, will swear by the Mozart Effect. A classmate of mine once told me that listening to classical music while studying will help with memorization. If we approach this controversy from a scientific aspect, although there has been some evidence that music does increase brain activity, actual improvements in learning and memory have not been adequately demonstrated.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:26:00Z",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Information",
+          "text": "Music influences brain development of baby.",
+          "instruction": "Reading Passage 1 has eight paragraphs A-H. Which paragraph contains the following information? Write the correct letter A-H in boxes 1-5 on your answer sheet.",
+          "answer": "D",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Information",
+          "text": "Popularity of public to the introduction of Mozart Effect",
+          "instruction": "Reading Passage 1 has eight paragraphs A-H. Which paragraph contains the following information? Write the correct letter A-H in boxes 1-5 on your answer sheet.",
+          "answer": "G",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Information",
+          "text": "Description of the pioneer experiment of a person",
+          "instruction": "Reading Passage 1 has eight paragraphs A-H. Which paragraph contains the following information? Write the correct letter A-H in boxes 1-5 on your answer sheet.",
+          "answer": "B",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Information",
+          "text": "Music is helpful as a healing method in some places",
+          "instruction": "Reading Passage 1 has eight paragraphs A-H. Which paragraph contains the following information? Write the correct letter A-H in boxes 1-5 on your answer sheet.",
+          "answer": "A",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Information",
+          "text": "Learning needs other qualities though",
+          "instruction": "Reading Passage 1 has eight paragraphs A-H. Which paragraph contains the following information? Write the correct letter A-H in boxes 1-5 on your answer sheet.",
+          "answer": "F",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Summary Completion",
+          "text": "In the experiment carried out by Frances Rauscher, participants were immersed in the music for a period of time before they were tested.",
+          "instruction": "Complete the summary below. Choose NO MORE THAN THREE WORDS from the passage for each answer. Write your answers in boxes 6-8 on your answer sheet.",
+          "answer": "Ten minutes",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Summary Completion",
+          "text": "Rauscher suggested that enhancement of their performance is related to the ______ nature of Mozart's music.",
+          "instruction": "Complete the summary below. Choose NO MORE THAN THREE WORDS from the passage for each answer. Write your answers in boxes 6-8 on your answer sheet.",
+          "answer": "Complex non-repetitive",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Summary Completion",
+          "text": "After that, another parallel experiment was also conducted on ______.",
+          "instruction": "Complete the summary below. Choose NO MORE THAN THREE WORDS from the passage for each answer. Write your answers in boxes 6-8 on your answer sheet.",
+          "answer": "Rats",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Music has the power to improve people's brain performance according to the passage.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "All neural connections are built up after a baby’s born instead of the time he or she had born.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "There is no one who questions Mozart Effect too far.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Michael Linton carried out further experiment on Mozart’s life to support his viewpoint.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Not sufficient evidence supports Mozart Effect from the very first experiment till now.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 9-13 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "London Swaying Footbridge",
+      "body": "In September 1996, a competition was organized to design a new footbridge across the Thames. The competition attracted over 200 entries and was won by a team comprising Arup (engineers), Foster and Partners (architects), and the sculptor Sir Anthony Caro. The bridge opened to the public on 10 June 2000. Up to 100,000 people crossed it that day with up to 2000 people on the bridge at any one time. At first, the bridge was still. Then it began to sway just slightly. Then, almost from one moment to the next, when large groups of people were crossing, the wobble intensified. This movement became sufficiently large for people to lose their balance and sometimes to hold onto the handrails. It was decided immediately to limit the number of people on the bridge, but even so, the deck movement was sufficient to be uncomfortable and to raise concern for public safety, so on 12 June the bridge was closed until the problem could be solved. The embarrassed engineers found from the videotape that day that the center span was swaying about 5 inches side to side every second. The engineers first thought that winds might be exerting excessive force on the many large flags and banners bedecking the bridge for its gala premiere. What’s more, they also discovered that the pedestrians played a key role. Human activities, such as walking, created excessive dynamic vibration in the lateral direction in the bridge. As the structure began moving, pedestrians adjusted their gait to the same lateral rhythm as the bridge, reinforcing the oscillation. In order to design a method of reducing the movements, the force exerted by the pedestrians had to be quantified and related to the motion of the bridge. Although there are some descriptions of this phenomenon in existing literature, none of these actually quantifies the force. So there was no quantitative analytical way to design the bridge against this effect. An immediate research program was launched by the bridge’s engineering designers, Ove Arup, supported by a number of universities and research organizations. The tests at the University of Southampton involved a person walking 'on the spot' on a small shake table. The tests at Imperial College involved persons walking along a specially built 7.2-meter-long platform which could be driven laterally at different frequencies and amplitudes. Each type of test had its limitations. The Imperial College tests were only able to capture 7-8 footsteps, and the ‘walking on the spot’ tests, although monitoring many footsteps, could not investigate normal forward walking. Neither test could investigate any influence of other people in a crowd on the behavior of the individual being tested. The results of the laboratory tests provided information which enabled the initial design of a retrofit to be progressed. However, the limitations of these tests were clear, and it was felt that the only way to replicate properly the precise conditions of the Millennium Bridge was to carry out crowd tests on the bridge deck itself. These tests, done by the Arup engineers, could incorporate factors not possible in the laboratory tests. The first of these was carried out with 100 people in July 2000. The results of these tests were used to refine the load model for the pedestrians. A second series of crowd tests was carried out on the bridge in December 2000. The purpose of these tests was to further validate the load model for the pedestrians and the bridge deck itself. The tests were carried out with 275 people. Unless the usage of the bridge was to be greatly restricted, only two generic options to improve its performance were considered feasible. The first was to increase the stiffness of the bridge to move all its lateral natural frequencies out of the range that could be excited by the lateral footfall forces, and the second was to increase the damping of the bridge to reduce the resonant response.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–26 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:26:00Z",
+      "questions": [
+        {
+          "question_number": 14,
+          "question_type": "Multiple Choice",
+          "text": "Which FOUR of the following situations were witnessed on the opening ceremony of the bridge?",
+          "instruction": "Choose FOUR letters, A-H. Write the correct letters in boxes 14-17 on your answer sheet.",
+          "answer": "A, D, E, G",
+          "options": [
+            "A. The frequency of oscillation increased after some time.",
+            "B. All the engineers went to see the ceremony that day.",
+            "C. The design of the bridge astonished the people.",
+            "D. Unexpected sideways movement of the bridge occurred.",
+            "E. Pedestrians had difficulty in walking on the deck.",
+            "F. The bridge fell down when people tried to retain their balance.",
+            "G. Vibration could be detected on the deck by the pedestrians.",
+            "H. It was raining when the ceremony began."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 15,
+          "question_type": "Multiple Choice",
+          "text": "Which FOUR of the following situations were witnessed on the opening ceremony of the bridge?",
+          "instruction": "Choose FOUR letters, A-H. Write the correct letters in boxes 14-17 on your answer sheet.",
+          "answer": "A, D, E, G",
+          "options": [
+            "A. The frequency of oscillation increased after some time.",
+            "B. All the engineers went to see the ceremony that day.",
+            "C. The design of the bridge astonished the people.",
+            "D. Unexpected sideways movement of the bridge occurred.",
+            "E. Pedestrians had difficulty in walking on the deck.",
+            "F. The bridge fell down when people tried to retain their balance.",
+            "G. Vibration could be detected on the deck by the pedestrians.",
+            "H. It was raining when the ceremony began."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 16,
+          "question_type": "Multiple Choice",
+          "text": "Which FOUR of the following situations were witnessed on the opening ceremony of the bridge?",
+          "instruction": "Choose FOUR letters, A-H. Write the correct letters in boxes 14-17 on your answer sheet.",
+          "answer": "A, D, E, G",
+          "options": [
+            "A. The frequency of oscillation increased after some time.",
+            "B. All the engineers went to see the ceremony that day.",
+            "C. The design of the bridge astonished the people.",
+            "D. Unexpected sideways movement of the bridge occurred.",
+            "E. Pedestrians had difficulty in walking on the deck.",
+            "F. The bridge fell down when people tried to retain their balance.",
+            "G. Vibration could be detected on the deck by the pedestrians.",
+            "H. It was raining when the ceremony began."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 17,
+          "question_type": "Multiple Choice",
+          "text": "Which FOUR of the following situations were witnessed on the opening ceremony of the bridge?",
+          "instruction": "Choose FOUR letters, A-H. Write the correct letters in boxes 14-17 on your answer sheet.",
+          "answer": "A, D, E, G",
+          "options": [
+            "A. The frequency of oscillation increased after some time.",
+            "B. All the engineers went to see the ceremony that day.",
+            "C. The design of the bridge astonished the people.",
+            "D. Unexpected sideways movement of the bridge occurred.",
+            "E. Pedestrians had difficulty in walking on the deck.",
+            "F. The bridge fell down when people tried to retain their balance.",
+            "G. Vibration could be detected on the deck by the pedestrians.",
+            "H. It was raining when the ceremony began."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 18,
+          "question_type": "Summary Completion",
+          "text": "After the opening ceremony, the embarrassed engineers tried to find out the reason of the bridge’s wobbling. Judged from the videotape, they thought that ______ might create excessive force on the bridge.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage 2 using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 18-22 on your answer sheet.",
+          "answer": "Wind forces",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 19,
+          "question_type": "Summary Completion",
+          "text": "After the opening ceremony, the embarrassed engineers tried to find out the reason of the bridge’s wobbling. Judged from the videotape, they thought that ______ might create excessive force on the bridge.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage 2 using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 18-22 on your answer sheet.",
+          "answer": "Flags banners",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 20,
+          "question_type": "Summary Completion",
+          "text": "The distribution of ______ resulted from human activities could cause ______ throughout the structure.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage 2 using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 18-22 on your answer sheet.",
+          "answer": "Pedestrian movement",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 21,
+          "question_type": "Summary Completion",
+          "text": "The distribution of ______ resulted from human activities could cause ______ throughout the structure.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage 2 using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 18-22 on your answer sheet.",
+          "answer": "Lateral vibration",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 22,
+          "question_type": "Summary Completion",
+          "text": "This swaying prompted people to start adjusting the way they walk, which in turn reinforced the ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage 2 using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 18-22 on your answer sheet.",
+          "answer": "Bridge oscillation",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 23,
+          "question_type": "Table Completion",
+          "text": "University of Southampton: Activity",
+          "instruction": "Complete the table below. Choose NO MORE THAN THREE WORDS from Reading Passage 2 for each answer. Write your answers in boxes 23-26 on your answer sheet.",
+          "answer": "Walking on spot",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 24,
+          "question_type": "Table Completion",
+          "text": "Imperial College: Activity",
+          "instruction": "Complete the table below. Choose NO MORE THAN THREE WORDS from Reading Passage 2 for each answer. Write your answers in boxes 23-26 on your answer sheet.",
+          "answer": "Walking on platform",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 25,
+          "question_type": "Table Completion",
+          "text": "Arup engineers (July 2000): Activity",
+          "instruction": "Complete the table below. Choose NO MORE THAN THREE WORDS from Reading Passage 2 for each answer. Write your answers in boxes 23-26 on your answer sheet.",
+          "answer": "Crowd tests",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 26,
+          "question_type": "Table Completion",
+          "text": "Arup engineers (December 2000): Activity",
+          "instruction": "Complete the table below. Choose NO MORE THAN THREE WORDS from Reading Passage 2 for each answer. Write your answers in boxes 23-26 on your answer sheet.",
+          "answer": "Validate load model",
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Musicophilia",
+      "body": "Performing Beethoven’s Pathetique Sonata makes a positive impression that is borne out by the contents of the book. Sacks’s voice throughout is steady and erudite but never pontifical. He is neither self-conscious nor self-promoting. The preface gives a good idea of what the book will deliver. In it, Sacks explains that he wants to convey the insights gleaned from the 'enormous and rapidly growing body of work on the neural underpinnings of musical perception and imagery, and the complex and often bizarre disorders to which these are prone.' He also stresses the importance of 'the simple art of observation' and 'the richness of the human context.' He wants to combine 'observation and description with the latest in technology,' he says, and to imaginatively enter into the experience of his patients and subjects. The reader can see that Sacks, who has been practicing neurology for 40 years, knows that he needs to take heed of the latter, but his heart lies with the former. The book consists mainly of detailed descriptions of cases, most of them involving patients whom Sacks has seen in his practice. Brief discussions of contemporary neuroscientific reports are sprinkled liberally throughout the text. Part I, 'Haunted by Music,' begins with the strange case of Tony Cicoria, a nonmusical, middle-aged surgeon who was consumed by a love of music after being hit by lightning. He suddenly began to crave listening to piano music, which he had never cared for in the past. He started to play the piano and then to compose music, which arose spontaneously in his mind. Was this a spiritual experience when the lightning struck him? Or was it the direct result of a change in the auditory regions of his cerebral cortex? Electroencephalography (EEG) showed his brain waves to be normal in the mid-1990s, just after his trauma and subsequent 'conversion' to music. There are now more sensitive tests, but Cicoria has declined to undergo them; he does not want to delve into the causes of his musicality. What a shame. Part II, 'A Range of Musicality,' covers a wider variety of topics, but unfortunately, some of the chapters offer little or nothing that is new. For example, chapter 13, which is five pages long, merely reiterates known information. Chapter 8 is about 'amusia,' an inability to hear sounds as music, and 'dysharmonia,' a highly specific impairment of the ability to hear harmony, with the ability to understand melody left intact. Such specific 'dissociations' are found throughout the cases Sacks recounts. To Sacks’s credit, Part III, 'Memory, Movement and Music,' brings us into the underappreciated realm of music therapy. Chapter 16 explains how 'melodic intonation therapy' is being used to help expressive aphasic patients (those unable to express their thoughts verbally following a stroke or other cerebral incident) once again become capable of fluent speech. In chapter 20, Sacks demonstrates the near-miraculous power of music to animate Parkinson’s patients and other people with severe movement disorders, even those who are frozen into odd postures. Scientists cannot yet explain how music achieves this effect. To readers who are unfamiliar with neuroscience and music behavior, Musicophilia may be something of a revelation. But the book will not satisfy those seeking the causes and implications of the phenomena Sacks describes. For one thing, Sacks appears to be more at ease discussing patients than discussing experiments. And he tends to be rather uncritical in accepting scientific findings and theories. It’s true that the causes of music-brain oddities remain poorly understood. However, Sacks could have done more to draw out some of the implications of the careful observations that he and other neurologists have made and of the treatments that have been successful. For example, he might have noted that the many specific dissociations among components of music comprehension, such as loss of the ability to perceive harmony but not melody, indicate that there is no music center in the brain. Because many people who read the book are likely to believe in the brain localization of all mental functions, this was a missed educational opportunity. Another conclusion one could draw is that there seem to be no 'cures' for neurological problems involving music. A drug can alleviate a symptom in one patient and aggravate it in another or can have both positive and negative effects in the same patient. Treatments mentioned seem to be almost exclusively antiepileptic medications, which 'damp down' the excitability of the brain in general; their effectiveness varies widely. Finally, in many of the cases described here, the patient with music-brain symptoms is reported to have 'normal' EEG results. Although Sacks recognizes the existence of new technologies, among them far more sensitive ways to analyze brain waves than the standard neurological EEG test, he does not call for their use. In fact, although he exhibits the greatest compassion for patients, he conveys no sense of urgency about the pursuit of new avenues in the diagnosis and treatment of music-brain disorders. This absence echoes the book’s preface, in which Sacks expresses fear that 'the simple art of observation may be lost' if we rely too much on new technologies. He does call for both approaches, though, and we can only hope that the neurological community will respond.",
+      "section_instruction": "You should spend about 20 minutes on Questions 27–40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:26:00Z",
+      "questions": [
+        {
+          "question_number": 27,
+          "question_type": "Multiple Choice",
+          "text": "Why does the writer have a mixed feeling about the book?",
+          "instruction": "Choose the correct letter A, B, C or D. Write the correct letter in boxes 27-30 on your answer sheet.",
+          "answer": "B",
+          "options": [
+            "A. The guilty feeling made him so.",
+            "B. The writer expected it to be better than it was.",
+            "C. Sacks failed to include his personal stories in the book.",
+            "D. This is the only book written by Sacks."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 28,
+          "question_type": "Multiple Choice",
+          "text": "What is the best part of the book?",
+          "instruction": "Choose the correct letter A, B, C or D. Write the correct letter in boxes 27-30 on your answer sheet.",
+          "answer": "B",
+          "options": [
+            "A. The photo of Sacks listening to music",
+            "B. The tone of voice of the book",
+            "C. The autobiographical description in the book",
+            "D. The description of Sacks’s wealth"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 29,
+          "question_type": "Multiple Choice",
+          "text": "In the preface, what did Sacks try to achieve?",
+          "instruction": "Choose the correct letter A, B, C or D. Write the correct letter in boxes 27-30 on your answer sheet.",
+          "answer": "A",
+          "options": [
+            "A. Make a herald introduction of the research work and technique applied",
+            "B. Give detailed description of various musical disorders",
+            "C. Explain how people understand music",
+            "D. Explain why he needs to do away with simple observation"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 30,
+          "question_type": "Multiple Choice",
+          "text": "What is disappointing about Tony Cicoria’s case?",
+          "instruction": "Choose the correct letter A, B, C or D. Write the correct letter in boxes 27-30 on your answer sheet.",
+          "answer": "A",
+          "options": [
+            "A. He refuses to have further tests.",
+            "B. He can’t determine the cause of his sudden musicality.",
+            "C. He nearly died because of the lightning.",
+            "D. His brain waves were too normal to show anything."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 31,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "It is difficult to give a well-reputable writer a less than totally favorable review.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 32,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "Beethoven’s Pathetique Sonata is a good treatment for musical disorders.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "NO",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 33,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "Sacks believes technological methods are of little importance compared with traditional observation when studying his patients.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "YES",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 34,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "It is difficult to understand why music therapy is undervalued.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "YES",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 35,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "Sacks held little skepticism when borrowing other theories and findings in describing reasons and notions for phenomena he depicts in the book.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "YES",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 36,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "Sacks is in a rush to use new testing methods to do treatment for patients.",
+          "instruction": "Do the following statements agree with the views of the writer in Reading Passage 3? In boxes 31-36 on your answer sheet, write YES, NO, or NOT GIVEN.",
+          "answer": "NO",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 37,
+          "question_type": "Sentence Completion",
+          "text": "The content covered dissociations in understanding between harmony and melody.",
+          "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F, in boxes 37-40 on your answer sheet.",
+          "answer": "F",
+          "options": [
+            "A. Show no music-brain disorders.",
+            "B. Indicates that medication can have varied results.",
+            "C. Is key for the neurological community to unravel the mysteries.",
+            "D. Should not be used in isolation.",
+            "E. Indicate that not everyone can receive good education.",
+            "F. Show a misconception that there is a function centre localized in the brain."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 38,
+          "question_type": "Sentence Completion",
+          "text": "The study of treating musical disorders.",
+          "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F, in boxes 37-40 on your answer sheet.",
+          "answer": "B",
+          "options": [
+            "A. Show no music-brain disorders.",
+            "B. Indicates that medication can have varied results.",
+            "C. Is key for the neurological community to unravel the mysteries.",
+            "D. Should not be used in isolation.",
+            "E. Indicate that not everyone can receive good education.",
+            "F. Show a misconception that there is a function centre localized in the brain."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 39,
+          "question_type": "Sentence Completion",
+          "text": "The EEG scans of Sacks’s patients.",
+          "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F, in boxes 37-40 on your answer sheet.",
+          "answer": "A",
+          "options": [
+            "A. Show no music-brain disorders.",
+            "B. Indicates that medication can have varied results.",
+            "C. Is key for the neurological community to unravel the mysteries.",
+            "D. Should not be used in isolation.",
+            "E. Indicate that not everyone can receive good education.",
+            "F. Show a misconception that there is a function centre localized in the brain."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        },
+        {
+          "question_number": 40,
+          "question_type": "Sentence Completion",
+          "text": "Sacks believes testing based on new technologies.",
+          "instruction": "Complete each sentence with the correct ending, A-F, below. Write the correct letter, A-F, in boxes 37-40 on your answer sheet.",
+          "answer": "D",
+          "options": [
+            "A. Show no music-brain disorders.",
+            "B. Indicates that medication can have varied results.",
+            "C. Is key for the neurological community to unravel the mysteries.",
+            "D. Should not be used in isolation.",
+            "E. Indicate that not everyone can receive good education.",
+            "F. Show a misconception that there is a function centre localized in the brain."
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:26:00Z"
+        }
+      ]
+    }
+  ]
+}

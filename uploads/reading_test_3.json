@@ -1,0 +1,612 @@
+{
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 3",
+  "status": "published",
+  "created_at": "2025-06-28T00:00:00Z",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "Invention of Marine Chronometer",
+      "body": "A. It was, as Dava Sobel has described a phenomenon: \u2018the greatest scientific problem of the age\u2019. The reality was that in the 18th century no one had ever made a clock that could suffer the great rolling and pitching of a ship and the large changes in temperature whilst still keeping time accurately enough to be of any use. Indeed, most of the scientific community thought such clock impossibility. Knowing one's position on the earth requires two very simple but essential coordinates; rather like using a street map where one thinks in terms of how far one is up/down and how far side to side.\n\nB. The longitude is a measure of how far around the world one has come from home and has no naturally occurring base line like the equator. The crew of a given ship was naturally only concerned with how far round they were from their own particular home base. Even when in the middle of the ocean, with no land in sight, knowing this longitude position is very simple in theory. The key to knowing how far around the world you are from home is to know, at that very moment, what time it is back home. A comparison with your local time (easily found by checking the position of the Sim) will then tell you the time difference between you and home, and thus how far round the Earth you are from home.\n\nC. Up until the middle of the 18th century, navigators had been unable to determine their position at sea with accuracy and they faced the huge attendant risks of shipwreck or running out of supplies before reaching then destination. The angular position of Moon and other bright stars was recorded in three-hour intervals of Greenwich Time. In order to determine longitude, sailors had to measure the angle between Moon centre and a given star - lunar distance - together with height of both planets using the naval sextant. The sailors also had to calculate the Moon\u2019s position if seen form the centre of Earth. Time corresponding to Greenwich Time was determined using the nautical almanac. Then the difference between the obtained time and local time served for calculation in longitude from Greenwich. The great flaw in this \u2018simple\u2019 theory was - how does the sailor know time back home when he is in the middle of an ocean?\n\nD. The obvious and again simple answer is that he takes an accurate clock with him, which he sets to home time before leaving. All he has to do is keep it wound up and running, and he must never reset the hands throughout the voyage. This clock then provides \u2018home time\u2019, so if, for example, it is midday on board your ship and your \u2018home time\u2019 clock says that at that same moment it is midnight at home, you know immediately there is a twelve hour time-difference and you must be exactly round the other side of the world, 180 degrees of longitude from home.\n\nE. After 1714 when the British government offered the huge sum of \u00a320,000 for a solution to the problem, with the prize to be administered by the splendidly titled Board of Longitude. The Government prize of \u00a320,000 was the highest of three sums on offer for varying degrees of accuracy, the full prize only payable for a method that could find the longitude at sea within half a degree. If the solution was to be by timekeeper (and there were other methods since the prize was offered for any solution to the problem), then the timekeeping required to achieve this goal would have to be within 2.8 seconds a day, a performance considered impossible for any clock at sea and unthinkable for a watch, even under the very best conditions.\n\nF. It was this prize, worth about \u00a32 million today, which inspired the self-taught Yorkshire carpenter, John Harrison, to attempt a design for a practical marine clock. During the latter part of his early career, he worked with his younger brother James. Their first major project was a revolutionary turret clock for the stables at Brocklesby Park, seat of the Pelham family. The clock was revolutionary because it required no lubrication. 18th century clock oils were uniformly poor and one of the major causes of failure in clocks of the period. Rather than concentrating on improvements to the oil, Harrison designed a clock which didn't need it. In 1730 Harrison created a description and drawings for a proposed marine clock to compete for the Longitude Prize and went to London seeking financial assistance. He presented his ideas to Edmond Halley, the Astronomer Royal. Halley referred him to George Graham, the country's foremost clockmaker. He must have been impressed by Harrison, for Graham personally loaned Harrison money to build a model of his marine clock. It took Harrison five years to build Harrison Number One or H1. He demonstrated it to members of the Royal Society who spoke on his behalf to the Board of Longitude. The clock was the first proposal that the Board considered to be worthy of a sea trial. In 1736, ...\n\nG. After several attempts to design a betterment of H1, Harrison believed that the solution to the longitude problem lay in an entirely different design. H4 is completely different from the other three timekeepers. It looks like a very large pocket watch. Harrison's son William set sail for the West Indies, with H4, aboard the ship Deptford on 18 November 1761. It was a remarkable achievement but it would be some time before the Board of Longitude was sufficiently satisfied to award Harrison the prize.\n\nH. John Hadley, an English mathematician, developed sextant, who was a competitor of Harrison at that time for the luring prize. A sextant is an instrument used for measuring angles, for example between the sun and the horizon, so that the position of a ship or aeroplane can be calculated. Making this measurement is known as sighting the object, shooting the object, or taking a sight and it is an essential part of celestial navigation. The angle, and the time when it was measured, can be used to calculate a position line on a nautical or aeronautical chart. A sextant can also be used to measure the Lunar distance between the moon and another celestial object (e.g., star, planet) in order to determine Greenwich time which is important because it can then be used to determine the longitude.\n\nI. The majority within this next generation of chronometer pioneers were English, but the story is by no means wholly that of English achievement. One French name, Pierre Le Roy of Paris, stands out as a major presence in the early history of the chronometer. Another great name in the story is that of the Lancastrian, Thomas Earnshaw, a slightly younger contemporary of John Arnold's. It was Earnshaw who created the final form of chronometer escapement, the spring detent escapement, and finalized the format and the production system for the marine chronometer, making it truly an article of commerce, and a practical means of safer navigation at sea over the next century and half.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1\u201313 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-28T00:00:00Z",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Paragraph Information",
+          "text": "Introduction of a millman under awards.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"F\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Paragraph Information",
+          "text": "The definition of an important geographical term.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"B\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Paragraph Information",
+          "text": "A rival against Harrison\u2019s invention emerged.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"H\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Paragraph Information",
+          "text": "Problems of sailor encountered in identifying the position on the sea.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"C\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Paragraph Information",
+          "text": "Economic assist from another counterpart.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"F\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "It is with no great effort by sailors to calculate the position when in the center of the ocean theoretically.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"YES\"",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "To determine the longitude, a measurement of distance from moon to a given star is a must.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"YES\"",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Identifying Writer's Views/Claims (Yes/No/Not Given)",
+          "text": "In theory, by calculating the longitude degrees covered by a sail journey, the distance between the start and the end points can be obtained.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"NOT GIVEN\"",
+          "options": [
+            "YES",
+            "NO",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Summary Completion",
+          "text": "Sailors tried to identify their time by checking the sun or stars, but the trouble was that they did need a reliable clock which showed time of ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"home\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Summary Completion",
+          "text": "And the timekeeper required would be to precisely tell a tangible time lapse confined to ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"2.8 seconds\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Summary Completion",
+          "text": "Harrison, once created a novel clock which did not rely on ______ to work properly.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"oil\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Summary Completion",
+          "text": "Later on, competitive mode of ______ was another prominent device designed by Hadley, which calculated angle between sun and the earth.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"sextant\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Summary Completion",
+          "text": "Earnshaw eventually implemented key components for ______, which had been used ever since.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"marine chronometer\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "Father of modern management",
+      "body": "A. It\u2019s been said that Peter Drucker invented the discipline of management. Before he wrote his first book on the topic, he knew of only two companies in the world with management development programs. Ten years after the book\u2019s publication, 3,000 companies were teaching the subject. Widely considered as the father of modern management, he wrote 39 books and countless scholarly and popular articles exploring how humans are organized in all sectors of society\u2014business, government and the nonprofit world. His writings have predicted many of the major developments of the late twentieth century, including privatization and decentralization; the rise of Japan to a world economic power; the decisive importance of marketing; and the emergence of the information society with its necessity of lifelong learning.\n\nB. Drucker has said that writing is the foundation of everything he does. In 1937, he published his first book, which was written in Europe. The End of Economic Man: A Study of the New Totalitarianism examined the spiritual and social origins of fascism. In 1940, before the United States entered World War II, he wrote The Future of Industrial Man, in which he presented his social vision for the postwar world. In 1943, General Motors asked Drucker to study its management practices. Drucker accepted and spent 18 months researching and writing the 1945 book Concept of the Corporation.\n\nC. The concepts Drucker introduced in the 1940s and 1950s have endured. In 1954, Drucker wrote his first book that taught people how to manage. Titled The Practice of Management, it introduced the concept of management by objectives. Management by objectives require managers to establish goals for their subordinates and devise means of measuring results. Workers are then left alone to perform as they will and measure their performance. Drucker wrote, \"It is not possible to be effective unless one first decides what one wants to accomplish.\" He went on to explain that every worker must be given the tools \"to appraise himself, rather than be appraised and controlled from the outside.\" Management by objectives has become an accepted business concept and is probably Drucker's most important contribution. Drucker issued challenges to junior, middle and senior management: \"The very term 'middle management' is becoming meaningless [as some] will have to learn how to work with people over whom they have no direct line control, to work transnationally, and to create, maintain, and run systems\u2014none of which are traditionally middle management tasks.\" It is top management that faces the challenge of setting directions for the enterprise, of managing the fundamentals.\n\nD. Drucker interviewed executives and workers, visited plants, and attended board meetings. While the book focused on General Motors, Drucker went on to discuss the industrial corporation as a social institution and economic policy in the postwar era. He introduced previously unknown concepts such as cooperation between labor and management, decentralization of management, and viewing workers as resources rather than costs. Drucker saw people as a resource, and considered that they would be more able to satisfy customers if they had more involvement in their jobs and gained some satisfaction from doing them. Drucker claimed that an industrial society allows people to realize their dreams of personal achievement and equal opportunity\u2014the need to manage business by balancing a variety of needs and goals, rather than subordinating an institution to a single value. This concept of management by objectives forms the keynote of his 1954 landmark The Practice of Management. He referred to decentralization as 'a system of local self government, in which central management tells division managers what to do, but not how to do it.' The young executives are given the freedom to make decisions\u2014and mistakes\u2014and learn from the experience. Top leaders at General Motors disliked the book and discouraged their executives from reading it. Many other American executives criticized Concept for its challenge to management authority.\n\nE. Drucker wasn't immune to criticism. The Wall Street Journal researched several of his lectures in 1987 and reported that he was sometimes loose with facts. Drucker was off the mark, for example, when he told an audience that English was the official language for all employees at Japan's Mitsui trading company. And he was known for his prescience. Given the recent involvement of the US government with financial companies, he was probably correct in his forecast when he anticipated, for instance, that the nation\u2019s financial center would shift from New York to Washington, others maintain that one of Drucker's core concepts\u2014'management by objectives'\u2014is flawed and has never really been proven to work effectively. Specifically, critics say that the system is difficult to implement, and that companies often wind up overemphasizing control, as opposed to fostering creativity, to meet their goals. Drucker didn't shy away from controversy, either.\n\nF. Throughout his career, Drucker expanded his position that management was 'a liberal art' and he infused his management advice with interdisciplinary lessons including history, sociology, psychology, philosophy, culture and religion. He also strongly believed that all institutions, including those in the private sector, had a responsibility for the whole society. 'The fact is,' Drucker wrote in 1973, 'that in modern society there is no other leadership group but managers. If the managers of our major institutions, especially in business, do not take responsibility for the common good, no one else can or will.' In his books, lectures and interviews, the emergence of knowledge workers is only one of the demographic changes Drucker warns businesses to prepare for. Others include a decreasing birth rate in developed countries, a shift in population from rural to urban centers, shifts in distribution of disposable income and global competitiveness. Drucker believes these changes will have a tremendous impact on business. Drucker held a profound skepticism of macroeconomic theory and contended that economists of all schools fail to explain significant aspects of modern economies. Business 'gurus' have come and gone during the last 50 years, but Drucker's message continues to inspire managers. During the 1990s, Drucker wrote about social, political and economic changes of the 'postcapitalist' era, which he says are as profound as those of the industrial revolution. In Managing for the Future: The 1990s and Beyond (1992), Drucker discussed the emergence of the 'knowledge worker'\u2014whose resources include specialized learning or competency rather than land, labor or other forms of capital.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14\u201327 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-28T00:00:00Z",
+      "questions": [
+        {
+          "question_number": 14,
+          "question_type": "Matching Headings",
+          "text": "Paragraph A",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"v\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 15,
+          "question_type": "Matching Headings",
+          "text": "Paragraph B",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"iii\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 16,
+          "question_type": "Matching Headings",
+          "text": "Paragraph C",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"ii\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 17,
+          "question_type": "Matching Headings",
+          "text": "Paragraph D",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"ix\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 18,
+          "question_type": "Matching Headings",
+          "text": "Paragraph E",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"viii\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 19,
+          "question_type": "Matching Headings",
+          "text": "Paragraph F",
+          "instruction": "Choose the correct heading for paragraphs A\u2013F.",
+          "answer": "\"vii\"",
+          "options": [
+            "i",
+            "ii",
+            "iii",
+            "iv",
+            "v",
+            "vi",
+            "vii",
+            "viii",
+            "ix"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 20,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Drucker believed the employees should enjoy the same status as the employers in a company.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"NOT GIVEN\"",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 21,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Middle management tasks will change since companies become more complicated and run business globally.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"TRUE\"",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 22,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Drucker strongly support that economists of schools have resources to explain the problems of modern economies at least in a macroeconomics scope.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"FALSE\"",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 23,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Drucker\u2019s ideas proposed half a century ago are out of date in modern days.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"FALSE\"",
+          "options": [
+            "TRUE",
+            "FALSE",
+            "NOT GIVEN"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 24,
+          "question_type": "Multiple Choice",
+          "text": "Managers should be responsible for the common good of the whole society.",
+          "instruction": "Which TWO of the following are true of Drucker\u2019s views?",
+          "answer": "\"A\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 25,
+          "question_type": "Multiple Choice",
+          "text": "Management should facilitate workers with tools of self-appraisal instead of controlling them from the outside.",
+          "instruction": "Which TWO of the following are true of Drucker\u2019s views?",
+          "answer": "\"D\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 26,
+          "question_type": "Multiple Choice",
+          "text": "His lectures are too broad and lack of being precise and accurate about the facts.",
+          "instruction": "Which TWO of the following are mentioned in the passage as criticisms to Drucker and his views?",
+          "answer": "\"B\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 27,
+          "question_type": "Multiple Choice",
+          "text": "His ideas are sometimes impractical and result in opposite outcomes.",
+          "instruction": "Which TWO of the following are mentioned in the passage as criticisms to Drucker and his views?",
+          "answer": "\"D\"",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Extinct: the Giant Deer",
+      "body": "A. The Irish elk is also known as the giant deer (Megaloceros giganteus). Analysis of ancient bones and teeth by scientists based in Britain and Russia show the huge herbivore survived until about 5,000 B.C.\u2014more than three millennia later than previously believed. The research team says this suggests additional factors, besides climate change, probably hastened the giant deer's eventual extinction. The factors could include hunting or habitat destruction by humans.\n\nB. The Irish elk, so-called because its well-preserved remains are often found in lake sediments under peat bogs in Ireland, first appeared about 400,000 years ago in Europe and central Asia. Through a combination of radiocarbon dating of skeletal remains and the mapping of locations where the remains were unearthed, the team shows the Irish elk was widespread across Europe before the last 'big freeze.' The deer's range later contracted to the Ural Mountains, in modern-day Russia, which separate Europe from Asia.\n\nC. The giant deer made its last stand in western Siberia, some 3,000 years after the ice sheets receded, said the study's co-author, Adrian Lister, professor of palaeobiology at University College London, England. 'The eastern foothills of the Urals became very densely forested about 8,000 years ago, which could have pushed them on to the plain,' he said. He added that pollen analysis indicates the region then became very dry in response to further climactic change, leading to the loss of important food plants. 'In combination with human pressures, this could have finally snuffed them out,' Lister said.\n\nD. Hunting by humans has often been put forward as a contributory cause of extinctions of the Pleistocene mega fauna. The team, though, said their new date for the Irish elk's extinction hints at an additional human-made problem\u2014habitat destruction. Lister said, 'We haven't got just hunting 7,000 years ago\u2014this was also about the time the first Neolithic people settled in the region. They were farmers who would have cleared the land.' The presence of humans may help explain why the Irish elk was unable to tough out the latest of many climatic fluctuations\u2014periods it had survived in the past.\n\nE. Meanwhile, Lister cast doubt on another possible explanation for the deer's demise\u2014the male's huge antlers. Some scientists have suggested this exaggerated feature\u2014the result of females preferring stags with the largest antlers, possibly because they advertised a male's fitness \u2014contributed to the mammal's downfall. They say such antlers would have been a serious inconvenience in the dense forests that spread northward after the last ice age. But, Lister said, 'That's a hard argument to make, because the deer previously survived perfectly well through wooded interglacials [warmer periods between ice ages].' Some research has suggested that a lack of sufficient high-quality forage caused the extinction of the elk. High amounts of calcium and phosphate compounds are required to form antlers, and therefore large quantities of these minerals are required for the massive structures of the Irish Elk. The males (and male deer in general) met this requirement partly from their bones, replenishing them from food plants after the antlers were grown or reclaiming the nutrients from discarded antlers (as has been observed in extant deer). Thus, in the antler growth phase, Giant Deer were suffering from a condition similar to osteoporosis. When the climate changed at the end of the last glacial period, the vegetation in the animal's habitat also changed towards species that presumably could not deliver sufficient amounts of the required minerals, at least in the western part of its range.\n\nF. The extinction of megafauna around the world was almost completed by the end of the last ice age. It is believed that megafauna initially came into existence in response to glacial conditions and became extinct with the onset of warmer climates. Tropical and subtropical areas have experienced less radical climatic change. The most dramatic of these changes was the transformation of a vast area of north Africa into the world's largest desert. Significantly, Africa escaped major faunal extinction as did tropical and sub-tropical Asia. The human exodus from Africa and our entrance into the Americas and Australia were also accompanied by climate change. Australia's climate changed from cold-dry to warm-dry. As a result, surface water became scarce. Most inland lakes became completely dry or dry in the warmer seasons. Most large, predominantly browsing animals lost their habitat and retreated to a narrow band in eastern Australia, where there was permanent water and better vegetation. Some animals may have survived until about 7000 years ago. If people have been in Australia for up to 60,000 years, then megafauna must have co-existed with humans for at least 30,000 years. Regularly hunted modern kangaroos survived not only 10,000 years of Aboriginal hunting, but also an onslaught of commercial shooters.\n\nG. The group of scientists led by A.J. Stuart focused on northern Eurasia, which he was taking as Europe, plus Siberia, essentially, where they've got the best data that animals became extinct in Europe during the Late Pleistocene. Some cold-adapted animals, go through into the last part of the cold stage, and then become extinct up there. So you've actually got two phases of extinction. Now, neither of these coincide \u2014 these are Neanderthals here being replaced by modern humans. There's no obvious coincidence between the arrival of humans or climatic change alone and these extinctions. There's a climatic change here, so there's a double effect here. Again, as animals come through to the last part of the cold stage, here there's a fundamental change in the climate, reorganization of vegetation, and the combination of the climatic change and the presence of humans -- of advanced Paleolithic humans \u2014 causes this wave of extinction. There's a profound difference between the North American data and that of Europe, which summarize that the extinctions in northern Eurasia, in Europe, are moderate and staggered, and in North America severe and sudden. And these things relate to the differences in the timing of human arrival. The extinctions follow from human predation, but only at times of fundamental changes in the environment.",
+      "section_instruction": "You should spend about 20 minutes on Questions 28\u201340 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-28T00:00:00Z",
+      "questions": [
+        {
+          "question_number": 28,
+          "question_type": "Summary Completion",
+          "text": "Remains of the Irish elk was initially found approximately ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"400,000 years ago\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 29,
+          "question_type": "Summary Completion",
+          "text": "Around ______, they were driven to live in the plain after being restricted to the Ural Mountains.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"8,000 years ago\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 30,
+          "question_type": "Summary Completion",
+          "text": "People have not started hunting until ______ when Irish elk used to get through under a variety of climatic fluctuations.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"Neolithic\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 31,
+          "question_type": "Summary Completion",
+          "text": "The huge antlers may possibly contribute to the reason why Irish elk extinct, which was highly controversial as they live pleasantly over the span of ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"wooded interglacials\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 32,
+          "question_type": "Summary Completion",
+          "text": "At the last maximum ice age, mammals become extinct about ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"10,500 years ago\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 33,
+          "question_type": "Short-answer Questions",
+          "text": "What kind of physical characteristics eventually contributed to the extinction of Irish elk?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage for each answer.",
+          "answer": "\"huge antlers\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 34,
+          "question_type": "Short-answer Questions",
+          "text": "What kind of nutrient substance needed in maintaining the huge size of Irish elk?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage for each answer.",
+          "answer": "\"calcium and phosphate\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 35,
+          "question_type": "Short-answer Questions",
+          "text": "What geographical evidence suggested the advent of human resulted in the extinction of Irish elk?",
+          "instruction": "Choose NO MORE THAN THREE WORDS AND/OR A NUMBER from the passage for each answer.",
+          "answer": "\"cleared the land\"",
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 36,
+          "question_type": "Matching Headings",
+          "text": "The continents where humans imposed little impact on large mammals extinction.",
+          "instruction": "Choose the letter A-D and fill in box 36-39",
+          "answer": "\"D\"",
+          "options": [
+            "A. Eurasia",
+            "B. Australia",
+            "C. Asia",
+            "D. Africa"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 37,
+          "question_type": "Matching Headings",
+          "text": "The continents where the climatic change was mild and fauna remains.",
+          "instruction": "Choose the letter A-D and fill in box 36-39",
+          "answer": "\"C\"",
+          "options": [
+            "A. Eurasia",
+            "B. Australia",
+            "C. Asia",
+            "D. Africa"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 38,
+          "question_type": "Matching Headings",
+          "text": "The continents where both humans and climatic change are the causes.",
+          "instruction": "Choose the letter A-D and fill in box 36-39",
+          "answer": "\"A\"",
+          "options": [
+            "A. Eurasia",
+            "B. Australia",
+            "C. Asia",
+            "D. Africa"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 39,
+          "question_type": "Matching Headings",
+          "text": "The continents where the climatic change alone caused a massive extinction.",
+          "instruction": "Choose the letter A-D and fill in box 36-39",
+          "answer": "\"B\"",
+          "options": [
+            "A. Eurasia",
+            "B. Australia",
+            "C. Asia",
+            "D. Africa"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        },
+        {
+          "question_number": 40,
+          "question_type": "Multiple Choice",
+          "text": "Which statement is true according to the Stuart team's finding?",
+          "instruction": "Choose the correct letter A, B, C or D.",
+          "answer": "\"C\"",
+          "options": [
+            "A. Neanderthals rather than modern humans caused the extinction in Europe",
+            "B. Paleolithic humans in Europe along kill the big animals such as Giant deer",
+            "C. climatic change was not solely responsible for the megafauna extinction in Europe",
+            "D. moderate and staggered extinction was mainly the result of fundamental climatic change"
+          ],
+          "status": "published",
+          "created_at": "2025-06-28T00:00:00Z"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+/* src/styles/datagrid.css */
+
+.rdg {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rdg-header-row {
+  background: #f8f9fa;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rdg-cell {
+  padding: 10px;
+}

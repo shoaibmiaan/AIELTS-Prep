@@ -1,0 +1,489 @@
+{
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 17",
+  "status": "published",
+  "created_at": "2025-06-29T13:23:00Z",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "Mental Gymnastics",
+      "body": "The working day has just started at the head office of Barclays Bank in London. Seventeen staff are helping themselves to a buffet breakfast as young psychologist Sebastian Bailey enters the room to begin the morning's training session. But this is no ordinary training session. He's not here to sharpen their finance or management skills. He's here to exercise their brains. Today's workout, organised by a company called the Mind Gym in London, is entitled 'having presence.' What follows is an intense 90-minute session in which this rather abstract concept is gradually broken down into a concrete set of feelings, mental tricks and behaviours. At one point the bankers are instructed to shut their eyes and visualise themselves filling the room and then the building. They finish up by walking around the room acting on various levels of presence, from low-key to bold. It's easy to poke fun. Yet similar mental workouts are happening in corporate seminar rooms around the globe. The Mind Gym alone offers some 70 different sessions, including ones on mental stamina, creativity for logical thinkers and 'zoom learning.' Other outfits draw more directly on the exercise analogy, offering 'neurobics' courses with names like 'brain sets' and 'cerebral fitness.' Then there are books with titles like Pumping Ions, full of brainteasers that claim to 'flex your mind,' and software packages offering memory and spatial-awareness games. But whatever the style, the companies' sales pitch is invariably the same—follow our routines to shape and sculpt your brain or mind, just as you might tone and train your body. And, of course, they nearly all claim that their mental workouts draw on serious scientific research and thinking into how the brain works. One outfit, Brainergy of Cambridge, Massachusetts (motto: 'Because your grey matter matters') puts it like this: 'Studies have shown that mental exercise can cause changes in brain anatomy and brain chemistry which promote increased mental efficiency and clarity. The neuroscience is cutting-edge.' And on its website, Mind Gym trades on a quote from Susan Greenfield, one of Britain's best known neuroscientists: 'It's a bit like going to the gym, if you exercise your brain it will grow.' Indeed, the Mind Gym originally planned to hold its sessions in a local health club, until its founders realised where the real money was to be made. Modern companies need flexible, bright thinkers and will seize on anything that claims to create them, especially if it looks like a quick fix backed by science. But are neurobic workouts really backed by science? And do we need them? Nor is there anything remotely high-tech about what Lawrence Katz, co-author of Keep Your Brain Alive, recommends. Katz, a neurobiologist at Duke University Medical School in North Carolina, argues that just as many of us fail to get enough physical exercise, so we also lack sufficient mental stimulation to keep our brain in trim. Since we are busy with jobs, family and housework. But most of this activity is repetitive routine. And any leisure time is spent slumped in front of the TV. So, read a book upside down. Write or brush your teeth with your wrong hand. Feel your way around the room with your eyes shut. Sniff vanilla essence while listening intently to orchestral music. Anything, says Katz, to break your normal mental routine. It will help invigorate your brain, encouraging its cells to make new connections and pump out neurotrophins, substances that feed and sustain brain circuits. Well, up to a point it will. 'What I'm really talking about is brain maintenance rather than bulking up your IQ,' Katz adds. Neurobics, in other words, is about letting your brain fulfill its potential. It cannot create super-brains. Certainly the brain is an organ that can adapt to the demands placed on it. Tests on single brain tissue, for example, have repeatedly shown that electrically stimulating the synapses that connect nerve cells thought to be crucial to learning and reasoning, makes them stronger and more responsive. Brain scans suggest we use a lot more of our grey matter when carrying out new or strange tasks than when we're doing well-rehearsed ones. Rats raised in bright cages with toys sprout more neural connections than rats raised in bare cages—suggesting perhaps that novelty and variety could be crucial to a developing brain. Katz argues that people who look to a new brain to produce a new brain again often sprout new connections to compensate for the loss—especially if they undergo extensive therapy to overcome any paralysis. Guy Claxton, an educational psychologist at the University of Bristol, dismisses most of the neurological approaches as 'neuro-babble.' Nevertheless, there are specific mental skills we can learn, he contends. Desirable attributes such as creativity, mental flexibility, and even motivation, are not the fixed facilities that most of us think. They are thought habits that can be learned. The problem, says Claxton, is that most of us never get proper training in these skills. We develop our own private set of mental strategies for tackling tasks and never learn anything explicitly. When small, learned skills—even driving a car or brushing our teeth—quickly become tasks of consciousness, we can no longer see the very thought habits we're relying upon. Our mental tools become invisible to us. Claxton is the academic adviser to the Mind Gym. So not surprisingly, the company espouses his solution—that we must return our thought patterns to a conscious level, becoming aware of the details of how we usually think. Only then can we start to practise better thought patterns, until eventually these become our new habits. Switching metaphors, picture not gym classes, but tennis or football coaching. In practice, the training can seem quite mundane. For example, in one of the eight different creativity workouts offered by the Mind Gym—entitled 'creativity for logical thinkers'—one of the mental strategies taught is to make a sensible suggestion, then immediately pose its opposite. So, asked to spend five minutes inventing a new pizza, a group soon comes up with no topping, sweet topping, cold topping, price based on time of day, flat-rate prices and so on. Bailey agrees that the trick is simple. But it is surprising how few such tricks people have to call upon when they are suddenly asked to be creative. 'They tend to just label themselves as uncreative, not realising that there are techniques that every creative person employs.' Bailey says the aim is to introduce people to half a dozen or so such strategies in a session so that what at first seems like a dauntingly abstract mental task becomes a set of concrete, learnable behaviours. He admits this is not a short cut to genius. Neurologically, some people do start with quicker circuits or greater handling capacity. However, with the right kind of training he thinks we can dramatically increase how efficiently we use it. It is hard to prove that the training itself is effective. How do you measure a change in an employee's creativity levels, or memory skills? But staff certainly report feeling that such classes have opened their eyes. So, neurological boosting or psychological training? At the moment you can pay your money and take your choice. Claxton for one believes there is no reason why schools and universities shouldn't spend more time teaching basic thinking skills, rather than trying to stuff heads with facts and hoping that effective thought habits are somehow absorbed by osmosis.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:23:00Z",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Mind Gym coach instructed employees to imagine the whole room was full of their presence.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 1-5 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The variety offered by Mind Gym exercises matched their claim",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 1-5 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Brainergy's slogan was related to a popular movie.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 1-5 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Most companies employ the Mind Gym to seek a immediate solution for better staff performance.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 1-5 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Lawrence Katz advised people to write with their less skilful hand.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? In boxes 1-5 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Matching Information",
+          "text": "The reason why few people know how to be creative",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "M",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Matching Information",
+          "text": "The source of a neurologist’s expertise",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "E",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Matching Information",
+          "text": "The original place where Mind Gym intended to hold their classes",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "F",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Matching Information",
+          "text": "What is picture not gym classes but sports coaching",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "K",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Matching Information",
+          "text": "Some evidence to prove the effect on brain from other species",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "I",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Matching Information",
+          "text": "An example to create a new different pizza",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "L",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Matching Information",
+          "text": "An instructor in Mind Gym who guided the employees to exercise",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "A",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Matching Information",
+          "text": "Majority of people don't have appropriate skills-training for brain",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-N, in boxes 6-11 on your answer sheet.",
+          "answer": "J",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "Finding Our Way",
+      "body": "'Drive 200 yards, and then turn right,' says the car's computer voice. You relax in the driver's seat, follow the directions and reach your destination without error. It's certainly nice to have the Global Positioning System (GPS) to direct you to within a few yards of your goal. Yet if the satellite service's digital maps become even slightly outdated, you can become lost. Then you have to rely on the ancient human skill of navigating in three-dimensional space. Luckily, your biological finder has an important advantage over GPS; it does not go awry if only one part of the guidance system goes wrong, because it works in various ways. You can ask questions of people on the sidewalk. Or follow a street that looks familiar. Or rely on a navigational rubric: 'If I keep the Earth's map to itself, a navigation map to itself, 24th Street, a navigation map to itself, a navigation map to itself, and capable of learning.' Anyone who knows the way from point A to point B—and from A to C—can probably figure out how to get from B to C, too. But how does this complex cognitive system really work? Researchers are looking at several strategies people use to orient themselves in space: guidance, path integration and route following. We may use all three or combinations thereof. And as experts learn more about these navigational skills, they are making the case that our abilities may underlie our powers of memory and logical thinking. Imagine that you have arrived in a place you have never visited—New York City. Grand Central Terminal will be off to your left. In this case, you are pointed toward the most recent place you recall, and you aim for it. Once there you head for the next notable place and you trek into a cumulative progress report. Researchers call this strategy 'path integration.' Many animals rely primarily on path integration to get around, including insects, spiders, crabs and rodents. The desert ants of the genus Cataglyphis employ this method to return from foraging as far as 100 yards away. They note the general direction they came from and retrace their steps, using the polarization of sunlight to orient themselves even under overcast skies. Even when a scientist picks up an ant and puts it in a totally different spot, the insect stubbornly proceeds in the originally determined direction until it has gone 'back' all of the distance it wandered from its nest. Only then does the ant realize it has not succeeded, and it begins to walk in successively larger loops to find its way home. Whether it is trying to get back to the anthill or the train station, any animal using path integration must keep track of its own movements so it knows, while returning, which segments it has already completed. As you move, your brain gathers data from your environment—sights, sounds, smells, lighting, muscle contractions, a sense of time passing—to determine which way your body has gone. The church spire, the sizzling sausages at that vendor's grill, the open courtyard, and the train station—all represent snapshots of memorable junctions during your journey. In addition to guidance and path integration, we use a third method for finding our way. An office worker you approach for help on a Manhattan street corner might say: 'Walk straight down Fifth, turn left on 47th, turn right on Park, go through the walkway under the Helmsley Building, then cross the street to the MetLife Building into Grand Central.' This strategy, called route following, uses landmarks such as buildings and street names, plus directions—straight, turn, go through—for reaching intermediate points. Route following is more precise than guidance or path integration, but if you forget the details and take a wrong turn, the only way to recover is to backtrack until you reach a familiar spot, because you do not know the general direction or have a reference landmark for your goal. The route-following navigation strategy truly challenges the brain. We have to keep all the landmarks and intermediate directions in our head. It is the most detailed and therefore most reliable method, but it can be undone by routine memory lapses. With path integration, our cognitive memory is less burdened; it has to deal with only a few general instructions and the homing vector. Path integration works because it relies most fundamentally on our knowledge of our body's general direction of movement, and we always have access to these inputs. Nevertheless, people often choose to give route-following directions, in part because saying, 'Go straight that way,' just does not work in our complex, man-made surroundings. Road Map or Metaphor? On your next visit to Manhattan you will rely on your memory to get around. Most likely you will use guidance, path integration and route following in various combinations. But how exactly do these constructs deliver concrete directions? Do we humans have, as an image of the real world, a kind of road map in our heads—with symbols for cities, train stations and churches, thick lines for highways, narrow lines for local streets? Neurologists and cognitive psychologists do call the portion of our memory that controls navigation a 'cognitive map.' The map metaphor is obviously seductive; maps are the easiest way to present geographic information for convenient visual inspection. In many cultures, maps were developed before writing, and today they are used in almost every society. It is even possible that maps derive from a universal way in which our spatial-memory networks are wired. Yet the notion of a literal map in our heads may be misleading; a growing body of research implies that the cognitive map is mostly a metaphor. It may be more like a hierarchical structure of relationships. To get back to Grand Central, you first envision the large scale—that is, you visualize the general direction of the station. Within that system you then imagine the route to the last place you remember. After that, you observe your nearby surroundings to pick out a recognizable storefront or street. It is very much more like a hierarchy of relationships, where positions and distances are relative, in contrast with a road map, where the same information is shown in a geometrically precise scale.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–26 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:23:00Z",
+      "questions": [
+        {
+          "question_number": 14,
+          "question_type": "Matching Features",
+          "text": "Using basic direction from starting point and light intensity to move on.",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with correct statement. Write the appropriate letters A-C in boxes 14-18 on your answer sheet. NB you may use any letter more than once.",
+          "answer": "B",
+          "options": ["A. Guidance", "B. Path integration", "C. Route following"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 15,
+          "question_type": "Matching Features",
+          "text": "Using combination of place and direction heading for destination.",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with correct statement. Write the appropriate letters A-C in boxes 14-18 on your answer sheet. NB you may use any letter more than once.",
+          "answer": "B",
+          "options": ["A. Guidance", "B. Path integration", "C. Route following"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 16,
+          "question_type": "Matching Features",
+          "text": "Using an iconic building near your destination as orientation.",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with correct statement. Write the appropriate letters A-C in boxes 14-18 on your answer sheet. NB you may use any letter more than once.",
+          "answer": "A",
+          "options": ["A. Guidance", "B. Path integration", "C. Route following"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 17,
+          "question_type": "Matching Features",
+          "text": "Using a retrace method from a known place if a mistake happens.",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with correct statement. Write the appropriate letters A-C in boxes 14-18 on your answer sheet. NB you may use any letter more than once.",
+          "answer": "C",
+          "options": ["A. Guidance", "B. Path integration", "C. Route following"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 18,
+          "question_type": "Matching Features",
+          "text": "Using a passed spot as reference for a new integration.",
+          "instruction": "Use the information in the passage to match the category of each navigation method (listed A-C) with correct statement. Write the appropriate letters A-C in boxes 14-18 on your answer sheet. NB you may use any letter more than once.",
+          "answer": "B",
+          "options": ["A. Guidance", "B. Path integration", "C. Route following"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 19,
+          "question_type": "Multiple Choice",
+          "text": "What does the ant of Cataglyphis respond if it has been taken to another location according to the passage?",
+          "instruction": "Choose the correct letter, A, B, C or D. Write your answers in boxes 19-21 on your answer sheet.",
+          "answer": "C",
+          "options": [
+            "A. Changes the orientation sensors improvingly",
+            "B. Releases biological scent for help from others",
+            "C. Continues to move by the original orientation",
+            "D. Totally gets lost once disturbed"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 20,
+          "question_type": "Multiple Choice",
+          "text": "Which of the following is true about 'cognitive map' in this passage?",
+          "instruction": "Choose the correct letter, A, B, C or D. Write your answers in boxes 19-21 on your answer sheet.",
+          "answer": "D",
+          "options": [
+            "A. There is not obvious difference contrast by real map",
+            "B. It exists in our head and is always correct",
+            "C. It only exists under some cultures",
+            "D. It was managed by brain memory"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 21,
+          "question_type": "Multiple Choice",
+          "text": "Which of following description of way findings correctly reflects the function of cognitive map?",
+          "instruction": "Choose the correct letter, A, B, C or D. Write your answers in boxes 19-21 on your answer sheet.",
+          "answer": "A",
+          "options": [
+            "A. It visualises a virtual route in a large scope",
+            "B. It reproduces an exact details of every landmark",
+            "C. Observation plays a more important role",
+            "D. Store or supermarket is a must in file map"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 22,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Biological navigation has a state of flexibility",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 22-26 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 23,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "You will always receive good reaction when you ask direction.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 22-26 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 24,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "When someone follows a route, he or she collects comprehensive perceptual information in mind on the way.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 22-26 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 25,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Path integration requires more thought from brain compared with route-following.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 22-26 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 26,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "In a familiar surrounding, an exact map of where you are will automatically emerge in your head.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2? In boxes 22-26 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Mystery in Easter Island",
+      "body": "One of the world's most famous yet least visited archaeological sites, Easter Island is a small, hilly, now treeless island of volcanic origin. Located in the Pacific Ocean at 27 degrees south of the equator and some 2500 miles (4000 kilometers) off the coast of Chile, it is considered to be the world's most remote inhabited island. The island is, technically speaking, a single massive volcano rising over ten thousand feet from the Pacific Ocean floor. The island received its most well-known current name, Easter Island, from the Dutch sea captain Jacob Roggeveen who became the first European to visit on Easter Sunday, April 5, 1722. In the early 1950s, the Norwegian explorer Thor Heyerdahl popularized the idea that the island was originally settled by advanced societies of Indians from the coast of South America. Extensive archaeological, ethnographic and linguistic research has conclusively shown this hypothesis to be inaccurate. It is now recognized that the original inhabitants of Easter Island are of Polynesian stock (DNA extracts from skeletons have confirmed this), that they most probably came from the Marquesas or Society islands, and that they arrived as early as 318 AD (carbon dating according to their grave forms). That culture's most famous features are its enormous stone statues called moai, at least 288 of which once stood upon massive stone platforms called ahu. There are some 250 of these ahu platforms spaced approximately one half mile apart and creating an almost unbroken line around the perimeter of the island. Another 600 moai statues, in various stages of completion, are scattered around the island, either in quarries or along ancient roads between the quarries and the coastal areas where the statues were most often erected. Nearly all the moai are carved from the rough stone of the Rano Raraku volcano. The average statue is 14 feet and 6 inches tall and weighs 14 tons. Some moai were as large as 33 feet and weighed more than 80 tons. Depending upon the size of the statues, it has been estimated that between 50 and 150 people were needed to drag them across the countryside on sleds and rollers made from the island's trees. Scholars are unable to definitively explain the function and use of the moai statues. It is assumed that their carving and erection derived from an idea rooted in similar practices found elsewhere in Polynesia but which evolved in a unique way on Easter Island. Archaeological and iconographic analysis indicates that the statue cult was based on an ideology of male, image-based authority incorporating anthropomorphic symbolism. The statues were thus symbols of authority and power, both religious and political. But they were not only symbols. To the people who erected and used them, they were actual repositories of sacred spirit. Carved stone and wooden objects in ancient Polynesian religions, when properly fashioned and ritually prepared, were believed to be charged by a magical spiritual essence called mana. The ahu platforms of Easter Island were the sanctuaries of the people, and the moai statues were the ritually charged sacred objects of those sanctuaries. Besides its more well-known name, Easter Island is also known as Te-Pito-O-Te-Henua, meaning 'The Navel of the World,' and as Mata-Ki-Te-Rangi, meaning 'Eyes Looking at Heaven.' These ancient names and a host of mythological details ignored by mainstream archaeologists, point to the possibility that the remote island may once have been a geodetic marker and the site of an astronomical observatory of a long-forgotten civilization. In his book, Heaven's Mirror, Graham Hancock argues that Easter Island’s layout suggests it functioned as an astronomical observatory.",
+      "section_instruction": "You should spend about 20 minutes on Questions 27–40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-29T13:23:00Z",
+      "questions": [
+        {
+          "question_number": 27,
+          "question_type": "Matching Headings",
+          "text": "Paragraph B",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list below. Write the correct number i-xi, in boxes 27-31 on your answer sheet. NB There are more headings than paragraphs, so you will not use them all.",
+          "answer": "viii",
+          "options": [
+            "i. The famous moai",
+            "ii. The status represented symbols of combined purposes",
+            "iii. The ancient spots which indicates scientific application",
+            "iv. The story of the name",
+            "v. Early immigrants, rise and prosperity",
+            "vi. The geology of Easter Island",
+            "vii. The begin of Thor Heyerdahl's discovery",
+            "viii. The countering explanation to the misconceptions politically manipulated",
+            "ix. Symbols of authority and power",
+            "x. The Navel of the World",
+            "xi. The Norwegian invaders legacy"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 28,
+          "question_type": "Matching Headings",
+          "text": "Paragraph D",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list below. Write the correct number i-xi, in boxes 27-31 on your answer sheet. NB There are more headings than paragraphs, so you will not use them all.",
+          "answer": "ix",
+          "options": [
+            "i. The famous moai",
+            "ii. The status represented symbols of combined purposes",
+            "iii. The ancient spots which indicates scientific application",
+            "iv. The story of the name",
+            "v. Early immigrants, rise and prosperity",
+            "vi. The geology of Easter Island",
+            "vii. The begin of Thor Heyerdahl's discovery",
+            "viii. The countering explanation to the misconceptions politically manipulated",
+            "ix. Symbols of authority and power",
+            "x. The Navel of the World",
+            "xi. The Norwegian invaders legacy"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 29,
+          "question_type": "Matching Headings",
+          "text": "Paragraph E",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list below. Write the correct number i-xi, in boxes 27-31 on your answer sheet. NB There are more headings than paragraphs, so you will not use them all.",
+          "answer": "iii",
+          "options": [
+            "i. The famous moai",
+            "ii. The status represented symbols of combined purposes",
+            "iii. The ancient spots which indicates scientific application",
+            "iv. The story of the name",
+            "v. Early immigrants, rise and prosperity",
+            "vi. The geology of Easter Island",
+            "vii. The begin of Thor Heyerdahl's discovery",
+            "viii. The countering explanation to the misconceptions politically manipulated",
+            "ix. Symbols of authority and power",
+            "x. The Navel of the World",
+            "xi. The Norwegian invaders legacy"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 30,
+          "question_type": "Matching Headings",
+          "text": "Paragraph G",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list below. Write the correct number i-xi, in boxes 27-31 on your answer sheet. NB There are more headings than paragraphs, so you will not use them all.",
+          "answer": "NOT GIVEN",
+          "options": [
+            "i. The famous moai",
+            "ii. The status represented symbols of combined purposes",
+            "iii. The ancient spots which indicates scientific application",
+            "iv. The story of the name",
+            "v. Early immigrants, rise and prosperity",
+            "vi. The geology of Easter Island",
+            "vii. The begin of Thor Heyerdahl's discovery",
+            "viii. The countering explanation to the misconceptions politically manipulated",
+            "ix. Symbols of authority and power",
+            "x. The Navel of the World",
+            "xi. The Norwegian invaders legacy"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 31,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The first inhabitants of Easter Island are Polynesian, from the Marquesas or Society islands.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 32,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Construction of some moai statues on the island was not finished.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 33,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The moai can be found not only on Easter Island but also elsewhere in Polynesia.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 34,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Most archeologists recognised the religious and astronomical functions for an ancient society.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 35,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The structures on Easter Island work as an astronomical outpost for extraterrestrial visitors.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 36,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The theory that depleted natural resources leading to the fall of Easter Island actually has a distorted perspective.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? In boxes 31-36 on your answer sheet, write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 37,
+          "question_type": "Summary Completion",
+          "text": "Many theories speculated that Easter Island's fall around the era of the initial European contact. Some say the resources are depleted by a ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 37-40 on your answer sheet.",
+          "answer": "NOT GIVEN",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 38,
+          "question_type": "Summary Completion",
+          "text": "The erroneous theories began with a root of the ______ advanced by some scholars.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 37-40 on your answer sheet.",
+          "answer": "South American settlement",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 39,
+          "question_type": "Summary Completion",
+          "text": "Early writers did not have adequate ______ understandings to comprehend the true result of ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 37-40 on your answer sheet.",
+          "answer": "Archaeological",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        },
+        {
+          "question_number": 40,
+          "question_type": "Summary Completion",
+          "text": "Early writers did not have adequate archaeological understandings to comprehend the true result of ______ nature of events on the island.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using NO MORE THAN THREE WORDS from the Reading Passage for each answer. Write your answers in boxes 37-40 on your answer sheet.",
+          "answer": "Polynesian",
+          "status": "published",
+          "created_at": "2025-06-29T13:23:00Z"
+        }
+      ]
+    }
+  ]
+}

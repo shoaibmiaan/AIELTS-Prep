@@ -1,0 +1,601 @@
+{
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 4",
+  "status": "published",
+  "created_at": "2025-06-27T18:00:00Z",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "New Agriculture in Oregon, US",
+      "body": "A. Onion growers in eastern Oregon are adopting a system that saves water and keeps topsoil in place, while producing the highest quality \"super colossal\" onions. Pear growers in southern Oregon have reduced their use of some of the most toxic pesticides by up to two-thirds, and are still producing top-quality pears. Range managers throughout the state have controlled the poisonous weed tansy ragwort with insect predators and saved the Oregon livestock industry up to $4.8 million a year.\n\nB. These are some of the results Oregon growers have achieved in collaboration with Oregon State University (OSU) researchers as they test new farming methods including integrated pest management (IPM). Nationwide, however, IPM has not delivered results comparable to those in Oregon. A recent U.S. General Accounting Office (GAO) report indicates that while integrated pest management can result in dramatically reduced pesticide use, the federal government has been lacking in effectively promoting that goal and implementing IPM. Farmers also blame the government for not making the new options of pest management attractive. \"Wholesale changes in the way that farmers control the pests on their farms is an expensive business,\" Tony Brown of the National Farmers Association says. \"If the farmers are given tax breaks to offset the expenditure, then they would willingly accept the new practices.\" The report goes on to note that even though the use of the riskiest pesticides has declined nationwide, they still make up more than 40 percent of all pesticides used today; and national pesticide use has risen by 40 million kilograms since 1992. \"Our food supply remains the safest and highest quality on Earth but we continue to overdose our farmland with powerful and toxic pesticides and to under-use the safe and effective alternatives,\" charged Patrick Leahy, who commissioned the report. Green action groups disagree about the safety issue. \"There is no way that habitual consumption of foodstuffs grown using toxic chemicals of the nature found on today's farms can be healthy for consumers,\" noted Bill Bowler, spokesman for Green Action, one of many lobbyists interested in this issue.\n\nC. The GAO report singles out Oregon's apple and pear producers who have used the new IPM techniques with growing success. Although Oregon is clearly ahead of the nation, scientists at OSU are taking the Government Accounting Office criticisms seriously. \"We must continue to develop effective alternative practices that will reduce environmental hazards and produce high quality products,\" said Paul Jepson, a professor of entomology at OSU and new director of\n\nD. OSU's Integrated Plant Protection Centre (IPPC) brings together scientists from OSU's Agricultural Experiment Station, OSU Extension Service, the U.S. Department of Agriculture and Oregon farmers to help develop agricultural systems that will save water and soil, and reduce pesticides. In response to the GAO report, the Centre is putting even more emphasis on integrating research and farming practices to improve Oregon agriculture environmentally and economically.\n\nE. \"The GAO report criticizes agencies for not clearly communicating the goals of IPM,\" said Jepson. \"Our challenge is to greatly improve the communication to and from growers, to learn what works and what doesn't. The work coming from OSU researchers must be adopted in the field and not simply languish in scientific journals.\"\n\nF. In Oregon, growers and scientists are working together to instigate new practices. For example, a few years ago scientists at OSU's Malheur Experiment Station began testing a new drip irrigation system to replace old ditches that wasted water and washed soil and fertilizer into streams. The new system cut water and fertilizer use by half, kept topsoil in place and protected water quality.\n\nG. In addition, the new system produced crops of very large onions, rated \"super colossal\" and highly valued by the restaurant industry and food processors. Art Pimms, one of the researchers at Malheur, comments: \"Growers are finding that when they adopt more environmentally benign practices, they can have excellent results. The new practices benefit the environment and give the growers their success.\"\n\nH. OSU researchers in Malheur next tested straw mulch and found that it successfully held soil in place and kept the ground moist with less irrigation. In addition, and unexpectedly, the scientists found that the mulched soil created a home for beneficial beetles and spiders that prey on onion thrips – a notorious pest in commercial onion fields – a discovery that could reduce the need for pesticides. \"I would never have believed that we could replace the artificial pest controls that we had before and still keep our good results,\" commented Steve Black, a commercial onion farmer in Oregon, \"but instead we have actually surpassed expectations.\"\n\nI. OSU researchers throughout the state have been working to reduce dependence on broad spectrum chemical sprays that are toxic to many kinds of organisms, including humans. \"Consumers are rightly putting more and more pressure on the industry to change its reliance on chemical pesticides, but they still want a picture-perfect product,\" said Rick Hilton, entomologist at OSU's Southern Oregon Research and Extension Centre, where researchers help pear growers reduce the need for highly toxic pesticides. Picture perfect pears are an important product in Oregon and traditionally they have required lots of chemicals. In recent years, the industry has faced stiff competition from overseas producers, so any new methods that growers adopt must make sense economically as well as environmentally. Hilton is testing a growth regulator that interferes with the molting of codling moth larvae. Another study used pheromone dispensers to disrupt codling moth mating. These and other methods of integrated pest management have allowed pear growers to reduce their use of organophosphates by two-thirds and reduce all other synthetic pesticides by even more and still produce top-quality pears. These and other studies around the state are part of the effort of the IPPC to find alternative farming practices that benefit both the economy and the environment.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-27T18:00:00Z",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Features",
+          "text": "There is a double-advantage to the new techniques.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"E\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Features",
+          "text": "The work on developing these alternative techniques is not finished.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"D\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Features",
+          "text": "Eating food that has had chemicals used in its production is dangerous to our health.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"C\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Features",
+          "text": "Changing current farming methods into a new one is not a cheap process.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"A\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Features",
+          "text": "Results have exceeded the anticipated goal.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"F\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Matching Features",
+          "text": "The research done should be translated into practical projects.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"D\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Matching Features",
+          "text": "The U.S. produces the best food in the world nowadays.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"B\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Matching Features",
+          "text": "Expectations of end users of agricultural products affect the products.",
+          "instruction": "Use the information in the passage to match the people (A–G) with opinions or deeds below.",
+          "answer": "\"G\"",
+          "options": [
+            "A. Tony Brown",
+            "B. Patrick Leahy",
+            "C. Bill Bowler",
+            "D. Paul Jepson",
+            "E. Art Pimms",
+            "F. Steve Black",
+            "G. Rick Hilton"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Integrated Pest Management has generally been regarded as a success in the US.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"NO\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Oregon farmers of apples and pears have been promoted as successful examples of Integrated Pest Management.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"YES\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The IPPC uses scientists from different organisations globally.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"NOT GIVEN\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Straw mulch experiments produced unplanned benefits.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"YES\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The apple industry is now facing a lot of competition from abroad.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1?",
+          "answer": "\"NOT GIVEN\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "Intelligence and Giftedness",
+      "body": "A. In 1904 the French minister of education, facing limited resources for schooling, sought a way to separate the unable from the merely lazy. Alfred Binet got the job of devising selection principles and his brilliant solution put a stamp on the study of intelligence and was the forerunner of intelligence tests still used today. He developed a thirty-problem test in 1905, which tapped several abilities related to intellect, such as judgment and reasoning. The test determined a given child's \"mental age\"; the test previously established a norm for children of a given physical age (for example, five-year-olds on average get ten items correct), so a child with a mental age of five should score ten, meaning that he or she was functioning pretty much as others of that age. The child's mental age was then compared to his physical age.\n\nB. A large disparity in the wrong direction (e.g., a child of nine with a mental age of four) might suggest inability rather than laziness and mean he or she was earmarked for special schooling. Binet, however, denied that the test was measuring intelligence; its purpose was simply diagnostic, for selection only. This message was, however, misunderstood later.\n\nC. Although Binet's test was popular, it was a bit inconvenient to deal with a variety of physical and mental ages. So in 1912 Wilhelm Stern suggested simplifying this by reducing the two to a single number: he divided the mental age by the physical age and multiplied the result by 100. An average child, irrespective of age, would score 100. A number much lower than 100 would suggest the need for help, and one much higher would suggest a child well ahead of his peers.\n\nD. This measurement is what is now termed the IQ (intelligence quotient) score and it has evolved to be used to show how a person, adult or child, performed in relation to others. The term IQ was coined by Lewis M. Terman, professor of psychology and education at Stanford University, in 1916. He had constructed an enormously influential revision of Binet's test, called the Stanford-Binet test, versions of which are still given extensively.\n\nE. The field studying intelligence and developing tests eventually coalesced into a sub-field of psychology called psychometrics (psycho for “mind” and metrics for “measurements”). The practical side of psychometrics (the development and use of tests) became widespread quite early, by 1917—when Einstein published his grand theory of relativity—mass-scale testing was already in use. Germany’s unrestricted submarine warfare (which led to the sinking of the Lusitania in 1915) provoked the United States to finally enter the First World War. The military had to build up an army very quickly; it had two million inductees to sort out. Who would become officers and who enlisted men? Psychometricians developed two intelligence tests that helped sort all these people out, at least to some extent; this was the first major use of testing to decide who lived and who died, as officers were a lot safer on the battlefield. The tests themselves were given under horrendously bad conditions and the examiners seemed to lack common sense; many recruits simply had no idea what to do and in several sessions most inductees scored zero! The examiners also concluded that the average American adult's intelligence was equal to that of a thirteen-year-old.\n\nF. Intelligence testing enforced political and social prejudice. Their results were used to argue that Jews ought to be kept out of the United States because they were so intelligently inferior that they would pollute the racial mix; and blacks ought not to be allowed to breed at all. And so abuse and test-bias controversies continued to plague psychometrics.\n\nG. Measurement is fundamental to science and technology; science often advances in leaps and bounds when measurement devices improve. Psychometrics has long tried to develop ways to gauge psychological qualities such as intelligence and more specific abilities—anxiety, extroversion, emotional stability, compatibility with a marriage partner, and so on. Their scores are often given enormous weight; a single IQ measurement can take on a life of its own if teachers and parents see it as definitive. It became a major issue in the 1970s, when court cases were launched to stop anyone from making important decisions based on IQ test scores. The main criticism was, and still is, that current tests don’t really measure intelligence. Whether intelligence can be measured at all is still controversial—some say it cannot, others say that IQ tests are psychology’s greatest accomplishments.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–26 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-27T18:00:00Z",
+      "questions": [
+        {
+          "question_number": 14,
+          "question_type": "Matching Information",
+          "text": "IQ is just one single factor of human characteristics.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"G\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 15,
+          "question_type": "Matching Information",
+          "text": "Discussion of methodology behind Professor Stern's test.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"C\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 16,
+          "question_type": "Matching Information",
+          "text": "Inadequacy of IQ test from Binet.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"B\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 17,
+          "question_type": "Matching Information",
+          "text": "The definition of IQ was created by a professor.",
+          "instruction": "Which paragraph contains the following information?",
+          "answer": "\"D\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 18,
+          "question_type": "Multiple Choice",
+          "text": "Professor Binet devised the test to _____.",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. find those who do not perform satisfactorily",
+            "B. choose the best one",
+            "C. measure the intelligence",
+            "D. establish the standard of intelligence"
+          ],
+          "answer": "\"A\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 19,
+          "question_type": "Multiple Choice",
+          "text": "The test is designed according to _______.",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. math",
+            "B. age",
+            "C. reading skill",
+            "D. gender"
+          ],
+          "answer": "\"B\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 20,
+          "question_type": "Multiple Choice",
+          "text": "US Army used Intelligence tests to select ______.",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. Officers",
+            "B. Normal Soldiers",
+            "C. Examiners",
+            "D. Submarine drivers."
+          ],
+          "answer": "\"A\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 21,
+          "question_type": "Multiple Choice",
+          "text": "The purpose of the text is to ______.",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. Give credit to the contribution of Binet in IQ test",
+            "B. Prove someone's theory is feasible",
+            "C. Discuss the validity and limitation of test",
+            "D. Outline the history of the test"
+          ],
+          "answer": "\"C\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 22,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Part of the intention in designing the test by professor Binet has been misunderstood.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"YES\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 23,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Age as a factor is completely overlooked in the simplified tests by Wilhelm Stern.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"NO\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 24,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Einstein was a counter-example of IQ test conclusion.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"NOT GIVEN\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 25,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "IQ test may probably lead to racial discrimination as a negative effect.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"YES\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 26,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The author regards measuring intelligence test as a goal hardly meaningful.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 2?",
+          "answer": "\"YES\"",
+          "options": ["YES", "NO", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Paper or Computer?",
+      "body": "A. Computer technology was supposed to replace paper. But that hasn't happened. Every country in the Western world uses more paper today, on a per-capita basis, than it did ten years ago. The consumption of uncoated free-sheet paper—for instance the most common kind of office paper—rose almost fifteen percent in the United States between 1995 and 2000. This is generally taken as evidence of how hard it is to eradicate old, wasteful habits and of how stubbornly resistant we are to the efficiencies offered by computerization. A number of cognitive psychologists and ergonomics experts, however, don't agree. Paper has persisted, they argue, for very good reasons: when it comes to performing certain kinds of cognitive tasks, paper has many advantages over computers. The dismay people feel at the sight of a messy desk—or the spectacle of air-traffic controllers tracking flights through notes scribbled on paper strips—arises from a fundamental confusion about the role that paper plays in our lives.\n\nB. The case for paper is made most eloquently in \"The Myth of the Paperless Office\" by two social scientists, Abigail Sellen and Richard Harper. They begin their book with an account of a study they conducted at the International Monetary Fund in Washington, D.C. Economists at the IMF spend most of their time writing reports on complicated economic questions—work that would seem to be perfectly suited to sitting in front of a computer. Nonetheless, the IMF is awash in paper, and Sellen and Harper wanted to find out why. Their answer is that the business of writing reports—at least at the IMF—is an intensely collaborative process, involving the professional judgments and contributions of many people. The economists bring drafts of reports to conference rooms, spread out the relevant pages, and negotiate changes with one another. They go back to their offices and jot down comments in the margin, taking advantage of the freedom offered by the informality of the handwritten note. Then they deliver the annotated draft to the author in person, taking him, page by page, through the suggested changes. At the end of the process, the author spreads out all the pages with comments on his desk and starts to enter them on the computer—moving the pages around as he works, organizing and reorganizing, saving and discarding.\n\nC. Without paper, this kind of collaborative and iterative work process would be much more difficult. According to Sellen and Harper, paper has a unique set of \"affordances\"—that is, qualities that permit specific kinds of uses. Paper is tangible: we can pick up a document, flip through it, read little bits here and there, and quickly get a sense of it. Paper is spatially flexible, meaning that we can spread it out and arrange it in the way that suits us best. And it's tailorable: we can easily annotate it, and scribble on it as we read, without altering the original text. Digital documents, of course, have their own affordances. They can be easily searched, shared, stored, accessed remotely, and linked to other relevant material. But they lack the affordances that really matter to a group of people working together on a report. Sellen and Harper write:\n\nD. Paper enables a certain kind of thinking. Picture, for instance, the top of your desk. Chances are that you have a keyboard and a computer screen off to one side, and a clear space roughly eighteen inches square in front of your chair. What covers the rest of the desktop is probably piles—piles of papers, journals, magazines, binders, postcards, videotapes, and all the other artifacts of the knowledge economy. The piles look like a mess, but they aren't. When a group at Apple Computer studied piling behavior several years ago, they found that even the most disorderly piles usually make perfect sense to the piler, and that office workers could hold forth in great detail about the precise history and meaning of their piles. The pile closest to the cleared, eighteen-inch-square working area, for example, generally represents the most urgent business, and within that pile the most important document of all is likely to be at the top. Piles are living, breathing archives. Over time, they get broken down and resorted, sometimes chronologically and sometimes thematically and sometimes both; clues about certain documents may be physically embedded in the file by, say, stacking a certain piece of paper at an angle or inserting dividers into the stack.\n\nE. But why do we pile documents instead of filing them? Because piles represent the process of active, ongoing thinking. The psychologist Alison Kidd, whose research Sellen and Harper refer to extensively, argues that \"knowledge workers\" use the physical space of the desktop to hold \"ideas which they cannot yet categorize or even decide how they might use.\" The messy desk is not necessarily a sign of disorganization. It may be a sign of complexity: those who deal with many unresolved ideas simultaneously cannot sort and file the papers on their desks, because they haven't yet sorted and filed the ideas in their head. Kidd writes that many of the people she talked to use the papers on their desks as contextual cues to recover a complex set of threads without difficulty and delay when they come in on a Monday morning or after their work has been interrupted by a phone call. What we see when we look at the piles on our desks is, in a sense, the contents of our brains.\n\nF. This idea that paper facilitates a highly specialized cognitive and social process is a far cry from the way we have historically thought about the stuff. Paper first began to proliferate in the workplace in the late nineteenth century as part of the move toward \"systematic management.\" To cope with the complexity of the industrial economy, managers were instituting company-wide policies and demanding monthly, weekly, or even daily updates from their subordinates. Thus was born the monthly sales report, the office manual, and the internal company newsletter. The typewriter took off in the eighteen-eighties, making it possible to create documents in a fraction of the time it had previously taken, and that was followed closely by the advent of carbon paper, which meant that a typist could create ten copies of that document simultaneously. Paper was important not to facilitate creative collaboration and thought but as an instrument of control.",
+      "section_instruction": "You should spend about 20 minutes on Questions 27–40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-27T18:00:00Z",
+      "questions": [
+        {
+          "question_number": 27,
+          "question_type": "Matching Headings",
+          "text": "Paragraph A",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"iv\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 28,
+          "question_type": "Matching Headings",
+          "text": "Paragraph B",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"vi\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 29,
+          "question_type": "Matching Headings",
+          "text": "Paragraph C",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"viii\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 30,
+          "question_type": "Matching Headings",
+          "text": "Paragraph D",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"ix\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 31,
+          "question_type": "Matching Headings",
+          "text": "Paragraph E",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"ii\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 32,
+          "question_type": "Matching Headings",
+          "text": "Paragraph F",
+          "instruction": "Choose the correct heading for paragraphs A–F.",
+          "answer": "\"i\"",
+          "options": [
+            "i. paper continued as a sharing or managing must",
+            "ii. piles can be more inspiring rather than disorganising",
+            "iii. Favorable situation that economists used paper pages",
+            "iv. overview of an unexpected situation: paper survived",
+            "v. comparison between efficiencies for using paper and using computer",
+            "vi. IMF’ paperless office seemed to be a waste of papers",
+            "vii. example of failure for avoidance of paper record",
+            "viii. There are advantages of using a paper in offices",
+            "ix. piles reflect certain characteristics in people’ thought",
+            "x. joy of having the paper square in front of computer"
+          ],
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 33,
+          "question_type": "Summary Completion",
+          "text": "Compared with digital documents, paper has several advantages. First it allows clerks to work in a ______ way among colleagues.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"collaborative\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 34,
+          "question_type": "Summary Completion",
+          "text": "Next, paper is not like virtual digital versions, it's ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"tangible\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 35,
+          "question_type": "Summary Completion",
+          "text": "Finally, because it is ______, note or comments can be effortlessly added as related information.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"tailorable\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 36,
+          "question_type": "Summary Completion",
+          "text": "However, shortcoming comes at the absence of convenience on task which is for a ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage.",
+          "answer": "\"search\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 37,
+          "question_type": "Multiple Choice",
+          "text": "What do the economists from IMF say that their way of writing documents?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. they note down their comments for freedom on the drafts",
+            "B. they finish all writing individually",
+            "C. they share ideas before electronic version was made",
+            "D. they use electronic version fully"
+          ],
+          "answer": "\"A\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 38,
+          "question_type": "Multiple Choice",
+          "text": "What is the implication of the 'Piles' mentioned in the passage?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. they have underlying orders",
+            "B. they are necessarily a mess",
+            "C. they are in time sequence order",
+            "D. they are in alphabetic order"
+          ],
+          "answer": "\"A\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 39,
+          "question_type": "Multiple Choice",
+          "text": "What does the manager believe in sophisticated economy?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. recorded paper can be as management tool",
+            "B. carbon paper should be compulsory",
+            "C. Teamwork is the most important",
+            "D. monthly report is the best way"
+          ],
+          "answer": "\"A\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        },
+        {
+          "question_number": 40,
+          "question_type": "Multiple Choice",
+          "text": "According to the end of this passage, what is the reason why paper is not replaced by electronic vision?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "options": [
+            "A. paper is inexpensive to buy",
+            "B. it contributed to management theories in western countries",
+            "C. people need time for changing their old habit",
+            "D. it is collaborative and functional for tasks implement and management"
+          ],
+          "answer": "\"D\"",
+          "status": "published",
+          "created_at": "2025-06-27T18:00:00Z"
+        }
+      ]
+    }
+  ]
+}
+

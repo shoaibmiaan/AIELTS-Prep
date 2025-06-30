@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react'
+// src/pages/login.tsx
+import React, { useState, FormEvent } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabaseClient'
@@ -10,21 +11,26 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
     setLoading(true)
 
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    })
-    setLoading(false)
-
-    if (signInError) {
-      setError(signInError.message)
-    } else {
-      router.push('/dashboard')
+    try {
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+      if (signInError) {
+        setError(signInError.message)
+      } else {
+        router.push('/dashboard')
+      }
+    } catch (err) {
+      console.error(err)
+      setError('Unexpected error. Please try again.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -33,8 +39,9 @@ export default function LoginPage() {
       <h1 className="text-2xl font-semibold mb-4">Log In</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block font-medium">Email</label>
+          <label htmlFor="email" className="block font-medium">Email</label>
           <input
+            id="email"
             type="email"
             required
             value={email}
@@ -43,8 +50,9 @@ export default function LoginPage() {
           />
         </div>
         <div>
-          <label className="block font-medium">Password</label>
+          <label htmlFor="password" className="block font-medium">Password</label>
           <input
+            id="password"
             type="password"
             required
             value={password}
@@ -52,11 +60,11 @@ export default function LoginPage() {
             className="w-full border rounded px-3 py-2"
           />
         </div>
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-600">{error}</p>}
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-50"
         >
           {loading ? 'Logging in…' : 'Log In'}
         </button>

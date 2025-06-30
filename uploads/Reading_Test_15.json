@@ -1,0 +1,550 @@
+{
+  "type": "academic",
+  "title": "IELTS Academic Reading Test 15",
+  "status": "published",
+  "created_at": "2025-06-29T12:56:00Z",
+  "passages": [
+    {
+      "passage_number": 1,
+      "title": "Tea and Industrial Revolution",
+      "body": "Alan Macfarlane thinks he could rewrite history. The professor of anthropological science at King's College, Cambridge has, like other historians, spent decades trying to understand the enigma of the Industrial Revolution. Why did this particular important event - the world-changing birth of industry - happen in Britain? And why did it happen at the end of the 18th century? Macfarlane compares the question to a puzzle. He claims that there were about 20 different factors and all of them needed to be present before the revolution could happen. The chief conditions are to be found in history textbooks. For industry to take off, there needed to be the technology and power to drive factories, large urban populations to provide cheap labour, easy transport to move goods around, an affluent middle-class willing to buy mass-produced objects, a market-driven economy, and a political system that allowed this to happen. While this was the case for England, other nations, such as Japan, Holland and France also met some of these criteria. All these factors must have been necessary but not sufficient to cause the revolution. Holland had everything except coal, while China also had many of these factors. Most historians, however, are convinced that one or two missing factors are needed to solve the puzzle. The missing factors, he proposes, are to be found in every kitchen cupboard. Tea and beer, two of the nation's favorite drinks, drove the revolution. Tannin, the active ingredient in tea, and hops, used in making beer, both contain antiseptic properties. This -plus the fact that both are made with boiled water- helped prevent epidemics of waterborne diseases, such as dysentery, in densely populated urban areas.",
+      "section_instruction": "You should spend about 20 minutes on Questions 1–13 which are based on Reading Passage 1 below.",
+      "status": "published",
+      "created_at": "2025-06-29T12:56:00Z",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Matching Headings",
+          "text": "Paragraph A",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "vi",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Matching Headings",
+          "text": "Paragraph B",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "v",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Matching Headings",
+          "text": "Paragraph C",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "ix",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 4,
+          "question_type": "Matching Headings",
+          "text": "Paragraph D",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "iv",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 5,
+          "question_type": "Matching Headings",
+          "text": "Paragraph E",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "viii",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 6,
+          "question_type": "Matching Headings",
+          "text": "Paragraph F",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "iii",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 7,
+          "question_type": "Matching Headings",
+          "text": "Paragraph G",
+          "instruction": "Choose the correct heading for paragraphs A-G from the list of headings below. Write the correct number, i-ix, in boxes 1-7 on your answer sheet.",
+          "answer": "vii",
+          "options": [
+            "i. Cases of Japan, Holland and France",
+            "ii. City development in Japan",
+            "iii. Tea drinking in Japan and Britain",
+            "iv. Failed to find a plausible cause for mystery about lower mortality rate",
+            "v. Preconditions necessary for industrial revolution",
+            "vi. Time and place of industrialization",
+            "vii. Conclusion drawn from the comparison with Japan",
+            "viii. Relation between population and changes of drink in Britain",
+            "ix. Two possible solutions to the puzzle"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 8,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The industrialization did not happen in China because of its inefficient railway transportation.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 9,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Tea and beer contributed to protect people from waterborne disease.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 10,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Roy Porter disagreed with the proposed theory about the missing factors.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 11,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The reason of lower child deaths is fully explained by food.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 12,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "The British made beer by themselves.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 13,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Tax on malt indirectly affected the increase of population in late 17th century.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 2,
+      "title": "Fossil Files: 'The Paleobiology Database'",
+      "body": "Are we now living through the sixth extinction as our own activities destroy ecosystems and wipe out diversity? That's the doomsday scenario painted by many ecologists, and they may well be right. The trouble is we don't know for sure because we don't have a clear picture of how life changes between extinction events or what has happened in previous episodes. We don't even know how many species are alive today, let alone the rate at which they are becoming extinct. A new project aims to fill some of the gaps. The Paleobiology Database aspires to be an online repository of information about every fossil ever dug up. It is a huge undertaking that has been described as biodiversity's equivalent of the Human Genome Project. Its organizers hope that by recording the history of biodiversity they will gain an insight into how environmental changes have shaped life on Earth in the past and how they might do so in the future. The database may even indicate whether life can rebound no matter what we throw at it, or whether a human induced extinction could be without parallel, changing the rules that have applied throughout the rest of the planet's history. But already the project is attracting harsh criticism. Some experts believe it to be seriously flawed. They point out that a database is only as good as the data fed into it, and that even if all the current fossil finds were catalogued, they would provide an incomplete inventory of life because we are far from discovering every fossilised species. They say that researchers should get up from their computers and get back into the dirt to dig up new fossils. Others are more sceptical still, arguing that we can never get the full picture because the fossil record is riddled with holes and biases.",
+      "section_instruction": "You should spend about 20 minutes on Questions 14–26 which are based on Reading Passage 2 below.",
+      "status": "published",
+      "created_at": "2025-06-29T12:56:00Z",
+      "questions": [
+        {
+          "question_number": 14,
+          "question_type": "Matching Information",
+          "text": "The purpose of the Paleobiology Database",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "A",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 15,
+          "question_type": "Matching Information",
+          "text": "Criticism regarding the database's limitations",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "B",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 16,
+          "question_type": "Matching Information",
+          "text": "The value of studying global biodiversity patterns",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "C",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 17,
+          "question_type": "Matching Information",
+          "text": "Details about the database's operation and scope",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "D",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 18,
+          "question_type": "Matching Information",
+          "text": "Issues with species classification accuracy",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "E",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 19,
+          "question_type": "Matching Information",
+          "text": "Comparison to the Human Genome Project",
+          "instruction": "Which paragraph contains the following information? Write the correct letter A-H.",
+          "answer": "A",
+          "options": ["A", "B", "C", "D", "E", "F", "G", "H"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 20,
+          "question_type": "Matching Features",
+          "text": "Creating the Database would help scientist to identify connections of all species.",
+          "instruction": "Use the information in the passage to match the people (listed A-D) with opinions or deeds below. Write the appropriate letters A-D in boxes 20-22 on your answer sheet.",
+          "answer": "D",
+          "options": ["A. Jonathan Adrain", "B. John Alroy", "C. David Jablonsky", "D. Edward O. Wilson"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 21,
+          "question_type": "Matching Features",
+          "text": "Believed in contribution of detailed statistics should cover beyond the known species.",
+          "instruction": "Use the information in the passage to match the people (listed A-D) with opinions or deeds below. Write the appropriate letters A-D in boxes 20-22 on your answer sheet.",
+          "answer": "B",
+          "options": ["A. Jonathan Adrain", "B. John Alroy", "C. David Jablonsky", "D. Edward O. Wilson"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 22,
+          "question_type": "Matching Features",
+          "text": "Reached a contradictory finding to the tremendous species die-out.",
+          "instruction": "Use the information in the passage to match the people (listed A-D) with opinions or deeds below. Write the appropriate letters A-D in boxes 20-22 on your answer sheet.",
+          "answer": "C",
+          "options": ["A. Jonathan Adrain", "B. John Alroy", "C. David Jablonsky", "D. Edward O. Wilson"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 23,
+          "question_type": "Multiple Choice",
+          "text": "Please choose TWO CORRECT descriptions about The Paleobiology Database in this passage:",
+          "instruction": "Choose the TWO correct letters following. Write your answers in boxes 23-24 on your answer sheet.",
+          "answer": ["B", "D"],
+          "options": [
+            "A. Almost all the experts welcome this project",
+            "B. Intrigues both positive and negative opinions from various experts",
+            "C. All different creatures in the database have unique name",
+            "D. Aims to embrace all fossil information globally",
+            "E. Get more information from record rather than the field"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 24,
+          "question_type": "Multiple Choice",
+          "text": "Please choose TWO CORRECT descriptions about The Paleobiology Database in this passage:",
+          "instruction": "Choose the TWO correct letters following. Write your answers in boxes 23-24 on your answer sheet.",
+          "answer": ["B", "D"],
+          "options": [
+            "A. Almost all the experts welcome this project",
+            "B. Intrigues both positive and negative opinions from various experts",
+            "C. All different creatures in the database have unique name",
+            "D. Aims to embrace all fossil information globally",
+            "E. Get more information from record rather than the field"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 25,
+          "question_type": "Multiple Choice",
+          "text": "According to the passage, Jellyfish belongs to which category of The Paleobiology Database?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "B",
+          "options": [
+            "A. Repetition breed",
+            "B. Untraceable species",
+            "C. Specifically detailed species",
+            "D. Currently living creature"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 26,
+          "question_type": "Multiple Choice",
+          "text": "What is the author's suggestion according to the end of passage?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "C",
+          "options": [
+            "A. Continue to complete counting the number of species in the Paleobiology Database",
+            "B. Stop contributing to The Paleobiology Database",
+            "C. Try to create a database of living creature",
+            "D. Study more in the field rather than in the book"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        }
+      ]
+    },
+    {
+      "passage_number": 3,
+      "title": "Communication in Science",
+      "body": "Science plays an increasingly significant role in people's lives, making the faithful communication of scientific developments more important than ever. Yet such communication is fraught with challenges that can easily distort discussions, leading to unnecessary confusion and misunderstandings. Some problems stem from the esoteric nature of current research and the associated difficulty of finding sufficiently faithful terminology. Abstraction and complexity are not signs that a given scientific direction is wrong, as some commentators have suggested, but are instead a tribute to the success of human ingenuity in meeting the increasingly complex challenges that nature presents. They can, however, make communication more difficult. But many of the biggest challenges for science reporting arise because in areas of evolving research, scientists themselves often only partly understand the full implications of any particular advance or development. Since that dynamic applies to most of the scientific developments that directly affect people's lives—global warming, cancer research, diet studies—learning how to overcome it is critical to spurring a more informed scientific debate among the broader public.",
+      "section_instruction": "You should spend about 20 minutes on Questions 27–40 which are based on Reading Passage 3 below.",
+      "status": "published",
+      "created_at": "2025-06-29T12:56:00Z",
+      "questions": [
+        {
+          "question_number": 27,
+          "question_type": "Multiple Choice",
+          "text": "Why is faithful science communication important?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "A",
+          "options": [
+            "A. Science plays an increasingly significant role in people's lives",
+            "B. Science is fraught with challenges public are interested in",
+            "C. The nature of complexity in science communication leads to confusion",
+            "D. Scientific inventions are more important than ever before"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 28,
+          "question_type": "Multiple Choice",
+          "text": "What is the reason that the author believes for the biggest challenges for science reporting?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "C",
+          "options": [
+            "A. Phenomenon such as global warming, cancer research, diet studies are too complex",
+            "B. Scientists themselves often only partly understand the Theory of Evolution",
+            "C. Scientists do not totally comprehend the meaning of certain scientific evolution",
+            "D. Scientists themselves often partly understand the esoteric communication nature"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 29,
+          "question_type": "Multiple Choice",
+          "text": "According to the 3rd paragraph, the reference to the term and example of 'theory of relativity' is to demonstrate",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "B",
+          "options": [
+            "A. Theory of relativity is about an invariant physical phenomenon",
+            "B. Common people may be misled by the inaccurate choice of scientific phrase",
+            "C. The term 'relativity' is designed to be misleading public",
+            "D. Everything is relative and there is no absolutes existence"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 30,
+          "question_type": "Multiple Choice",
+          "text": "Which one is a good example of appropriate word choice?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "D",
+          "options": [
+            "A. Scientific theory for uncertainty principle",
+            "B. Phenomenon of Global warming",
+            "C. The importance of ozone layer",
+            "D. Freon's destructive process on environmental"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 31,
+          "question_type": "Multiple Choice",
+          "text": "What is surprising finding of the Harvard debates in the passage?",
+          "instruction": "Choose the correct letter, A, B, C or D.",
+          "answer": "B",
+          "options": [
+            "A. There are equal intrinsic scientific abilities of men and women",
+            "B. The proof applied by both sides seemed to be of no big difference",
+            "C. The scientific data usually shows no substantial figures to support a debated idea",
+            "D. Social factors might have a clear connection to scientific ability"
+          ],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 32,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "'Global warming' scientifically refers to greater fluctuations in temperature and rainfall rather than a universal temperature rise.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "TRUE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 33,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "More media coverage of 'global warming' would help public to recognize the phenomenon.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 34,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Harvard debates should focus more on female scientist and male scientists.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "NOT GIVEN",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 35,
+          "question_type": "Identifying Information (True/False/Not Given)",
+          "text": "Public understanding and acceptance of indirect scientific evidence in all cases would lead to confusion.",
+          "instruction": "Do the following statements agree with the information given in Reading Passage 3? Write TRUE, FALSE, or NOT GIVEN.",
+          "answer": "FALSE",
+          "options": ["TRUE", "FALSE", "NOT GIVEN"],
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 36,
+          "question_type": "Summary Completion",
+          "text": "Science Communication is fraught with challenges that can easily distort discussions, leading to unnecessary confusion and misunderstandings. Firstly, Ambiguous ______ are the source of some misunderstandings.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using no more than two words from the Reading Passage for each answer.",
+          "answer": "word choices",
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 37,
+          "question_type": "Summary Completion",
+          "text": "Common people without proper training do not understand clearly or deeply a specific scientific meaning via the ______ scientists often employed.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using no more than two words from the Reading Passage for each answer.",
+          "answer": "colloquial terminology",
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 38,
+          "question_type": "Summary Completion",
+          "text": "Besides, the measurements any ______ makes can not be confined to describe in a(n) constant ______ yet the phenomenon can be.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using no more than two words from the Reading Passage for each answer.",
+          "answer": "observer, description",
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 39,
+          "question_type": "Summary Completion",
+          "text": "Besides, the measurements any observer makes can not be confined to describe in a(n) constant ______ yet the phenomenon can be.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using no more than two words from the Reading Passage for each answer.",
+          "answer": "invariant description",
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        },
+        {
+          "question_number": 40,
+          "question_type": "Summary Completion",
+          "text": "Theories aren't necessarily shown to be correct or complete immediately since scientists often evolved better versions of specific theories, a good example can be the theory of ______.",
+          "instruction": "Complete the following summary of the paragraphs of Reading Passage, using no more than two words from the Reading Passage for each answer.",
+          "answer": "general relativity",
+          "status": "published",
+          "created_at": "2025-06-29T12:56:00Z"
+        }
+      ]
+    }
+  ]
+}

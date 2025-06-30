@@ -1,0 +1,52 @@
+{
+  "test_id": "ielts-listening-test-1",
+  "title": "IELTS Listening Practice Test Example",
+  "type": "academic",
+  "status": "draft",
+  "sections": [
+    {
+      "section_number": 1,
+      "title": "Section 1",
+      "audio_url": "https://your-cdn.com/audio/section1.mp3",
+      "instruction": "Listen and answer Questions 1–10.",
+      "questions": [
+        {
+          "question_number": 1,
+          "question_type": "Short Answer",
+          "question_text": "Where does the conversation take place?",
+          "options": null,
+          "correct_answer": "library"
+        },
+        {
+          "question_number": 2,
+          "question_type": "Short Answer",
+          "question_text": "What is the man's name?",
+          "options": null,
+          "correct_answer": "John Smith"
+        },
+        {
+          "question_number": 3,
+          "question_type": "Multiple Choice",
+          "question_text": "What time is the appointment?",
+          "options": ["10:00 am", "10:30 am", "11:00 am"],
+          "correct_answer": "10:30 am"
+        }
+      ]
+    },
+    {
+      "section_number": 2,
+      "title": "Section 2",
+      "audio_url": "https://your-cdn.com/audio/section2.mp3",
+      "instruction": "Listen and answer Questions 11–20.",
+      "questions": [
+        {
+          "question_number": 11,
+          "question_type": "Short Answer",
+          "question_text": "What is the topic of the talk?",
+          "options": null,
+          "correct_answer": "recycling"
+        }
+      ]
+    }
+  ]
+}

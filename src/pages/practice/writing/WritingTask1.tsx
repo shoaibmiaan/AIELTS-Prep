@@ -8,12 +8,12 @@ import { toast } from 'react-hot-toast';
 import Link from 'next/link';
 import { writingPrompts } from '@/lib/writingPrompts';
 
-const task1Prompts = writingPrompts.filter(p => p.taskType === 'task1');
+const task1Prompts = writingPrompts.filter(p => p.type === 'task1');
 
 export default function WritingTask1() {
   const [feedback, setFeedback] = useState('');
   const [loading, setLoading] = useState(false);
-  const [selectedPrompt, setSelectedPrompt] = useState(() => task1Prompts[0] || null);
+  const [selectedPrompt, setSelectedPrompt] = useState(null);
   const [wordCount, setWordCount] = useState(0);
   const [secondsElapsed, setSecondsElapsed] = useState(0);
   const [timerStarted, setTimerStarted] = useState(false);
@@ -29,6 +29,11 @@ export default function WritingTask1() {
   });
 
   useEffect(() => {
+    const randomPrompt = task1Prompts[Math.floor(Math.random() * task1Prompts.length)];
+    setSelectedPrompt(randomPrompt);
+  }, []);
+
+  useEffect(() => {
     let interval: NodeJS.Timeout;
     if (timerStarted) {
       interval = setInterval(() => {
@@ -42,18 +47,6 @@ export default function WritingTask1() {
     const mins = Math.floor(seconds / 60);
     const secs = seconds % 60;
     return `${mins}m ${secs}s`;
-  };
-
-  const handlePromptChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const prompt = task1Prompts.find(p => p.id === Number(e.target.value));
-    if (prompt) {
-      setSelectedPrompt(prompt);
-      editor?.commands.clearContent();
-      setWordCount(0);
-      setSecondsElapsed(0);
-      setTimerStarted(false);
-      setFeedback('');
-    }
   };
 
   const handleSubmit = async () => {
@@ -98,6 +91,16 @@ export default function WritingTask1() {
     setLoading(false);
   };
 
+  const handleGetNewPrompt = () => {
+    const newPrompt = task1Prompts[Math.floor(Math.random() * task1Prompts.length)];
+    setSelectedPrompt(newPrompt);
+    editor?.commands.clearContent();
+    setWordCount(0);
+    setSecondsElapsed(0);
+    setTimerStarted(false);
+    setFeedback('');
+  };
+
   if (!selectedPrompt) {
     return (
       <div className="max-w-2xl mx-auto mt-10 text-center">
@@ -116,21 +119,15 @@ export default function WritingTask1() {
         </p>
       </section>
 
-      <section className="mb-6">
-        <label htmlFor="promptSelect" className="block font-medium mb-1">Select a Task 1 Prompt:</label>
-        <select
-          id="promptSelect"
-          value={selectedPrompt?.id ?? ''}
-          onChange={handlePromptChange}
-          className="border rounded p-2 w-full"
+      <p className="mb-2 text-sm text-gray-600">
+        <strong>Prompt:</strong> {selectedPrompt.task}
+        <button
+          onClick={handleGetNewPrompt}
+          className="ml-3 text-blue-500 text-xs hover:underline"
         >
-          {task1Prompts.map((p) => (
-            <option key={p.id} value={p.id}>{p.task}</option>
-          ))}
-        </select>
-      </section>
-
-      <p className="mb-4 text-sm text-gray-600"><strong>Prompt:</strong> {selectedPrompt?.task ?? 'No prompt selected.'}</p>
+          🔄 Get a Different Prompt
+        </button>
+      </p>
 
       <div className="flex justify-between text-xs text-gray-500 mb-2">
         <span>⏱ Time: {formatTime(secondsElapsed)}</span>
@@ -156,7 +153,7 @@ export default function WritingTask1() {
         </div>
       )}
 
-      <Link href="/practice/writing-history" className="text-blue-600 hover:underline mt-6 inline-block">
+      <Link href="/practice/writing/writing-history1" className="text-blue-600 hover:underline mt-6 inline-block">
         📜 View My Writing History
       </Link>
     </div>
