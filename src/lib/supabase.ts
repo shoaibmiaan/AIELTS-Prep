@@ -1,3 +1,3 @@
 // placeholder
-const supabase = {};
+export const supabase = {};
 export default supabase;
