@@ -1,2 +1,2 @@
-// placeholder to fix build
-export {};
+// placeholder
+export const callGemini = () => { throw new Error('callGemini is not implemented'); };

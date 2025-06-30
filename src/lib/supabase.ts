@@ -1,2 +1,3 @@
-// placeholder to fix build
-export {};
+// placeholder
+const supabase = {};
+export default supabase;
