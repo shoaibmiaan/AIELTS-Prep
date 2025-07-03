@@ -1,7 +1,9 @@
 'use client';
+import { GlobalWorkerOptions } from 'pdfjs-dist';
+
+GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 // Importing necessary modules and components
-import { importReadingPaper } from "@/core/importReadingPaper";
 import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 import { DataGrid, SelectColumn } from 'react-data-grid';
@@ -634,7 +636,7 @@ export default function ReadingImporterClient() {
       paperId = insertedPaper.id;
       setProgress(10);
 
-      let allInsertedIds: string[] = [];
+      const allInsertedIds: string[] = [];
       let rowCount = 0;
       for (const passage of paper.passages || []) {
         const passageInsert = {
@@ -753,7 +755,7 @@ export default function ReadingImporterClient() {
       paperId = insertedPaper.id;
       setProgress(10);
 
-      let allInsertedIds: string[] = [];
+      const allInsertedIds: string[] = [];
       let rowCount = 0;
       for (const row of csvRows) {
         const passageInsert = {

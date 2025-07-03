@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; // <-- FIXED: Import Image
 import { useRouter } from 'next/router';
 import { supabase } from '../lib/supabaseClient';
 import { Home, Headphones, BookOpen, Edit3, Mic, Activity, LogOut } from 'lucide-react';
@@ -79,7 +80,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       {/* Sidebar */}
       <aside className={`${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 bg-gradient-to-b from-[#0f1f44] to-[#163057] p-4 flex flex-col`}>
         <div className="flex flex-col items-center mb-4">
-          <img src="/logo.png" alt="Logo" className="h-10 w-10 mb-2" />
+          <Image src="/logo.png" alt="Logo" className="mb-2" width={40} height={40} /> {/* <-- FIXED */}
           {!collapsed && <h1 className="text-xl font-bold text-white text-center">Learn with Universe</h1>}
         </div>
         <button onClick={() => setCollapsed((prev) => !prev)} className="text-white hover:text-[#c59d5f] mb-6" title="Toggle Sidebar">

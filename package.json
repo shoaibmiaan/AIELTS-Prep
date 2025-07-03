@@ -10,7 +10,6 @@
     "postinstall": "",
     "upload:test": "ts-node src/scripts/uploadListeningTest.ts",
     "check-build": "node scripts/check-build-errors.js"
-
   },
   "dependencies": {
     "@google-cloud/vision": "^5.2.0",
@@ -78,6 +77,7 @@
     "eslint-config-next": "^15.3.3",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.5.6",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",

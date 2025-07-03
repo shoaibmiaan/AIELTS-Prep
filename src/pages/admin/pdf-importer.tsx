@@ -1,10 +1,14 @@
-// src/pages/admin/pdf-importer.tsx
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import ListeningImporterClient from '@/components/admin/ListeningImporterClient';
-import ReadingImporterClient from '@/components/admin/ReadingImporterClient';
 import Layout from '@/components/Layout';
+
+const ReadingImporterClient = dynamic(
+  () => import('@/components/admin/ReadingImporterClient'),
+  { ssr: false }
+);
 
 const IMPORTER_OPTIONS = [
   { label: 'Listening Importer', value: 'listening' },

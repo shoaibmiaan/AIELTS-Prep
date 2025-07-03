@@ -1,0 +1,7 @@
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - protobufjs
+  - sharp
+  - tesseract.js
+  - unrs-resolver

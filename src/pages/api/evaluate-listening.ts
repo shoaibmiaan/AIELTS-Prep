@@ -38,8 +38,8 @@ export default async function handler(
 
   // Compare answers
   let score = 0;
-  let total = selectedSet.questions.length;
-  let details: string[] = [];
+  const total = selectedSet.questions.length;
+  const details: string[] = [];
 
   for (let i = 0; i < total; i++) {
     const correct = answerKey[i];

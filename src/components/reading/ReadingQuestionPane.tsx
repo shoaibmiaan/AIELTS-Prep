@@ -219,7 +219,7 @@ export default function ReadingQuestionPane({
                                           : "")
                                       }
                                       onChange={e => {
-                                        let arr =
+                                        const arr =
                                           Array.isArray(userAnswer) &&
                                           userAnswer.length === q.options.length
                                             ? [...userAnswer]
