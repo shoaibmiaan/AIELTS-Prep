@@ -19,15 +19,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/dashboard',
-        permanent: true,
-      },
-    ];
-  },
   // Allow builds to pass even with lint/type errors
   eslint: {
     ignoreDuringBuilds: true,

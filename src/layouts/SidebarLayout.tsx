@@ -2,13 +2,13 @@
 
 import React, { ReactNode, useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // <-- FIXED: Import Image
+import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { supabase } from '../lib/supabaseClient';
+import { supabase } from '@/lib/supabaseClient';
 import { Home, Headphones, BookOpen, Edit3, Mic, Activity, LogOut } from 'lucide-react';
-import Avatar from './Avatar';
+import Avatar from '@/components/Avatar';
 import SubscribeForm from '@/components/SubscribeForm';
-import Breadcrumb from './Breadcrumb';
+import Breadcrumb from '@/components/Breadcrumb';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: Home },
@@ -34,31 +34,29 @@ export default function Layout({ children }: { children: ReactNode }) {
     if (!session) return router.replace('/login');
 
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return router.replace('/login'); // ✅ prevent null.id error
+    if (!user) return router.replace('/login');
 
-    const { data: p, error: profileError } = await supabase
+    const { data: p, error } = await supabase
       .from('profiles')
       .select('role, full_name, avatar_url')
       .eq('id', user.id)
       .single();
 
-    if (profileError || !p) {
-      console.error('Failed to load profile:', profileError?.message);
+    if (error || !p) {
+      console.error('Profile load failed:', error?.message);
       return router.replace('/login');
     }
 
     setProfile(p);
     setRole(p.role);
+    setCollapsed(p.role === 'admin');
 
     if (p.role === 'admin') {
-      setCollapsed(true);
       const { count } = await supabase
         .from('teacher_requests')
         .select('*', { count: 'exact', head: true })
         .eq('status', 'pending');
       setPendingRequests(count || 0);
-    } else {
-      setCollapsed(false);
     }
 
     setLoading(false);
@@ -78,14 +76,16 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="flex h-screen bg-[#f5f7fa] text-[#0f1f44]">
       {/* Sidebar */}
-      <aside className={`${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 bg-gradient-to-b from-[#0f1f44] to-[#163057] p-4 flex flex-col`}>
+      <aside className={`${collapsed ? 'w-16' : 'w-64'} bg-gradient-to-b from-[#0f1f44] to-[#163057] text-white p-4 flex flex-col transition-all`}>
         <div className="flex flex-col items-center mb-4">
-          <Image src="/logo.png" alt="Logo" className="mb-2" width={40} height={40} /> {/* <-- FIXED */}
-          {!collapsed && <h1 className="text-xl font-bold text-white text-center">Learn with Universe</h1>}
+          <Image src="/logo.png" alt="Logo" width={40} height={40} />
+          {!collapsed && <h1 className="text-xl font-bold text-center mt-2">AIELTS Prep</h1>}
         </div>
-        <button onClick={() => setCollapsed((prev) => !prev)} className="text-white hover:text-[#c59d5f] mb-6" title="Toggle Sidebar">
-          {collapsed ? '➡️' : '⬅️'}
+
+        <button onClick={() => setCollapsed(!collapsed)} className="text-sm text-white mb-6 hover:text-orange-400">
+          {collapsed ? '➡️' : '⬅️ Collapse'}
         </button>
+
         <nav className="flex-1 space-y-2">
           {navItems.map(({ href, label, icon: Icon }) => {
             const active = router.pathname === href;
@@ -93,7 +93,9 @@ export default function Layout({ children }: { children: ReactNode }) {
               <div key={href} className="relative group">
                 <Link
                   href={href}
-                  className={`flex items-center px-3 py-2 rounded-l-full transition ${active ? 'bg-[#c59d5f] text-white shadow-inner' : 'text-white hover:bg-[#28527a] hover:text-[#c59d5f]'}`}
+                  className={`flex items-center px-3 py-2 rounded-l-full transition ${
+                    active ? 'bg-[#c59d5f] text-white shadow-inner' : 'hover:bg-[#28527a] hover:text-[#c59d5f]'
+                  }`}
                 >
                   <Icon className="h-5 w-5" />
                   {!collapsed && <span className="ml-2">{label}</span>}
@@ -108,10 +110,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           })}
         </nav>
 
-        {/* Avatar + Info */}
+        {/* Avatar Section */}
         {!collapsed && (
           <div className="mt-auto text-center">
-            <label className="cursor-pointer relative group inline-block">
+            <label className="relative inline-block group cursor-pointer">
               <Avatar src={profile?.avatar_url || ''} className="mx-auto h-14 w-14 mb-1" />
               <input
                 type="file"
@@ -120,39 +122,32 @@ export default function Layout({ children }: { children: ReactNode }) {
                 onChange={async (e) => {
                   const file = e.target.files?.[0];
                   if (!file) return;
-
-                  const fileExt = file.name.split('.').pop();
-                  const fileName = `${Date.now()}.${fileExt}`;
-                  const filePath = `${fileName}`;
+                  const ext = file.name.split('.').pop();
+                  const fileName = `${Date.now()}.${ext}`;
+                  const filePath = fileName;
 
                   const { error: uploadError } = await supabase.storage
                     .from('avatars')
                     .upload(filePath, file);
-
-                  if (uploadError) {
-                    console.error('Avatar upload failed:', uploadError.message);
-                    return;
-                  }
+                  if (uploadError) return console.error(uploadError.message);
 
                   const { data } = supabase.storage.from('avatars').getPublicUrl(filePath);
                   const publicUrl = data?.publicUrl;
 
                   const { data: { user } } = await supabase.auth.getUser();
-                  if (!user) return;
-
-                  await supabase
-                    .from('profiles')
-                    .update({ avatar_url: publicUrl })
-                    .eq('id', user.id);
-
-                  window.location.reload();
+                  if (user) {
+                    await supabase.from('profiles').update({ avatar_url: publicUrl }).eq('id', user.id);
+                    window.location.reload();
+                  }
                 }}
               />
-              <span className="text-xs absolute -bottom-5 left-1/2 -translate-x-1/2 text-[#c59d5f] group-hover:underline">Change</span>
+              <span className="text-xs text-[#c59d5f] absolute -bottom-5 left-1/2 -translate-x-1/2 group-hover:underline">
+                Change
+              </span>
             </label>
-            <p className="text-sm font-medium text-white mt-2">{profile?.full_name || 'User'}</p>
-            <p className="text-xs text-white bg-[#c59d5f] inline-block px-2 py-0.5 rounded-full capitalize mt-1">
-              {role} account
+            <p className="text-sm font-medium mt-2">{profile?.full_name || 'User'}</p>
+            <p className="text-xs bg-[#c59d5f] text-white inline-block px-2 py-0.5 rounded-full capitalize mt-1">
+              {role}
             </p>
             <button
               onClick={logout}
@@ -166,7 +161,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       {/* Main */}
       <main className="flex-1 overflow-y-auto p-8">
-        <div className="sticky top-0 z-20 bg-[#f5f7fa] pb-2">
+        <div className="sticky top-0 z-10 bg-[#f5f7fa] pb-2">
           <Breadcrumb />
         </div>
         {children}
@@ -174,25 +169,22 @@ export default function Layout({ children }: { children: ReactNode }) {
 
       {/* Right Panel */}
       {!collapsed && (
-        <aside className="w-64 bg-white border-l shadow-lg p-6">
+        <aside className="w-72 bg-white border-l shadow-lg p-6">
           {role === 'admin' ? (
             <>
-              <h3 className="text-lg font-semibold mb-2">Admin Dashboard</h3>
-              <p className="text-sm text-gray-600 mb-4">Manage users and review teacher access requests.</p>
-              <div className="space-y-3">
-                <Link href="/adminDashboard" className="block w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded font-medium">🛠️ Full Admin Panel</Link>
-                <Link href="/admin/users" className="block w-full text-left px-4 py-2 bg-red-100 hover:bg-red-200 text-red-800 rounded font-medium">👥 Manage Users</Link>
-                <Link href="/admin/teacher-requests" className="block w-full text-left px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded font-medium flex justify-between">
-                  <span>📩 Review Requests</span>
+              <h3 className="text-lg font-semibold mb-3">Admin Panel</h3>
+              <div className="space-y-3 text-sm">
+                <Link href="/adminDashboard" className="block px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded">🛠 Full Admin Panel</Link>
+                <Link href="/admin/users" className="block px-4 py-2 bg-red-100 hover:bg-red-200 text-red-800 rounded">👥 Manage Users</Link>
+                <Link href="/admin/teacher-requests" className="block px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded flex justify-between">
+                  📩 Review Requests
                   {pendingRequests > 0 && (
-                    <span className="ml-2 bg-red-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full">
-                      {pendingRequests}
-                    </span>
+                    <span className="ml-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full">{pendingRequests}</span>
                   )}
                 </Link>
-                <Link href="/admin/pdf-importer" className="block w-full text-left px-4 py-2 bg-indigo-100 hover:bg-indigo-200 text-indigo-800 rounded font-medium">📘 Upload Reading</Link>
-                <Link href="/admin/reading-library" className="block w-full text-left px-4 py-2 bg-green-100 hover:bg-green-200 text-green-800 rounded font-medium">📚 Reading Library</Link>
-                <Link href="/admin/manual-upload" className="block w-full text-left px-4 py-2 bg-yellow-100 hover:bg-yellow-200 text-yellow-800 rounded font-medium">🔼 Manual Upload</Link>
+                <Link href="/admin/pdf-importer" className="block px-4 py-2 bg-indigo-100 hover:bg-indigo-200 rounded">📘 Upload Reading</Link>
+                <Link href="/admin/reading-library" className="block px-4 py-2 bg-green-100 hover:bg-green-200 rounded">📚 Reading Library</Link>
+                <Link href="/admin/manual-upload" className="block px-4 py-2 bg-yellow-100 hover:bg-yellow-200 rounded">🔼 Manual Upload</Link>
               </div>
             </>
           ) : (

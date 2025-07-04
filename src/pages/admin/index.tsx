@@ -1,6 +1,6 @@
 // src/pages/admin/index.tsx
 import Link from 'next/link'
-import Layout from '@/components/Layout'
+import Layout from '@/components/layouts/MainLayout'
 
 export default function AdminDashboard() {
   return (

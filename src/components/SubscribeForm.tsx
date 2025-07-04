@@ -7,7 +7,6 @@ import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
 
 export default function SubscribeForm() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const router = useRouter();
@@ -15,56 +14,49 @@ export default function SubscribeForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim() || !email.trim()) {
-      toast.error('Please fill in both fields.');
+    if (!email.trim()) {
+      toast.error('Please enter a valid email.');
       return;
     }
 
     setSubmitting(true);
 
-    // Check for existing subscription
-    const { data: existingSubscriber, error: selectError } = await supabase
+    // Check for existing email
+    const { data: existing, error: checkError } = await supabase
       .from('subscriptions')
       .select('id')
       .eq('email', email)
       .single();
 
-    if (existingSubscriber) {
-      toast.error('This email is already registered. Please use a different email.');
+    if (existing) {
+      toast.error('Already subscribed with this email.');
       setSubmitting(false);
       return;
     }
 
-    if (selectError && selectError.code !== 'PGRST116') {
-      toast.error('An error occurred. Please try again.');
-      console.error(selectError);
+    if (checkError && checkError.code !== 'PGRST116') {
+      toast.error('Something went wrong. Please try again.');
+      console.error(checkError);
       setSubmitting(false);
       return;
     }
 
     // Insert new subscriber
-    const { error } = await supabase
+    const { error: insertError } = await supabase
       .from('subscriptions')
-      .insert([{ name, email }]);
+      .insert([{ email }]);
 
-    if (error) {
-      toast.error('Subscription failed.');
-      console.error(error);
+    if (insertError) {
+      toast.error('Failed to subscribe.');
+      console.error(insertError);
     } else {
-      confetti({
-        particleCount: 120,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
       toast.success('🎉 Subscribed successfully!');
 
-      setName('');
       setEmail('');
 
-      setTimeout(() => {
-        router.push('/thank-you');
-      }, 1800);
+      // Redirect to thank-you page
+      setTimeout(() => router.push('/thank-you'), 2000);
     }
 
     setSubmitting(false);
@@ -73,25 +65,19 @@ export default function SubscribeForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
       <input
-        type="text"
-        placeholder="Your name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full border p-2 rounded"
-      />
-      <input
         type="email"
         placeholder="Your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full border p-2 rounded"
+        className="w-full border border-gray-300 p-2 rounded-md text-sm"
+        required
       />
       <button
         type="submit"
-        className="w-full bg-yellow-600 text-white p-2 rounded disabled:opacity-50"
         disabled={submitting}
+        className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-medium text-sm py-2 px-4 rounded-md transition disabled:opacity-50"
       >
-        {submitting ? 'Subscribing…' : 'Subscribe'}
+        {submitting ? 'Subscribing...' : 'Subscribe'}
       </button>
     </form>
   );

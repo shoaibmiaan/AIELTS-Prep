@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layouts/Layout';
 
 type Subscriber = {
   id: string;

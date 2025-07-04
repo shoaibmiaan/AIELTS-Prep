@@ -1,0 +1,223 @@
+.
+├── BUILD_FIX_CHECKLIST.md
+├── README.md
+├── context
+│   └── AuthContext.tsx
+├── eslint.config.mjs
+├── learn-with-solvio@0.1.0
+├── next
+├── next-env.d.ts
+├── next.config.ts
+├── output.txt
+├── package-lock.json
+├── package.json
+├── pnpm-workspace.yaml
+├── postcss.config.js
+├── postcss.config.mjs
+├── public
+│   ├── Logo.png
+│   ├── audio
+│   │   ├── test01.mp3
+│   │   ├── test02.mp3
+│   │   └── test03.mp3
+│   ├── blur-avatar.png
+│   ├── favicon.ico
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── next.svg
+│   ├── pdf.worker.min.js
+│   ├── vercel.svg
+│   └── window.svg
+├── scripts
+│   ├── check-build-errors.js
+│   ├── check-build-errors.js.save
+│   ├── convert-pdf-to-json.js
+│   └── uploadReadingPaper.ts
+├── src
+│   ├── components
+│   │   ├── AIWaitOverlay.tsx
+│   │   ├── Avatar.tsx
+│   │   ├── Breadcrumb.tsx
+│   │   ├── CourseCreateModal.tsx
+│   │   ├── Layout.tsx
+│   │   ├── LessonEditor.tsx
+│   │   ├── PerformanceChart.tsx
+│   │   ├── ReadingInfoPanel.tsx
+│   │   ├── ReadingPracticeList.tsx
+│   │   ├── SubscribeForm.tsx
+│   │   ├── WritingHistory.tsx
+│   │   ├── admin
+│   │   │   ├── ListeningImporterClient.tsx
+│   │   │   ├── ReadingImporterClient.tsx
+│   │   │   ├── ReadingPreview.tsx
+│   │   │   ├── ReadingSchemaPreview.tsx
+│   │   │   └── ReadingValidation.tsx
+│   │   ├── listening
+│   │   │   ├── AnswerControls.tsx
+│   │   │   ├── AudioPlayer.tsx
+│   │   │   ├── Header.tsx
+│   │   │   ├── Instructions.tsx
+│   │   │   └── Transcript.tsx
+│   │   ├── reading
+│   │   │   ├── QuestionNavigator.tsx
+│   │   │   ├── ReadingPassagePane.tsx
+│   │   │   ├── ReadingQuestionPane.tsx
+│   │   │   ├── ReadingTestLayout.tsx
+│   │   │   ├── ReadingTimer.tsx
+│   │   │   └── ReviewPanel.tsx
+│   │   ├── speaking
+│   │   └── ui
+│   │       └── card.tsx
+│   ├── data
+│   │   ├── listening-tests
+│   │   │   ├── index.ts
+│   │   │   ├── test01.json
+│   │   │   ├── test02.json
+│   │   │   └── test03.json
+│   │   ├── listening_test_schema_example.json
+│   │   ├── reading-tests
+│   │   │   ├── test2.json
+│   │   │   └── test3.json
+│   │   └── reading_test_schema_example.json
+│   ├── layouts
+│   │   ├── FocusedLayout.tsx
+│   │   └── ListeningLayout.tsx
+│   ├── lib
+│   │   ├── db.ts
+│   │   ├── fetchSchema.ts
+│   │   ├── geminiClient.ts
+│   │   ├── genai.ts
+│   │   ├── getReadingStats.ts
+│   │   ├── hooks
+│   │   │   ├── useBandProgress.ts
+│   │   │   └── useTextToSpeech.ts
+│   │   ├── listeningFormat.ts
+│   │   ├── listeningSets.ts
+│   │   ├── listeningTests.ts
+│   │   ├── listeningUploader.ts
+│   │   ├── readingBandMap.ts
+│   │   ├── readingColorTag.ts
+│   │   ├── readingData
+│   │   │   └── paper11.ts
+│   │   ├── readingFeedback.ts
+│   │   ├── readingSubmit.ts
+│   │   ├── speakingPrompts.ts
+│   │   ├── supabase.ts
+│   │   ├── supabaseClient.ts
+│   │   ├── wavesurfer-plugins
+│   │   │   └── microphone.js
+│   │   └── writingPrompts.ts
+│   ├── pages
+│   │   ├── _app.tsx
+│   │   ├── _document.tsx
+│   │   ├── admin
+│   │   │   ├── index.tsx
+│   │   │   ├── manual-listening-upload.tsx
+│   │   │   ├── manual-upload.tsx
+│   │   │   ├── pdf-importer.tsx
+│   │   │   ├── reading-importer.tsx
+│   │   │   ├── reading-library.tsx
+│   │   │   ├── subscribers.tsx
+│   │   │   ├── teacher-requests.tsx
+│   │   │   └── users.tsx
+│   │   ├── adminDashboard.tsx
+│   │   ├── api
+│   │   │   ├── evaluate-listening.ts
+│   │   │   ├── evaluate-reading.ts
+│   │   │   ├── evaluate-speaking.ts
+│   │   │   ├── evaluate-writing.ts
+│   │   │   ├── feedback.ts
+│   │   │   ├── generate.ts
+│   │   │   ├── generate.ts.bak
+│   │   │   ├── hello.ts
+│   │   │   ├── log.js
+│   │   │   ├── ocr-vision.ts
+│   │   │   ├── upload-reading-paper.ts
+│   │   │   ├── uploadRecording.ts
+│   │   │   └── writing
+│   │   │       └── performance-summary.ts
+│   │   ├── courses
+│   │   │   ├── [id].tsx
+│   │   │   └── index.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── index.tsx
+│   │   ├── login.tsx
+│   │   ├── practice
+│   │   │   ├── listening
+│   │   │   │   ├── index.tsx
+│   │   │   │   ├── listening-history.tsx
+│   │   │   │   ├── results.tsx
+│   │   │   │   └── test
+│   │   │   │       └── [testId].tsx
+│   │   │   ├── reading
+│   │   │   │   ├── [id].tsx 
+│   │   │   │   ├── [testId].tsx
+│   │   │   │   ├── demo.tsx
+│   │   │   │   ├── history.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   ├── past-papers.tsx
+│   │   │   │   ├── practice-redirect.tsx
+│   │   │   │   ├── reading-history.tsx
+│   │   │   │   ├── reading-instruction.tsx
+│   │   │   │   ├── redirect.tsx
+│   │   │   │   ├── result.tsx
+│   │   │   │   └── test-redirect.tsx
+│   │   │   ├── speaking
+│   │   │   │   ├── part1.tsx
+│   │   │   │   ├── part2.tsx
+│   │   │   │   ├── part3.tsx
+│   │   │   │   ├── speaking-history.tsx
+│   │   │   │   └── speaking.tsx
+│   │   │   └── writing
+│   │   │       ├── WritingStartPage.tsx
+│   │   │       ├── WritingTask1.tsx
+│   │   │       ├── WritingTask2.tsx
+│   │   │       ├── writing-history1.tsx
+│   │   │       ├── writing-history2.tsx
+│   │   │       └── writing-instructions.tsx
+│   │   ├── profile
+│   │   │   └── index.tsx
+│   │   ├── signup.tsx
+│   │   └── thank-you.tsx
+│   ├── scripts
+│   │   ├── uploadAllListeningTests.ts
+│   │   └── uploadListeningTest.ts
+│   ├── styles
+│   │   ├── datagrid.css
+│   │   └── globals.css
+│   ├── types
+│   │   └── index.ts
+│   └── utils
+│       ├── fullTestExample.ts
+│       ├── readingExamples.ts
+│       └── readingQuestionTypes.ts
+├── supabase
+│   └── functions
+│       └── import-reading-paper
+│           └── index.ts
+├── tailwind.config.js
+├── temp.txt
+├── tsconfig.json
+└── uploads
+    ├── Reading_Test_15.json
+    ├── Reading_Test_16.json
+    ├── Reading_Test_17.json
+    ├── Reading_Test_18.json
+    ├── Reading_Test_7.json
+    ├── Reading_test_1.json
+    ├── Reading_test_10.json
+    ├── Reading_test_12.json
+    ├── Reading_test_13.json
+    ├── Reading_test_2.json
+    ├── Reading_test_20.json
+    ├── Reading_test_5.json
+    ├── Reading_test_6.json
+    ├── Reading_test_9.json
+    ├── fix_missing_fields.py
+    ├── fix_question_types.py
+    ├── full_reading_test_4_with_questions.json
+    ├── reading_test_3.json
+    ├── reading_test_4.json
+    ├── reading_test_8.json
+    ├── upload_reading_test 2.py
+    └── upload_reading_test.py

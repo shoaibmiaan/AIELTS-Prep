@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
-import Layout from '@/components/Layout';
+import Layout from '@/layouts/Layout';
 
 export default function ManualReadingUpload() {
   const [jsonInput, setJsonInput] = useState('');
