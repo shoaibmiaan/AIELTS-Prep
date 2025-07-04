@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { supabase } from '@/lib/supabaseClient'
-import Layout from '@/layouts/Layout'
+import Layout from '@/layouts/SidebarLayout';
 
 interface UserProfile {
   id: string

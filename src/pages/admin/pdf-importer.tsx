@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import dynamic from 'next/dynamic';
 import ListeningImporterClient from '@/components/admin/ListeningImporterClient';
-import Layout from '@/components/layouts/Layout';
+import Layout from '@/layouts/SidebarLayout';
 
 const ReadingImporterClient = dynamic(
   () => import('@/components/admin/ReadingImporterClient'),
