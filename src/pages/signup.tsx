@@ -30,6 +30,7 @@ export default function SignupPage() {
 
     const { email, password, full_name, goal_band, country, level, role } = form;
 
+    // Sign up the user with Supabase Authentication
     const { data, error: signUpError } = await supabase.auth.signUp({ email, password });
 
     if (signUpError || !data.user) {
@@ -39,14 +40,36 @@ export default function SignupPage() {
       return;
     }
 
+    // Check if the profile already exists for the user
+    const { data: existingProfile, error: profileFetchError } = await supabase
+      .from('profiles')
+      .select('id')
+      .eq('id', data.user.id)
+      .single();  // This ensures only one result is returned
+
+    if (profileFetchError) {
+      console.error('Profile Fetch Error:', profileFetchError);
+      setError(profileFetchError.message);
+      setLoading(false);
+      return;
+    }
+
+    // If the profile already exists, don't insert again
+    if (existingProfile) {
+      setError('Profile already exists');
+      setLoading(false);
+      return;
+    }
+
+    // Insert new profile only if it doesn't already exist
     const profilePayload = {
-      id: data.user.id,
-      email, // ✅ This was missing — now included
+      id: data.user.id, // This links the user profile with their auth id (auth.uid())
+      email,
       full_name,
-      goal_band: parseFloat(goal_band),
+      goal_band: parseFloat(goal_band), // Convert to a number
       country,
       level,
-      role,
+      role: role || 'student', // Default to 'student' if no role is selected
     };
 
     console.log('🟢 Attempting to insert into profiles:', profilePayload);
@@ -60,6 +83,7 @@ export default function SignupPage() {
       return;
     }
 
+    // Redirect user after successful sign-up and profile creation
     router.push('/thank-you');
   };
 

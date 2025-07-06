@@ -108,6 +108,22 @@ export default function Layout({ children }: { children: ReactNode }) {
               </div>
             );
           })}
+          {/* Conditionally render Admin Dashboard link for admin users */}
+          {role === 'admin' && (
+            <div className="relative group">
+              <Link
+                href="/adminDashboard"
+                className={`flex items-center px-3 py-2 rounded-l-full transition ${
+                  router.pathname === '/adminDashboard'
+                    ? 'bg-[#c59d5f] text-white shadow-inner'
+                    : 'hover:bg-[#28527a] hover:text-[#c59d5f]'
+                }`}
+              >
+                <Activity className="h-5 w-5" />
+                {!collapsed && <span className="ml-2">Admin Dashboard</span>}
+              </Link>
+            </div>
+          )}
         </nav>
 
         {/* Avatar Section */}

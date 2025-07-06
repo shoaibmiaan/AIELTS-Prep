@@ -1,4 +1,3 @@
-// src/pages/practice/reading/[testId].tsx
 'use client';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -9,6 +8,7 @@ import ReadingQuestionPane from '@/components/reading/ReadingQuestionPane';
 import QuestionNavigator from '@/components/reading/QuestionNavigator';
 import ReadingTimer from '@/components/reading/ReadingTimer';
 import ReviewPanel from '@/components/reading/ReviewPanel';
+import { logStudyActivity } from '@/lib/studyActivity';  // Import the function to log activity
 
 export default function ReadingTestPage() {
   const router = useRouter();
@@ -53,6 +53,12 @@ export default function ReadingTestPage() {
       .then(({ data }) => {
         setTest(data);
         setLoading(false);
+
+        // Log the study activity when the test is loaded
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          logStudyActivity(user.id, 'Started Reading Test');
+        }
       });
   }, [testId]);
 
@@ -92,6 +98,12 @@ export default function ReadingTestPage() {
       band_score: null,
       submitted_at: new Date().toISOString(),
     });
+
+    // Log the study activity when the test is submitted
+    if (user) {
+      logStudyActivity(user.id, 'Submitted Reading Test');
+    }
+
     setSubmitting(false);
     if (error) {
       setSubmitError(error.message || 'Failed to submit. Please try again.');
@@ -119,8 +131,8 @@ export default function ReadingTestPage() {
   })) || [];
 
   const allQuestions = mappedPassages.flatMap((p: any) =>
-  p.question_groups.flatMap((g: any) => g.questions)
-).sort((a, b) => (a.question_number ?? 0) - (b.question_number ?? 0));
+    p.question_groups.flatMap((g: any) => g.questions)
+  ).sort((a, b) => (a.question_number ?? 0) - (b.question_number ?? 0));
 
   const handleJump = (qnId: string) => {
     document.getElementById(`question-${qnId}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });

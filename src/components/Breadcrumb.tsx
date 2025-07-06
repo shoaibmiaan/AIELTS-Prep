@@ -2,8 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import StudyStreak from '@/components/StudyStreak'; // Import StudyStreak component
 
-export default function Breadcrumb() {
+type BreadcrumbProps = {
+  userId: string | null; // Accept userId as a prop
+};
+
+export default function Breadcrumb({ userId }: BreadcrumbProps) {
   const pathname = usePathname();
   const segments = pathname.split('/').filter(Boolean); // removes empty segments
 
@@ -46,6 +51,13 @@ export default function Breadcrumb() {
           );
         })}
       </ol>
+
+      {/* Display Study Streak */}
+      {userId && (
+        <div className="mt-2 text-white">
+          <StudyStreak userId={userId} /> {/* Display streak if userId exists */}
+        </div>
+      )}
     </nav>
   );
 }

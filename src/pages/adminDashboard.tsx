@@ -57,8 +57,11 @@ export default function AdminDashboard() {
     const checkAdmin = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       const { data: profile } = await supabase.from('profiles').select('role').eq('id', user?.id).single();
-      if (profile?.role !== 'admin') router.replace('/dashboard');
-      else setIsAdmin(true);
+      if (profile?.role !== 'admin') {
+        router.replace('/dashboard');
+      } else {
+        setIsAdmin(true);
+      }
     };
     checkAdmin();
   }, [router]);
