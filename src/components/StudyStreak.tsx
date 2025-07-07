@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
@@ -10,10 +8,10 @@ const StudyStreak = ({ userId }: { userId: string }) => {
   const [streak, setStreak] = useState<number>(0);
 
   useEffect(() => {
+    if (!userId) return; // If userId is not available, stop the effect.
+
     // Async function to fetch study streak
     const fetchStudyStreak = async () => {
-      if (!userId) return; // Return early if userId is not available
-
       try {
         const { data, error } = await supabase
           .from('study_activity')
@@ -53,8 +51,10 @@ const StudyStreak = ({ userId }: { userId: string }) => {
   }, [userId]); // Dependency array: re-run when `userId` changes
 
   return (
-    <div className="text-center">
-      <p>Your current study streak: <span className="font-bold">{streak} days</span></p>
+    <div className="fixed top-0 left-0 w-full bg-blue-600 text-white py-2 z-50 shadow-lg">
+      <div className="text-center">
+        <p>Your current study streak: <span className="font-bold">{streak} days</span></p>
+      </div>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import LandingDashboardLayout from "@/layouts/LandingDashboardLayout";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react"; // Importing arrow icons
 import { supabase } from "@/lib/supabaseClient"; // Assuming Supabase client is set up here
+import StudyStreak from "@/components/StudyStreak"; // Import StudyStreak component
 
 const tiles = [
   // The Assessment Room
