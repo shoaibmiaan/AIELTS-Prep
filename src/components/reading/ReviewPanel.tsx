@@ -1,4 +1,3 @@
-// src/components/reading/ReviewPanel.tsx
 import React from 'react';
 
 interface Question {
@@ -18,12 +17,15 @@ interface ReviewPanelProps {
 const ReviewPanel: React.FC<ReviewPanelProps> = ({
   questions,
   answers,
-  flags,
+  flags = {},
   onJump,
   onSubmit,
 }) => {
   const flagged = questions.filter(q => flags[q.id]);
-  const unanswered = questions.filter(q => !answers[q.id] || answers[q.id].trim() === '');
+  const unanswered = questions.filter(q => {
+    const answer = answers[q.id];
+    return !answer || (typeof answer === 'string' && answer.trim() === '');
+  });
 
   return (
     <div className="w-full border-t px-4 py-4 bg-gray-50 flex flex-col gap-3 shadow-inner">
@@ -36,6 +38,7 @@ const ReviewPanel: React.FC<ReviewPanelProps> = ({
           Submit Test
         </button>
       </div>
+
       <div className="flex flex-wrap gap-8 mt-2">
         <div>
           <div className="font-semibold mb-1 text-yellow-600">Flagged Questions</div>
@@ -55,6 +58,7 @@ const ReviewPanel: React.FC<ReviewPanelProps> = ({
             </div>
           )}
         </div>
+
         <div>
           <div className="font-semibold mb-1 text-red-600">Unanswered Questions</div>
           {unanswered.length === 0 ? (
@@ -74,9 +78,16 @@ const ReviewPanel: React.FC<ReviewPanelProps> = ({
           )}
         </div>
       </div>
+
       {flagged.length === 0 && unanswered.length === 0 && (
         <div className="text-green-600 font-medium text-center py-2">
           All questions answered and none flagged. Ready to submit!
+        </div>
+      )}
+
+      {unanswered.length > 0 && (
+        <div className="text-red-600 font-medium text-center py-2">
+          <span className="text-xl">You have unanswered questions.</span> Please make sure to answer all before submitting, or you can submit anyway.
         </div>
       )}
     </div>

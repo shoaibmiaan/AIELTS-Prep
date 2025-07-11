@@ -1,22 +1,39 @@
-/**
- * Call Gemini AI to get IELTS Writing Task 1 feedback.
- * Returns the raw text response containing:
- * - Four criterion scores (0–9)
- * - Detailed feedback under each
- * - Overall Band Score with justification
- */
-export async function generateFeedback(text: string): Promise<string> {
+// Shared Gemini client function to reduce code duplication
+async function callGeminiAPI(prompt: string, model: string = 'gemini-1.5-flash'): Promise<string> {
   const API_KEY = process.env.GEMINI_API_KEY;
   if (!API_KEY) {
     throw new Error('GEMINI_API_KEY is not set in your environment');
   }
 
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`;
   const body = {
-    contents: [
-      {
-        parts: [
-          {
-            text: `
+    contents: [{
+      parts: [{ text: prompt }]
+    }]
+  };
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+
+  const result = await response.json();
+  if (!response.ok) {
+    console.error(`❌ Gemini API (${model}) error:`, result);
+    throw new Error(result.error?.message || `API call to ${model} failed`);
+  }
+
+  if (!result.candidates?.[0]?.content?.parts?.[0]?.text) {
+    console.error(`❌ Gemini API (${model}) no content:`, result);
+    throw new Error('Gemini response missing text output');
+  }
+
+  return result.candidates[0].content.parts[0].text.trim();
+}
+
+export async function generateFeedback(text: string): Promise<string> {
+  const prompt = `
 You're an IELTS Writing Task 1 examiner.
 
 Use ONLY the **official IELTS Writing Task 1 Band Descriptors** to assess the task. These four criteria are used:
@@ -36,44 +53,15 @@ You must do the following:
 Now, evaluate this task:
 
 ${text}
-`,
-          },
-        ],
-      },
-    ],
-  };
+  `;
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }
-  );
-
-  const result = await response.json();
-  if (!response.ok || !result.candidates?.[0]?.content?.parts?.[0]?.text) {
-    console.error('❌ Gemini API error:', result);
-    throw new Error('Gemini API call failed');
-  }
-
-  return result.candidates[0].content.parts[0].text.trim();
+  return callGeminiAPI(prompt);
 }
 
-/**
- * Run a free-form “Help from AI” prompt against Gemini.
- * Returns whatever the model replied as a raw string.
- */
 export async function generateModule(
   text: string,
   instructions: string
 ): Promise<string> {
-  const API_KEY = process.env.GEMINI_API_KEY;
-  if (!API_KEY) {
-    throw new Error('GEMINI_API_KEY is not set in your environment');
-  }
-
   const prompt = `
 ${instructions}
 
@@ -82,63 +70,11 @@ Here is the extracted content:
 ${text}
 
 Please output valid JSON only, matching whatever schema your instructions describe.
-`.trim();
+  `.trim();
 
-  const body = {
-    contents: [
-      {
-        parts: [{ text: prompt }],
-      },
-    ],
-  };
-
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
-    }
-  );
-
-  const result = await response.json();
-  if (!response.ok) {
-  console.error('❌ Gemini API HTTP error:', result);
-  throw new Error(result.error?.message || 'AI generation failed');
-}
-if (!result.candidates?.[0]?.content?.parts?.[0]?.text) {
-  console.error('❌ Gemini API no content:', result);
-  throw new Error('Gemini response missing text output.');
+  return callGeminiAPI(prompt);
 }
 
-
-  return result.candidates[0].content.parts[0].text.trim();
-}
-
-/**
- * Wraps generateModule(...) and parses its output as JSON.
- * Throws a descriptive error if parsing fails.
- */
-export async function generateModuleJSON(
-  text: string,
-  instructions: string
-): Promise<any> {
-  const raw = await generateModule(text, instructions);
-  try {
-    return JSON.parse(raw);
-  } catch (err: any) {
-    throw new Error(
-      `Failed to parse AI response as JSON. ` +
-      `Error: ${err.message}\n` +
-      `AI returned:\n${raw}`
-    );
-  }
-}
-
-/**
- * Call Gemini AI to get IELTS Reading feedback for a student's performance.
- * Returns a short, targeted analysis.
- */
 export async function generateAIReadingFeedback({
   answers,
   correctAnswers,
@@ -168,25 +104,23 @@ Based on this, give feedback:
 - No fluff. No score explanation. Just helpful analysis.
 
 Respond in 2–3 short paragraphs.
-`;
+  `;
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) throw new Error('GEMINI_API_KEY is not set in your environment');
+  return callGeminiAPI(prompt, 'gemini-pro');
+}
 
-  const response = await fetch(
-    'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-    }
-  );
-
-  const data = await response.json();
-  return data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim() ?? '⚠️ No feedback generated.';
+export async function generateModuleJSON(
+  text: string,
+  instructions: string
+): Promise<any> {
+  const raw = await generateModule(text, instructions);
+  try {
+    return JSON.parse(raw);
+  } catch (err: any) {
+    throw new Error(
+      `Failed to parse AI response as JSON. ` +
+      `Error: ${err.message}\n` +
+      `AI returned:\n${raw}`
+    );
+  }
 }

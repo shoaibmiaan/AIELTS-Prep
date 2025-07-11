@@ -1,136 +1,65 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function FocusedLayout({ children }: { children: React.ReactNode }) {
-  const [hasWarned, setHasWarned] = useState(false);
-  const [warningShown, setWarningShown] = useState(false);
-  const [showWarningModal, setShowWarningModal] = useState(false);
-  const [showFinalModal, setShowFinalModal] = useState(false);
-  const warningTimeout = useRef<NodeJS.Timeout | null>(null);
+// Constants for Tailwind classes
+const LAYOUT_CLASSES = {
+  container: 'w-full min-h-screen bg-gray-100 text-black flex flex-col items-center justify-center relative',
+};
 
-  // Fullscreen logic
-  useEffect(() => {
-    function goFullScreen() {
+// Custom hook for fullscreen management
+function useFullscreen() {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const requestFullscreen = async () => {
+    if (isFullscreen) return;
+    try {
       const el = document.documentElement;
-      if (el.requestFullscreen) el.requestFullscreen();
-      else if ((el as any).webkitRequestFullscreen) (el as any).webkitRequestFullscreen();
-      else if ((el as any).msRequestFullscreen) (el as any).msRequestFullscreen();
+      await el.requestFullscreen?.();
+      setIsFullscreen(true);
+    } catch (err) {
+      console.error('Fullscreen request failed:', err);
     }
-    goFullScreen();
+  };
 
-    // If user exits fullscreen, try to re-enter
-    const fullscreenChangeHandler = () => {
-      if (
-        !document.fullscreenElement &&
-        !document.webkitFullscreenElement &&
-        !document.mozFullScreenElement &&
-        !document.msFullscreenElement
-      ) {
-        goFullScreen();
-      }
-    };
-    document.addEventListener('fullscreenchange', fullscreenChangeHandler);
+  return { requestFullscreen, isFullscreen };
+}
 
-    return () => {
-      document.removeEventListener('fullscreenchange', fullscreenChangeHandler);
-    };
-  }, []);
+interface FocusedLayoutProps {
+  children: React.ReactNode;
+}
 
-  // Tab switch/visibility/block
+export default function FocusedLayout({ children }: FocusedLayoutProps) {
+  const { requestFullscreen } = useFullscreen();
+
+  // Prevent specific user interactions for test environment
   useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'hidden') {
-        setWarningShown(true);
-        setShowWarningModal(true);
-        // Add a short delay so modal displays before any route changes
-        if (!hasWarned) {
-          if (warningTimeout.current) clearTimeout(warningTimeout.current);
-          warningTimeout.current = setTimeout(() => {
-            setShowWarningModal(false);
-          }, 3500);
-        }
-      } else if (warningShown) {
-        if (hasWarned) {
-          setShowWarningModal(false);
-          setShowFinalModal(true);
-          setTimeout(() => {
-            window.location.href = '/dashboard'; // Or auto-submit logic here
-          }, 3000);
-        } else {
-          setHasWarned(true);
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      if (warningTimeout.current) clearTimeout(warningTimeout.current);
-    };
-  }, [hasWarned, warningShown]);
-
-  // Disable right-click, select, copy, paste, F12, Ctrl+S, etc
-  useEffect(() => {
-    const prevent = (e: Event) => e.preventDefault();
-    document.addEventListener('contextmenu', prevent);
-    document.addEventListener('selectstart', prevent);
-    document.addEventListener('copy', prevent);
-    document.addEventListener('cut', prevent);
-    document.addEventListener('paste', prevent);
-
+    const preventDefault = (e: Event) => e.preventDefault();
     const keyDownHandler = (e: KeyboardEvent) => {
-      // Block F12, Ctrl/Cmd+Shift+I/J/C/U, Ctrl+S, Ctrl+P, PrintScreen
-      if (
+      const isBlockedKey =
         e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
-        (e.metaKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
-        (e.ctrlKey && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
-        (e.metaKey && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
-        (e.key === 'PrintScreen')
-      ) {
+        e.key === 'PrintScreen' ||
+        ((e.ctrlKey || e.metaKey) && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
+        ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase()));
+
+      if (isBlockedKey) {
         e.preventDefault();
         e.stopPropagation();
-        return false;
       }
     };
+
+    const events = ['contextmenu', 'selectstart', 'copy', 'cut', 'paste'] as const;
+    events.forEach((event) => document.addEventListener(event, preventDefault));
     window.addEventListener('keydown', keyDownHandler);
 
+    // Trigger fullscreen on mount
+    requestFullscreen();
+
     return () => {
-      document.removeEventListener('contextmenu', prevent);
-      document.removeEventListener('selectstart', prevent);
-      document.removeEventListener('copy', prevent);
-      document.removeEventListener('cut', prevent);
-      document.removeEventListener('paste', prevent);
+      events.forEach((event) => document.removeEventListener(event, preventDefault));
       window.removeEventListener('keydown', keyDownHandler);
     };
-  }, []);
+  }, [requestFullscreen]);
 
-  // Light background (like real test)
-  return (
-    <div className="w-full min-h-screen bg-gray-100 text-black flex flex-col items-center justify-center relative">
-      {children}
-      {/* Warning Modal */}
-      {showWarningModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center">
-          <div className="bg-yellow-100 border-2 border-yellow-500 rounded-2xl px-8 py-6 text-yellow-800 font-semibold text-xl shadow-lg">
-            <span role="img" aria-label="warning" className="mr-2">⚠️</span>
-            <span>
-              Switching tabs or minimizing is not allowed.<br />
-              <span className="text-red-700 font-bold">One more time will end your test.</span>
-            </span>
-          </div>
-        </div>
-      )}
-      {/* Final Modal */}
-      {showFinalModal && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center">
-          <div className="bg-white border-2 border-red-500 rounded-2xl px-10 py-8 text-red-800 font-bold text-xl shadow-xl">
-            <span role="img" aria-label="cross" className="mr-2">❌</span>
-            You switched tabs twice. Your test has been ended and submitted.
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return <div className={LAYOUT_CLASSES.container}>{children}</div>;
 }

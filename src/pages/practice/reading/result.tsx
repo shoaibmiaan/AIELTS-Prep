@@ -1,294 +1,382 @@
 'use client';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
+import ResultReviewPanel from '@/components/reading/ResultReviewPanel';
+import { motion } from 'framer-motion';
+import { Download, AlertCircle } from 'lucide-react';
 
-// Utility to group questions by instruction (just like on test)
-function groupByInstruction(questions) {
-  const groups = [];
-  let currentInst = undefined;
-  let block = [];
-  questions.forEach((q, i) => {
-    if (i === 0 || q.instruction !== currentInst) {
-      if (block.length) groups.push({ instruction: currentInst, questions: block });
-      currentInst = q.instruction;
-      block = [q];
-    } else {
-      block.push(q);
-    }
-  });
-  if (block.length) groups.push({ instruction: currentInst, questions: block });
-  return groups;
+interface Question {
+  id: string;
+  question_number: number;
+  question_type: string;
+  text: string;
+  instruction: string | null;
+  options: string[] | null;
+  answer: string | string[];
+}
+
+interface Passage {
+  id: string;
+  passage_number: number;
+  title: string | null;
+  body: string;
+  section_instruction: string | null;
+  reading_questions: Question[];
+}
+
+interface Test {
+  id: string;
+  title: string;
+  reading_passages: Passage[];
+}
+
+interface Attempt {
+  id: number;
+  test_id: string;
+  user_id: string;
+  answers: Record<string, string>;
+  submitted_at: string;
+}
+
+interface QuestionGroup {
+  instruction: string;
+  questions: Question[];
+}
+
+interface PassageWithGroups extends Omit<Passage, 'reading_questions'> {
+  question_groups: QuestionGroup[];
 }
 
 export default function ReadingResultReview() {
   const router = useRouter();
-  const { testId } = router.query;
-
-  const [attempt, setAttempt] = useState<any>(null);
-  const [test, setTest] = useState<any>(null);
-  const [passages, setPassages] = useState<any[]>([]);
+  const { testId } = router.query as { testId?: string };
+  const [attempt, setAttempt] = useState<Attempt | null>(null);
+  const [test, setTest] = useState<Test | null>(null);
+  const [passages, setPassages] = useState<PassageWithGroups[]>([]);
   const [loading, setLoading] = useState(true);
+  const [score, setScore] = useState({ correct: 0, total: 0 });
+  const [error, setError] = useState<string | null>(null);
+  const [aiFeedback, setAiFeedback] = useState<string>('');
+  const [pdfLoading, setPdfLoading] = useState(false);
 
-  // Fetch attempt, test, and passages with full question info
   useEffect(() => {
-    if (!testId) return;
-    setLoading(true);
+    const fetchData = async () => {
+      if (!testId) {
+        setError('No test ID provided.');
+        setLoading(false);
+        return;
+      }
 
-    (async () => {
-      // 1. Fetch attempt (user answers)
-      const { data: attempts } = await supabase
-        .from('reading_attempts')
-        .select('*')
-        .eq('test_id', testId)
-        .order('submitted_at', { ascending: false })
-        .limit(1);
+      try {
+        const { data: attempts, error: attemptsError } = await supabase
+          .from('reading_attempts')
+          .select('id, test_id, user_id, answers, submitted_at')
+          .eq('test_id', testId)
+          .order('submitted_at', { ascending: false })
+          .limit(1);
 
-      setAttempt(attempts?.[0]);
+        if (attemptsError) throw attemptsError;
+        if (!attempts?.length) throw new Error('No attempt found.');
+        setAttempt({
+          ...attempts[0],
+          answers: JSON.parse(attempts[0].answers || '{}'),
+        });
 
-      // 2. Fetch test details, including passages/questions
-      const { data: testData } = await supabase
-        .from('reading_papers')
-        .select(`
-          *,
-          reading_passages (
-            id,
-            passage_number,
-            title,
-            body,
-            section_instruction,
-            reading_questions (
-              id,
-              question_number,
-              question_type,
-              text,
-              instruction,
-              options,
-              answer
+        const { data: testData, error: testError } = await supabase
+          .from('reading_papers')
+          .select(`
+            id, title,
+            reading_passages (
+              id, passage_number, title, body, section_instruction, status,
+              reading_questions (
+                id, question_number, question_type, text, instruction, options, answer, status
+              )
             )
-          )
-        `)
-        .eq('id', testId)
-        .single();
+          `)
+          .eq('id', testId)
+          .eq('status', 'published')
+          .single();
 
-      setTest(testData);
+        if (testError) throw testError;
+        if (!testData) throw new Error('Test not found.');
 
-      setPassages(
-        (testData?.reading_passages || [])
-          .sort((a, b) => a.passage_number - b.passage_number)
-          .map(p => ({
+        const passagesData = testData.reading_passages
+          .filter((p: any) => p.status === 'published')
+          .sort((a: any, b: any) => a.passage_number - b.passage_number)
+          .map((p: any) => ({
             ...p,
-            // Optionally, group questions here by their instruction:
-            question_groups: groupByInstruction(
-              (p.reading_questions || []).sort((a, b) => a.question_number - b.question_number)
-            ),
-          }))
-      );
+            reading_questions: p.reading_questions
+              .filter((q: any) => q.status === 'published')
+              .sort((a: any, b: any) => a.question_number - b.question_number)
+              .map((q: any) => ({
+                ...q,
+                options: q.options ? JSON.parse(q.options) : null,
+                answer: JSON.parse(q.answer),
+              })),
+            question_groups: groupByInstruction(p.reading_questions),
+          }));
 
-      setLoading(false);
-    })();
+        setTest(testData);
+        setPassages(passagesData);
+      } catch (err: any) {
+        setError(err.message || 'Failed to load results.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [testId]);
 
-  if (loading) return <div className="p-8 text-lg">Loading result...</div>;
-  if (!attempt || !test) return (
-    <div className="p-8 text-xl text-red-600">No attempt found for this test.</div>
-  );
+  useEffect(() => {
+    if (!attempt || !passages.length) return;
 
-  // Gather correct answers
-  const userAnswers = attempt.answers || {};
-  // Build correct answers from passage data (since reading_questions has answer field)
-  const correctAnswers: Record<string, string> = {};
-  passages.forEach(p =>
-    (p.reading_questions || []).forEach((q: any) =>
-      correctAnswers[q.id] = typeof q.answer === 'string' ? q.answer : (Array.isArray(q.answer) ? q.answer[0] : '')
-    )
-  );
+    const allQuestions = passages.flatMap(p => p.question_groups.flatMap(g => g.questions));
+    let correct = 0;
+    allQuestions.forEach(q => {
+      const userAnswer = attempt.answers?.[q.id]?.trim().toLowerCase() || '';
+      const correctAnswer = Array.isArray(q.answer) ? q.answer[0].trim().toLowerCase() : q.answer.trim().toLowerCase();
+      if (userAnswer === correctAnswer) correct++;
+    });
 
-  // Build a flat ordered question list for scoring
-  const allQuestions = passages.flatMap(p =>
-    (p.reading_questions || []).sort((a, b) => a.question_number - b.question_number)
-  );
-  let total = allQuestions.length, correct = 0;
-  allQuestions.forEach(q => {
-    if (
-      userAnswers[q.id]?.trim()?.toLowerCase() ===
-      (typeof q.answer === 'string'
-        ? q.answer?.trim()?.toLowerCase()
-        : Array.isArray(q.answer)
-        ? q.answer[0]?.trim()?.toLowerCase()
-        : ''
-      )
-    ) {
-      correct++;
+    setScore({ correct, total: allQuestions.length });
+    setAiFeedback(generateAIFeedback(correct, allQuestions.length));
+  }, [attempt, passages]);
+
+  const groupByInstruction = (questions: Question[]): QuestionGroup[] => {
+    const safeQuestions = questions.map(q => ({ ...q, instruction: q.instruction || 'General Questions' }));
+    const groups: QuestionGroup[] = [];
+    let currentInst = safeQuestions[0]?.instruction;
+    let block: Question[] = [safeQuestions[0]];
+
+    for (let i = 1; i < safeQuestions.length; i++) {
+      const q = safeQuestions[i];
+      if (q.instruction === currentInst) {
+        block.push(q);
+      } else {
+        groups.push({ instruction: currentInst, questions: block });
+        currentInst = q.instruction;
+        block = [q];
+      }
     }
-  });
+    if (block.length) groups.push({ instruction: currentInst, questions: block });
+    return groups;
+  };
 
-  // Band estimate: real IELTS bands are mapped, here just for demo
-  const band = Math.max(1, Math.round((correct / total) * 9 * 10) / 10);
+  const generateAIFeedback = (correct: number, total: number) => {
+    const percentage = (correct / total) * 100;
+    if (percentage < 50) return 'Focus on improving comprehension and time management.';
+    if (percentage < 80) return 'Good progress! Practice identifying key details.';
+    return 'Outstanding! Maintain consistency in your preparation.';
+  };
+
+  const escapeLatex = (text: string | null | undefined) => {
+    if (!text) return '';
+    return text.replace(/[&%$#_{}]/g, '\\$&').replace(/\n/g, '\\\\');
+  };
+
+  const exportToPDF = async () => {
+    setPdfLoading(true);
+    try {
+      const latexContent = generateLatexContent(test, attempt, passages, score, aiFeedback);
+      const response = await fetch('/api/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ latex: latexContent }),
+      });
+
+      if (!response.ok) throw new Error('Failed to generate PDF.');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `reading_result_${testId || 'unknown'}.pdf`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    } catch (err: any) {
+      setError(err.message || 'Failed to generate PDF. Please try again.');
+    } finally {
+      setPdfLoading(false);
+    }
+  };
+
+  const generateLatexContent = (
+    test: Test | null,
+    attempt: Attempt | null,
+    passages: PassageWithGroups[],
+    score: { correct: number; total: number },
+    aiFeedback: string
+  ) => {
+    const questions = passages.flatMap(p => p.question_groups.flatMap(g => g.questions));
+    return `
+\\documentclass{article}
+\\usepackage{geometry}
+\\geometry{a4paper, margin=1in}
+\\usepackage{parskip}
+\\usepackage[utf8]{inputenc}
+\\usepackage[T1]{fontenc}
+\\usepackage{lmodern}
+\\usepackage{xcolor}
+\\usepackage{enumitem}
+\\usepackage{hyperref}
+
+\\begin{document}
+
+\\title{IELTS Reading Test Review}
+\\author{}
+\\date{\\today}
+\\maketitle
+
+\\section*{Test: ${escapeLatex(test?.title) || 'Untitled'}}
+\\textbf{Score:} ${score.correct}/${score.total} \\quad \\textbf{Band:} ${Math.min(9, Math.max(1, (score.correct / score.total) * 9)).toFixed(1)}\\\\
+\\textbf{AI Feedback:} ${escapeLatex(aiFeedback)}
+
+\\section*{Results}
+${passages.map(p => `
+  \\subsection*{Passage ${p.passage_number}: ${escapeLatex(p.title) || 'Untitled'}}
+  \\begin{quote}
+    ${escapeLatex(p.body)}
+  \\end{quote}
+  ${p.question_groups.map(g => `
+    \\subsubsection*{${escapeLatex(g.instruction)}}
+    \\begin{enumerate}
+      ${g.questions.map(q => {
+        const userAnswer = attempt?.answers?.[q.id] || 'Unanswered';
+        const correctAnswer = Array.isArray(q.answer) ? q.answer[0] : q.answer;
+        return `
+        \\item Question ${q.question_number}: ${escapeLatex(q.text)}
+        \\begin{itemize}
+          \\item Your Answer: ${escapeLatex(userAnswer)}
+          \\item Correct Answer: ${escapeLatex(correctAnswer)}
+        \\end{itemize}
+        `;
+      }).join('')}
+    \\end{enumerate}
+  `).join('')}
+`).join('')}
+
+\\end{document}
+`;
+  };
+
+  if (error) {
+    return (
+      <motion.div
+        className="p-8 text-center text-red-600 dark:text-red-400 flex items-center justify-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <AlertCircle size={20} />
+        {error}
+      </motion.div>
+    );
+  }
+
+  if (loading) return <motion.div className="p-8 text-lg dark:text-gray-300">Loading results...</motion.div>;
+
+  if (!test || !attempt) {
+    return (
+      <motion.div
+        className="p-8 text-center text-red-600 dark:text-red-400 flex items-center justify-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <AlertCircle size={20} />
+        No results found.
+      </motion.div>
+    );
+  }
+
+  const allQuestions = passages.flatMap(p => p.question_groups.flatMap(g => g.questions));
+  const band = Math.min(9, Math.max(1, (score.correct / score.total) * 9));
 
   return (
-    <div className="min-h-screen bg-blue-50 py-10 px-3 flex flex-col items-center">
-      <div className="w-full max-w-3xl bg-white rounded-3xl shadow-2xl p-8 border">
-        <div className="mb-5 flex flex-col items-center">
-          <h1 className="text-3xl font-extrabold text-blue-900 mb-2 text-center">
-            IELTS Reading Test Review
-          </h1>
-          {test?.title && (
-            <h2 className="text-xl text-blue-700 font-bold mb-4 text-center">{test.title}</h2>
-          )}
-          <div className="mb-3 flex flex-col items-center">
-            <div className="text-lg font-semibold mb-2">
-              Score: <span className="text-blue-900">{correct} / {total}</span>
-            </div>
-            <span className="inline-block px-7 py-2 text-xl font-bold rounded-2xl shadow bg-gradient-to-r from-blue-600 to-green-500 text-white mb-2">
-              Band (est.): {band}
-            </span>
+    <motion.div
+      className="min-h-screen bg-blue-50 dark:bg-gray-900 py-10 px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8">
+        <header className="mb-6 flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold text-blue-900 dark:text-blue-300">IELTS Reading Test Review</h1>
+            <h2 className="text-xl text-blue-700 dark:text-blue-400">{test.title}</h2>
           </div>
+          <button
+            className={`flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 ${pdfLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+            onClick={exportToPDF}
+            disabled={pdfLoading}
+            aria-label="Export results to PDF"
+          >
+            <Download size={20} />
+            {pdfLoading ? 'Generating...' : 'Export PDF'}
+          </button>
+        </header>
+        <div className="mb-6 text-center">
+          <p className="text-lg font-semibold">Score: <span className="text-blue-900 dark:text-blue-300">{score.correct}/{score.total}</span></p>
+          <p className="text-xl font-bold bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 py-2 mt-2 inline-block rounded-lg">Band: {band.toFixed(1)}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">{aiFeedback}</p>
         </div>
-        <hr className="my-6" />
-
-        {/* Review by passage */}
-        <div className="space-y-14">
-          {passages.map(passage => (
-            <div key={passage.id}>
-              <div className="mb-5">
-                <span className="text-base font-bold text-blue-700">
-                  Passage {passage.passage_number}:
-                </span>
-                <span className="ml-2 text-lg font-semibold text-gray-700">
-                  {passage.title}
-                </span>
-              </div>
-              {/* Section instruction (optional) */}
-              {passage.section_instruction && (
-                <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 text-blue-900 rounded-xl text-base font-medium shadow">
-                  {passage.section_instruction}
-                </div>
-              )}
-
-              {/* Instruction blocks */}
-              <div className="space-y-8">
-                {(passage.question_groups || []).map((block, blockIdx) => {
-                  const qFirst = block.questions[0]?.question_number;
-                  const qLast = block.questions[block.questions.length - 1]?.question_number;
-                  return (
-                    <div key={blockIdx}>
-                      {block.instruction && (
-                        <div className="flex items-center gap-4 mb-4">
-                          <span className="inline-block bg-yellow-300/80 text-yellow-900 font-bold rounded-xl px-5 py-1.5 text-lg shadow-sm tracking-tight border-2 border-yellow-400">
-                            {qFirst === qLast
-                              ? `Q${qFirst}`
-                              : `Questions ${qFirst}–${qLast}`}
-                          </span>
-                          <span className="flex-1 bg-yellow-50 border border-yellow-200 rounded-2xl p-5 shadow-sm text-base font-semibold leading-relaxed">
-                            {block.instruction}
-                          </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <aside className="col-span-1 pr-4">
+            <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-100">Navigation</h3>
+            <ul className="space-y-1">
+              {allQuestions.map(q => (
+                <li key={q.id}>
+                  <a
+                    href={`#question-${q.id}`}
+                    className="text-blue-600 dark:text-blue-300 hover:underline"
+                    onClick={() => document.getElementById(`question-${q.id}`)?.scrollIntoView({ behavior: 'smooth' })}
+                    aria-label={`Jump to question ${q.question_number}`}
+                  >
+                    Question {q.question_number}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+          <main className="col-span-2">
+            {passages.map(passage => (
+              <section key={passage.id} className="mb-8">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100">
+                  Passage {passage.passage_number}: {passage.title || 'Untitled'}
+                </h3>
+                <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg mb-4 whitespace-pre-wrap">{passage.body}</div>
+                {passage.question_groups.map((group, idx) => (
+                  <div key={idx} className="mb-6">
+                    <p className="font-semibold text-gray-700 dark:text-gray-300">{group.instruction}</p>
+                    {group.questions.map(q => {
+                      const userAnswer = attempt.answers?.[q.id] || '';
+                      const correctAnswer = Array.isArray(q.answer) ? q.answer[0] : q.answer;
+                      const isCorrect = userAnswer.trim().toLowerCase() === correctAnswer.trim().toLowerCase();
+                      return (
+                        <div
+                          key={q.id}
+                          id={`question-${q.id}`}
+                          className={`p-4 rounded-lg border ${isCorrect ? 'bg-green-50 dark:bg-green-900 border-green-500' : 'bg-red-50 dark:bg-red-900 border-red-500'}`}
+                        >
+                          <p className="font-medium">Question {q.question_number}: {q.text}</p>
+                          <div className="flex justify-between text-sm">
+                            <span>Your answer: {userAnswer || 'Unanswered'}</span>
+                            <span>Correct answer: {correctAnswer}</span>
+                          </div>
                         </div>
-                      )}
-                      <ol className="space-y-4">
-                        {block.questions.map((q: any) => {
-                          const userAns = userAnswers[q.id];
-                          const isCorrect = userAns?.trim()?.toLowerCase() ===
-                            (typeof q.answer === 'string'
-                              ? q.answer?.trim()?.toLowerCase()
-                              : Array.isArray(q.answer)
-                                ? q.answer[0]?.trim()?.toLowerCase()
-                                : ''
-                            );
-                          return (
-                            <li key={q.id} className="p-0">
-                              <div
-                                className={`flex flex-col md:flex-row items-start md:items-center px-7 py-6 rounded-2xl shadow border
-                                  ${isCorrect === true ? 'bg-green-50 border-green-300'
-                                    : isCorrect === false && userAns
-                                      ? 'bg-red-50 border-red-300'
-                                      : 'bg-gray-50 border-gray-200'}`}
-                              >
-                                <span className="w-11 h-11 mr-4 rounded-full flex items-center justify-center text-xl font-extrabold
-                                  border-2 shadow-sm mb-2 md:mb-0"
-                                  style={{
-                                    background: isCorrect === true
-                                      ? '#bbf7d0'
-                                      : isCorrect === false && userAns
-                                        ? '#fee2e2'
-                                        : '#e0e7ef',
-                                    borderColor: isCorrect === true
-                                      ? '#22c55e'
-                                      : isCorrect === false && userAns
-                                        ? '#ef4444'
-                                        : '#cbd5e1',
-                                    color: isCorrect === true
-                                      ? '#166534'
-                                      : isCorrect === false && userAns
-                                        ? '#b91c1c'
-                                        : '#334155'
-                                  }}
-                                >
-                                  Q{q.question_number}
-                                </span>
-                                <div className="flex-1 ml-0 md:ml-6">
-                                  <div className="font-semibold text-gray-900 text-base mb-2 leading-relaxed">{q.text}</div>
-                                  <div className="flex items-center gap-4 mt-1 mb-1">
-                                    <span className={`px-3 py-1 rounded-lg font-semibold text-base shadow
-                                      ${isCorrect === true
-                                        ? 'bg-green-200 text-green-900 border border-green-400'
-                                        : isCorrect === false && userAns
-                                          ? 'bg-red-200 text-red-900 border border-red-400'
-                                          : 'bg-gray-200 text-gray-600 border border-gray-400'
-                                      }`}>
-                                      Your answer: {userAns || <span className="text-gray-400 italic">No answer</span>}
-                                    </span>
-                                    {isCorrect === false && (
-                                      <span className="ml-2 text-base text-blue-800 bg-blue-100 px-3 py-1 rounded shadow">
-                                        Correct: <span className="font-mono font-bold">{typeof q.answer === 'string' ? q.answer : Array.isArray(q.answer) ? q.answer[0] : ''}</span>
-                                      </span>
-                                    )}
-                                    {isCorrect === true && (
-                                      <span className="ml-2 text-green-700 font-bold">✔ Correct</span>
-                                    )}
-                                  </div>
-                                  {/* (Optional) Show explanation */}
-                                  {/* {q.explanation && (
-                                    <div className="mt-2 text-sm text-gray-500 italic">
-                                      <b>Explanation:</b> {q.explanation}
-                                    </div>
-                                  )} */}
-                                </div>
-                              </div>
-                            </li>
-                          );
-                        })}
-                      </ol>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                      );
+                    })}
+                  </div>
+                ))}
+              </section>
+            ))}
+          </main>
         </div>
-
-        {/* Next Steps */}
-        <div className="mt-14 flex flex-col gap-3 items-center">
-          <button
-            className="bg-blue-700 hover:bg-blue-900 text-white px-7 py-3 rounded-2xl shadow text-lg font-semibold"
-            onClick={() => router.push('/practice/reading/history')}
-          >
-            📚 Go to My Reading History
-          </button>
-          <button
-            className="bg-green-600 hover:bg-green-800 text-white px-7 py-3 rounded-2xl shadow text-lg font-semibold"
-            onClick={() => router.push('/dashboard')}
-          >
-            🏠 Back to Dashboard
-          </button>
-          <button
-            className="bg-indigo-700 hover:bg-indigo-900 text-white px-7 py-3 rounded-2xl shadow text-lg font-semibold"
-            onClick={() => router.push('/practice/reading')}
-          >
-            ➕ Try Another Reading Test
-          </button>
-        </div>
+        <ResultReviewPanel
+          unanswered={allQuestions.filter(q => !attempt.answers?.[q.id]?.trim())}
+          questions={allQuestions}
+          onJump={(qnId: string) => document.getElementById(`question-${qnId}`)?.scrollIntoView({ behavior: 'smooth' })}
+        />
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,4 @@
-// src/components/reading/ReadingPassagePane.tsx
-import React from 'react';
+import React from "react";
 
 interface Passage {
   id: string;
@@ -21,28 +20,28 @@ const ReadingPassagePane: React.FC<ReadingPassagePaneProps> = ({
   passages = [],
   activePassageId,
 }) => (
-  <div>
-    {Array.isArray(passages) && passages.length > 0 ? (
-      [...passages]
+  <div className="passages-container">
+    {passages.length > 0 ? (
+      passages
         .sort((a, b) => a.passage_number - b.passage_number)
         .map((passage) => (
           <div
             key={passage.id}
-            className={`mb-8 ${activePassageId === passage.id ? 'bg-yellow-50' : ''}`}
+            className={`passage-pane ${activePassageId === passage.id ? 'active' : ''}`}
           >
-            <h2 className="text-xl font-bold mb-2 text-blue-800">
+            <h2 className="passage-title text-2xl font-bold mb-3">
               Passage {passage.passage_number}: {passage.title}
             </h2>
 
             {passage.section_instruction && (
-              <div className="mb-2 text-blue-700 font-semibold text-base border-l-4 pl-2 border-blue-300 bg-blue-50 rounded">
+              <div className="section-instruction text-lg mb-4 italic text-gray-700">
                 {passage.section_instruction}
               </div>
             )}
 
-            <div className="whitespace-pre-line text-base leading-relaxed bg-gray-50 rounded-xl p-4 border space-y-4">
+            <div className="passage-body">
               {splitIntoParagraphs(passage.body).map((para, idx) => (
-                <p key={idx}>
+                <p key={idx} className="mb-3 text-base leading-relaxed">
                   <strong>{para.slice(0, 2)}</strong> {para.slice(2).trim()}
                 </p>
               ))}
@@ -50,7 +49,7 @@ const ReadingPassagePane: React.FC<ReadingPassagePaneProps> = ({
           </div>
         ))
     ) : (
-      <div className="text-lg p-8">No passages found.</div>
+      <div className="no-passages">No passages found.</div>
     )}
   </div>
 );

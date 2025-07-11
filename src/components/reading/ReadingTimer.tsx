@@ -12,7 +12,7 @@ function formatTime(seconds: number) {
 }
 
 const ReadingTimer: React.FC<ReadingTimerProps> = ({ timeLeft }) => (
-  <div className="sticky top-0 bg-white z-20 py-2 px-6 flex items-center justify-center border-b text-2xl font-bold tracking-wide">
+  <div className="sticky top-0 bg-white z-5 py-0.5 px-2 flex items-center justify-center border-b text-2xl font-bold tracking-wide">
     Time Left: <span className="ml-2 text-red-600">{formatTime(timeLeft)}</span>
   </div>
 );

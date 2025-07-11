@@ -1,27 +1,44 @@
-// lib/studyActivity.ts
-
 import { supabase } from './supabaseClient';
 
-/**
- * Logs the study activity of a user.
- * @param userId - The ID of the logged-in user.
- * @param activityType - The type of study activity, e.g., "Listening Test", "Reading Test", etc.
- */
-export const logStudyActivity = async (userId: string, activityType: string) => {
-  const { data, error } = await supabase
-    .from('study_activity')
-    .insert([
-      {
+export const trackLessonCompletion = async (
+  userId: string,
+  courseId: string,
+  lessonId: string
+) => {
+  try {
+    // Update user progress
+    const { error: progressError } = await supabase
+      .from('user_progress')
+      .upsert({
         user_id: userId,
-        study_date: new Date().toISOString().split('T')[0], // Format as YYYY-MM-DD
-        activity_type: activityType,
-      },
-    ]);
+        course_id: courseId,
+        last_completed_lesson: lessonId,
+        completed_at: new Date().toISOString()
+      });
 
-  if (error) {
-    console.error('Error logging study activity:', error);
-    return;
+    if (progressError) throw progressError;
+
+    // Update study streak
+    const { error: streakError } = await supabase.rpc('update_study_streak', {
+      user_id: userId
+    });
+
+    if (streakError) throw streakError;
+
+    // Log study activity
+    const { error: activityError } = await supabase
+      .from('study_activities')
+      .insert({
+        user_id: userId,
+        activity_type: 'lesson_completed',
+        lesson_id: lessonId,
+        course_id: courseId,
+        duration_minutes: 30 // Replace with actual duration
+      });
+
+    return !(progressError || streakError || activityError);
+  } catch (error) {
+    console.error('Progress tracking failed:', error);
+    return false;
   }
-
-  console.log('Study activity logged:', data);
 };

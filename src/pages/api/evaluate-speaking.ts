@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabaseClient";
 import { OpenAI } from "openai";
 import axios from "axios";
 import { callGemini } from "@/lib/geminiClient";

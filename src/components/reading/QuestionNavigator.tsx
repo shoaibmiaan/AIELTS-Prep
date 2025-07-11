@@ -1,4 +1,3 @@
-// src/components/reading/QuestionNavigator.tsx
 import React from 'react';
 
 interface Question {
@@ -27,6 +26,7 @@ const QuestionNavigator: React.FC<QuestionNavigatorProps> = ({
               answers[q.id] ? 'bg-green-200' : 'bg-gray-200'}`}
           onClick={() => onJump(q.id)}
           type="button"
+          aria-label={`Jump to question ${q.question_number}`}
         >
           {q.question_number}
         </button>

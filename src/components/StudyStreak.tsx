@@ -1,60 +1,74 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
-/**
- * Component to display the current study streak.
- */
-const StudyStreak = ({ userId }: { userId: string }) => {
-  const [streak, setStreak] = useState<number>(0);
+const StudyStreak = () => {
+  const [streakCount, setStreakCount] = useState<number>(0);
+  const [flames, setFlames] = useState<JSX.Element[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
+  // Fetch streakCount from the profiles table
   useEffect(() => {
-    if (!userId) return; // If userId is not available, stop the effect.
-
-    // Async function to fetch study streak
-    const fetchStudyStreak = async () => {
+    const fetchStreakCount = async () => {
       try {
-        const { data, error } = await supabase
-          .from('study_activity')
-          .select('study_date')
-          .eq('user_id', userId)
-          .order('study_date', { ascending: false });
-
-        if (error || !data) {
-          console.error('Error fetching study streak:', error);
-          return;
+        const { data: user, error: userError } = await supabase.auth.getUser();
+        if (userError) {
+          throw userError;
         }
 
-        let streakCount = 1;
-        let lastStudyDate = new Date(data[0].study_date);
+        if (user) {
+          // Fetch the streak count from the profiles table based on the logged-in user's email
+          const { data, error } = await supabase
+            .from('profiles')  // Ensure you're querying the profiles table
+            .select('streak_count')
+            .eq('email', user.email)
+            .single();  // Use .single() to get one row for the user
 
-        // Calculate streak based on consecutive study dates
-        for (let i = 1; i < data.length; i++) {
-          const currentStudyDate = new Date(data[i].study_date);
-          const timeDiff = (lastStudyDate.getTime() - currentStudyDate.getTime()) / (1000 * 3600 * 24);
-
-          if (timeDiff === 1) {
-            streakCount++;
-          } else if (timeDiff > 1) {
-            break; // Break if there's a gap larger than 1 day
+          if (error) {
+            throw error;
           }
 
-          lastStudyDate = currentStudyDate;
+          if (data) {
+            setStreakCount(data.streak_count);  // Set streak count from profiles table
+          } else {
+            setError('Streak data not found');
+          }
+        } else {
+          setError('User not authenticated');
         }
-
-        setStreak(streakCount); // Update streak state
-      } catch (error) {
-        console.error('Error fetching study streak:', error);
+      } catch (error: any) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchStudyStreak(); // Invoke async function
-  }, [userId]); // Dependency array: re-run when `userId` changes
+    fetchStreakCount();
+  }, []);
+
+  // Update flames display based on streakCount
+  useEffect(() => {
+    const newFlames = [];
+    for (let i = 0; i < streakCount; i++) {
+      newFlames.push(
+        <div key={i} className="text-yellow-500">
+          🔥
+        </div>
+      );
+    }
+    setFlames(newFlames);
+  }, [streakCount]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-blue-600 text-white py-2 z-50 shadow-lg">
-      <div className="text-center">
-        <p>Your current study streak: <span className="font-bold">{streak} days</span></p>
+    <div className="flex items-center bg-orange-50 px-3 py-2 rounded-lg border border-orange-200">
+      <span className="mr-2 font-medium">Streak:</span>
+      <div className="flex space-x-1">
+        {flames.length > 0 ? flames : <span className="text-gray-400">No active streak</span>}
       </div>
+      <span className="ml-2 font-bold">{streakCount} days</span>
     </div>
   );
 };
