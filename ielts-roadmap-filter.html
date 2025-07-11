@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Platform Roadmap (Complete Interactive Version)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .filters {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        select {
+            padding: 8px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            min-width: 150px;
+        }
+        #counter {
+            font-weight: bold;
+            background: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 6px;
+            color: #1976d2;
+            margin-left: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .status-dropdown {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            font-size: 14px;
+            min-width: 120px;
+        }
+        .status-dropdown.done { background-color: #e8f5e9; color: #2e7d32; }
+        .status-dropdown.progress { background-color: #fff8e1; color: #ff8f00; }
+        .status-dropdown.pending { background-color: #ffebee; color: #c62828; }
+        .timestamp {
+            font-size: 0.8em;
+            color: #6c757d;
+            font-style: italic;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        .phase-header td {
+            background-color: #e3f2fd !important;
+            font-weight: bold;
+            color: #0d47a1;
+        }
+        .goal-header td {
+            background-color: #f3e5f5 !important;
+            font-weight: bold;
+            color: #4a148c;
+        }
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+                gap: 10px;
+            }
+            #counter {
+                margin-left: 0;
+            }
+            td, th {
+                padding: 8px 10px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>IELTS Platform Development Roadmap</h1>
+
+<div class="filters">
+    <div class="filter-group">
+        <label for="goalFilter">Filter by Goal:</label>
+        <select id="goalFilter" onchange="filterTable()">
+            <option value="all">All Goals</option>
+            <option value="1">1. User Module</option>
+            <option value="2">2. Learning Module</option>
+            <option value="3">3. Mock Test Module</option>
+            <option value="4">4. AI Evaluation Module</option>
+            <option value="5">5. Speaking Practice Module</option>
+            <option value="6">6. Listening Module</option>
+            <option value="7">7. Reading Module</option>
+            <option value="8">8. Performance & Analytics</option>
+            <option value="9">9. Adaptive Learning</option>
+            <option value="10">10. Teacher/Admin Module</option>
+            <option value="11">11. Community & Support</option>
+            <option value="12">12. Monetization</option>
+            <option value="13">13. Infrastructure & Security</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label for="statusFilter">Filter by Status:</label>
+        <select id="statusFilter" onchange="filterTable()">
+            <option value="all">All Statuses</option>
+            <option value="done">✅ Done</option>
+            <option value="progress">🟡 In Progress</option>
+            <option value="pending">❌ Pending</option>
+        </select>
+    </div>
+
+    <span id="counter"></span>
+</div>
+
+<table id="roadmapTable">
+    <thead>
+        <tr>
+            <th width="15%">Main Goal</th>
+            <th width="10%">Phase</th>
+            <th width="20%">Objective</th>
+            <th width="25%">Target</th>
+            <th width="20%">Strategy</th>
+            <th width="10%">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Goal 1: User Module -->
+        <tr class="goal-header" data-goal="1" data-status="done">
+            <td colspan="6"><strong>Goal 1: User Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="1" data-status="done">
+            <td></td>
+            <td colspan="5"><strong>Phase 1: Foundation</strong></td>
+        </tr>
+
+        <tr data-goal="1" data-status="done">
+            <td></td>
+            <td></td>
+            <td>1a. User registration & login (email, social, phone)</td>
+            <td>Implement login/signup using email, social, and phone authentication</td>
+            <td>Integrate Firebase Authentication for email/password, OAuth for social logins (Google, Facebook), and Twilio for phone-based OTP verification. Ensure secure session management with JWT tokens.</td>
+            <td>
+                <select class="status-dropdown done" onchange="updateStatus(this)">
+                    <option value="pending">❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done" selected>✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="1" data-status="progress">
+            <td></td>
+            <td></td>
+            <td>1b. Profile setup (goal band, country, level)</td>
+            <td>Allow users to set their goals, select country and proficiency level</td>
+            <td>Develop a user profile form with fields for target IELTS band, country dropdown (ISO 3166-1), and proficiency levels (beginner, intermediate, advanced). Store data in a NoSQL database like MongoDB for flexibility.</td>
+            <td>
+                <select class="status-dropdown progress" onchange="updateStatus(this)">
+                    <option value="pending">❌ Pending</option>
+                    <option value="progress" selected>🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="1" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>1c. Role-based access (student, teacher, admin)</td>
+            <td>Implement role-based permissions and access control</td>
+            <td>Use RBAC (Role-Based Access Control) with middleware to assign roles during registration. Store roles in database and enforce permissions for routes (e.g., admin-only dashboard access).</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="1" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>1d. Daily streak & study calendar</td>
+            <td>Develop calendar UI for tracking daily study activities</td>
+            <td>Build a React-based calendar component using FullCalendar library. Track streaks via backend API calls to log daily activity completion, stored in user's profile.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="1" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>1e. Saved tests, bookmarked content</td>
+            <td>Implement save and bookmark functionality for user content</td>
+            <td>Create API endpoints for saving/bookmarking tests and lessons. Store references to content IDs in user's profile with MongoDB collections.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="1" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>1f. Language preference settings</td>
+            <td>Allow users to select preferred language for the interface</td>
+            <td>Use i18n library for multi-language support. Store user's language preference in profile and dynamically load language files for UI.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 2: Learning Module -->
+        <tr class="goal-header" data-goal="2" data-status="progress">
+            <td colspan="6"><strong>Goal 2: Learning Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="2" data-status="progress">
+            <td></td>
+            <td colspan="5"><strong>Phase 1: Foundation</strong></td>
+        </tr>
+
+        <tr data-goal="2" data-status="done">
+            <td></td>
+            <td></td>
+            <td>2a. Structured course library (Academic & General)</td>
+            <td>Build a course library with categorized lessons for each module</td>
+            <td>Design a CMS to categorize courses (Academic/General) with subcategories for skills (listening, reading, etc.). Use a relational database like PostgreSQL for structured storage.</td>
+            <td>
+                <select class="status-dropdown done" onchange="updateStatus(this)">
+                    <option value="pending">❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done" selected>✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="2" data-status="progress">
+            <td></td>
+            <td></td>
+            <td>2b. Grammar, vocabulary, collocations lessons</td>
+            <td>Create lessons for vocabulary, grammar, and IELTS-related collocations</td>
+            <td>Develop modular lesson templates with interactive quizzes using React. Source content from IELTS experts and store in CMS for easy updates.</td>
+            <td>
+                <select class="status-dropdown progress" onchange="updateStatus(this)">
+                    <option value="pending">❌ Pending</option>
+                    <option value="progress" selected>🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="2" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>2c. IELTS strategy tips (all 4 skills)</td>
+            <td>Provide tips for listening, reading, speaking, and writing</td>
+            <td>Create a tips database with categorized strategies for each skill. Display tips contextually within lessons using dynamic content rendering.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr class="phase-header" data-goal="2" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 2: Advanced Learning</strong></td>
+        </tr>
+
+        <tr data-goal="2" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>2d. AI-generated practice drills</td>
+            <td>Develop AI tools to create personalized practice questions</td>
+            <td>Integrate an LLM (e.g., Grok) to generate tailored questions based on user's proficiency and past performance. Store questions in a question bank for reuse.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="2" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>2e. Progressively unlocked learning paths</td>
+            <td>Implement a system that unlocks lessons as users progress</td>
+            <td>Build a progression algorithm to unlock content based on completed lessons/tests. Use a dependency graph to manage prerequisites.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 3: Mock Test Module -->
+        <tr class="goal-header" data-goal="3" data-status="pending">
+            <td colspan="6"><strong>Goal 3: Mock Test Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="3" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 2: Testing & Analytics</strong></td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3a. Full-length IELTS mock tests (timed)</td>
+            <td>Implement full-length mock tests with a countdown timer</td>
+            <td>Develop a test engine with React for UI and Node.js for backend. Use WebSocket for real-time timer updates.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3b. Section-wise practice tests (Listening, Reading, Writing, Speaking)</td>
+            <td>Break tests into individual sections and track performance separately</td>
+            <td>Create modular test components for each section. Store performance data per section in database for analytics.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3c. Band score simulation</td>
+            <td>Add a feature to calculate and display predicted band scores</td>
+            <td>Implement a scoring algorithm based on IELTS rubrics. Map user responses to band scores and display results.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3d. Real-time test timer & tab-switch detection</td>
+            <td>Add real-time timer and detect tab-switching during tests</td>
+            <td>Use JavaScript's `setInterval` for timer and `visibilitychange` event for tab-switch detection. Log violations for integrity.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3e. Auto-save test state</td>
+            <td>Implement auto-save feature to store test progress</td>
+            <td>Use localStorage for temporary state and sync with backend via API calls every 30 seconds to prevent data loss.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="3" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>3f. Performance analytics per mock</td>
+            <td>Provide insights based on mock test performance</td>
+            <td>Generate analytics reports using Chart.js, pulling data from test results stored in PostgreSQL. Highlight strengths/weaknesses.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 4: AI Evaluation Module -->
+        <tr class="goal-header" data-goal="4" data-status="pending">
+            <td colspan="6"><strong>Goal 4: AI Evaluation Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="4" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 3: AI Integration</strong></td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4a. Writing Task 1 & 2 feedback with band score</td>
+            <td>Implement AI-based feedback with band scoring for writing tasks</td>
+            <td>Use an LLM to analyze writing submissions against IELTS rubrics (task achievement, coherence, etc.). Return band score and feedback.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4b. Letter writing for General Training</td>
+            <td>Add letter-writing evaluation for General Training candidates</td>
+            <td>Extend AI evaluation to include letter-specific rubrics (tone, structure). Train model on sample letters for accuracy.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4c. Speaking audio evaluation (fluency, vocab, grammar, pronunciation)</td>
+            <td>Enable audio recording for speaking and integrate AI evaluation</td>
+            <td>Use Web Audio API for recording. Analyze audio with an LLM for fluency, vocabulary, grammar, and pronunciation scoring.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4d. Transcription + pronunciation scoring</td>
+            <td>Add transcription and pronunciation scoring to speaking evaluations</td>
+            <td>Integrate speech-to-text API (e.g., Google Speech) for transcription. Use phoneme analysis for pronunciation scoring.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4e. Instant feedback with model answer</td>
+            <td>Provide immediate feedback with a model answer for writing/speaking</td>
+            <td>Generate model answers using LLM and display alongside user submissions with highlighted improvements.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="4" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>4f. AI re-evaluation option</td>
+            <td>Allow users to request a re-evaluation by the AI</td>
+            <td>Create API endpoint for re-evaluation requests, re-running LLM analysis with same input for consistency checks.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 5: Speaking Practice Module -->
+        <tr class="goal-header" data-goal="5" data-status="pending">
+            <td colspan="6"><strong>Goal 5: Speaking Practice Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="5" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 3: Interaction</strong></td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5a. Speaking test simulator (Parts 1, 2, 3)</td>
+            <td>Implement a fully interactive speaking test with all 3 parts</td>
+            <td>Build a React-based simulator with timed prompts for each part. Use Web Audio API for recording responses.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5b. Voice recording and playback</td>
+            <td>Enable voice recording and playback functionality</td>
+            <td>Integrate Web Audio API for recording and playback. Store audio files temporarily in cloud storage (e.g., AWS S3).</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5c. AI or LLM-powered speaking partner</td>
+            <td>Integrate an AI-powered speaking partner for conversation practice</td>
+            <td>Use an LLM to simulate conversational responses in real-time via WebSocket for low-latency interaction.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5d. Accent adaptation (UK, US, AUS)</td>
+            <td>Implement accent options for speaking practice (UK, US, AUS)</td>
+            <td>Use text-to-speech APIs (e.g., AWS Polly) with accent-specific voices for practice prompts.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5e. Roleplay conversations</td>
+            <td>Develop roleplay scenarios for practice and AI feedback</td>
+            <td>Create scenario-based prompts stored in CMS. Use LLMI to evaluate responses and provide feedback.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="5" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>5f. Band prediction + detailed speaking report</td>
+            <td>Implement a band prediction and detailed report for speaking tests</td>
+            <td>Analyze speaking responses with LLM against IELTS rubrics. Generate detailed reports with band scores and tips.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 6: Listening Module -->
+        <tr class="goal-header" data-goal="6" data-status="pending">
+            <td colspan="6"><strong>Goal 6: Listening Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="6" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 2: Interactive Practice</strong></td>
+        </tr>
+
+        <tr data-goal="6" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>6a. Audio-based practice & tests</td>
+            <td>Develop audio-based practice tests with varying question types</td>
+            <td>Host audio files in cloud storage. Build a test UI with audio playback and question input fields.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="6" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>6b. Auto-play per section with transcript toggle</td>
+            <td>Enable auto-play for each test section and toggle transcripts</td>
+            <td>Use HTML5 audio player with JavaScript controls for auto-play. Implement transcript toggle with dynamic rendering.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="6" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>6c. Question types: MCQ, gap-fill, matching</td>
+            <td>Add support for MCQ, gap-fill, and matching question types</td>
+            <td>Develop reusable question components in React. Store question metadata in database for dynamic rendering.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="6" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>6d. Real-time answer input</td>
+            <td>Implement real-time input for listening test answers</td>
+            <td>Use WebSocket for real-time answer submission. Validate inputs on backend to ensure accuracy.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="6" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>6e. Band scoring & answer review</td>
+            <td>Add a feature to provide band scores and highlight correct answers</td>
+            <td>Calculate band scores based on correct answers. Display review page with correct/incorrect answers highlighted.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 7: Reading Module -->
+        <tr class="goal-header" data-goal="7" data-status="pending">
+            <td colspan="6"><strong>Goal 7: Reading Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="7" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 2: Content Delivery</strong></td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7a. Full passage with real IELTS question types</td>
+            <td>Implement full reading passages with real IELTS questions</td>
+            <td>Store passages and questions in CMS. Render passages with interactive question UI in React.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7b. Support for TF/NG, Matching, MCQ, etc.</td>
+            <td>Provide support for TF/NG, matching, and MCQ question types</td>
+            <td>Build modular question components for each type. Validate answers against stored correct responses.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7c. Question-type-wise filtering</td>
+            <td>Implement filtering for different question types</td>
+            <td>Add filter UI with dropdowns for question types. Query CMS to fetch relevant questions dynamically.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7d. Timer + live progress bar</td>
+            <td>Add timer and live progress bar during reading tests</td>
+            <td>Implement JavaScript-based timer and progress bar synced with test duration and question completion.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7e. AI answer explanation on review</td>
+            <td>Provide AI-generated explanations for answers during review</td>
+            <td>Use LLM to generate explanations for correct/incorrect answers. Display alongside review results.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="7" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>7f. Stats per passage & per type</td>
+            <td>Display statistics for each reading passage and question type</td>
+            <td>Generate analytics using Chart.js, pulling data from test results stored in PostgreSQL.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 8: Performance & Analytics Module -->
+        <tr class="goal-header" data-goal="8" data-status="pending">
+            <td colspan="6"><strong>Goal 8: Performance & Analytics Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="8" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 2: Reporting & Insights</strong></td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8a. Skill-wise band progression</td>
+            <td>Track band progression for individual skills (listening, reading, etc.)</td>
+            <td>Store test results in database. Calculate rolling average band scores per skill for progress tracking.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8b. Weekly/monthly reports</td>
+            <td>Generate reports based on weekly and monthly progress</td>
+            <td>Schedule automated report generation using a cron job. Email reports with PDF attachments using SendGrid.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8c. Weakness detection & suggestions</td>
+            <td>Identify areas of weakness and offer targeted suggestions</td>
+            <td>Analyze test data with an algorithm to detect low-performing skills. Suggest relevant lessons via CMS.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8d. Leaderboard / percentile rank</td>
+            <td>Implement leaderboard and percentile ranking for competition</td>
+            <td>Calculate percentiles based on user scores. Display leaderboard with top performers using React.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8e. Study time tracker</td>
+            <td>Add a tracker to monitor daily/weekly study time</td>
+            <td>Log user activity timestamps in database. Display study time metrics in dashboard using Chart.js.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="8" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>8f. AI-generated personalized improvement plan</td>
+            <td>Provide personalized improvement plans based on test performance</td>
+            <td>Use LLM to analyze performance data and generate tailored study plans. Store plans in user profile.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 9: Adaptive Learning Module -->
+        <tr class="goal-header" data-goal="9" data-status="pending">
+            <td colspan="6"><strong>Goal 9: Adaptive Learning Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="9" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 3: Customization</strong></td>
+        </tr>
+
+        <tr data-goal="9" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>9a. Personalized test/lesson recommendations</td>
+            <td>Implement a recommendation engine based on user performance</td>
+            <td>Build a recommendation system using collaborative filtering and user performance data. Suggest content via API.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="9" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>9b. Smart revision cycles (spaced repetition)</td>
+            <td>Implement a spaced repetition system for efficient learning</td>
+            <td>Use a spaced repetition algorithm (e.g., Leitner system) to schedule review sessions based on user retention.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="9" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>9c. Dynamic difficulty adjustment</td>
+            <td>Adjust difficulty based on user progress and performance</td>
+            <td>Implement an algorithm to adjust question difficulty based on user's correct/incorrect response streak.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="9" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>9d. Suggested exercises based on errors</td>
+            <td>Suggest exercises that address areas where the user has struggled</td>
+            <td>Map errors to specific skills in CMS. Recommend targeted exercises via recommendation engine.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="9" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>9e. "Next Best Task" AI engine</td>
+            <td>Implement a task recommendation engine based on learning patterns</td>
+            <td>Use an LLM to analyze user activity and performance to suggest optimal next tasks for improvement.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 10: Teacher/Admin Module -->
+        <tr class="goal-header" data-goal="10" data-status="pending">
+            <td colspan="6"><strong>Goal 10: Teacher/Admin Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="10" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 4: Content & Monitoring</strong></td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10a. User monitoring dashboard</td>
+            <td>Create a dashboard for teachers/admins to monitor user progress</td>
+            <td>Build a React-based dashboard with charts (Chart.js) pulling user data via API from PostgreSQL.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10b. Writing & speaking review override</td>
+            <td>Allow teachers to override AI evaluations for writing and speaking</td>
+            <td>Create an admin interface to review AI evaluations and submit manual scores/feedback via API.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10c. Upload custom content/tests</td>
+            <td>Enable teachers/admins to upload new content and tests</td>
+            <td>Develop a CMS interface for uploading content/test files. Validate and store in cloud storage.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10d. Approve new test papers</td>
+            <td>Allow teachers/admins to approve new test papers</td>
+            <td>Implement an approval workflow with review and publish states. Notify admins via email for pending approvals.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10e. View usage metrics & heatmaps</td>
+            <td>Implement heatmap visualizations to track content engagement</td>
+            <td>Use a heatmap library (e.g., Heatmap.js) to visualize user interactions with content. Store metrics in database.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="10" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>10f. Manage subscriptions</td>
+            <td>Develop tools for managing user subscriptions</td>
+            <td>Integrate with Stripe for subscription management. Build admin UI to view/edit user subscription statuses.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 11: Community & Support Module -->
+        <tr class="goal-header" data-goal="11" data-status="pending">
+            <td colspan="6"><strong>Goal 11: Community & Support Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="11" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 4: Engagement</strong></td>
+        </tr>
+
+        <tr data-goal="11" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>11a. Discussion forums / study groups</td>
+            <td>Create discussion forums and study groups for peer support</td>
+            <td>Use a forum plugin (e.g., Discourse) or custom-built React forum with threaded replies and moderation.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="11" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>11b. Peer review for writing/speaking</td>
+            <td>Allow peer review for writing and speaking tasks</td>
+            <td>Implement a peer review system with submission and rating features. Store reviews in database.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="11" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>11c. Live chat with AI/teachers</td>
+            <td>Implement live chat for real-time interaction with teachers or AI</td>
+            <td>Integrate a chat service (e.g., Socket.IO) for teacher/AI interactions. Use LLM for AI responses.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="11" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>11d. Ask a doubt (with AI reply + upvote)</td>
+            <td>Enable users to ask questions with AI-generated answers and voting</td>
+            <td>Build a Q&A system with LLM-generated answers. Add upvote/downvote functionality with database tracking.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="11" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>11e. Leaderboards, badges, achievements</td>
+            <td>Implement leaderboards, badges, and achievement tracking</td>
+            <td>Store badges/achievements in user profile. Display leaderboards and badges in React-based UI.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 12: Monetization Module -->
+        <tr class="goal-header" data-goal="12" data-status="pending">
+            <td colspan="6"><strong>Goal 12: Monetization Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="12" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 5: Revenue Generation</strong></td>
+        </tr>
+
+        <tr data-goal="12" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>12a. Subscription tiers (free, premium, pro)</td>
+            <td>Develop subscription models and gated access to premium content</td>
+            <td>Use Stripe to manage subscription tiers. Gate content via API checks based on user subscription status.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="12" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>12b. Credits for feedback attempts</td>
+            <td>Create a credit system for feedback attempts</td>
+            <td>Implement a credit-based system in database. Deduct credits for AI feedback requests via API.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="12" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>12c. Discount & referral code engine</td>
+            <td>Implement a discount/referral system for user acquisition</td>
+            <td>Build a referral system with unique codes. Apply discounts via Stripe API during checkout.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="12" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>12d. Trial vs full feature gating</td>
+            <td>Provide trial access to features with full access gated for premium</td>
+            <td>Implement feature flags to gate premium content. Allow trial users limited access via API checks.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="12" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>12e. Stripe/PayPal integration</td>
+            <td>Integrate payment gateways like Stripe and PayPal</td>
+            <td>Use Stripe and PayPal SDKs for payment processing. Securely handle transactions with webhooks.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <!-- Goal 13: Infrastructure & Security Module -->
+        <tr class="goal-header" data-goal="13" data-status="pending">
+            <td colspan="6"><strong>Goal 13: Infrastructure & Security Module</strong></td>
+        </tr>
+
+        <tr class="phase-header" data-goal="13" data-status="pending">
+            <td></td>
+            <td colspan="5"><strong>Phase 5: Security & Lockdown</strong></td>
+        </tr>
+
+        <tr data-goal="13" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>13a. Fullscreen + tab-switch lockdown during tests</td>
+            <td>Implement fullscreen and tab-switch lockdown during tests</td>
+            <td>Use JavaScript's Fullscreen API and `visibilitychange` event to enforce lockdown during tests.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="13" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>13b. Email & phone verification</td>
+            <td>Integrate email and phone verification during user registration</td>
+            <td>Use Firebase for email verification and Twilio for phone OTP. Require verification before account activation.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="13" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>13c. GDPR-compliant data storage</td>
+            <td>Ensure all user data is stored according to GDPR compliance</td>
+            <td>Implement data encryption and anonymization. Provide user data deletion/export options via API.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="13" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>13d. AI plagiarism checker</td>
+            <td>Integrate an AI-powered plagiarism detection system</td>
+            <td>Use an AI-based plagiarism checker (e.g., Turnitin API or custom LLM) to scan writing submissions.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+
+        <tr data-goal="13" data-status="pending">
+            <td></td>
+            <td></td>
+            <td>13e. Data export for review/history</td>
+            <td>Implement export features for user data and test history</td>
+            <td>Create API endpoints for exporting user data/test results as CSV/PDF. Secure with user authentication.</td>
+            <td>
+                <select class="status-dropdown pending" onchange="updateStatus(this)">
+                    <option value="pending" selected>❌ Pending</option>
+                    <option value="progress">🟡 In Progress</option>
+                    <option value="done">✅ Done</option>
+                </select>
+                <span class="timestamp"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+// Format timestamp
+function formatTimestamp() {
+    const now = new Date();
+    return now.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
+// Update task status
+function updateStatus(selectElement) {
+    const row = selectElement.closest('tr');
+    const newStatus = selectElement.value;
+    const timestampElement = row.querySelector('.timestamp');
+
+    // Update UI
+    row.setAttribute('data-status', newStatus);
+    selectElement.className = `status-dropdown ${newStatus}`;
+
+    // Set timestamp
+    const timestamp = formatTimestamp();
+    timestampElement.textContent = `Updated: ${timestamp}`;
+
+    // Save to storage
+    const taskId = row.querySelector('td:nth-child(3)').textContent;
+    localStorage.setItem(`status_${taskId}`, newStatus);
+    localStorage.setItem(`timestamp_${taskId}`, timestamp);
+
+    // Update header status if needed
+    updateHeaderStatus(row);
+
+    updateCounter();
+}
+
+// Update goal/phase header status
+function updateHeaderStatus(row) {
+    const goalHeader = row.closest('tbody').querySelector(`.goal-header[data-goal="${row.getAttribute('data-goal')}"]`);
+    const phaseHeader = row.closest('tbody').querySelector(`.phase-header[data-goal="${row.getAttribute('data-goal')}"]`);
+
+    // Logic to determine header status based on child tasks
+    // This is simplified - you might want more sophisticated logic
+    if (goalHeader) {
+        const allTasks = document.querySelectorAll(`tr[data-goal="${row.getAttribute('data-goal')}"]:not(.goal-header):not(.phase-header)`);
+        let allDone = true;
+        let anyInProgress = false;
+
+        allTasks.forEach(task => {
+            if (task.getAttribute('data-status') !== 'done') allDone = false;
+            if (task.getAttribute('data-status') === 'progress') anyInProgress = true;
+        });
+
+        const newStatus = allDone ? 'done' : anyInProgress ? 'progress' : 'pending';
+        goalHeader.setAttribute('data-status', newStatus);
+        if (phaseHeader) phaseHeader.setAttribute('data-status', newStatus);
+    }
+}
+
+// Filter table
+function filterTable() {
+    const goalFilter = document.getElementById("goalFilter").value;
+    const statusFilter = document.getElementById("statusFilter").value;
+    const rows = document.querySelectorAll("#roadmapTable tbody tr");
+    let visibleCount = 0;
+
+    rows.forEach(row => {
+        const rowGoal = row.getAttribute("data-goal");
+        const rowStatus = row.getAttribute("data-status");
+
+        // Always show headers if they match the goal filter
+        if (row.classList.contains('goal-header') || row.classList.contains('phase-header')) {
+            if (goalFilter === "all" || rowGoal === goalFilter) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+            return;
+        }
+
+        // Regular rows
+        const goalMatch = goalFilter === "all" || rowGoal === goalFilter;
+        const statusMatch = statusFilter === "all" || rowStatus === statusFilter;
+
+        if (goalMatch && statusMatch) {
+            row.style.display = "";
+            visibleCount++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    updateCounter();
+}
+
+// Update counter
+function updateCounter() {
+    const counts = {
+        '1': { done: 0, progress: 0, pending: 0 },
+        '2': { done: 0, progress: 0, pending: 0 },
+        '3': { done: 0, progress: 0, pending: 0 },
+        '4': { done: 0, progress: 0, pending: 0 },
+        '5': { done: 0, progress: 0, pending: 0 },
+        '6': { done: 0, progress: 0, pending: 0 },
+        '7': { done: 0, progress: 0, pending: 0 },
+        '8': { done: 0, progress: 0, pending: 0 },
+        '9': { done: 0, progress: 0, pending: 0 },
+        '10': { done: 0, progress: 0, pending: 0 },
+        '11': { done: 0, progress: 0, pending: 0 },
+        '12': { done: 0, progress: 0, pending: 0 },
+        '13': { done: 0, progress: 0, pending: 0 }
+    };
+
+    document.querySelectorAll("#roadmapTable tbody tr[data-goal][data-status]").forEach(row => {
+        if (!row.classList.contains('goal-header') && !row.classList.contains('phase-header')) {
+            const goal = row.getAttribute('data-goal');
+            const status = row.getAttribute('data-status');
+            counts[goal][status]++;
+        }
+    });
+
+    const goalFilter = document.getElementById("goalFilter").value;
+    let counterText = "";
+
+    if (goalFilter === "all") {
+        counterText = `✅ Done: ${Object.values(counts).reduce((sum, g) => sum + g.done, 0)} |
+                      🟡 Progress: ${Object.values(counts).reduce((sum, g) => sum + g.progress, 0)} |
+                      ❌ Pending: ${Object.values(counts).reduce((sum, g) => sum + g.pending, 0)}`;
+    } else {
+        counterText = `Goal ${goalFilter}: ✅ ${counts[goalFilter].done} | 🟡 ${counts[goalFilter].progress} | ❌ ${counts[goalFilter].pending}`;
+    }
+
+    document.getElementById("counter").innerHTML = counterText;
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load saved statuses and timestamps
+    document.querySelectorAll('.status-dropdown').forEach(dropdown => {
+        const row = dropdown.closest('tr');
+        const taskId = row.querySelector('td:nth-child(3)').textContent;
+        const savedStatus = localStorage.getItem(`status_${taskId}`);
+        const savedTimestamp = localStorage.getItem(`timestamp_${taskId}`);
+
+        if (savedStatus) {
+            dropdown.value = savedStatus;
+            dropdown.className = `status-dropdown ${savedStatus}`;
+            row.setAttribute('data-status', savedStatus);
+
+            if (savedTimestamp) {
+                row.querySelector('.timestamp').textContent = `Updated: ${savedTimestamp}`;
+            }
+        }
+    });
+
+    // Initialize headers
+    document.querySelectorAll('.goal-header').forEach(header => {
+        updateHeaderStatus(header);
+    });
+
+    updateCounter();
+    filterTable(); // Apply default filter
+});
+</script>
+
+</body>
+</html>
