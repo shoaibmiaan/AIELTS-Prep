@@ -3,8 +3,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
 import toast from 'react-hot-toast';
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function SettingsPage() {
   const router = useRouter();

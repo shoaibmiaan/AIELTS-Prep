@@ -3,8 +3,8 @@ import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 interface SpeakingTest {
   id: string;
