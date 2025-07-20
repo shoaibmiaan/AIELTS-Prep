@@ -1,87 +1,73 @@
-'use client';
-import '../styles/globals.css';
+import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import Layout from '@/layouts/MainLayout';
+import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from '../components/ThemeContext';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 
-type PageWithLayout = AppProps['Component'] & {
-  getLayout?: (page: React.ReactNode) => React.ReactNode;
-};
+const PUBLIC_ROUTES = [
+  '/', '/login', '/signup', '/reset-password',
+  '/forgot-password', '/phone-login', '/thank-you',
+  '/about', '/contact', '/privacy', '/terms'
+];
 
-function InnerApp({ Component, pageProps }: AppProps) {
+const PROTECTED_ROUTES = [
+  '/profile', '/courses', '/assessmentRoom',
+  '/simulation', '/learn-prepare', '/learnLab',
+  '/adminDashboard', '/adminDashboard'
+];
+
+function RouteGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const { user, loading } = useAuth();
-  const [isMounted, setIsMounted] = useState(false);
-  const Page = Component as PageWithLayout;
-
-  // Define public and protected routes
-  const publicRoutes = ['/', '/login', '/signup', '/forgot-password', '/reset-password', '/phone-login'];
-  const protectedRoutes = [
-    '/dashboard',
-    '/profile',
-    '/courses',
-    '/practice/reading',
-    '/practice/listening',
-    '/practice/speaking',
-    '/practice/writing',
-    '/practice/reading/history',
-    '/admin',
-  ];
-
-  // Check if the current route is public or protected
-  const isPublic = publicRoutes.includes(router.pathname) || publicRoutes.some((path) => router.pathname.startsWith(path));
-  const isProtected = protectedRoutes.some((path) => router.pathname.startsWith(path));
+  const { user, isLoading } = useAuth();
+  const [routeChecked, setRouteChecked] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
-  }, []);
+    if (!router.isReady || isLoading) return;
 
-  useEffect(() => {
-    if (!isMounted || loading) return;
+    const currentPath = router.pathname;
+    const isPublic = PUBLIC_ROUTES.includes(currentPath);
+    const isProtected = PROTECTED_ROUTES.some(path => currentPath.startsWith(path));
 
-    // Redirect to login if the user is not logged in and tries to access protected routes
-    if (isProtected && user === null) {
+    if (isProtected && !user) {
+      sessionStorage.setItem('redirectUrl', currentPath);
       router.push('/login');
+    } else if (user && !isPublic && currentPath === '/login') {
+      const redirectUrl = sessionStorage.getItem('redirectUrl') || '/';
+      sessionStorage.removeItem('redirectUrl');
+      router.push(redirectUrl);
     }
-  }, [user, loading, router, isProtected, isMounted]);
 
-  if (!isMounted || loading) {
+    setRouteChecked(true);
+  }, [user, isLoading, router, router.isReady]);
+
+  if (isLoading || !routeChecked) {
     return (
-      <motion.div
-        className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="text-gray-600 dark:text-gray-300">Loading...</div>
-      </motion.div>
+      <div className="min-h-screen flex items-center justify-center bg-background-dark">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+      </div>
     );
   }
 
-  // Page component with Toaster (for notifications) and layout wrapping
-  const page = (
-    <>
-      <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
+  return <>{children}</>;
+}
+
+function AppContent({ Component, pageProps }: AppProps) {
+  return (
+    <RouteGuard>
+      <Toaster position="top-right" />
       <Component {...pageProps} />
-    </>
+    </RouteGuard>
   );
-
-  // Apply layout for protected routes
-  const getLayout = Page.getLayout ?? ((page) =>
-    isProtected ? <Layout>{page}</Layout> : page
-  );
-
-  return isPublic ? page : getLayout(page);
 }
 
 export default function AppWrapper(props: AppProps) {
   return (
-    <AuthProvider>
-      <InnerApp {...props} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppContent {...props} />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

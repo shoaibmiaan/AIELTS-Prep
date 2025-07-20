@@ -1,51 +1,103 @@
-// pages/reset-password.tsx
-import { useState } from 'react';
+'use client';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
+import { Toaster, toast } from 'react-hot-toast';
+import Link from 'next/link';
 import { supabase } from '@/lib/supabaseClient';
-import toast from 'react-hot-toast';
 
-export default function ResetPasswordPage() {
-  const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
+export default function ResetPassword() {
   const router = useRouter();
+  const { token } = router.query;
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [tokenValid, setTokenValid] = useState(false);
 
-  const handleReset = async () => {
-    if (password !== confirm) {
-      toast.error("Passwords don't match");
+  // Validate token on mount
+  useEffect(() => {
+    if (!token) {
+      router.push('/forgot-password');
       return;
     }
 
-    const { error } = await supabase.auth.updateUser({ password });
-    if (error) return toast.error(error.message);
+    const checkToken = async () => {
+      try {
+        // Real implementation would verify token with backend
+        // This is a simulation
+        await new Promise(resolve => setTimeout(resolve, 500));
+        setTokenValid(true);
+      } catch (error) {
+        toast.error('Invalid or expired token');
+        router.push('/forgot-password');
+      }
+    };
 
-    toast.success('Password updated!');
-    router.push('/login');
-  };
+    checkToken();
+  }, [token]);
 
-  return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-gray-900 p-8 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-4">Reset Your Password</h1>
-        <input
-          type="password"
-          placeholder="New password"
-          className="w-full mb-4 px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm new password"
-          className="w-full mb-6 px-3 py-2 rounded bg-gray-800 border border-gray-700"
-          value={confirm}
-          onChange={(e) => setConfirm(e.target.value)}
-        />
-        <button
-          onClick={handleReset}
-          className="w-full bg-orange-500 text-white py-2 rounded hover:bg-orange-600"
-        >
-          Reset Password
-        </button>
+          {!isSuccess ? (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium mb-2">
+                  New Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  placeholder="••••••••"
+                  required
+                  minLength={8}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="confirmPassword" className="block text-sm font-medium mb-2">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  placeholder="••••••••"
+                  required
+                  minLength={8}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition ${
+                  isLoading
+                    ? 'bg-gray-700 cursor-not-allowed'
+                    : 'bg-orange-500 hover:bg-orange-600'
+                }`}
+              >
+                {isLoading ? 'Resetting...' : 'Reset Password'}
+              </button>
+            </form>
+          ) : (
+            <div className="text-center">
+              <div className="text-green-500 text-5xl mb-4">✓</div>
+              <p className="mb-6">
+                Your password has been successfully updated. You can now sign in with your new password.
+              </p>
+              <Link
+                href="/login"
+                className="inline-block w-full py-3 px-4 bg-orange-500 hover:bg-orange-600 rounded-lg font-semibold transition"
+              >
+                Sign In
+              </Link>
+            </div>
+          )}
+        </motion.div>
       </div>
     </div>
   );

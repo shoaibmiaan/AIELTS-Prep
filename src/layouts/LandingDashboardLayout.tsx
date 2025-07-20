@@ -1,3 +1,4 @@
+// src/layouts/LandingDashboardLayout.tsx
 'use client';
 
 import { ReactNode } from 'react';

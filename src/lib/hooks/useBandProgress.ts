@@ -16,7 +16,8 @@ type ProgressTrackingResult = {
 export function useBandProgress(userId: string) {
   const [data, setData] = useState<BandDataPoint[]>([]);
   const [loading, setLoading] = useState(true);
-  const { user } = useUser();
+  const { user, profile } = useAuth();
+
 
   useEffect(() => {
     async function fetchBandHistory() {

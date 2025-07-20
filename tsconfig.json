@@ -13,16 +13,19 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-
-    // ✅ Absolute import config
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
       "@/components/*": ["components/*"],
+      "@/layouts/*": ["layouts/*"],
       "@/lib/*": ["lib/*"],
-      "@/pages/*": ["pages/*"]
-    }
+      "@/pages/*": ["pages/*"],
+      "@/context/*": ["context/*"],
+      "@/styles/*": ["styles/*"],
+      "@/types/*": ["types/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/**/*"],
   "exclude": ["node_modules"]
 }

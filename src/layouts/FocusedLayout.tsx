@@ -2,64 +2,61 @@
 
 import { useEffect, useState } from 'react';
 
-// Constants for Tailwind classes
-const LAYOUT_CLASSES = {
-  container: 'w-full min-h-screen bg-gray-100 text-black flex flex-col items-center justify-center relative',
-};
+export default function FocusedLayout({ children }: { children: React.ReactNode }) {
+  const [fullscreenRequested, setFullscreenRequested] = useState(false); // Track if fullscreen has been requested
 
-// Custom hook for fullscreen management
-function useFullscreen() {
-  const [isFullscreen, setIsFullscreen] = useState(false);
-
-  const requestFullscreen = async () => {
-    if (isFullscreen) return;
-    try {
+  // Fullscreen logic for the test (only trigger once when the test starts)
+  const goFullScreen = () => {
+    if (!fullscreenRequested) {
       const el = document.documentElement;
-      await el.requestFullscreen?.();
-      setIsFullscreen(true);
-    } catch (err) {
-      console.error('Fullscreen request failed:', err);
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if ((el as any).webkitRequestFullscreen) (el as any).webkitRequestFullscreen();
+      else if ((el as any).msRequestFullscreen) (el as any).msRequestFullscreen();
+
+      setFullscreenRequested(true); // Mark fullscreen as requested
     }
   };
 
-  return { requestFullscreen, isFullscreen };
-}
-
-interface FocusedLayoutProps {
-  children: React.ReactNode;
-}
-
-export default function FocusedLayout({ children }: FocusedLayoutProps) {
-  const { requestFullscreen } = useFullscreen();
-
-  // Prevent specific user interactions for test environment
+  // Prevent right-click, select, copy, paste, etc.
   useEffect(() => {
-    const preventDefault = (e: Event) => e.preventDefault();
-    const keyDownHandler = (e: KeyboardEvent) => {
-      const isBlockedKey =
-        e.key === 'F12' ||
-        e.key === 'PrintScreen' ||
-        ((e.ctrlKey || e.metaKey) && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
-        ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase()));
+    const prevent = (e: Event) => e.preventDefault();
+    document.addEventListener('contextmenu', prevent);
+    document.addEventListener('selectstart', prevent);
+    document.addEventListener('copy', prevent);
+    document.addEventListener('cut', prevent);
+    document.addEventListener('paste', prevent);
 
-      if (isBlockedKey) {
+    const keyDownHandler = (e: KeyboardEvent) => {
+      // Block F12, Ctrl/Cmd+Shift+I/J/C/U, Ctrl+S, Ctrl+P, PrintScreen
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
+        (e.metaKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key.toUpperCase())) ||
+        (e.ctrlKey && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
+        (e.metaKey && ['S', 'P', 'U'].includes(e.key.toUpperCase())) ||
+        (e.key === 'PrintScreen')
+      ) {
         e.preventDefault();
         e.stopPropagation();
+        return false;
       }
     };
 
-    const events = ['contextmenu', 'selectstart', 'copy', 'cut', 'paste'] as const;
-    events.forEach((event) => document.addEventListener(event, preventDefault));
     window.addEventListener('keydown', keyDownHandler);
 
-    // Trigger fullscreen on mount
-    requestFullscreen();
-
     return () => {
-      events.forEach((event) => document.removeEventListener(event, preventDefault));
+      document.removeEventListener('contextmenu', prevent);
+      document.removeEventListener('selectstart', prevent);
+      document.removeEventListener('copy', prevent);
+      document.removeEventListener('cut', prevent);
+      document.removeEventListener('paste', prevent);
       window.removeEventListener('keydown', keyDownHandler);
     };
-  }, [requestFullscreen]);
+  }, []);
 
-  return <div className={LAYOUT_CLASSES.container}>{children}</div>;
+  return (
+    <div className="w-full min-h-screen bg-gray-100 text-black flex flex-col items-center justify-center relative">
+      {children}
+    </div>
+  );
 }

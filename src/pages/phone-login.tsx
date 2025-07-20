@@ -11,7 +11,6 @@ export default function PhoneLoginPage() {
   const [loading, setLoading] = useState(false);
   const [isOtpSent, setIsOtpSent] = useState(false);
 
-  // Send OTP via Supabase for phone authentication
   const sendOtp = async () => {
     setLoading(true);
     setError(null);
@@ -34,7 +33,6 @@ export default function PhoneLoginPage() {
     }
   };
 
-  // Verify OTP entered by the user
   const verifyOtp = async () => {
     setLoading(true);
     setError(null);
@@ -49,7 +47,7 @@ export default function PhoneLoginPage() {
         setError(error.message);
       } else {
         toast.success('Successfully logged in!');
-        router.push('/dashboard'); // Redirect to dashboard after successful login
+        router.push('/dashboard');
       }
     } catch (error) {
       setError(error.message);
@@ -71,7 +69,6 @@ export default function PhoneLoginPage() {
           </button>
         </div>
 
-        {/* Phone Authentication Form */}
         <form className="space-y-4">
           {!isOtpSent ? (
             <div>

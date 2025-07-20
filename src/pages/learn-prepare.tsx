@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { BookOpen, Video, FileText, Globe, Calendar, Headphones, Mic, Pencil, BarChart, Users } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
+import { useRouter } from 'next/router';
+import toast from 'react-hot-toast';
 
 const categories = [
   {
@@ -129,8 +132,24 @@ const categories = [
 ];
 
 export default function LearnPreparePage() {
+  const router = useRouter();
+  const { user } = useAuth();
+  const [currentPage, setCurrentPage] = useState('');
+
+  const handleProtectedClick = (route: string) => {
+    setCurrentPage(route);
+    if (!user) {
+      router.push('/login');
+      toast('Please login to access this content', {
+        icon: '🔒',
+      });
+    } else {
+      router.push(route);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <motion.h1
@@ -154,7 +173,7 @@ export default function LearnPreparePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-8"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-8 mb-8 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -162,7 +181,7 @@ export default function LearnPreparePage() {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">Study Plan</h2>
 
               <div className="space-y-4">
-                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                   <div className="bg-blue-100 dark:bg-blue-900/50 w-10 h-10 rounded-full flex items-center justify-center">
                     <Calendar className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                   </div>
@@ -172,7 +191,7 @@ export default function LearnPreparePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                   <div className="bg-green-100 dark:bg-green-900/50 w-10 h-10 rounded-full flex items-center justify-center">
                     <BarChart className="w-5 h-5 text-green-500 dark:text-green-400" />
                   </div>
@@ -182,7 +201,7 @@ export default function LearnPreparePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                   <div className="bg-yellow-100 dark:bg-yellow-900/50 w-10 h-10 rounded-full flex items-center justify-center">
                     <Globe className="w-5 h-5 text-yellow-500 dark:text-yellow-400" />
                   </div>
@@ -192,7 +211,7 @@ export default function LearnPreparePage() {
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <div className="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
                   <div className="bg-purple-100 dark:bg-purple-900/50 w-10 h-10 rounded-full flex items-center justify-center">
                     <BookOpen className="w-5 h-5 text-purple-500 dark:text-purple-400" />
                   </div>
@@ -203,13 +222,16 @@ export default function LearnPreparePage() {
                 </div>
               </div>
 
-              <button className="mt-6 w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
+              <button
+                className="mt-6 w-full py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity"
+                onClick={() => handleProtectedClick('/dashboard/study-plan')}
+              >
                 Create Custom Study Plan
               </button>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-r from-teal-500 to-emerald-600 text-white rounded-2xl shadow-xl p-8"
+              className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-xl shadow-md p-8 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -220,25 +242,31 @@ export default function LearnPreparePage() {
                 </div>
                 <h3 className="text-xl font-bold ml-4">Study Groups</h3>
               </div>
-              <p className="mb-4 text-teal-100">
+              <p className="mb-4 text-yellow-100">
                 Join active study groups and collaborate with other IELTS learners
               </p>
               <div className="space-y-3">
-                <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg">
+                <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
                   <div>
                     <h4 className="font-semibold">Reading Practice Group</h4>
-                    <p className="text-sm text-teal-100">12 active members</p>
+                    <p className="text-sm text-yellow-100">12 active members</p>
                   </div>
-                  <button className="bg-white text-teal-600 px-4 py-1 rounded text-sm font-medium">
+                  <button
+                    className="bg-white text-yellow-600 px-4 py-1 rounded text-sm font-medium hover:bg-opacity-90 transition-opacity"
+                    onClick={() => handleProtectedClick('/dashboard/community/reading-group')}
+                  >
                     Join
                   </button>
                 </div>
-                <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg">
+                <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg hover:bg-white/15 transition-colors">
                   <div>
                     <h4 className="font-semibold">Writing Feedback Exchange</h4>
-                    <p className="text-sm text-teal-100">8 active members</p>
+                    <p className="text-sm text-yellow-100">8 active members</p>
                   </div>
-                  <button className="bg-white text-teal-600 px-4 py-1 rounded text-sm font-medium">
+                  <button
+                    className="bg-white text-yellow-600 px-4 py-1 rounded text-sm font-medium hover:bg-opacity-90 transition-opacity"
+                    onClick={() => handleProtectedClick('/dashboard/community/writing-group')}
+                  >
                     Join
                   </button>
                 </div>
@@ -248,7 +276,7 @@ export default function LearnPreparePage() {
 
           <div>
             <motion.div
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8"
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 p-8 transition-all duration-300 hover:shadow-lg"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -278,6 +306,7 @@ export default function LearnPreparePage() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.1 * catIndex + 0.05 * resIndex }}
+                          onClick={() => handleProtectedClick(`/dashboard/resources/${category.title.toLowerCase().replace(' ', '-')}/${resIndex}`)}
                         >
                           <div className="flex justify-between items-start">
                             <div>

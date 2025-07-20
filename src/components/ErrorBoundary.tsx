@@ -1,35 +1,38 @@
-// src/components/ErrorBoundary.tsx
-import React, { Component, ErrorInfo } from 'react';
+import { Component, ErrorInfo, ReactNode } from 'react';
+import { useRouter } from 'next/router';
+import ErrorPage from '@/components/ErrorPage';
 
-interface ErrorBoundaryState {
-  hasError: boolean;
-  errorMessage: string | null;
+interface Props {
+  children: ReactNode;
 }
 
-class ErrorBoundary extends Component<React.PropsWithChildren, ErrorBoundaryState> {
-  constructor(props: React.PropsWithChildren) {
-    super(props);
-    this.state = { hasError: false, errorMessage: null };
-  }
+interface State {
+  error: Error | null;
+}
 
-  static getDerivedStateFromError(error: Error) {
-    return { hasError: true, errorMessage: error.message };
+export class ErrorBoundary extends Component<Props, State> {
+  state: State = { error: null };
+
+  static getDerivedStateFromError(error: Error): State {
+    return { error };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.log('Error caught in ErrorBoundary:', error, errorInfo);
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
   }
 
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className="error-boundary">
-          <h2>Something went wrong:</h2>
-          <p>{this.state.errorMessage}</p>
-        </div>
-      );
-    }
+  handleReset = () => {
+    this.setState({ error: null });
+  };
 
+  render() {
+    if (this.state.error) {
+      return <ErrorPage 
+        error={this.state.error} 
+        onReset={this.handleReset} 
+        showActions={true}
+      />;
+    }
     return this.props.children;
   }
 }

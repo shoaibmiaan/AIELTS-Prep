@@ -1,40 +1,48 @@
-import React from 'react';
+import { useTheme } from '@/context/ThemeContext';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
+  className?: string;
 }
 
-export function Card({ children, className = '', ...props }: CardProps) {
+export const Card = ({ children, className = '', ...props }: CardProps) => {
+  const { colors } = useTheme();
+
   return (
     <div
-      className={`bg-white rounded-2xl shadow p-6 ${className}`}
+      className={`rounded-2xl shadow-lg p-6 ${className}`}
+      style={{ backgroundColor: colors.cardBackground }}
       {...props}
     >
       {children}
     </div>
   );
-}
+};
 
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-}
+export const CardHeader = ({ children, className = '', ...props }: CardProps) => {
+  const { colors } = useTheme();
 
-export function CardHeader({ children, className = '', ...props }: CardHeaderProps) {
   return (
-    <div className={`mb-4 border-b pb-2 ${className}`} {...props}>
+    <div
+      className={`mb-4 pb-3 border-b ${className}`}
+      style={{ borderColor: colors.border }}
+      {...props}
+    >
       {children}
     </div>
   );
-}
+};
 
-interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-}
+export const CardContent = ({ children, className = '', ...props }: CardProps) => {
+  const { colors } = useTheme();
 
-export function CardContent({ children, className = '', ...props }: CardContentProps) {
   return (
-    <div className={`text-gray-700 ${className}`} {...props}>
+    <div
+      className={`${className}`}
+      style={{ color: colors.textSecondary }}
+      {...props}
+    >
       {children}
     </div>
   );
-}
+};
