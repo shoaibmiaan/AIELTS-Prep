@@ -2,7 +2,7 @@
 
 import Head from 'next/head';
 import { ThemeProvider } from '@/context/ThemeContext';
-import Footer from '@/components/home/Footer'; // Ensure Footer is imported
+import Footer from '@/components/Footer'; // Ensure Footer is imported
 
 interface LayoutProps {
   children: React.ReactNode;

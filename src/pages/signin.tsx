@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function SignInPage() {
   const [activeTab, setActiveTab] = useState<'email' | 'phone'>('email');
