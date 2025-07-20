@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { colors } from '@/styles/theme';
 
 interface HeaderProps {
@@ -12,10 +12,31 @@ interface HeaderProps {
   handleProtectedClick: (route: string) => void;
 }
 
-export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode, handleNavigation, handleProtectedClick }: HeaderProps) {
+export default function Header({
+  isLoggedIn,
+  isPremium,
+  darkMode,
+  toggleDarkMode,
+  handleNavigation,
+  handleProtectedClick
+}: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+
+  // Fallback function if handleProtectedClick is not provided
+  const protectedClickFallback = (route: string) => {
+    console.warn('handleProtectedClick not provided - using fallback');
+    if (isLoggedIn) {
+      router.push(route);
+    } else {
+      router.push('/login');
+    }
+  };
+
+  // Use the provided function or fallback
+  const handleProtectedRoute = handleProtectedClick || protectedClickFallback;
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -50,7 +71,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleProtectedClick('/courses');
+                  handleProtectedRoute('/courses');
                 }}
                 className="block px-4 py-2 hover:bg-yellow-50 dark:hover:bg-gray-700 dark:text-white"
               >
@@ -60,7 +81,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleProtectedClick('/grammar');
+                  handleProtectedRoute('/grammar');
                 }}
                 className="block px-4 py-2 hover:bg-yellow-50 dark:hover:bg-gray-700 dark:text-white"
               >
@@ -70,7 +91,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
                 href="#"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleProtectedClick('/strategies');
+                  handleProtectedRoute('/strategies');
                 }}
                 className="block px-4 py-2 hover:bg-yellow-50 dark:hover:bg-gray-700 dark:text-white"
               >
@@ -88,7 +109,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/ai-tools');
+              handleProtectedRoute('/ai-tools');
             }}
             className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium"
           >
@@ -98,7 +119,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/community');
+              handleProtectedRoute('/community');
             }}
             className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium"
           >
@@ -108,7 +129,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/premium-dashboard');
+              handleProtectedRoute('/premium-dashboard');
             }}
             className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium"
           >
@@ -200,13 +221,13 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
           )}
 
           <button
-            className="bg-black-600 hover:bg-black-70000 text-black px-4 py-2 rounded-md font-medium"
+            className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md font-medium"
             onClick={() => handleNavigation(isPremium ? '/premium-dashboard' : '/pricing')}
           >
             {isPremium ? 'Premium Dashboard' : 'Go Premium'}
           </button>
           <button
-            className="md:hidden text-black-60000 dark:text-white"
+            className="md:hidden text-gray-600 dark:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Mobile menu"
           >
@@ -220,7 +241,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/courses');
+              handleProtectedRoute('/courses');
             }}
             className="py-2 border-b dark:border-gray-700 dark:text-white"
           >
@@ -236,7 +257,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/ai-tools');
+              handleProtectedRoute('/ai-tools');
             }}
             className="py-2 border-b dark:border-gray-700 dark:text-white"
           >
@@ -246,7 +267,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/community');
+              handleProtectedRoute('/community');
             }}
             className="py-2 border-b dark:border-gray-700 dark:text-white"
           >
@@ -256,7 +277,7 @@ export default function Header({ isLoggedIn, isPremium, darkMode, toggleDarkMode
             href="#"
             onClick={(e) => {
               e.preventDefault();
-              handleProtectedClick('/premium-dashboard');
+              handleProtectedRoute('/premium-dashboard');
             }}
             className="py-2 border-b dark:border-gray-700 dark:text-white"
           >
