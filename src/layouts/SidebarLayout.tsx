@@ -2,9 +2,9 @@
 
 import { ReactNode } from 'react';
 import Breadcrumb from '@/components/Breadcrumb';
-import Sidebar from '@/components/Sidebar';
 import { useAuthProfile } from '@/hooks/useAuthProfile';
 import SubscribeForm from '@/components/SubscribeForm';
+import Link from 'next/link';
 
 const SIDEBAR_LAYOUT_CLASSES = {
   container: 'flex h-screen bg-[#f5f7fa] text-[#0f1f44]',
@@ -32,8 +32,8 @@ export default function SidebarLayout({
 
   return (
     <div className={SIDEBAR_LAYOUT_CLASSES.container}>
-      <Sidebar />
       <main className={SIDEBAR_LAYOUT_CLASSES.main}>
+        {/* Conditionally render header */}
         {showHeader && (
           <div className="sticky top-0 z-40 bg-[#1E1F25] text-white px-4 py-2 flex items-center justify-between">
             <h1 className="text-lg font-bold">
@@ -42,21 +42,32 @@ export default function SidebarLayout({
             <Breadcrumb />
           </div>
         )}
+        {/* Render the children passed to SidebarLayout */}
         {children}
       </main>
+
+      {/* Conditionally render right panel */}
       {showRightPanel && (
         <aside className={SIDEBAR_LAYOUT_CLASSES.rightPanel}>
+          {/* Admin panel links (only visible if the role is 'admin') */}
           {role === 'admin' ? (
             <>
               <h3 className={RIGHT_PANEL_CLASSES.title}>Admin Panel</h3>
               <div className="space-y-3 text-sm">
-                <Link href="/adminDashboard" className={RIGHT_PANEL_CLASSES.link('gray')}>🛠 Full Admin Panel</Link>
-                <Link href="/admin/users" className={RIGHT_PANEL_CLASSES.link('red')}>👥 Manage Users</Link>
-                <Link href="/admin/teacher-requests" className={RIGHT_PANEL_CLASSES.link('blue')}>📩 Review Requests</Link>
+                <Link href="/adminDashboard" className={RIGHT_PANEL_CLASSES.link('gray')}>
+                  🛠 Full Admin Panel
+                </Link>
+                <Link href="/admin/users" className={RIGHT_PANEL_CLASSES.link('red')}>
+                  👥 Manage Users
+                </Link>
+                <Link href="/admin/teacher-requests" className={RIGHT_PANEL_CLASSES.link('blue')}>
+                  📩 Review Requests
+                </Link>
               </div>
             </>
           ) : (
             <>
+              {/* Free lessons subscription form for other roles */}
               <h3 className={RIGHT_PANEL_CLASSES.title}>Free IELTS Lessons</h3>
               <SubscribeForm />
             </>

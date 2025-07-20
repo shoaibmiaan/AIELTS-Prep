@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
-import Header from '@/components/dashboard/Header';
-import Footer from '@/components/dashboard/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function PaymentPage() {
   const router = useRouter();
