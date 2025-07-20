@@ -5,7 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import toast from 'react-hot-toast';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import HomeContent from '@/components/home/HomeContent';
+import HomeContent from '@/components/home/homeContent';
 import GuestContent from '@/components/home/GuestContent';
 import LoginModal from '@/components/home/LoginModal';
 
