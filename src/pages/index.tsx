@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
@@ -25,7 +25,7 @@ export default function IELTSMaster() {
 
   // User Data State
   const userName = user?.name || user?.email?.split('@')[0] || '';
-  const userAvatar = user?.avatar || null;
+  const userAvatar = user?.avatar || null; // Assume avatar is provided by useAuth, or null if not available
 
   const [userProgress, setUserProgress] = useState({
     writing: user ? 65 : 30,
@@ -199,13 +199,51 @@ export default function IELTSMaster() {
         <GuestContent
           startMockTest={startMockTest}
           handleProtectedClick={handleProtectedClick}
-          analyzeWriting={analyzeWriting}
-          startSpeakingPractice={startSpeakingPractice}
-          darkMode={darkMode}
+          accessPremiumDashboard={accessPremiumDashboard}
+          userProgress={userProgress}
         />
       )}
 
-      <Footer />
+      <LoginModal
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        handleLogin={handleLogin}
+        handleFreePlan={handleFreePlan}
+        darkMode={darkMode}
+      />
+
+      <Footer
+        handleNavigation={handleNavigation}
+        handleProtectedClick={handleProtectedClick}
+      />
+
+      <style jsx global>{`
+        html {
+          transition: background-color 0.3s ease;
+        }
+        body {
+          transition: background-color 0.3s ease;
+        }
+        .hero-bg {
+          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                      url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+          background-size: cover;
+          background-position: center;
+        }
+        .feature-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .progress-ring__circle {
+          transition: stroke-dashoffset 0.35s;
+          transform: rotate(-90deg);
+          transform-origin: 50% 50%;
+        }
+      `}</style>
     </div>
   );
 }

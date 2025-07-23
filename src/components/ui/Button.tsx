@@ -38,7 +38,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const { colors } = useTheme();
-  
+
   return (
     <button
       className={buttonVariants({ variant, size, className })}

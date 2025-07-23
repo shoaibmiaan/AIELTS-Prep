@@ -247,7 +247,7 @@ export default function IELTSFeatures({
           <div className="text-center mt-10">
             <button
               className={`px-6 py-2 border ${darkMode ? 'border-yellow-400 text-yellow-400' : 'border-yellow-600 text-yellow-600'} rounded-md font-medium hover:${darkMode ? 'bg-gray-800' : 'bg-yellow-50'}`}
-              onClick={() => handleProtectedClick('/all-courses')}
+              onClick={() => handleProtectedClick('/courses')}
             >
               View All Courses
             </button>

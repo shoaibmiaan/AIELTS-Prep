@@ -15,6 +15,12 @@ interface User {
   membership?: string;
   avatar?: string;
   access_token?: string;
+  firstName?: string;
+  lastName?: string;
+  country?: string;
+  level?: string;
+  currentStreak?: number; // Add streak fields to User interface
+  longestStreak?: number;
 }
 
 interface AuthContextType {
@@ -24,17 +30,18 @@ interface AuthContextType {
   signInWithFacebook: () => Promise<void>;
   logout: () => void;
   updateUser: (userData: User) => void;
-  profile: any; // Profile data
+  profile: any;
+  updateStreak: (newStreak: number) => void; // Add streak update function
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<any>(null); // Profile state
+  const [profile, setProfile] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
-  // 1. Initialize user session
+  // Initialize user session
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -42,6 +49,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         if (error || !authUser) {
           setUser(null);
+          setProfile(null);
+          setLoading(false);
           return;
         }
 
@@ -51,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           .eq('id', authUser.id)
           .single();
 
-        setUser({
+        const userProfile = {
           id: authUser.id,
           email: authUser.email,
           name: profileData?.full_name,
@@ -59,9 +68,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           avatar: profileData?.avatar_url,
           membership: profileData?.role,
           access_token: authUser.access_token,
-        });
+          currentStreak: profileData?.current_streak || 0, // Add streak data
+          longestStreak: profileData?.longest_streak || 0,
+        };
 
-        setProfile(profileData); // Set profile data
+        setUser(userProfile);
+        setProfile(profileData);
       } catch (err) {
         toast.error('Session loading failed');
       } finally {
@@ -71,14 +83,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     fetchUser();
 
-    // 2. Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         if (session?.user) {
           await fetchUser();
         } else {
           setUser(null);
-          setProfile(null); // Reset profile when logged out
+          setProfile(null);
         }
       }
     );
@@ -86,15 +97,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  // 3. Email/Password Login
+  // Email/Password Login
   const login = async (email: string, password: string) => {
     setLoading(true);
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password
-      });
-
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) throw error;
       return { data };
     } catch (error: any) {
@@ -105,14 +112,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // 4. Social Logins
+  // Social Logins
   const signInWithGoogle = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback`
-        }
+        options: { redirectTo: `${window.location.origin}/auth/callback` }
       });
       if (error) throw error;
     } catch (error: any) {
@@ -122,11 +127,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signInWithFacebook = async () => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider: 'facebook',
-        options: {
-          redirectTo: `${window.location.origin}/auth/callback`
-        }
+        options: { redirectTo: `${window.location.origin}/auth/callback` }
       });
       if (error) throw error;
     } catch (error: any) {
@@ -134,18 +137,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // 5. Logout
+  // Logout
   const logout = async () => {
     try {
       await supabase.auth.signOut();
       setUser(null);
+      setProfile(null);
       window.location.href = '/login';
     } catch (error: any) {
       toast.error(error.message || 'Logout failed');
     }
   };
 
-  // 6. Update User Profile
+  // Update User Profile
   const updateUser = async (userData: User) => {
     if (!user?.id) return;
 
@@ -160,6 +164,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           last_name: userData.lastName,
           country: userData.country,
           level: userData.level,
+          current_streak: userData.currentStreak, // Update streak in DB
+          longest_streak: userData.longestStreak,
         })
         .eq('id', user.id);
 
@@ -167,10 +173,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       setUser(prev => ({
         ...prev,
-        name: userData.name,
-        targetBand: userData.targetBand,
-        avatar: userData.avatar,
+        ...userData,
+        currentStreak: userData.currentStreak,
+        longestStreak: userData.longestStreak,
       }));
+
       setProfile(prev => ({
         ...prev,
         full_name: userData.name,
@@ -180,11 +187,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         last_name: userData.lastName,
         country: userData.country,
         level: userData.level,
+        current_streak: userData.currentStreak,
+        longest_streak: userData.longestStreak,
       }));
 
       toast.success('Profile updated!');
     } catch (error: any) {
       toast.error(error.message || 'Update failed');
+    }
+  };
+
+  // Update streak values
+  const updateStreak = async (newStreak: number) => {
+    if (!user?.id) return;
+
+    try {
+      // Calculate new longest streak
+      const updatedLongestStreak = Math.max(
+        profile?.longest_streak || 0,
+        newStreak
+      );
+
+      const { error } = await supabase
+        .from('profiles')
+        .update({
+          current_streak: newStreak,
+          longest_streak: updatedLongestStreak,
+        })
+        .eq('id', user.id);
+
+      if (error) throw error;
+
+      setUser(prev => ({
+        ...prev,
+        currentStreak: newStreak,
+        longestStreak: updatedLongestStreak,
+      }));
+
+      setProfile(prev => ({
+        ...prev,
+        current_streak: newStreak,
+        longest_streak: updatedLongestStreak,
+      }));
+
+      toast.success('Streak updated!');
+    } catch (error: any) {
+      toast.error('Failed to update streak');
     }
   };
 
@@ -197,7 +245,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         signInWithFacebook,
         logout,
         updateUser,
-        profile // Provide profile data
+        profile,
+        updateStreak // Expose streak update function
       }}
     >
       {!loading && children}

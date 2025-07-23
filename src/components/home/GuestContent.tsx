@@ -317,7 +317,7 @@ export default function GuestContent({
           <div className="text-center mt-10">
             <button
               className="px-6 py-2 border border-yellow-600 dark:border-yellow-400 text-yellow-600 dark:text-yellow-400 rounded-md font-medium hover:bg-yellow-50 dark:hover:bg-gray-800"
-              onClick={() => handleProtectedClick('/all-courses')}
+              onClick={() => handleProtectedClick('/courses')}
             >
               View All Courses
             </button>
