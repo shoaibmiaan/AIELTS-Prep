@@ -95,3 +95,8 @@ export interface AIFeedbackResponse {
   overallBand: number; // Overall band score
   overallComments: string; // General feedback
 }
+declare global {
+  interface Window {
+    PGOPTIONS: string;
+  }
+}

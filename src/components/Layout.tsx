@@ -1,8 +1,9 @@
-// src/components/Layout.tsx
-
+'use client';
 import Head from 'next/head';
-import { ThemeProvider } from '@/context/ThemeContext';
-import Footer from '@/components/Footer'; // Ensure Footer is imported
+import { useState, useEffect } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { useAuth } from '@/context/AuthContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,34 +11,79 @@ interface LayoutProps {
   description?: string;
 }
 
-// This component only handles the visual layout
-function LayoutContent({ children, title, description }: LayoutProps) {
+export default function Layout({ children, title, description }: LayoutProps) {
+  const { user } = useAuth();
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Initialize dark mode
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedMode === 'true' || (!savedMode && prefersDark)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  // Navigation handlers
+  const handleNavigation = (route: string) => {
+    if (route.startsWith('http')) {
+      window.open(route, '_blank');
+      return;
+    }
+    window.location.href = route;
+  };
+
+  const handleProtectedClick = (route: string) => {
+    if (user) {
+      handleNavigation(route);
+    } else {
+      handleNavigation('/login');
+    }
+  };
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', String(newMode));
+    document.documentElement.classList.toggle('dark', newMode);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col font-sans">
+    <div className={`font-sans min-h-screen flex flex-col ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
       <Head>
         <title>{title || 'IELTS Master - AI-Powered Preparation'}</title>
         <meta name="description" content={description || 'Personalized IELTS preparation with AI feedback and expert strategies'} />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
 
-      {/* Removed Navbar as it no longer exists */}
+      <Header 
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        handleNavigation={handleNavigation}
+        handleProtectedClick={handleProtectedClick}
+      />
 
       <main className="flex-grow">
         {children}
       </main>
 
-      <Footer />
-    </div>
-  );
-}
+      <Footer 
+        handleNavigation={handleNavigation}
+        handleProtectedClick={handleProtectedClick}
+      />
 
-// This wrapper provides the Theme context
-export default function Layout({ children, title, description }: LayoutProps) {
-  return (
-    <ThemeProvider>
-      <LayoutContent title={title} description={description}>
-        {children}
-      </LayoutContent>
-    </ThemeProvider>
+      <style jsx global>{`
+        html {
+          transition: background-color 0.3s ease;
+        }
+        body {
+          transition: background-color 0.3s ease;
+          margin: 0;
+          padding: 0;
+        }
+      `}</style>
+    </div>
   );
 }

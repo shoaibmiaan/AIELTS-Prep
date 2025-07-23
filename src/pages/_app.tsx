@@ -6,16 +6,21 @@ import { Toaster } from 'react-hot-toast';
 import { ThemeProvider } from '../components/ThemeContext';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
 
+// Public routes accessible to everyone (no authentication required)
 const PUBLIC_ROUTES = [
   '/', '/login', '/signup', '/reset-password',
   '/forgot-password', '/phone-login', '/thank-you',
   '/about', '/contact', '/privacy', '/terms'
 ];
 
+// Protected routes that require authentication
 const PROTECTED_ROUTES = [
   '/profile', '/courses', '/assessmentRoom',
   '/simulation', '/learn-prepare', '/learnLab',
-  '/adminDashboard', '/adminDashboard'
+  '/adminDashboard', '/premium-dashboard', '/ai-tools',
+  '/community', '/grammar', '/strategies',
+  '/mock-test/start', '/writing-evaluator', '/speaking-simulator',
+  '/writing-feedback'
 ];
 
 function RouteGuard({ children }: { children: React.ReactNode }) {
@@ -27,16 +32,12 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
     if (!router.isReady || isLoading) return;
 
     const currentPath = router.pathname;
-    const isPublic = PUBLIC_ROUTES.includes(currentPath);
     const isProtected = PROTECTED_ROUTES.some(path => currentPath.startsWith(path));
 
     if (isProtected && !user) {
+      // Store the current route to redirect back to after login
       sessionStorage.setItem('redirectUrl', currentPath);
       router.push('/login');
-    } else if (user && !isPublic && currentPath === '/login') {
-      const redirectUrl = sessionStorage.getItem('redirectUrl') || '/';
-      sessionStorage.removeItem('redirectUrl');
-      router.push(redirectUrl);
     }
 
     setRouteChecked(true);

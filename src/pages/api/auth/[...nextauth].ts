@@ -1,19 +1,23 @@
-import NextAuth from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
+import { createServerSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  callbacks: {
-    async session({ session, token }: any) {
-      session.user.id = token.sub;
-      return session;
-    },
-  },
-};
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // Create authenticated Supabase Client
+  const supabase = createServerSupabaseClient({ req, res });
 
-export default NextAuth(authOptions);
+  // Check if we have a session
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  if (!session)
+    return res.status(401).json({
+      error: 'not_authenticated',
+      description: 'The user does not have an active session or is not authenticated',
+    });
+
+  // Run queries with RLS on the server
+  const { data } = await supabase.from('users').select('*');
+
+  return res.status(200).json(data);
+}

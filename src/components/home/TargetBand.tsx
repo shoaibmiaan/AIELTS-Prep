@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { useEffect } from 'react';
 
@@ -24,8 +25,10 @@ export default function TargetBand({
       if (circle) {
         const radius = circle.r.baseVal.value;
         const circumference = 2 * Math.PI * radius;
-        const offset = circumference - (percent / 100) * circumference;
         circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = circumference.toString();
+
+        const offset = circumference - (percent / 100) * circumference;
         circle.style.strokeDashoffset = offset.toString();
       }
     };
@@ -37,8 +40,8 @@ export default function TargetBand({
   const progressPercentage = Math.round((userProgress.overall / userProgress.targetBand) * 100);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-      <h2 className="text-xl font-bold mb-6 dark:text-white">Target Band Score</h2>
+    <div className="bg-[rgb(var(--color-background))] dark:bg-[rgb(var(--color-card-dark))] rounded-xl shadow-sm p-6">
+      <h2 className="text-xl font-bold mb-6 dark:text-[rgb(var(--color-foreground-dark))]">Target Band Score</h2>
       <div className="text-center">
         <div className="relative w-40 h-40 mx-auto mb-4">
           <svg className="w-full h-full" viewBox="0 0 36 36">
@@ -48,11 +51,11 @@ export default function TargetBand({
               cy="18"
               r="16"
               fill="none"
-              stroke="#e2e8f0"
+              stroke="[rgb(var(--color-border))]"
               strokeWidth="2"
             ></circle>
 
-            {/* Overall progress circle (orange) */}
+            {/* Overall progress circle */}
             <circle
               id="overall-progress"
               className="progress-ring__circle transition-all duration-500"
@@ -60,13 +63,13 @@ export default function TargetBand({
               cy="18"
               r="16"
               fill="none"
-              stroke="#f59e0b"
+              stroke="[rgb(var(--color-warning))]"
               strokeWidth="2"
               strokeLinecap="round"
               transform="rotate(-90 18 18)"
             ></circle>
 
-            {/* Target progress circle (green) */}
+            {/* Target progress circle */}
             <circle
               id="target-progress"
               className="progress-ring__circle transition-all duration-500"
@@ -74,7 +77,7 @@ export default function TargetBand({
               cy="18"
               r="16"
               fill="none"
-              stroke="#10b981"
+              stroke="[rgb(var(--color-success))]"
               strokeWidth="2"
               strokeLinecap="round"
               transform="rotate(-90 18 18)"
@@ -86,7 +89,7 @@ export default function TargetBand({
               y="18"
               textAnchor="middle"
               fontSize="12"
-              fill={darkMode ? "#ffffff" : "#1f2937"}
+              fill={darkMode ? "[rgb(var(--color-foreground-dark))]" : "[rgb(var(--color-foreground))]"}
               dy=".3em"
               fontWeight="bold"
               className="transition-colors duration-300"
@@ -100,7 +103,7 @@ export default function TargetBand({
               y="24"
               textAnchor="middle"
               fontSize="8"
-              fill={darkMode ? "#d1d5db" : "#6b7280"}
+              fill={darkMode ? "[rgb(var(--color-muted-dark))]" : "[rgb(var(--color-muted))]"}
               dy=".3em"
               className="transition-colors duration-300"
             >
@@ -110,7 +113,7 @@ export default function TargetBand({
 
           {/* Target band indicator */}
           <div className="absolute -bottom-2 left-0 right-0 text-center">
-            <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded transition-colors duration-300">
+            <span className="inline-block bg-[rgb(var(--color-success)/0.1)] dark:bg-[rgb(var(--color-success-dark)/0.2)] text-[rgb(var(--color-success))] dark:text-[rgb(var(--color-success-dark))] text-xs px-2 py-1 rounded transition-colors duration-300">
               Target: {userProgress.targetBand}
             </span>
           </div>
@@ -120,13 +123,13 @@ export default function TargetBand({
         <div className="mb-4">
           <label
             htmlFor="targetBand"
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300"
+            className="block text-sm font-medium text-[rgb(var(--color-foreground))] dark:text-[rgb(var(--color-foreground-dark))] mb-1 transition-colors duration-300"
           >
             Your Target Band
           </label>
           <select
             id="targetBand"
-            className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+            className="w-full px-3 py-2 border rounded-md dark:bg-[rgb(var(--color-background-dark))] dark:border-[rgb(var(--color-border-dark))] dark:text-[rgb(var(--color-foreground-dark))] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-secondary))] dark:focus:ring-[rgb(var(--color-secondary-dark))]"
             value={userProgress.targetBand}
             onChange={updateTargetBand}
           >
@@ -137,9 +140,9 @@ export default function TargetBand({
         </div>
 
         {/* Progress text */}
-        <div className="text-sm text-gray-600 dark:text-gray-300 mb-4 transition-colors duration-300">
+        <div className="text-sm text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-dark))] mb-4 transition-colors duration-300">
           {userProgress.overall >= userProgress.targetBand ? (
-            <span className="text-green-600 dark:text-green-400">
+            <span className="text-[rgb(var(--color-success))] dark:text-[rgb(var(--color-success-dark))]">
               Congratulations! You've reached your target band!
             </span>
           ) : (
@@ -149,7 +152,7 @@ export default function TargetBand({
 
         {/* Update goal button */}
         <button
-          className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-md font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+          className="w-full bg-[rgb(var(--color-secondary))] hover:bg-[rgb(var(--color-secondary-dark))] text-[rgb(var(--color-foreground-light))] py-2 rounded-md font-medium transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-secondary))] dark:focus:ring-[rgb(var(--color-secondary-dark))] focus:ring-offset-2 dark:focus:ring-offset-[rgb(var(--color-background-dark))]"
         >
           Update Goal
         </button>

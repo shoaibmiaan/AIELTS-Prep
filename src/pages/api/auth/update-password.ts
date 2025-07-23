@@ -6,13 +6,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { email } = req.body;
+  const { password } = req.body;
   const supabase = createPagesServerClient({ req, res });
 
   try {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/reset-password`,
-    });
+    const { error } = await supabase.auth.updateUser({ password });
 
     if (error) throw error;
 
