@@ -8,22 +8,21 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
   const [accountDropdownOpen, setAccountDropdownOpen] = useState(false);
+  const [hoveredButton, setHoveredButton] = useState<string | null>(null);
   const learnDropdownRef = useRef<HTMLDivElement>(null);
   const accountDropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { user, logout } = useAuth();
   const [darkMode, setDarkMode] = useState(false);
 
-  // Check if the current path is the homepage
   const isHomePage = router.pathname === '/';
 
-  // Toggle dark mode
   const toggleDarkMode = () => {
     setDarkMode(prev => !prev);
     document.documentElement.classList.toggle('dark', !darkMode);
   };
 
-  const isPremium = !!user?.membership?.toLowerCase().includes('premium'); // Placeholder logic
+  const isPremium = !!user?.membership?.toLowerCase().includes('premium');
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -73,17 +72,20 @@ const Header = () => {
 
         {/* Navbar */}
         <nav className="hidden md:flex space-x-8">
-          {/* Home Button - Always Underlined on the Homepage */}
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); handleNavigation('/'); }}
-            className={`text-gray-700 dark:text-white font-medium ${isHomePage ? 'underline text-yellow-600 dark:text-yellow-400' : 'hover:text-yellow-600 dark:hover:text-yellow-400'}`}
+            className={`text-gray-700 dark:text-white font-medium transition-colors duration-300 ease-in-out
+              ${isHomePage ? 'underline text-yellow-600 dark:text-yellow-400' : 'hover:text-yellow-600 dark:hover:text-yellow-400'}`}
           >
             Home
           </a>
 
           <div className="relative" ref={learnDropdownRef}>
-            <button className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium flex items-center" onClick={toggleLearnDropdown}>
+            <button
+              className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium flex items-center transition duration-300 ease-in-out"
+              onClick={toggleLearnDropdown}
+            >
               Learn <span className="ml-1 text-xs">▼</span>
             </button>
             {learnDropdownOpen && (
@@ -95,33 +97,58 @@ const Header = () => {
               </div>
             )}
           </div>
-          <a href="#" onClick={(e) => { e.preventDefault(); handleNavigation('/practice'); }} className="text-yellow-600 dark:text-yellow-400 font-medium border-b-2 border-yellow-600 dark:border-yellow-400">Practice</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); handleProtectedRoute('/ai-tools'); }} className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium">AI Tools</a>
-          <a href="#" onClick={(e) => { e.preventDefault(); handleProtectedRoute('/community'); }} className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium">Community</a>
+
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleNavigation('/practice'); }}
+            onMouseEnter={() => setHoveredButton('practice')}
+            onMouseLeave={() => setHoveredButton(null)}
+            className={`text-gray-700 dark:text-white font-medium transition-colors duration-300 ease-in-out
+              ${hoveredButton === 'practice' ? 'underline text-yellow-600 dark:text-yellow-400' : 'hover:text-yellow-600 dark:hover:text-yellow-400'}`}
+          >
+            Practice
+          </a>
+
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleProtectedRoute('/ai-tools'); }}
+            className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium transition duration-300"
+          >
+            AI Tools
+          </a>
+
+          <a
+            href="#"
+            onClick={(e) => { e.preventDefault(); handleProtectedRoute('/community'); }}
+            className="text-gray-700 dark:text-white hover:text-yellow-600 dark:hover:text-yellow-400 font-medium transition duration-300"
+          >
+            Community
+          </a>
         </nav>
 
         {/* User and Dark Mode Buttons */}
         <div className="flex items-center space-x-4">
-          {/* Dark Mode Toggle */}
-          <button onClick={toggleDarkMode} className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white" aria-label="Toggle dark mode">
+          <button onClick={toggleDarkMode} className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white transition duration-300" aria-label="Toggle dark mode">
             {darkMode ? '☀️' : '🌙'}
           </button>
 
           {/* User Account Dropdown */}
           {user ? (
             <div className="relative" ref={accountDropdownRef}>
-              <button className="flex items-center space-x-2 p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white" onClick={toggleAccountDropdown} aria-label="User profile">
-                <div className="flex items-center space-x-2">
-                  {user.avatar ? (
-                    <img src={user.avatar} alt="User avatar" className="w-8 h-8 rounded-full object-cover" />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
-                      <span className="text-sm font-medium">{user.name ? user.name[0].toUpperCase() : 'U'}</span>
-                    </div>
-                  )}
-                  <span className="hidden md:inline">{user.name || user.email}</span>
-                  <span className="ml-1 text-xs">▼</span>
-                </div>
+              <button
+                className="flex items-center space-x-2 p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white transition duration-300"
+                onClick={toggleAccountDropdown}
+                aria-label="User profile"
+              >
+                {user.avatar ? (
+                  <img src={user.avatar} alt="User avatar" className="w-8 h-8 rounded-full object-cover" />
+                ) : (
+                  <div className="w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 flex items-center justify-center">
+                    <span className="text-sm font-medium">{user.name ? user.name[0].toUpperCase() : 'U'}</span>
+                  </div>
+                )}
+                <span className="hidden md:inline">{user.name || user.email}</span>
+                <span className="ml-1 text-xs">▼</span>
               </button>
               {accountDropdownOpen && (
                 <div className="absolute right-0 bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 w-48 z-10">
@@ -142,18 +169,23 @@ const Header = () => {
               )}
             </div>
           ) : (
-            <button className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white" onClick={() => handleNavigation('/login')} aria-label="Login">
+            <button className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-white transition duration-300" onClick={() => handleNavigation('/login')} aria-label="Login">
               <span>👤</span>
             </button>
           )}
 
-          {/* Go Premium / Premium Dashboard Button */}
-          <button className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md font-medium" onClick={() => handleNavigation(isPremium ? '/premium-dashboard' : '/pricing')}>
+          <button
+            className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md font-medium transition duration-300"
+            onClick={() => handleNavigation(isPremium ? '/premium-dashboard' : '/pricing')}
+          >
             {isPremium ? 'Premium Dashboard' : 'Go Premium'}
           </button>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-600 dark:text-white" onClick={(e) => { e.stopPropagation(); setMobileMenuOpen(!mobileMenuOpen); }} aria-label="Mobile menu">
+          <button
+            className="md:hidden text-gray-600 dark:text-white p-2"
+            onClick={(e) => { e.stopPropagation(); setMobileMenuOpen(!mobileMenuOpen); }}
+            aria-label="Mobile menu"
+          >
             <span className="text-2xl">☰</span>
           </button>
         </div>

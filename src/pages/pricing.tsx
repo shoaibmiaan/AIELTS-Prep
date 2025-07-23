@@ -1,15 +1,41 @@
-import { useState } from 'react';
-import Head from 'next/head';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
+import Link from 'next/link';
 
 export default function PricingPage() {
+  const { user, isLoading } = useAuth();
   const router = useRouter();
-  const { user } = useAuth();
+  const [darkMode, setDarkMode] = useState(false);
   const [isYearly, setIsYearly] = useState(false);
+
+  // Dark mode initialization
+  useEffect(() => {
+    const savedMode = localStorage.getItem('darkMode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedMode === 'true' || (!savedMode && prefersDark)) {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  // Dark mode toggle
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem('darkMode', String(newMode));
+    document.documentElement.classList.toggle('dark', newMode);
+  };
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-500"></div>
+      </div>
+    );
+  }
 
   const plans = [
     {
@@ -39,7 +65,7 @@ export default function PricingPage() {
     },
     {
       name: 'Premium',
-      price: isYearly ? '$180' : '$19',
+      price: isYearly ? '$50' : '$5',
       period: isYearly ? '/year' : '/month',
       description: 'For serious IELTS candidates',
       features: [
@@ -65,7 +91,7 @@ export default function PricingPage() {
     },
     {
       name: 'Pro',
-      price: isYearly ? '$480' : '$49',
+      price: isYearly ? '$120' : '$12',
       period: isYearly ? '/year' : '/month',
       description: 'For fastest band improvement',
       features: [
@@ -90,90 +116,103 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Head>
-        <title>Pricing - IELTS Master</title>
-        <meta name="description" content="Choose the right plan for your IELTS preparation" />
-      </Head>
-
-      <Header />
-
-      <main className="flex-grow py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h1 className="text-4xl font-bold mb-4">Simple, transparent pricing</h1>
-            <p className="text-xl text-secondary">
-              85% of our users improve by 1+ band score within 3 months
-            </p>
-
-            <div className="mt-8 flex justify-center">
-              <div className="inline-flex items-center bg-muted rounded-lg p-1">
-                <button
-                  type="button"
-                  className={`py-2 px-6 rounded-md font-medium ${
-                    !isYearly ? 'bg-background shadow-sm text-foreground' : 'text-secondary'
-                  }`}
-                  onClick={() => setIsYearly(false)}
-                >
-                  Monthly
-                </button>
-                <button
-                  type="button"
-                  className={`py-2 px-6 rounded-md font-medium ${
-                    isYearly ? 'bg-background shadow-sm text-foreground' : 'text-secondary'
-                  }`}
-                  onClick={() => setIsYearly(true)}
-                >
-                  Yearly <span className="ml-1 text-primary">(Save 20%)</span>
-                </button>
-              </div>
-            </div>
+    <Layout
+      darkMode={darkMode}
+      toggleDarkMode={toggleDarkMode}
+      user={user}
+      title="Pricing - IELTS Master"
+      description="Choose the right plan for your IELTS preparation"
+    >
+      <div className="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-xl p-8">
+        <h2 className="text-3xl font-bold text-center mb-6 dark:text-white">Simple, Transparent Pricing</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 text-center">
+          85% of our users improve by 1+ band score within 3 months
+        </p>
+        <div className="flex justify-center mb-6">
+          <div className="inline-flex bg-gray-200 dark:bg-gray-700 rounded-lg p-1">
+            <button
+              type="button"
+              className={`py-2 px-6 rounded-md font-medium ${
+                !isYearly ? 'bg-amber-500 text-white' : 'text-gray-500 dark:text-gray-400'
+              }`}
+              onClick={() => setIsYearly(false)}
+            >
+              Monthly
+            </button>
+            <button
+              type="button"
+              className={`py-2 px-6 rounded-md font-medium ${
+                isYearly ? 'bg-amber-500 text-white' : 'text-gray-500 dark:text-gray-400'
+              }`}
+              onClick={() => setIsYearly(true)}
+            >
+              Yearly <span className="ml-1 text-amber-300">(Save 20%)</span>
+            </button>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className={`rounded-2xl shadow-sm overflow-hidden ${
-                  plan.featured ? 'border-2 border-primary' : 'border border-border'
-                }`}
-              >
-                {plan.featured && (
-                  <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-medium">
-                    MOST POPULAR
-                  </div>
-                )}
-                <div className="p-6 bg-background">
-                  <h2 className="text-lg font-semibold mb-1">{plan.name}</h2>
-                  <p className="text-secondary mb-4">{plan.description}</p>
-
-                  <div className="flex items-end mb-6">
-                    <span className="text-4xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground ml-1">{plan.period}</span>
-                  </div>
-
-                  <button
-                    onClick={plan.ctaAction}
-                    className={`w-full py-3 rounded-md font-medium ${
-                      plan.featured
-                        ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
-                        : plan.name === 'Free'
-                        ? 'bg-secondary hover:bg-secondary/80 text-secondary-foreground'
-                        : 'bg-accent hover:bg-accent/90 text-accent-foreground'
-                    }`}
-                    disabled={user?.subscription === 'premium' && plan.name === 'Premium'}
-                  >
-                    {plan.cta}
-                  </button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`rounded-lg p-6 transition-transform transform hover:scale-105 ${
+                plan.featured ? 'border-4 border-amber-500 bg-yellow-50' : 'border-2 border-gray-200 dark:border-gray-700'
+              } hover:shadow-xl`}
+            >
+              {plan.featured && (
+                <div className="bg-amber-500 text-white text-center py-2 text-sm font-medium rounded-t-lg">
+                  MOST POPULAR
                 </div>
-
-                <div className="border-t border-border px-6 py-6 bg-background">
-                  <h3 className="text-sm font-medium mb-4">What's included</h3>
-                  <ul className="space-y-3">
-                    {plan.features.map((feature) => (
+              )}
+              <h3 className="text-xl font-semibold mb-3 dark:text-white">{plan.name}</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">{plan.description}</p>
+              <div className="flex items-end mb-6">
+                <span className="text-4xl font-bold dark:text-white">{plan.price}</span>
+                <span className="text-gray-500 dark:text-gray-400 ml-1">{plan.period}</span>
+              </div>
+              <button
+                onClick={plan.ctaAction}
+                className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                  plan.featured
+                    ? 'bg-amber-500 hover:bg-amber-600 text-white'
+                    : plan.name === 'Free'
+                    ? 'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
+                    : 'bg-amber-500 hover:bg-amber-600 text-white'
+                } ${user?.subscription === 'premium' && plan.name === 'Premium' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={user?.subscription === 'premium' && plan.name === 'Premium'}
+              >
+                {plan.cta}
+              </button>
+              <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+                <h4 className="text-sm font-medium mb-2 dark:text-white">What's included</h4>
+                <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start">
+                      <svg
+                        className="h-5 w-5 text-green-500 mr-2 flex-shrink-0"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {plan.missingFeatures.length > 0 && (
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-4">
+                  <h4 className="text-sm font-medium mb-2 dark:text-white">What's not included</h4>
+                  <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                    {plan.missingFeatures.map((feature) => (
                       <li key={feature} className="flex items-start">
                         <svg
-                          className="h-5 w-5 text-success mt-0.5 mr-2 flex-shrink-0"
+                          className="h-5 w-5 text-gray-500 dark:text-gray-400 mr-2 flex-shrink-0"
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 20 20"
                           fill="currentColor"
@@ -181,126 +220,20 @@ export default function PricingPage() {
                         >
                           <path
                             fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                             clipRule="evenodd"
                           />
                         </svg>
-                        <span className="text-secondary">{feature}</span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                {plan.missingFeatures.length > 0 && (
-                  <div className="border-t border-border px-6 py-6 bg-muted">
-                    <h3 className="text-sm font-medium mb-4">What's not included</h3>
-                    <ul className="space-y-3">
-                      {plan.missingFeatures.map((feature) => (
-                        <li key={feature} className="flex items-start">
-                          <svg
-                            className="h-5 w-5 text-muted-foreground mt-0.5 mr-2 flex-shrink-0"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-24">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Frequently asked questions</h2>
-
-            <div className="space-y-6">
-              {[
-                {
-                  question: "What payment methods do you accept?",
-                  answer: "We accept all major credit cards (Visa, Mastercard, American Express) as well as PayPal. All payments are processed securely through Stripe."
-                },
-                {
-                  question: "Can I cancel my subscription anytime?",
-                  answer: "Yes, you can cancel your subscription at any time. Your access will continue until the end of your current billing period."
-                },
-                {
-                  question: "Is there a free trial available?",
-                  answer: "Yes! We offer a 7-day free trial for both Premium and Pro plans. No credit card is required to start the trial."
-                },
-                {
-                  question: "How does the speaking evaluation work?",
-                  answer: "Our AI-powered speaking simulator records your responses to IELTS-style questions and provides detailed feedback on fluency, pronunciation, grammar, and vocabulary."
-                }
-              ].map((faq, index) => (
-                <div key={index} className="bg-background shadow rounded-lg overflow-hidden">
-                  <button className="w-full px-6 py-4 text-left flex justify-between items-center">
-                    <span className="text-lg font-medium">{faq.question}</span>
-                    <svg
-                      className="h-5 w-5 text-muted-foreground"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414L11.414 12l3.293 3.293a1 1 0 01-1.414 1.414L10 13.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 12 5.293 8.707a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </button>
-                  <div className="px-6 pb-4">
-                    <p className="text-secondary">{faq.answer}</p>
-                  </div>
-                </div>
-              ))}
+              )}
             </div>
-          </div>
+          ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="bg-primary mt-24">
-          <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-3xl font-extrabold tracking-tight text-primary-foreground sm:text-4xl">
-              <span className="block">Ready to improve your IELTS score?</span>
-              <span className="block text-primary-foreground/90">Start your free trial today.</span>
-            </h2>
-            <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-              <div className="inline-flex rounded-md shadow">
-                <Link
-                  href="/signup"
-                  className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-background hover:bg-background/90"
-                >
-                  Get started
-                </Link>
-              </div>
-              <div className="ml-3 inline-flex rounded-md shadow">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary/80 hover:bg-primary/70"
-                >
-                  Contact us
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </Layout>
   );
 }
