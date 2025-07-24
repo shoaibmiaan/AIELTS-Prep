@@ -3,29 +3,39 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from '@/components/ThemeContext'; // Assuming the ThemeProvider is set up
-import { AuthProvider, useAuth } from '@/context/AuthContext'; // Assuming AuthProvider is set up
-import { DesignSystemProvider } from '@/design-system/providers/DesignSystem';  // Assuming DesignSystemProvider is set up
-import ErrorBoundary from '@/components/ErrorBoundary'; // Add Error Boundary to catch any errors
+import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import Layout from '@/components/Layout';
 
 // Public routes accessible to everyone (no authentication required)
 const PUBLIC_ROUTES = [
-  '/', '/login', '/signup', '/reset-password',
-  '/forgot-password', '/phone-login', '/thank-you',
-  '/about', '/contact', '/privacy', '/terms'
+  '/',
+  '/login',
+  '/signup',
+  '/reset-password',
+  '/forgot-password',
+  '/thank-you',
+  '/about',
+  '/contact',
+  '/privacy',
+  '/terms'
 ];
 
 // Protected routes that require authentication
 const PROTECTED_ROUTES = [
-  '/profile', '/courses', '/assessmentRoom',
-  '/simulation', '/learn-prepare', '/learnLab',
-  '/adminDashboard', '/premium-dashboard', '/ai-tools',
-  '/community', '/grammar', '/strategies',
-  '/mock-test/start', '/writing-evaluator', '/speaking-simulator',
-  '/writing-feedback'
+  '/profile',
+  '/dashboard',
+  '/practice',
+  '/test',
+  '/writing-analysis',
+  '/speaking-practice',
+  '/premium',
+  '/lessons',
+  '/progress',
+  '/vocabulary' // Add new vocabulary route
 ];
 
-// Route Guard Component to handle access control
 function RouteGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { user, isLoading } = useAuth();
@@ -36,11 +46,19 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
 
     const currentPath = router.pathname;
     const isProtected = PROTECTED_ROUTES.some(path => currentPath.startsWith(path));
+    const isPublic = PUBLIC_ROUTES.some(path => currentPath.startsWith(path));
 
     if (isProtected && !user) {
       // Store the current route to redirect back to after login
       sessionStorage.setItem('redirectUrl', currentPath);
       router.push('/login');
+      return;
+    }
+
+    if (!isPublic && !isProtected && !user) {
+      sessionStorage.setItem('redirectUrl', currentPath);
+      router.push('/login');
+      return;
     }
 
     setRouteChecked(true);
@@ -48,9 +66,8 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
 
   if (isLoading || !routeChecked) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background-dark">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
-        <p className="mt-2 text-white">Verifying your session...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500 dark:border-indigo-400"></div>
       </div>
     );
   }
@@ -58,27 +75,49 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-// Main App Content Component
-function AppContent({ Component, pageProps }: AppProps) {
-  return (
-    <RouteGuard>
-      <Toaster position="top-right" />
-      <Component {...pageProps} />
-    </RouteGuard>
-  );
-}
+export default function AppWrapper({ Component, pageProps }: AppProps) {
+  const router = useRouter();
 
-// Main App Wrapper that includes all the providers
-export default function AppWrapper(props: AppProps) {
+  // Pages that don't need the layout
+  const barePages = [
+    '/login',
+    '/signup',
+    '/forgot-password',
+    '/reset-password',
+    '/thank-you'
+  ];
+  const useLayout = !barePages.includes(router.pathname);
+
   return (
-    <DesignSystemProvider>
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
       <ThemeProvider>
         <AuthProvider>
-          <ErrorBoundary>
-            <AppContent {...props} />
-          </ErrorBoundary>
+          <RouteGuard>
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  background: 'var(--background)',
+                  color: 'var(--foreground)',
+                  border: '1px solid var(--border)',
+                },
+              }}
+            />
+            {useLayout ? (
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </RouteGuard>
         </AuthProvider>
       </ThemeProvider>
-    </DesignSystemProvider>
+    </NextThemesProvider>
   );
 }

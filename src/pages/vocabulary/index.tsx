@@ -5,10 +5,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
 
-// Importing Header and Footer
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-
 const VocabularyPage = () => {
   const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -164,9 +160,6 @@ const VocabularyPage = () => {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
 
-      {/* Header */}
-      <Header />
-
       {/* Vocabulary Page Content */}
       <main className="container mx-auto px-6 py-10">
         {/* Hero Section */}
@@ -179,7 +172,7 @@ const VocabularyPage = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-md font-medium"
-                onClick={() => handleProtectedClick('/vocabulary/flashcards')}
+                onClick={() => router.push('/vocabulary/flashcards')}  // Navigate to the flashcards page
               >
                 <i className="fas fa-book mr-2"></i> Start Flashcards
               </button>
@@ -321,9 +314,6 @@ const VocabularyPage = () => {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };

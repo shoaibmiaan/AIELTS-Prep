@@ -1,11 +1,13 @@
-// src/pages/test.tsx
-'use client'; // Critical for client components
+// pages/test.tsx
+import React from 'react';
 
-export default function TestPage() {
+const TestPage = () => {
   return (
-    <div className="p-8">
-      <h1 className="text-xl font-bold">Basic Test Page</h1>
-      <p>If this renders, your core setup works</p>
+    <div>
+      <h1>Test Page</h1>
+      <p>If this renders without errors, the issue is in your component structure</p>
     </div>
   );
-}
+};
+
+export default TestPage;

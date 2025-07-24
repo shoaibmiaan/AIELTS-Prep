@@ -100,3 +100,55 @@ declare global {
     PGOPTIONS: string;
   }
 }
+export interface Activity {
+  id: number;
+  action: string;
+  module: string;
+  date: string;
+  score?: string;
+  improvement?: string;
+}
+
+export interface UserProgress {
+  vocabulary: number;
+  writing: number;
+  listening: number;
+  speaking: number;
+  reading: number;
+  overall: number;
+  targetBand: number;
+}
+
+export interface StudyPlanItem {
+  id: number;
+  title: string;
+  module: string;
+  duration: string;
+  progress: number;
+  locked: boolean;
+}
+
+export interface WritingSample {
+  id: number;
+  task: string;
+  band: number;
+  date: string;
+  wordCount: number;
+  feedback: boolean;
+}
+
+export interface MockTest {
+  id: number;
+  type: string;
+  date: string;
+  score: number;
+  timeSpent: string;
+}
+
+export interface CommunityPost {
+  id: number;
+  title: string;
+  comments: number;
+  author: string;
+  time: string;
+}

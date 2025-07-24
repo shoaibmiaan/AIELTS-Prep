@@ -5,19 +5,15 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
 import toast from 'react-hot-toast';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import LoginModal from '@/components/home/LoginModal';
 
 export default function IELTSCoursePage() {
   const router = useRouter();
   const { courseId } = router.query;
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   // UI State
-  const [darkMode, setDarkMode] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [activeTab, setActiveTab] = useState('course');
 
   // Course Data with safe initialization
   const [course, setCourse] = useState({
@@ -72,57 +68,15 @@ export default function IELTSCoursePage() {
     },
   ]);
 
-  const [relatedCourses, setRelatedCourses] = useState([
-    {
-      id: 'writing101',
-      title: 'Academic Writing Masterclass',
-      lessons: 15,
-      progress: 0,
-      thumbnail: '/courses/writing-thumb.jpg'
-    },
-    {
-      id: 'speaking202',
-      title: 'Speaking Fluency Builder',
-      lessons: 10,
-      progress: 0,
-      thumbnail: '/courses/speaking-thumb.jpg'
-    }
-  ]);
-
-  // Initialize dark mode (same as homepage)
+  // Initialize dark mode (handled by ThemeProvider)
   useEffect(() => {
     const savedMode = localStorage.getItem('darkMode');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     if (savedMode === 'true' || (!savedMode && prefersDark)) {
-      setDarkMode(true);
       document.documentElement.classList.add('dark');
     }
   }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem('darkMode', String(newMode));
-    if (newMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  };
-
-  const handleProtectedClick = (route: string) => {
-    if (!user) {
-      setShowLoginModal(true);
-    } else {
-      router.push(route);
-    }
-  };
-
-  const navigateTo = (route: string) => {
-    setActiveTab(route);
-    router.push(`/dashboard/${route}`);
-  };
 
   const startLesson = (lessonId: number) => {
     const lesson = lessons.find(l => l.id === lessonId);
@@ -148,14 +102,6 @@ export default function IELTSCoursePage() {
       <Head>
         <title>{course.title} | IELTS Master</title>
       </Head>
-
-      <Header
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        activeTab={activeTab}
-        navigateTo={navigateTo}
-        handleProtectedClick={handleProtectedClick}
-      />
 
       <main className="container mx-auto px-4 py-8">
         {/* Course Header */}
@@ -304,12 +250,6 @@ export default function IELTSCoursePage() {
         setPassword={() => {}}
         handleLogin={() => {}}
         handleFreePlan={() => {}}
-        darkMode={darkMode}
-      />
-
-      <Footer
-        handleNavigation={() => {}}
-        handleProtectedClick={() => {}}
       />
     </div>
   );
