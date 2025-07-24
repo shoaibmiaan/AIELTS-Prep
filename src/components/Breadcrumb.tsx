@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import StudyStreak from '@/components/StudyStreak'; // Import StudyStreak component
-import { useTheme } from '@/components/ThemeContext'; // Import the useTheme hook
+import StudyStreak from '@/components/StudyStreak';
+import { useTheme } from '@/context/ThemeContext'; // Correct path to ThemeContext
 
 type BreadcrumbProps = {
   userId: string | null; // Accept userId as a prop
@@ -11,8 +11,8 @@ type BreadcrumbProps = {
 
 export default function Breadcrumb({ userId }: BreadcrumbProps) {
   const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean); // removes empty segments
-  const { colors } = useTheme(); // Access theme colors from the context
+  const segments = pathname.split('/').filter(Boolean); // Removes empty segments
+  const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from the context
 
   const buildPath = (i: number) => '/' + segments.slice(0, i + 1).join('/');
 
@@ -22,11 +22,15 @@ export default function Breadcrumb({ userId }: BreadcrumbProps) {
       .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
       .join(' ');
 
+  // Set background and text color based on the current theme
+  const backgroundColor = theme === 'dark' ? '#333' : '#fff';
+  const textColor = theme === 'dark' ? '#fff' : '#333';
+
   return (
     <nav
       className="text-sm mb-6 overflow-x-auto whitespace-nowrap px-4 py-3 rounded-md shadow sticky top-0 z-30"
       aria-label="Breadcrumb"
-      style={{ backgroundColor: colors.background }}
+      style={{ backgroundColor }} // Apply theme background color
     >
       <ol className="flex items-center space-x-2">
         <li>
@@ -47,7 +51,7 @@ export default function Breadcrumb({ userId }: BreadcrumbProps) {
                     ? 'text-white font-semibold'
                     : 'hover:underline text-gray-300'
                 }`}
-                style={{ color: colors.textPrimary }}
+                style={{ color: textColor }} // Apply theme text color
               >
                 {formatSegment(decodeURIComponent(seg))}
               </Link>
@@ -62,6 +66,11 @@ export default function Breadcrumb({ userId }: BreadcrumbProps) {
           <StudyStreak userId={userId} /> {/* Display streak if userId exists */}
         </div>
       )}
+
+      {/* Add a button to toggle theme if needed */}
+      <button onClick={toggleTheme} className="text-sm mt-2 text-blue-500">
+        Toggle Theme
+      </button>
     </nav>
   );
 }

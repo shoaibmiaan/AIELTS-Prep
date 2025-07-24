@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
-import { theme } from '@/styles/theme';
+import { DesignSystem } from '@/constants/designSystem';  // Import the design system directly
 
 type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'success' | 'warning' | 'error' | 'ghost' | 'link';
 
@@ -39,14 +39,14 @@ export const Button = ({
   };
 
   const variantClasses = {
-    primary: `bg-${theme.colors.primary[500]} text-white hover:bg-${theme.colors.primary[600]} focus:ring-${theme.colors.primary[500]}`,
-    secondary: `bg-${theme.colors.secondary[500]} text-white hover:bg-${theme.colors.secondary[600]} focus:ring-${theme.colors.secondary[500]}`,
-    accent: `bg-${theme.colors.accent.writing} text-white hover:bg-${theme.colors.primary[600]} focus:ring-${theme.colors.primary[500]}`,
-    success: `bg-${theme.colors.success[500]} text-white hover:bg-${theme.colors.success[600]} focus:ring-${theme.colors.success[500]}`,
-    warning: `bg-${theme.colors.warning[500]} text-white hover:bg-${theme.colors.warning[600]} focus:ring-${theme.colors.warning[500]}`,
-    error: `bg-${theme.colors.error[500]} text-white hover:bg-${theme.colors.error[600]} focus:ring-${theme.colors.error[500]}`,
-    ghost: `bg-transparent text-${theme.colors.gray[700]} hover:bg-${theme.colors.gray[100]} dark:text-${theme.colors.gray[300]} dark:hover:bg-${theme.colors.gray[700]}`,
-    link: `text-${theme.colors.primary[500]} dark:text-${theme.colors.primary[400]} hover:text-${theme.colors.primary[600]} dark:hover:text-${theme.colors.primary[300]} focus:ring-${theme.colors.primary[500]} underline-offset-4 hover:underline bg-transparent`,
+    primary: `bg-[${DesignSystem.colors.primary[500]}] text-white hover:bg-[${DesignSystem.colors.primary[600]}] focus:ring-[${DesignSystem.colors.primary[500]}]`,
+    secondary: `bg-[${DesignSystem.colors.secondary.purple[500]}] text-white hover:bg-[${DesignSystem.colors.secondary.purple[600]}] focus:ring-[${DesignSystem.colors.secondary.purple[500]}]`,
+    accent: `bg-[${DesignSystem.colors.primary[500]}] text-white hover:bg-[${DesignSystem.colors.primary[600]}] focus:ring-[${DesignSystem.colors.primary[500]}]`,
+    success: `bg-[${DesignSystem.colors.status.success}] text-white hover:bg-[${DesignSystem.colors.status.success}] focus:ring-[${DesignSystem.colors.status.success}]`,
+    warning: `bg-[${DesignSystem.colors.status.warning}] text-white hover:bg-[${DesignSystem.colors.status.warning}] focus:ring-[${DesignSystem.colors.status.warning}]`,
+    error: `bg-[${DesignSystem.colors.status.error}] text-white hover:bg-[${DesignSystem.colors.status.error}] focus:ring-[${DesignSystem.colors.status.error}]`,
+    ghost: `bg-transparent text-[${DesignSystem.colors.gray[700]}] hover:bg-[${DesignSystem.colors.gray[100]}] dark:text-[${DesignSystem.colors.gray[300]}] dark:hover:bg-[${DesignSystem.colors.gray[700]}]`,
+    link: `text-[${DesignSystem.colors.primary[500]}] dark:text-[${DesignSystem.colors.primary[400]}] hover:text-[${DesignSystem.colors.primary[600]}] dark:hover:text-[${DesignSystem.colors.primary[300]}] focus:ring-[${DesignSystem.colors.primary[500]}] underline-offset-4 hover:underline bg-transparent`,
   };
 
   const widthClass = fullWidth ? 'w-full' : '';

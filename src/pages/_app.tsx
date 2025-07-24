@@ -4,8 +4,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { ThemeProvider } from 'next-themes'; // Import next-themes ThemeProvider
 import Layout from '@/components/Layout';
 
 // Public routes accessible to everyone (no authentication required)
@@ -89,35 +88,33 @@ export default function AppWrapper({ Component, pageProps }: AppProps) {
   const useLayout = !barePages.includes(router.pathname);
 
   return (
-    <NextThemesProvider
+    <ThemeProvider
       attribute="class"
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
     >
-      <ThemeProvider>
-        <AuthProvider>
-          <RouteGuard>
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                style: {
-                  background: 'var(--background)',
-                  color: 'var(--foreground)',
-                  border: '1px solid var(--border)',
-                },
-              }}
-            />
-            {useLayout ? (
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            ) : (
+      <AuthProvider>
+        <RouteGuard>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: 'var(--background)',
+                color: 'var(--foreground)',
+                border: '1px solid var(--border)',
+              },
+            }}
+          />
+          {useLayout ? (
+            <Layout>
               <Component {...pageProps} />
-            )}
-          </RouteGuard>
-        </AuthProvider>
-      </ThemeProvider>
-    </NextThemesProvider>
+            </Layout>
+          ) : (
+            <Component {...pageProps} />
+          )}
+        </RouteGuard>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }

@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { colors } from '@/styles/theme';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 export default function PracticePage() {
   const router = useRouter();
@@ -67,7 +65,8 @@ export default function PracticePage() {
   };
 
   const handleProtectedClick = (route: string) => {
-    if (!isLoggedIn) {
+    const savedLogin = localStorage.getItem('isLoggedIn');
+    if (savedLogin !== 'true' || !isLoggedIn) {
       setCurrentPage(route);
       setShowLoginModal(true);
     } else {
@@ -104,7 +103,14 @@ export default function PracticePage() {
   };
 
   const startPractice = (type: string) => {
-    handleProtectedClick(`/assessmentRoom/${type.toLowerCase()}`);
+    // console.log('startPractice called:', { type, isLoggedIn }); // Debug log
+    const savedLogin = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn || savedLogin === 'true') {
+      router.push(`/assessmentRoom/${type.toLowerCase()}`);
+    } else {
+      setCurrentPage(`/assessmentRoom/${type.toLowerCase()}`);
+      setShowLoginModal(true);
+    }
   };
 
   const filteredHistory = activeTab === 'all'
@@ -118,15 +124,6 @@ export default function PracticePage() {
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
-
-      <Header
-        isLoggedIn={isLoggedIn}
-        isPremium={isPremium}
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        handleNavigation={handleNavigation}
-        handleProtectedClick={handleProtectedClick}
-      />
 
       <main className="container mx-auto px-4 sm:px-6 py-10">
         <section className="mb-16">
@@ -207,8 +204,6 @@ export default function PracticePage() {
         {/* Practice History, Quick Practice Sessions, Tips & Strategies sections */}
 
       </main>
-
-      <Footer handleNavigation={handleNavigation} handleProtectedClick={handleProtectedClick} />
 
       {showLoginModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">

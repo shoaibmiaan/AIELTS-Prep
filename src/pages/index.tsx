@@ -3,8 +3,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
 import toast from 'react-hot-toast';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import HomeContent from '@/components/home/homeContent';
 import GuestContent from '@/components/home/GuestContent';
 import LoginModal from '@/components/home/LoginModal';
@@ -167,17 +165,6 @@ export default function IELTSMaster() {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
 
-      <Header
-        isLoggedIn={!!user}
-        isPremium={user?.isPremium || false}
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        userName={userName}
-        userAvatar={userAvatar}
-        handleNavigation={handleNavigation}
-        handleProtectedClick={handleProtectedClick}
-      />
-
       {user ? (
         <HomeContent
           userProgress={userProgress}
@@ -214,11 +201,6 @@ export default function IELTSMaster() {
         handleLogin={handleLogin}
         handleFreePlan={handleFreePlan}
         darkMode={darkMode}
-      />
-
-      <Footer
-        handleNavigation={handleNavigation}
-        handleProtectedClick={handleProtectedClick}
       />
 
       <style jsx global>{`

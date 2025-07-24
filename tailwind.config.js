@@ -1,25 +1,47 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class', // Use class-based dark mode
+  darkMode: 'class',
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./design-system/**/*.{js,ts,jsx,tsx}"
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './design-system/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
-        'primary-dark': 'rgb(var(--color-primary-dark) / <alpha-value>)',
-        success: 'rgb(var(--color-success) / <alpha-value>)',
-        warning: 'rgb(var(--color-warning) / <alpha-value>)',
-        danger: 'rgb(var(--color-danger) / <alpha-value>)',
-        // Additional colors can be added based on your theme
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
         background: 'rgb(var(--color-background) / <alpha-value>)',
-        text: 'rgb(var(--color-text) / <alpha-value>)',
+        foreground: 'rgb(var(--color-foreground) / <alpha-value>)',
+        card: 'rgb(var(--color-card) / <alpha-value>)',
+        border: 'rgb(var(--color-border) / <alpha-value>)',
+        yellow50: 'rgb(var(--color-yellow50) / <alpha-value>)',
+        yellow400: 'rgb(var(--color-yellow400) / <alpha-value>)',
+        yellow600: 'rgb(var(--color-yellow600) / <alpha-value>)',
+        gray50: 'rgb(var(--color-gray50) / <alpha-value>)',
+        gray100: 'rgb(var(--color-gray100) / <alpha-value>)',
+        gray200: 'rgb(var(--color-gray200) / <alpha-value>)',
+        gray300: 'rgb(var(--color-gray300) / <alpha-value>)',
+        gray700: 'rgb(var(--color-gray700) / <alpha-value>)',
+        gray800: 'rgb(var(--color-gray800) / <alpha-value>)',
+        gray900: 'rgb(var(--color-gray900) / <alpha-value>)',
+        green600: 'rgb(var(--color-green600) / <alpha-value>)',
+        purple600: 'rgb(var(--color-purple600) / <alpha-value>)',
+        red: 'rgb(var(--color-red) / <alpha-value>)',
       },
-      // Extend other theme properties as needed
     },
   },
   plugins: [],
-}
+  safelist: [
+    'flex', 'flex-col', 'flex-row', 'items-center', 'justify-center', 'justify-between', 'w-full', 'max-w-md', 'max-w-3xl',
+    'px-4', 'px-6', 'py-2', 'py-3', 'py-10', 'p-2', 'p-4', 'p-6', 'mb-4', 'mb-6', 'mb-8', 'mb-16', 'mt-2', 'mt-4',
+    'gap-2', 'gap-4', 'gap-6', 'gap-8', 'text-center', 'rounded-md', 'rounded-lg', 'rounded-xl', 'font-medium', 'font-semibold',
+    'font-bold', 'text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'md:text-5xl',
+    'grid', 'grid-cols-1', 'md:grid-cols-2', 'shadow-md', 'border', 'list-disc', 'pl-5', 'space-y-2', 'space-y-4', 'transition-colors',
+    'transition', 'min-h-screen', 'bg-background', 'bg-card', 'bg-card-dark', 'bg-gray50', 'bg-gray100', 'bg-gray200', 'bg-gray300',
+    'bg-gray700', 'bg-gray800', 'bg-gray900', 'bg-green600', 'bg-red', 'bg-yellow600', 'bg-purple600', 'text-gray300', 'text-gray600',
+    'text-yellow400', 'text-yellow600', 'text-white', 'border-gray100', 'border-gray300', 'border-gray700', 'border-gray800', 'h-40',
+    'animate-fade-in',
+  ],
+};

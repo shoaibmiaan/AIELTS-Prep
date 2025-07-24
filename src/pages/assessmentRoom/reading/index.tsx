@@ -4,9 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
 import { useAuth } from '@/context/AuthContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import LoginModal from '@/components/home/LoginModal'; // Ensure the modal is imported
+import LoginModal from '@/components/home/LoginModal';
 
 interface ReadingTest {
   id: string;
@@ -23,15 +21,12 @@ interface ReadingTest {
 export default function ReadingAssessmentRoom() {
   const router = useRouter();
   const { user, profile, isLoading: authLoading } = useAuth();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
   const [tests, setTests] = useState<ReadingTest[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'all' | 'completed' | 'incomplete'>('all');
-
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Initialize dark mode
@@ -138,7 +133,15 @@ export default function ReadingAssessmentRoom() {
 
   // Start reading test
   const startTest = (testId: string) => {
-    handleProtectedClick(`/assessmentRoom/reading/${testId}`);
+    // console.log('startTest called:', { testId, user }); // Debug log
+    const route = `/assessmentRoom/reading/${testId}`;
+    if (user) {
+      router.push(route);
+    } else {
+      setCurrentPage(route);
+      sessionStorage.setItem('redirectUrl', route);
+      setShowLoginModal(true);
+    }
   };
 
   // Filter tests based on active tab
@@ -164,24 +167,12 @@ export default function ReadingAssessmentRoom() {
       <Head>
         <title>Reading Assessment Room - IELTS Master</title>
         <meta name="description" content="Practice IELTS reading tests with authentic questions and detailed feedback" />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
 
-      <Header
-        user={user}
-        profile={profile}
-        darkMode={darkMode}
-        mobileMenuOpen={mobileMenuOpen}
-        dropdownOpen={dropdownOpen}
-        toggleDarkMode={toggleDarkMode}
-        handleNavigation={handleNavigation}
-        handleProtectedClick={handleProtectedClick}
-        setMobileMenuOpen={setMobileMenuOpen}
-        setDropdownOpen={setDropdownOpen}
-        dropdownRef={dropdownRef}
-      />
-
-      <main className="container mx-auto px-4 sm:px-6 py-8">
-        <section className="mb-12">
+      <main className="container mx-auto px-4 sm:px-6 py-10">
+        <section className="mb-16">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-4xl font-bold mb-4 dark:text-white">Reading Assessment Room</h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 mb-6">
@@ -189,13 +180,13 @@ export default function ReadingAssessmentRoom() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <button
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-md font-medium transition-colors"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 flex items-center"
                 onClick={() => startTest('new')}
               >
                 <i className="fas fa-book-open mr-2"></i> Start New Test
               </button>
               <button
-                className="bg-white hover:bg-gray-50 text-green-600 border border-green-600 px-6 py-3 rounded-md font-medium transition-colors dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-green-400"
+                className="bg-white hover:bg-gray-50 text-yellow-600 border border-yellow-600 px-6 py-3 rounded-md font-medium transition-colors dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-yellow-400 dark:border-yellow-400 duration-200 flex items-center"
                 onClick={() => router.push('/strategies/reading')}
               >
                 <i className="fas fa-lightbulb mr-2"></i> Reading Strategies
@@ -204,12 +195,12 @@ export default function ReadingAssessmentRoom() {
           </div>
         </section>
 
-        <section className="mb-12">
+        <section className="mb-16">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <h2 className="text-2xl font-bold dark:text-white">Available Reading Tests</h2>
             <div className="flex flex-wrap gap-2">
               <button
-                className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'all' ? 'bg-green-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
+                className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'all' ? 'bg-yellow-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
                 onClick={() => setActiveTab('all')}
               >
                 All Tests
@@ -217,13 +208,13 @@ export default function ReadingAssessmentRoom() {
               {user && (
                 <>
                   <button
-                    className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'completed' ? 'bg-green-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
+                    className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'completed' ? 'bg-yellow-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
                     onClick={() => setActiveTab('completed')}
                   >
                     Completed
                   </button>
                   <button
-                    className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'incomplete' ? 'bg-green-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
+                    className={`px-3 py-1.5 text-sm rounded-md transition-colors ${activeTab === 'incomplete' ? 'bg-yellow-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'}`}
                     onClick={() => setActiveTab('incomplete')}
                   >
                     Incomplete
@@ -235,10 +226,10 @@ export default function ReadingAssessmentRoom() {
 
           {loading ? (
             <div className="flex justify-center items-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500"></div>
             </div>
           ) : filteredTests.length === 0 ? (
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-8 text-center">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 text-center border border-gray-100 dark:border-gray-700">
               <i className="fas fa-book-open text-4xl text-gray-400 dark:text-gray-600 mb-4"></i>
               <h3 className="text-xl font-medium dark:text-white">No tests found</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -247,10 +238,10 @@ export default function ReadingAssessmentRoom() {
                   : 'No tests match your current filters.'}
               </p>
               <button
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md font-medium transition-colors"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-md font-medium transition-colors duration-200 flex items-center mx-auto"
                 onClick={() => startTest('new')}
               >
-                Start New Test
+                <i className="fas fa-book-open mr-2"></i> Start New Test
               </button>
             </div>
           ) : (
@@ -258,7 +249,7 @@ export default function ReadingAssessmentRoom() {
               {filteredTests.map((test) => (
                 <div
                   key={test.id}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all"
+                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="p-6">
                     <div className="flex justify-between items-start mb-2">
@@ -286,7 +277,7 @@ export default function ReadingAssessmentRoom() {
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                           <div
-                            className="bg-green-500 h-2 rounded-full"
+                            className="bg-yellow-600 h-2 rounded-full"
                             style={{ width: `${(test.best_score / 40) * 100}%` }}
                           ></div>
                         </div>
@@ -295,10 +286,10 @@ export default function ReadingAssessmentRoom() {
                   </div>
                   <button
                     onClick={() => startTest(test.id)}
-                    className={`w-full py-3 px-4 font-medium transition-colors ${
+                    className={`w-full py-3 px-4 font-medium transition-colors duration-200 flex items-center justify-center ${
                       test.completed
-                        ? 'bg-green-50 text-green-800 dark:bg-green-900/30 dark:text-green-200 hover:bg-green-100 dark:hover:bg-green-900/50'
-                        : 'bg-green-600 text-white hover:bg-green-700'
+                        ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 hover:bg-yellow-200 dark:hover:bg-yellow-900/50'
+                        : 'bg-yellow-600 text-white hover:bg-yellow-700'
                     }`}
                   >
                     {test.completed ? (
@@ -317,13 +308,13 @@ export default function ReadingAssessmentRoom() {
           )}
         </section>
 
-        <section className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 sm:p-8 mb-12">
+        <section className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 sm:p-8 mb-16">
           <h2 className="text-2xl font-bold mb-6 text-center dark:text-white">Reading Practice Tips</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mt-1 mr-4">
-                  <i className="fas fa-search text-green-600 dark:text-green-400"></i>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mt-1 mr-4">
+                  <i className="fas fa-search text-yellow-600 dark:text-yellow-400"></i>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-2 dark:text-white">Skimming & Scanning</h3>
@@ -335,8 +326,8 @@ export default function ReadingAssessmentRoom() {
                 </div>
               </div>
               <div className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mt-1 mr-4">
-                  <i className="fas fa-clock text-green-600 dark:text-green-400"></i>
+                <div className="flex-shrink-0 w-10 h-10 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mt-1 mr-4">
+                  <i className="fas fa-clock text-yellow-600 dark:text-yellow-400"></i>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold mb-2 dark:text-white">Time Management</h3>
@@ -347,7 +338,7 @@ export default function ReadingAssessmentRoom() {
               </div>
             </div>
             <div className="space-y-6">
-              <div className="bg-white dark:bg-gray-700 rounded-lg shadow-sm p-5">
+              <div className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-5 border border-gray-100 dark:border-gray-700">
                 <h3 className="text-lg font-semibold mb-3 dark:text-white">Recommended Practice Schedule</h3>
                 <div className="space-y-3">
                   <div>
@@ -364,13 +355,13 @@ export default function ReadingAssessmentRoom() {
                   </div>
                 </div>
               </div>
-              <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded">
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded">
                 <div className="flex">
-                  <div className="flex-shrink-0 text-green-500 dark:text-green-400 mt-1">
+                  <div className="flex-shrink-0 text-yellow-500 dark:text-yellow-400 mt-1">
                     <i className="fas fa-exclamation-circle"></i>
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm text-green-700 dark:text-green-300">
+                    <p className="text-sm text-yellow-700 dark:text-yellow-300">
                       <span className="font-medium">Pro Tip:</span> Practice reading academic articles daily to improve speed and comprehension.
                     </p>
                   </div>
@@ -381,7 +372,11 @@ export default function ReadingAssessmentRoom() {
         </section>
       </main>
 
-      <Footer />
+      <LoginModal
+        showLoginModal={showLoginModal}
+        setShowLoginModal={setShowLoginModal}
+        currentPage={currentPage}
+      />
 
       <style jsx global>{`
         html {
@@ -389,6 +384,13 @@ export default function ReadingAssessmentRoom() {
         }
         body {
           transition: background-color 0.3s ease;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.3s ease-out forwards;
         }
       `}</style>
     </div>

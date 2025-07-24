@@ -3,23 +3,32 @@
 
 /* Define colors */
 :root {
-  /* Light Mode Colors */
-  --color-background: 255, 255, 255; /* White */
-  --color-card: 245, 247, 250; /* Softer light gray */
-  --color-foreground: 17, 24, 39; /* Dark navy for text */
-  --color-muted: 113, 128, 150; /* Softer muted gray */
-  --color-primary: 255, 165, 0; /* Orange for primary actions */
-  --color-secondary: 59, 130, 246; /* Vibrant blue for accents */
-  --color-border: 229, 231, 235; /* Subtle gray border */
-  --color-welcome: 255, 165, 0; /* Orange for welcome banner */
-
-  /* Dark Mode Colors */
-  --color-background-dark: 17, 24, 39; /* Dark navy */
-  --color-card-dark: 31, 41, 55; /* Slightly lighter dark card */
-  --color-foreground-dark: 243, 244, 246; /* Off-white text */
-  --color-muted-dark: 156, 163, 175; /* Muted gray for dark mode */
-  --color-border-dark: 55, 65, 81; /* Darker border */
-  --color-secondary-dark: 99, 102, 241; /* Lighter blue for dark mode accents */
+  --color-background: 255, 255, 255;
+  --color-card: 245, 247, 250;
+  --color-foreground: 17, 24, 39;
+  --color-muted: 113, 128, 150;
+  --color-primary: 255, 165, 0;
+  --color-accent: 255, 99, 71;
+  --color-border: 229, 231, 235;
+  --color-welcome: 255, 165, 0;
+  --color-background-dark: 17, 24, 39;
+  --color-card-dark: 31, 41, 55;
+  --color-foreground-dark: 243, 244, 246;
+  --color-muted-dark: 156, 163, 175;
+  --color-border-dark: 55, 65, 81;
+  --color-yellow50: 255, 250, 240;
+  --color-yellow600: 214, 158, 46;
+  --color-yellow400: 246, 224, 94;
+  --color-gray50: 249, 250, 251;
+  --color-gray100: 247, 250, 252;
+  --color-gray200: 237, 242, 247;
+  --color-gray300: 226, 232, 240;
+  --color-gray700: 74, 85, 104;
+  --color-gray800: 45, 55, 72;
+  --color-gray900: 26, 32, 44;
+  --color-green600: 56, 161, 105;
+  --color-purple600: 128, 90, 213;
+  --color-red: 239, 68, 68;
 }
 
 /* Default theme (light mode) */
@@ -28,23 +37,25 @@
   --color-foreground: var(--color-foreground);
   --color-card: var(--color-card);
   --color-primary: var(--color-primary);
+  --color-accent: var(--color-accent);
   --color-border: var(--color-border);
 }
 
-/* Dark mode media query */
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--color-background-dark);
     --color-foreground: var(--color-foreground-dark);
     --color-card: var(--color-card-dark);
     --color-primary: var(--color-primary);
+    --color-accent: var(--color-accent);
     --color-border: var(--color-border-dark);
   }
 }
 
-/* Smooth transition for background and text color change */
+/* Smooth transitions */
 body {
-  font-family: var(--font-sans);
+  font-family: 'Roboto', sans-serif;
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
   line-height: 1.6;
@@ -52,50 +63,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Header Styling */
-header {
-  background-color: rgb(var(--color-background));
-  padding: 10px 20px;
-  border-bottom: 1px solid rgb(var(--color-border));
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: rgb(var(--color-primary));
-}
-
-header nav a {
-  margin: 0 15px;
-  color: rgb(var(--color-foreground));
-  text-decoration: none;
-  font-weight: 500;
-}
-
-header nav a.active {
-  border-bottom: 2px solid rgb(var(--color-primary));
-}
-
-header .user {
-  display: flex;
-  align-items: center;
-}
-
-header .user button {
-  background-color: rgb(var(--color-primary));
-  color: rgb(var(--color-background));
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Welcome Banner */
 .welcome-banner {
-  background-color: rgb(var(--color-welcome));
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
   padding: 20px;
   border-radius: 12px;
   margin: 20px;
@@ -113,36 +87,6 @@ header .user button {
   margin: 10px 0;
 }
 
-.welcome-banner .stats {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 10px;
-}
-
-.welcome-banner .stats span {
-  font-weight: 600;
-}
-
-.welcome-banner .buttons {
-  margin-top: 15px;
-}
-
-.welcome-banner button {
-  background-color: rgb(var(--color-background), 0.2);
-  color: rgb(var(--color-foreground));
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  margin: 0 5px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.welcome-banner button:hover {
-  background-color: rgb(var(--color-background), 0.4);
-}
-
 /* Progress Overview */
 .progress-overview {
   padding: 20px;
@@ -152,197 +96,11 @@ header .user button {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.progress-overview h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.progress-overview .progress-items {
-  display: flex;
-  justify-content: space-around;
-}
-
-.progress-overview .progress-item {
-  text-align: center;
-}
-
-.progress-overview .progress-item .circle {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: conic-gradient(rgb(var(--color-primary)) 30%, rgb(var(--color-card)) 0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.progress-overview .progress-item span {
-  font-weight: 500;
-}
-
-/* Quick Actions */
-.quick-actions {
-  padding: 20px;
-  margin: 20px;
-  background-color: rgb(var(--color-card));
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.quick-actions h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.quick-actions .action-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: rgb(var(--color-background), 0.8);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.quick-actions .action-item:hover {
-  background-color: rgb(var(--color-background), 0.9);
-}
-
-.quick-actions .action-item i {
-  font-size: 1.2rem;
-}
-
-/* Study Plan */
-.study-plan {
-  padding: 20px;
-  margin: 20px;
-  background-color: rgb(var(--color-card));
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.study-plan h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.study-plan .plan-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: rgb(var(--color-background), 0.8);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.study-plan .plan-item:hover {
-  background-color: rgb(var(--color-background), 0.9);
-}
-
-/* Dark Mode Adjustments */
-body.dark {
-  background-color: rgb(var(--color-background-dark));
-  color: rgb(var(--color-foreground-dark));
-}
-
-body.dark .welcome-banner {
-  background-color: rgb(var(--color-primary));
-}
-
-body.dark .progress-overview,
-body.dark .quick-actions,
-body.dark .study-plan {
-  background-color: rgb(var(--color-card-dark));
-  border: 1px solid rgb(var(--color-border-dark));
-}
-
-body.dark .quick-actions .action-item,
-body.dark .study-plan .plan-item {
-  background-color: rgb(var(--color-background-dark), 0.8);
-}
-
-body.dark .quick-actions .action-item:hover,
-body.dark .study-plan .plan-item:hover {
-  background-color: rgb(var(--color-background-dark), 0.9);
-}
-
-/* Animations */
-.welcome-banner, .progress-overview, .quick-actions, .study-plan {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* styles/globals.css */
-
-/* Flashcard flip effect */
-.flashcard {
-  perspective: 1000px;
-  position: relative;
-  height: 250px;
-}
-
-.flashcard::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transition: transform 0.6s ease;
-}
-
-.flashcard.flipped::before {
-  transform: rotateY(180deg);
-}
-
-.card {
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-  background-color: white;
-  overflow: hidden;
-}
-
-.card:hover {
-  cursor: pointer;
-}
-
-body {
-  background-color: #f9fafb;
-  color: #1f2937;
-  font-family: 'Roboto', sans-serif;
-}
-
-body.dark {
-  background-color: #1f2937;
-  color: white;
-}
 /* Flashcard Flip Effect */
 .flashcard {
   perspective: 1000px;
   position: relative;
-  height: 250px;
+  height: 160px;
 }
 
 .flashcard .front,
@@ -356,7 +114,18 @@ body.dark {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard .front {
+  background-color: rgb(var(--color-yellow50));
+}
+
+.flashcard .back {
+  background-color: rgb(var(--color-gray50));
+  transform: rotateY(180deg);
 }
 
 .flashcard.flipped .front {
@@ -367,20 +136,39 @@ body.dark {
   transform: rotateY(0deg);
 }
 
-.front {
-  background-color: #f0f4f8;
+.flashcard:hover {
+  cursor: pointer;
 }
 
-.back {
-  background-color: #f9fafb;
-  transform: rotateY(180deg);
+/* Dark Mode Adjustments */
+body.dark {
+  background-color: rgb(var(--color-background-dark));
+  color: rgb(var(--color-foreground-dark));
 }
-/* In global.css */
-html {
-  transition: background-color 0.3s ease, color 0.3s ease;
+
+body.dark .welcome-banner {
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
 }
-/* Dark Mode */
-.dark {
-  background-color: #1a202c; /* Dark background */
-  color: white; /* Dark text color */
+
+body.dark .progress-overview {
+  background-color: rgb(var(--color-card-dark));
+  border: 1px solid rgb(var(--color-border-dark));
+}
+
+body.dark .flashcard .front {
+  background-color: rgb(var(--color-gray700));
+}
+
+body.dark .flashcard .back {
+  background-color: rgb(var(--color-gray900));
+}
+
+/* Animations */
+.welcome-banner, .progress-overview {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
