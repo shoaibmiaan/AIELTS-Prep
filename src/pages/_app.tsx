@@ -3,8 +3,10 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { ThemeProvider } from '../components/ThemeContext';
-import { AuthProvider, useAuth } from '@/context/AuthContext';
+import { ThemeProvider } from '@/components/ThemeContext'; // Assuming the ThemeProvider is set up
+import { AuthProvider, useAuth } from '@/context/AuthContext'; // Assuming AuthProvider is set up
+import { DesignSystemProvider } from '@/design-system/providers/DesignSystem';  // Assuming DesignSystemProvider is set up
+import ErrorBoundary from '@/components/ErrorBoundary'; // Add Error Boundary to catch any errors
 
 // Public routes accessible to everyone (no authentication required)
 const PUBLIC_ROUTES = [
@@ -23,6 +25,7 @@ const PROTECTED_ROUTES = [
   '/writing-feedback'
 ];
 
+// Route Guard Component to handle access control
 function RouteGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const { user, isLoading } = useAuth();
@@ -47,6 +50,7 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background-dark">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        <p className="mt-2 text-white">Verifying your session...</p>
       </div>
     );
   }
@@ -54,6 +58,7 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
+// Main App Content Component
 function AppContent({ Component, pageProps }: AppProps) {
   return (
     <RouteGuard>
@@ -63,12 +68,17 @@ function AppContent({ Component, pageProps }: AppProps) {
   );
 }
 
+// Main App Wrapper that includes all the providers
 export default function AppWrapper(props: AppProps) {
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <AppContent {...props} />
-      </AuthProvider>
-    </ThemeProvider>
+    <DesignSystemProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <ErrorBoundary>
+            <AppContent {...props} />
+          </ErrorBoundary>
+        </AuthProvider>
+      </ThemeProvider>
+    </DesignSystemProvider>
   );
 }

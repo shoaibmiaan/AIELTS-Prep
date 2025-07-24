@@ -1,37 +1,27 @@
-import { Component, ErrorInfo, ReactNode } from 'react';
-import { useRouter } from 'next/router';
-import ErrorPage from '@/components/ErrorPage';
-
-interface Props {
-  children: ReactNode;
-}
+// ErrorBoundary.tsx
+import React, { Component, ErrorInfo } from 'react';
 
 interface State {
-  error: Error | null;
+  hasError: boolean;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
-  state: State = { error: null };
+class ErrorBoundary extends Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-  static getDerivedStateFromError(error: Error): State {
-    return { error };
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("ErrorBoundary caught an error:", error, errorInfo);
+    console.error('Error caught by Error Boundary:', error, errorInfo);
   }
 
-  handleReset = () => {
-    this.setState({ error: null });
-  };
-
   render() {
-    if (this.state.error) {
-      return <ErrorPage 
-        error={this.state.error} 
-        onReset={this.handleReset} 
-        showActions={true}
-      />;
+    if (this.state.hasError) {
+      return <h1>Something went wrong. Please try again later.</h1>;
     }
     return this.props.children;
   }

@@ -22,7 +22,12 @@
       "@/pages/*": ["pages/*"],
       "@/context/*": ["context/*"],
       "@/styles/*": ["styles/*"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/design-system/*": ["design-system/*"],
+      "@/design-system/components/*": ["design-system/components/*"],
+      "@/design-system/providers/*": ["design-system/providers/*"],
+      "@/design-system/theme/*": ["design-system/theme/*"],
+      "@/design-system/styles/*": ["design-system/styles/*"]
     },
     "typeRoots": ["./node_modules/@types", "./src/types"]
   },
