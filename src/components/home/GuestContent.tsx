@@ -156,7 +156,7 @@ export default function GuestContent({
                 <div className="flex items-center mb-6">
                   <div className="relative w-16 h-16 mr-4">
                     <svg className="w-full h-full" viewBox="0 0 36 36">
-                      <circle cx="18" cy="18" r="16" fill="none" stroke="#e2e8f0" strokeWidth="2"></circle>
+                      <circle className="w-full h-full" cx="18" cy="18" r="16" fill="none" stroke="#e2e8f0" strokeWidth="2"></circle>
                       <circle
                         id="writing-progress"
                         className="progress-ring__circle"
@@ -242,7 +242,7 @@ export default function GuestContent({
                 <span className="text-sm text-gray-500 dark:text-gray-400"><i className="far fa-clock mr-1"></i> 25 min</span>
                 <button
                   className="text-sm text-yellow-600 dark:text-yellow-400 font-medium"
-                  onClick={() => handleProtectedClick('/complex-sentences')}
+                  onClick={() => continueLesson(1)}
                 >
                   Continue
                 </button>

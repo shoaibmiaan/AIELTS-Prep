@@ -6,9 +6,8 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/Button';
 import { Dropdown } from '@/components/ui/Dropdown';
 import { DropdownItem } from '@/components/ui/DropdownItem';
-import { NavLink } from '@/components/ui/NavLink';
 import { ChevronDownIcon, Bars3Icon, XMarkIcon, ArrowRightOnRectangleIcon, UserCircleIcon, ChartBarIcon, SparklesIcon, GlobeAltIcon, AcademicCapIcon, BookOpenIcon, LightBulbIcon, UsersIcon, RocketLaunchIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { useTheme } from 'next-themes';
 
 const Header = () => {
@@ -26,11 +25,7 @@ const Header = () => {
 
   useEffect(() => {
     setMounted(true);
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -41,7 +36,6 @@ const Header = () => {
         setOpenDropdown(null);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
@@ -53,22 +47,13 @@ const Header = () => {
   };
 
   const handleProtectedRoute = (route: string) => {
-    if (user) {
-      router.push(route);
-    } else {
-      router.push('/login');
-    }
+    user ? router.push(route) : router.push('/login');
     setMobileMenuOpen(false);
     setOpenDropdown(null);
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
-  const toggleDropdown = (name: string) => {
-    setOpenDropdown(openDropdown === name ? null : name);
-  };
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+  const toggleDropdown = (name: string) => setOpenDropdown(openDropdown === name ? null : name);
 
   const navItems = [
     {
@@ -109,26 +94,29 @@ const Header = () => {
     },
   ];
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
-    <header className={`sticky top-0 z-50 bg-white shadow-sm transition-all duration-300 ${scrolled ? 'shadow-lg border-b border-gray-200' : ''}`}>
+    <header className={`
+      sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm transition-all duration-300
+      ${scrolled ? 'shadow-lg border-b border-gray-200 dark:border-gray-700' : ''}
+    `}>
       <div className="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
         {/* Logo */}
         <div
           className="flex items-center space-x-2 cursor-pointer group"
           onClick={() => handleNavigation('/')}
         >
-          <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center group-hover:rotate-6 transition-transform shadow-sm">
-            <GlobeAltIcon className="w-6 h-6 text-gray-700" />
+          <div className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center group-hover:rotate-6 transition-transform shadow-sm">
+            <GlobeAltIcon className="w-6 h-6 text-gray-700 dark:text-gray-400" />
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold text-gray-800">
+            <span className="text-xl font-bold text-gray-800 dark:text-gray-200">
               IELTSMaster
             </span>
-            <span className="text-xs text-gray-500 -mt-1">Worldwide Learning Platform</span>
+            <span className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
+              Worldwide Learning Platform
+            </span>
           </div>
         </div>
 
@@ -139,22 +127,33 @@ const Header = () => {
               <div key={item.name} className="relative">
                 <button
                   onClick={() => toggleDropdown(item.name)}
-                  className={`flex items-center space-x-1 text-gray-700 font-medium px-3 py-2 rounded-lg hover:bg-gray-100 ${openDropdown === item.name ? 'bg-gray-100' : ''}`}
+                  className={`
+                    flex items-center space-x-1 text-gray-700 dark:text-gray-200 font-medium px-3 py-2 rounded-lg
+                    hover:bg-gray-100 dark:hover:bg-gray-800
+                    ${openDropdown === item.name ? 'bg-gray-100 dark:bg-gray-800' : ''}
+                  `}
                 >
                   <span>{item.name}</span>
                   <ChevronDownIcon className="w-4 h-4" />
                 </button>
 
                 {openDropdown === item.name && (
-                  <div className="absolute left-0 mt-2 w-56 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+                  <div className="
+                    absolute left-0 mt-2 w-56 origin-top-right bg-white dark:bg-gray-800
+                    divide-y divide-gray-100 dark:divide-gray-700 rounded-md shadow-lg
+                    ring-1 ring-black ring-opacity-5 focus:outline-none z-50
+                  ">
                     {item.dropdown.map((subItem) => (
                       <button
                         key={subItem.path}
                         onClick={() => item.protected ? handleProtectedRoute(subItem.path) : handleNavigation(subItem.path)}
-                        className="group flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="
+                          group flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300
+                          hover:bg-gray-100 dark:hover:bg-gray-700
+                        "
                       >
                         {subItem.icon && (
-                          <span className="mr-3 h-5 w-5 text-gray-400 group-hover:text-gray-500">
+                          <span className="mr-3 h-5 w-5 text-gray-400 dark:text-gray-500 group-hover:text-gray-500 dark:group-hover:text-gray-400">
                             {subItem.icon}
                           </span>
                         )}
@@ -168,7 +167,11 @@ const Header = () => {
               <button
                 key={item.path}
                 onClick={() => item.protected ? handleProtectedRoute(item.path) : handleNavigation(item.path)}
-                className={`px-3 py-2 rounded-lg font-medium text-gray-700 hover:bg-gray-100 ${pathname === item.path ? 'bg-gray-100' : ''}`}
+                className={`
+                  px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-200
+                  hover:bg-gray-100 dark:hover:bg-gray-800
+                  ${pathname === item.path ? 'bg-gray-100 dark:bg-gray-800' : ''}
+                `}
               >
                 {item.name}
               </button>
@@ -181,7 +184,7 @@ const Header = () => {
           {/* Language Selector */}
           <Dropdown
             trigger={
-              <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
+              <button className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                 <span className="text-sm font-medium hidden sm:inline mr-1">EN</span>
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
@@ -189,6 +192,7 @@ const Header = () => {
               </button>
             }
             align="right"
+            className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
           >
             <DropdownItem onClick={() => {}}>English (EN)</DropdownItem>
             <DropdownItem onClick={() => {}}>中文 (CN)</DropdownItem>
@@ -200,17 +204,13 @@ const Header = () => {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-              </svg>
+              <SunIcon className="h-5 w-5 text-yellow-300" />
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-              </svg>
+              <MoonIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
             )}
           </button>
 
@@ -222,32 +222,33 @@ const Header = () => {
                     <img
                       src={user.avatar}
                       alt="User avatar"
-                      className="w-8 h-8 rounded-full object-cover border-2 border-transparent hover:border-gray-300 transition-colors"
+                      className="w-8 h-8 rounded-full object-cover border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 font-medium hover:bg-gray-200 transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                       {user.name ? user.name[0].toUpperCase() : 'U'}
                     </div>
                   )}
                   {isPremium && (
-                    <span className="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 transition-colors">
+                    <span className="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-600 text-yellow-800 dark:text-yellow-100">
                       Premium
                     </span>
                   )}
                 </div>
               }
               align="right"
+              className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
             >
-              <div className="px-4 py-3 border-b border-gray-200">
-                <p className="text-sm font-medium text-gray-900 flex items-center">
+              <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <p className="text-sm font-medium text-gray-900 dark:text-gray-200 flex items-center">
                   {user.name || 'Profile'}
                   {isPremium && (
-                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">
+                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 dark:bg-yellow-600 text-yellow-800 dark:text-yellow-100">
                       Premium
                     </span>
                   )}
                 </p>
-                <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
               </div>
 
               <DropdownItem
@@ -272,11 +273,11 @@ const Header = () => {
                 </DropdownItem>
               )}
 
-              <div className="border-t border-gray-200 my-1"></div>
+              <div className="border-t border-gray-200 dark:border-gray-700 my-1"></div>
               <DropdownItem
                 icon={<ArrowRightOnRectangleIcon className="w-4 h-4" />}
                 onClick={() => { logout(); handleNavigation('/login'); }}
-                className="text-red-500 hover:bg-red-50"
+                className="text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/50"
               >
                 Logout
               </DropdownItem>
@@ -286,13 +287,13 @@ const Header = () => {
               <Button
                 variant="ghost"
                 onClick={() => handleNavigation('/login')}
-                className="hidden sm:flex hover:bg-gray-100"
+                className="hidden sm:flex text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
               >
                 Sign In
               </Button>
               <Button
                 onClick={() => handleNavigation('/signup')}
-                className="hidden sm:flex bg-gray-800 text-white hover:bg-gray-700"
+                className="hidden sm:flex bg-gray-800 dark:bg-blue-600 text-white hover:bg-gray-700 dark:hover:bg-blue-700"
               >
                 Get Started
               </Button>
@@ -300,7 +301,7 @@ const Header = () => {
           )}
 
           <button
-            className="md:hidden text-gray-600 p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="md:hidden text-gray-600 dark:text-gray-400 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Mobile menu"
           >
@@ -315,24 +316,20 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200">
+        <div className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
-            <div className="flex justify-between items-center pb-2 border-b border-gray-200">
-              <span className="font-medium text-gray-800">Navigation</span>
+            <div className="flex justify-between items-center pb-2 border-b border-gray-200 dark:border-gray-700">
+              <span className="font-medium text-gray-800 dark:text-gray-200">Navigation</span>
               <div className="flex items-center space-x-2">
                 <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                   aria-label="Toggle theme"
                 >
                   {theme === 'dark' ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                    </svg>
+                    <SunIcon className="h-5 w-5 text-yellow-300" />
                   ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                    </svg>
+                    <MoonIcon className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                   )}
                 </button>
               </div>
@@ -342,7 +339,7 @@ const Header = () => {
               item.dropdown ? (
                 <div key={item.name} className="space-y-2">
                   <button
-                    className="w-full text-left py-2 font-medium text-gray-800 flex justify-between items-center hover:bg-gray-100 px-3 rounded-lg"
+                    className="w-full text-left py-2 font-medium text-gray-800 dark:text-gray-200 flex justify-between items-center hover:bg-gray-100 dark:hover:bg-gray-800 px-3 rounded-lg"
                     onClick={() => toggleDropdown(item.name)}
                   >
                     <div className="flex items-center space-x-2">
@@ -360,7 +357,7 @@ const Header = () => {
                             item.protected ? handleProtectedRoute(subItem.path) : handleNavigation(subItem.path);
                             setOpenDropdown(null);
                           }}
-                          className="block w-full text-left py-1.5 px-3 rounded-lg hover:bg-gray-100 flex items-center space-x-2"
+                          className="block w-full text-left py-1.5 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center space-x-2 text-gray-700 dark:text-gray-300"
                         >
                           {subItem.icon}
                           <span>{subItem.name}</span>
@@ -373,7 +370,7 @@ const Header = () => {
                 <button
                   key={item.path}
                   onClick={() => item.protected ? handleProtectedRoute(item.path) : handleNavigation(item.path)}
-                  className="w-full text-left py-2 px-3 rounded-lg font-medium text-gray-800 hover:bg-gray-100 flex items-center space-x-2"
+                  className="w-full text-left py-2 px-3 rounded-lg font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center space-x-2"
                 >
                   {item.icon}
                   <span>{item.name}</span>
@@ -381,12 +378,12 @@ const Header = () => {
               )
             ))}
 
-            <div className="pt-2 border-t border-gray-200 space-y-2">
+            <div className="pt-2 border-t border-gray-200 dark:border-gray-700 space-y-2">
               {user ? (
                 <>
                   <button
                     onClick={() => handleNavigation('/profile')}
-                    className="block w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100 flex items-center space-x-2"
+                    className="block w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center space-x-2 text-gray-800 dark:text-gray-200"
                   >
                     <UserCircleIcon className="w-5 h-5" />
                     <span>My Profile</span>
@@ -394,7 +391,7 @@ const Header = () => {
                   {isPremium && (
                     <button
                       onClick={() => handleNavigation('/premium')}
-                      className="block w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100 flex items-center space-x-2"
+                      className="block w-full text-left py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 flex items-center space-x-2 text-gray-800 dark:text-gray-200"
                     >
                       <SparklesIcon className="w-5 h-5" />
                       <span>Premium Features</span>
@@ -402,7 +399,7 @@ const Header = () => {
                   )}
                   <button
                     onClick={() => { logout(); handleNavigation('/login'); }}
-                    className="block w-full text-left py-2 px-3 rounded-lg text-red-500 hover:bg-red-50 flex items-center space-x-2"
+                    className="block w-full text-left py-2 px-3 rounded-lg text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/50 flex items-center space-x-2"
                   >
                     <ArrowRightOnRectangleIcon className="w-5 h-5" />
                     <span>Logout</span>
@@ -412,13 +409,13 @@ const Header = () => {
                 <div className="flex flex-col space-y-2">
                   <Button
                     onClick={() => handleNavigation('/login')}
-                    className="w-full justify-center hover:bg-gray-100"
+                    className="w-full justify-center bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700"
                   >
                     Sign In
                   </Button>
                   <Button
                     onClick={() => handleNavigation('/signup')}
-                    className="w-full justify-center bg-gray-800 text-white hover:bg-gray-700"
+                    className="w-full justify-center bg-gray-800 dark:bg-blue-600 text-white hover:bg-gray-700 dark:hover:bg-blue-700"
                   >
                     Get Started
                   </Button>

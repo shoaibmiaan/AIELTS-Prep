@@ -51,7 +51,7 @@ export default function TargetBand({
               cy="18"
               r="16"
               fill="none"
-              stroke="[rgb(var(--color-border))]"
+              stroke={darkMode ? '[rgb(var(--color-border))]' : '[rgb(var(--color-border))]'}
               strokeWidth="2"
             ></circle>
 
@@ -89,7 +89,7 @@ export default function TargetBand({
               y="18"
               textAnchor="middle"
               fontSize="12"
-              fill={darkMode ? "[rgb(var(--color-foreground-dark))]" : "[rgb(var(--color-foreground))]"}
+              fill={darkMode ? '[rgb(var(--color-foreground-dark))]' : '[rgb(var(--color-foreground))]'}
               dy=".3em"
               fontWeight="bold"
               className="transition-colors duration-300"
@@ -103,7 +103,7 @@ export default function TargetBand({
               y="24"
               textAnchor="middle"
               fontSize="8"
-              fill={darkMode ? "[rgb(var(--color-muted-dark))]" : "[rgb(var(--color-muted))]"}
+              fill={darkMode ? '[rgb(var(--color-muted-dark))]' : '[rgb(var(--color-muted))]'}
               dy=".3em"
               className="transition-colors duration-300"
             >

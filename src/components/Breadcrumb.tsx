@@ -1,18 +1,19 @@
+// src/components/Breadcrumb.tsx
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import StudyStreak from '@/components/StudyStreak';
-import { useTheme } from '@/context/ThemeContext'; // Correct path to ThemeContext
+import { useTheme } from '@/context/ThemeContext';
 
 type BreadcrumbProps = {
-  userId: string | null; // Accept userId as a prop
+  userId: string | null;
 };
 
 export default function Breadcrumb({ userId }: BreadcrumbProps) {
   const pathname = usePathname();
-  const segments = pathname.split('/').filter(Boolean); // Removes empty segments
-  const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from the context
+  const segments = pathname.split('/').filter(Boolean);
+  const { theme, toggleTheme } = useTheme();
 
   const buildPath = (i: number) => '/' + segments.slice(0, i + 1).join('/');
 
@@ -22,55 +23,50 @@ export default function Breadcrumb({ userId }: BreadcrumbProps) {
       .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
       .join(' ');
 
-  // Set background and text color based on the current theme
-  const backgroundColor = theme === 'dark' ? '#333' : '#fff';
-  const textColor = theme === 'dark' ? '#fff' : '#333';
-
   return (
     <nav
-      className="text-sm mb-6 overflow-x-auto whitespace-nowrap px-4 py-3 rounded-md shadow sticky top-0 z-30"
+      className="mb-4 overflow-x-auto whitespace-nowrap px-4 py-2 rounded-md shadow bg-white dark:bg-gray-800"
       aria-label="Breadcrumb"
-      style={{ backgroundColor }} // Apply theme background color
     >
-      <ol className="flex items-center space-x-2">
-        <li>
-          <Link href="/" className="hover:underline text-orange-400 flex items-center gap-1">
-            <span>🏠</span>
-            <span className="font-medium">Home</span>
-          </Link>
-        </li>
-        {segments.map((seg, i) => {
-          const isLast = i === segments.length - 1;
-          return (
-            <li key={i} className="flex items-center">
-              <span className="px-1 text-gray-500">/</span>
-              <Link
-                href={buildPath(i)}
-                className={`capitalize ${
-                  isLast
-                    ? 'text-white font-semibold'
-                    : 'hover:underline text-gray-300'
-                }`}
-                style={{ color: textColor }} // Apply theme text color
-              >
-                {formatSegment(decodeURIComponent(seg))}
-              </Link>
-            </li>
-          );
-        })}
-      </ol>
+      <div className="flex items-center justify-between">
+        <ol className="flex items-center space-x-1 text-sm">
+          <li>
+            <Link href="/" className="hover:underline text-orange-400 flex items-center gap-1">
+              <span>🏠</span>
+              <span className="font-medium hidden sm:inline">Home</span>
+            </Link>
+          </li>
+          {segments.map((seg, i) => {
+            const isLast = i === segments.length - 1;
+            return (
+              <li key={i} className="flex items-center">
+                <span className="px-1 text-gray-500">/</span>
+                <Link
+                  href={buildPath(i)}
+                  className={`capitalize ${
+                    isLast
+                      ? 'text-gray-900 dark:text-white font-semibold'
+                      : 'hover:underline text-gray-500 dark:text-gray-400'
+                  }`}
+                >
+                  {formatSegment(decodeURIComponent(seg))}
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
 
-      {/* Display Study Streak */}
-      {userId && (
-        <div className="mt-2 text-white">
-          <StudyStreak userId={userId} /> {/* Display streak if userId exists */}
+        <div className="flex items-center gap-2">
+          {userId && <StudyStreak userId={userId} />}
+          <button
+            onClick={toggleTheme}
+            className="p-1 rounded-full bg-gray-200 dark:bg-gray-700"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
         </div>
-      )}
-
-      {/* Add a button to toggle theme if needed */}
-      <button onClick={toggleTheme} className="text-sm mt-2 text-blue-500">
-        Toggle Theme
-      </button>
+      </div>
     </nav>
   );
 }

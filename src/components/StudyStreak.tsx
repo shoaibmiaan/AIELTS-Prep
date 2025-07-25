@@ -1,76 +1,49 @@
-import { useEffect, useState } from 'react';
+// src/components/StudyStreak.tsx
+'use client';
+
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabaseClient';
 
-const StudyStreak = () => {
-  const [streakCount, setStreakCount] = useState<number>(0);
-  const [flames, setFlames] = useState<JSX.Element[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+export default function StudyStreak({ userId }: { userId: string }) {
+  const [streak, setStreak] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch streakCount from the profiles table
   useEffect(() => {
-    const fetchStreakCount = async () => {
+    const fetchStreak = async () => {
+      if (!userId) return;
+      
       try {
-        const { data: user, error: userError } = await supabase.auth.getUser();
-        if (userError) {
-          throw userError;
+        const { data, error: fetchError } = await supabase
+          .from('profiles')
+          .select('current_streak')
+          .eq('id', userId)
+          .single(); // Use single() to ensure only one row is returned
+
+        if (fetchError) {
+          throw fetchError;
         }
 
-        if (user) {
-          // Fetch the streak count from the profiles table based on the logged-in user's email
-          const { data, error } = await supabase
-            .from('profiles')  // Ensure you're querying the profiles table
-            .select('streak_count')
-            .eq('email', user.email)
-            .single();  // Use .single() to get one row for the user
-
-          if (error) {
-            throw error;
-          }
-
-          if (data) {
-            setStreakCount(data.streak_count);  // Set streak count from profiles table
-          } else {
-            setError('Streak data not found');
-          }
+        if (data) {
+          setStreak(data.current_streak);
         } else {
-          setError('User not authenticated');
+          setStreak(0);
         }
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching streak:', error);
+        setError('Failed to load streak data');
       }
     };
 
-    fetchStreakCount();
-  }, []);
+    fetchStreak();
+  }, [userId]);
 
-  // Update flames display based on streakCount
-  useEffect(() => {
-    const newFlames = [];
-    for (let i = 0; i < streakCount; i++) {
-      newFlames.push(
-        <div key={i} className="text-yellow-500">
-          🔥
-        </div>
-      );
-    }
-    setFlames(newFlames);
-  }, [streakCount]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div className="text-red-500">{error}</div>;
+  if (error) {
+    return <div className="text-red-500 text-xs">{error}</div>;
+  }
 
   return (
-    <div className="flex items-center bg-orange-50 px-3 py-2 rounded-lg border border-orange-200">
-      <span className="mr-2 font-medium">Streak:</span>
-      <div className="flex space-x-1">
-        {flames.length > 0 ? flames : <span className="text-gray-400">No active streak</span>}
-      </div>
-      <span className="ml-2 font-bold">{streakCount} days</span>
+    <div className="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded-full flex items-center">
+      🔥 {streak !== null ? `${streak}-day streak` : 'Loading...'}
     </div>
   );
-};
-
-export default StudyStreak;
+}

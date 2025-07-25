@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from '@/context/AuthContext';
-import { ThemeProvider } from 'next-themes'; // Import next-themes ThemeProvider
+import { ThemeProvider } from '@/context/ThemeContext';
 import Layout from '@/components/Layout';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 // Public routes accessible to everyone (no authentication required)
 const PUBLIC_ROUTES = [
@@ -32,7 +33,7 @@ const PROTECTED_ROUTES = [
   '/premium',
   '/lessons',
   '/progress',
-  '/vocabulary' // Add new vocabulary route
+  '/vocabulary'
 ];
 
 function RouteGuard({ children }: { children: React.ReactNode }) {
@@ -65,8 +66,8 @@ function RouteGuard({ children }: { children: React.ReactNode }) {
 
   if (isLoading || !routeChecked) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500 dark:border-indigo-400"></div>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
       </div>
     );
   }
@@ -88,32 +89,29 @@ export default function AppWrapper({ Component, pageProps }: AppProps) {
   const useLayout = !barePages.includes(router.pathname);
 
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
+    <ThemeProvider>
       <AuthProvider>
-        <RouteGuard>
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              style: {
-                background: 'var(--background)',
-                color: 'var(--foreground)',
-                border: '1px solid var(--border)',
-              },
-            }}
-          />
-          {useLayout ? (
-            <Layout>
+        <ErrorBoundary>
+          <RouteGuard>
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                style: {
+                  background: 'rgb(var(--color-background))',
+                  color: 'rgb(var(--color-foreground))',
+                  border: '1px solid rgb(var(--color-border))',
+                },
+              }}
+            />
+            {useLayout ? (
+              <Layout user={pageProps.user}>
+                <Component {...pageProps} />
+              </Layout>
+            ) : (
               <Component {...pageProps} />
-            </Layout>
-          ) : (
-            <Component {...pageProps} />
-          )}
-        </RouteGuard>
+            )}
+          </RouteGuard>
+        </ErrorBoundary>
       </AuthProvider>
     </ThemeProvider>
   );

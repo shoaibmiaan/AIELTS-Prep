@@ -10,7 +10,7 @@ interface UserProgress {
   reading: number;
   overall: number;
   targetBand: number;
-  streak: number;  // Added streak field
+  streak: number;
 }
 
 interface Lesson {
@@ -52,7 +52,14 @@ function ProgressRing({ id, percent, color, label, band, darkMode }: {
     <div className="text-center">
       <div className="relative w-20 h-20 mx-auto mb-2">
         <svg className="w-full h-full" viewBox="0 0 36 36">
-          <circle cx="18" cy="18" r="16" fill="none" stroke="#e2e8f0" strokeWidth="2"></circle>
+          <circle
+            cx="18"
+            cy="18"
+            r="16"
+            fill="none"
+            stroke={darkMode ? "#374151" : "#e2e8f0"}
+            strokeWidth="2"
+          ></circle>
           <circle
             id={id}
             className="progress-ring__circle"
@@ -63,13 +70,19 @@ function ProgressRing({ id, percent, color, label, band, darkMode }: {
             stroke={color}
             strokeWidth="2"
           ></circle>
-          <text x="18" y="20" textAnchor="middle" fontSize="10" fill={darkMode ? "#ffffff" : "#1f2937"}>
+          <text
+            x="18"
+            y="20"
+            textAnchor="middle"
+            fontSize="10"
+            fill={darkMode ? "#f9fafb" : "#1f2937"}
+          >
             {percent}%
           </text>
         </svg>
       </div>
-      <h3 className="font-medium dark:text-white">{label}</h3>
-      <p className="text-sm text-gray-500 dark:text-gray-400">Band {band}</p>
+      <h3 className={`font-medium ${darkMode ? "text-gray-100" : "text-gray-800"}`}>{label}</h3>
+      <p className={`text-sm ${darkMode ? "text-gray-400" : "text-gray-500"}`}>Band {band}</p>
     </div>
   );
 }
@@ -83,23 +96,32 @@ function StudyPlanItem({ lesson, continueLesson, darkMode }: {
   return (
     <div
       className={`p-4 rounded-lg border ${lesson.locked ?
-        'border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-700' :
-        'border-yellow-100 dark:border-yellow-900 bg-yellow-50 dark:bg-yellow-900'} transition-all duration-300`}
+        `${darkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-gray-50'}` :
+        `${darkMode ? 'border-yellow-900 bg-yellow-950' : 'border-yellow-100 bg-yellow-50'}`
+      } transition-all duration-300`}
     >
       <div className="flex justify-between items-start">
         <div>
           <h3 className={`font-medium ${lesson.locked ?
-            'text-gray-500 dark:text-gray-400' : 'dark:text-white'}`}>
+            `${darkMode ? 'text-gray-400' : 'text-gray-500'}` :
+            `${darkMode ? 'text-gray-100' : 'text-gray-800'}`
+          }`}>
             {lesson.title}
-            {lesson.locked && <span className="ml-2 text-xs bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300 px-2 py-1 rounded">Locked</span>}
+            {lesson.locked && (
+              <span className={`ml-2 text-xs px-2 py-1 rounded ${
+                darkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-600'
+              }`}>
+                Locked
+              </span>
+            )}
           </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+          <p className={`text-sm mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
             {lesson.module} • {lesson.duration}
           </p>
         </div>
         {!lesson.locked && (
           <button
-            className="text-yellow-600 dark:text-yellow-400 text-sm font-medium"
+            className={`text-sm font-medium ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}
             onClick={() => continueLesson(lesson.id)}
           >
             {lesson.progress > 0 ? 'Continue' : 'Start'}
@@ -108,15 +130,17 @@ function StudyPlanItem({ lesson, continueLesson, darkMode }: {
       </div>
       {lesson.progress > 0 && (
         <div className="mt-3">
-          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+          <div className={`w-full rounded-full h-2 ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
             <div
-              className={`h-2 rounded-full ${lesson.module === 'Writing' ? 'bg-yellow-500' :
+              className={`h-2 rounded-full ${
+                lesson.module === 'Writing' ? 'bg-yellow-500' :
                 lesson.module === 'Listening' ? 'bg-purple-500' :
-                lesson.module === 'Speaking' ? 'bg-green-500' : 'bg-blue-500'}`}
+                lesson.module === 'Speaking' ? 'bg-green-500' : 'bg-blue-500'
+              }`}
               style={{ width: `${lesson.progress}%` }}
             ></div>
           </div>
-          <div className="text-right text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <div className={`text-right text-xs mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
             {lesson.progress}% complete
           </div>
         </div>
@@ -130,43 +154,83 @@ function QuickActionButton({
   icon,
   color,
   label,
-  onClick
+  onClick,
+  darkMode
 }: {
   icon: string,
   color: string,
   label: string,
-  onClick: () => void
+  onClick: () => void,
+  darkMode: boolean
 }) {
   return (
     <button
-      className="w-full flex items-center justify-between p-4 rounded-lg hover:opacity-90 transition-opacity"
-      style={{ backgroundColor: `${color}20` }}
+      className={`w-full flex items-center justify-between p-4 rounded-lg hover:opacity-90 transition-opacity ${
+        darkMode ? 'bg-gray-800' : 'bg-gray-50'
+      }`}
       onClick={onClick}
     >
       <div className="flex items-center">
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
-          style={{ backgroundColor: `${color}30` }}
+          style={{ backgroundColor: `${color}${darkMode ? '20' : '10'}` }}
         >
           <i className={`${icon}`} style={{ color }}></i>
         </div>
-        <span className="font-medium">{label}</span>
+        <span className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{label}</span>
       </div>
-      <i className="fas fa-chevron-right text-gray-400"></i>
+      <i className={`fas fa-chevron-right ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}></i>
+    </button>
+  );
+}
+
+// Flashcard Component
+function Flashcard({ icon, color, label, onClick, darkMode }: {
+  icon: string,
+  color: string,
+  label: string,
+  onClick: () => void,
+  darkMode: boolean
+}) {
+  return (
+    <button
+      className={`w-full flex items-center justify-between p-4 rounded-lg hover:opacity-90 transition-opacity ${
+        darkMode ? 'bg-gray-800' : 'bg-gray-50'
+      }`}
+      onClick={onClick}
+    >
+      <div className="flex items-center">
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
+          style={{ backgroundColor: `${color}${darkMode ? '20' : '10'}` }}
+        >
+          <i className={`${icon}`} style={{ color }}></i>
+        </div>
+        <span className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{label}</span>
+      </div>
+      <i className={`fas fa-chevron-right ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}></i>
     </button>
   );
 }
 
 // Activity Item
 function ActivityItem({ activity, darkMode }: { activity: any, darkMode: boolean }) {
+  const bgColor = darkMode ?
+    (activity.type === 'writing' ? 'bg-yellow-900' :
+     activity.type === 'speaking' ? 'bg-green-900' : 'bg-purple-900') :
+    (activity.type === 'writing' ? 'bg-yellow-100' :
+     activity.type === 'speaking' ? 'bg-green-100' : 'bg-purple-100');
+
+  const textColor = darkMode ?
+    (activity.type === 'writing' ? 'text-yellow-400' :
+     activity.type === 'speaking' ? 'text-green-400' : 'text-purple-400') :
+    (activity.type === 'writing' ? 'text-yellow-600' :
+     activity.type === 'speaking' ? 'text-green-600' : 'text-purple-600');
+
   return (
     <div className="flex items-start">
       <div
-        className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-4 ${
-          activity.type === 'writing' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400' :
-          activity.type === 'speaking' ? 'bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400' :
-          'bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400'
-        }`}
+        className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-4 ${bgColor} ${textColor}`}
       >
         {activity.type === 'writing' ? (
           <i className="fas fa-edit"></i>
@@ -177,19 +241,21 @@ function ActivityItem({ activity, darkMode }: { activity: any, darkMode: boolean
         )}
       </div>
       <div className="flex-1">
-        <h3 className="font-medium dark:text-white">{activity.title}</h3>
+        <h3 className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{activity.title}</h3>
         <div className="flex items-center mt-1">
           <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-            activity.score >= 6.5 ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
-            activity.score >= 5.5 ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
-            'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+            activity.score >= 6.5 ?
+              (darkMode ? 'bg-green-900 text-green-200' : 'bg-green-100 text-green-800') :
+            activity.score >= 5.5 ?
+              (darkMode ? 'bg-yellow-900 text-yellow-200' : 'bg-yellow-100 text-yellow-800') :
+              (darkMode ? 'bg-red-900 text-red-200' : 'bg-red-100 text-red-800')
           }`}>
             Band {activity.score}
           </span>
-          <span className="mx-2 text-gray-400">•</span>
-          <span className="text-xs text-gray-500 dark:text-gray-400">{activity.date}</span>
+          <span className={`mx-2 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>•</span>
+          <span className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{activity.date}</span>
         </div>
-        <p className="text-xs text-green-600 dark:text-green-400 mt-1">{activity.improvement}</p>
+        <p className={`text-xs mt-1 ${darkMode ? 'text-green-400' : 'text-green-600'}`}>{activity.improvement}</p>
       </div>
     </div>
   );
@@ -203,22 +269,30 @@ function WritingSampleItem({ sample, viewWritingFeedback, darkMode }: {
 }) {
   return (
     <tr
-      className="hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
+      className={`cursor-pointer ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-50'}`}
       onClick={() => viewWritingFeedback(sample.id)}
     >
-      <td className="px-4 py-3 whitespace-nowrap text-sm font-medium dark:text-white">{sample.task}</td>
+      <td className={`px-4 py-3 whitespace-nowrap text-sm font-medium ${darkMode ? 'text-gray-100' : 'text-gray-900'}`}>
+        {sample.task}
+      </td>
       <td className="px-4 py-3 whitespace-nowrap text-sm">
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          sample.band >= 6.5 ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
-          sample.band >= 5.5 ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
-          'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+          sample.band >= 6.5 ?
+            (darkMode ? 'bg-green-900 text-green-200' : 'bg-green-100 text-green-800') :
+          sample.band >= 5.5 ?
+            (darkMode ? 'bg-yellow-900 text-yellow-200' : 'bg-yellow-100 text-yellow-800') :
+            (darkMode ? 'bg-red-900 text-red-200' : 'bg-red-100 text-red-800')
         }`}>
           {sample.band}
         </span>
       </td>
-      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{sample.date}</td>
-      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">{sample.wordCount}</td>
-      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">
+      <td className={`px-4 py-3 whitespace-nowrap text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+        {sample.date}
+      </td>
+      <td className={`px-4 py-3 whitespace-nowrap text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+        {sample.wordCount}
+      </td>
+      <td className={`px-4 py-3 whitespace-nowrap text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
         {sample.feedback ? (
           <i className="fas fa-check-circle text-green-500"></i>
         ) : (
@@ -230,16 +304,20 @@ function WritingSampleItem({ sample, viewWritingFeedback, darkMode }: {
 }
 
 // Community Post Item
-function CommunityPostItem({ post, navigateTo }: { post: any, navigateTo: (route: string) => void }) {
+function CommunityPostItem({ post, navigateTo, darkMode }: {
+  post: any,
+  navigateTo: (route: string) => void,
+  darkMode: boolean
+}) {
   return (
     <div
-      className="p-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg cursor-pointer"
+      className={`p-3 rounded-lg cursor-pointer ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-50'}`}
       onClick={() => navigateTo('/community')}
     >
-      <h3 className="font-medium text-yellow-600 dark:text-yellow-400">{post.title}</h3>
-      <div className="flex items-center mt-1 text-sm text-gray-500 dark:text-gray-400">
+      <h3 className={`font-medium ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}>{post.title}</h3>
+      <div className={`flex items-center mt-1 text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
         <span>{post.author}</span>
-        <span className="mx-2">•</span>
+        <span className={`mx-2 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>•</span>
         <span>{post.time}</span>
         <span className="ml-auto flex items-center">
           <i className="far fa-comment mr-1"></i> {post.comments}
@@ -252,19 +330,22 @@ function CommunityPostItem({ post, navigateTo }: { post: any, navigateTo: (route
 // Mock Test Item
 function MockTestItem({ test, darkMode }: { test: any, darkMode: boolean }) {
   return (
-    <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+    <div className={`flex justify-between items-center p-3 rounded-lg ${
+      darkMode ? 'bg-gray-700' : 'bg-gray-50'
+    }`}>
       <div>
-        <h3 className="font-medium dark:text-white">{test.type}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{test.date}</p>
+        <h3 className={`font-medium ${darkMode ? 'text-gray-100' : 'text-gray-800'}`}>{test.type}</h3>
+        <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{test.date}</p>
       </div>
       <div className="text-right">
         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-          test.score >= 6.5 ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
-          'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
+          test.score >= 6.5 ?
+            (darkMode ? 'bg-green-900 text-green-200' : 'bg-green-100 text-green-800') :
+            (darkMode ? 'bg-yellow-900 text-yellow-200' : 'bg-yellow-100 text-yellow-800')
         }`}>
           Band {test.score}
         </span>
-        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{test.timeSpent}</p>
+        <p className={`text-xs mt-1 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>{test.timeSpent}</p>
       </div>
     </div>
   );
@@ -281,16 +362,26 @@ function AIToolsSection({
   darkMode: boolean
 }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-      <h2 className="text-xl font-bold mb-6 dark:text-white">Experience Our AI Tools</h2>
+    <div className={`rounded-xl shadow-sm p-6 ${
+      darkMode ? 'bg-gray-800' : 'bg-white'
+    }`}>
+      <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+        Experience Our AI Tools
+      </h2>
       <div className="flex flex-col md:flex-row gap-6">
         {/* Writing Checker */}
-        <div className="md:w-1/2 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-          <h3 className="font-semibold text-lg mb-4 flex items-center dark:text-white">
+        <div className={`md:w-1/2 p-6 rounded-lg ${
+          darkMode ? 'bg-gray-700' : 'bg-gray-50'
+        }`}>
+          <h3 className={`font-semibold text-lg mb-4 flex items-center ${
+            darkMode ? 'text-white' : 'text-gray-800'
+          }`}>
             <i className="fas fa-edit text-yellow-600 dark:text-yellow-400 mr-2"></i> Writing Checker
           </h3>
           <textarea
-            className="w-full h-40 p-3 border rounded-md mb-4 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+            className={`w-full h-40 p-3 border rounded-md mb-4 ${
+              darkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-white border-gray-300 text-gray-800'
+            }`}
             placeholder="Paste your IELTS essay here..."
           >
             The internet has revolutionized how we communicate. Some argue it has made relationships stronger, while others believe it causes isolation. In my opinion, the internet brings people together despite physical distances.
@@ -304,19 +395,27 @@ function AIToolsSection({
         </div>
 
         {/* Speaking Analyzer */}
-        <div className="md:w-1/2 bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-          <h3 className="font-semibold text-lg mb-4 flex items-center dark:text-white">
+        <div className={`md:w-1/2 p-6 rounded-lg ${
+          darkMode ? 'bg-gray-700' : 'bg-gray-50'
+        }`}>
+          <h3 className={`font-semibold text-lg mb-4 flex items-center ${
+            darkMode ? 'text-white' : 'text-gray-800'
+          }`}>
             <i className="fas fa-microphone-alt text-purple-600 dark:text-purple-400 mr-2"></i> Speaking Analyzer
           </h3>
-          <div className="bg-white dark:bg-gray-600 rounded-md p-4 mb-4 text-center">
-            <p className="text-gray-600 dark:text-gray-300 mb-3">Describe a time you helped someone</p>
+          <div className={`rounded-md p-4 mb-4 text-center ${
+            darkMode ? 'bg-gray-600' : 'bg-white'
+          }`}>
+            <p className={`mb-3 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+              Describe a time you helped someone
+            </p>
             <button
               className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md font-medium mb-2"
               onClick={startSpeakingPractice}
             >
               <i className="fas fa-microphone mr-2"></i> Record Response
             </button>
-            <p className="text-xs text-gray-500 dark:text-gray-400">(Sample: 45 seconds)</p>
+            <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>(Sample: 45 seconds)</p>
           </div>
           <button
             className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md font-medium"
@@ -359,7 +458,7 @@ export default function HomeContent({
     reading: user ? 70 : 45,
     overall: user ? 6.5 : 5.0,
     targetBand: user ? 7.5 : 6.0,
-    streak: 0  // Initialized streak
+    streak: user ? 7 : 3
   });
 
   const [studyPlan, setStudyPlan] = useState<Lesson[]>([
@@ -460,11 +559,15 @@ export default function HomeContent({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
           {/* Progress Overview */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold dark:text-white">Your Progress Overview</h2>
+              <h2 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                Your Progress Overview
+              </h2>
               <button
-                className="text-yellow-600 dark:text-yellow-400 text-sm font-medium"
+                className={`text-sm font-medium ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}
                 onClick={() => navigateTo('/progress')}
               >
                 View Details →
@@ -507,11 +610,15 @@ export default function HomeContent({
           </div>
 
           {/* Study Plan */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold dark:text-white">Your Study Plan</h2>
+              <h2 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                Your Study Plan
+              </h2>
               <button
-                className="text-yellow-600 dark:text-yellow-400 text-sm font-medium"
+                className={`text-sm font-medium ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}
                 onClick={() => navigateTo('/courses')}
               >
                 View All →
@@ -530,11 +637,15 @@ export default function HomeContent({
           </div>
 
           {/* Recent Writing Samples */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold dark:text-white">Recent Writing Samples</h2>
+              <h2 className={`text-xl font-bold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+                Recent Writing Samples
+              </h2>
               <button
-                className="text-yellow-600 dark:text-yellow-400 text-sm font-medium"
+                className={`text-sm font-medium ${darkMode ? 'text-yellow-400' : 'text-yellow-600'}`}
                 onClick={analyzeWriting}
               >
                 + New Sample →
@@ -544,14 +655,36 @@ export default function HomeContent({
               <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead>
                   <tr>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Task</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Band</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Date</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Words</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Feedback</th>
+                    <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
+                      darkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      Task
+                    </th>
+                    <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
+                      darkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      Band
+                    </th>
+                    <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
+                      darkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      Date
+                    </th>
+                    <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
+                      darkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      Words
+                    </th>
+                    <th className={`px-4 py-3 text-left text-xs font-medium uppercase tracking-wider ${
+                      darkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
+                      Feedback
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                <tbody className={`divide-y ${
+                  darkMode ? 'divide-gray-700 bg-gray-800' : 'divide-gray-200 bg-white'
+                }`}>
                   {writingSamples.map((sample) => (
                     <WritingSampleItem
                       key={sample.id}
@@ -576,39 +709,90 @@ export default function HomeContent({
         {/* Right Column */}
         <div className="space-y-8">
           {/* Quick Actions */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-6 dark:text-white">Quick Actions</h2>
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Quick Actions
+            </h2>
             <div className="space-y-3">
               <QuickActionButton
                 icon="fas fa-clock text-yellow-600"
                 color="#d97706"
                 label="Take Mock Test"
                 onClick={startMockTest}
+                darkMode={darkMode}
               />
               <QuickActionButton
                 icon="fas fa-microphone-alt text-purple-600"
                 color="#8b5cf6"
                 label="Speaking Practice"
                 onClick={startSpeakingPractice}
+                darkMode={darkMode}
               />
               <QuickActionButton
                 icon="fas fa-edit text-blue-600"
                 color="#3b82f6"
                 label="Analyze Writing"
                 onClick={analyzeWriting}
+                darkMode={darkMode}
               />
               <QuickActionButton
                 icon="fas fa-book text-green-600"
                 color="#10b981"
                 label="Vocabulary Builder"
                 onClick={() => navigateTo('/vocabulary')}
+                darkMode={darkMode}
+              />
+            </div>
+          </div>
+
+          {/* Flashcards */}
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Flashcards
+            </h2>
+            <div className="space-y-3">
+              <Flashcard
+                icon="fas fa-book-open text-yellow-600"
+                color="#d97706"
+                label="Vocabulary Review"
+                onClick={() => navigateTo('/flashcards/vocabulary')}
+                darkMode={darkMode}
+              />
+              <Flashcard
+                icon="fas fa-pen-fancy text-purple-600"
+                color="#8b5cf6"
+                label="Writing Phrases"
+                onClick={() => navigateTo('/flashcards/writing')}
+                darkMode={darkMode}
+              />
+              <Flashcard
+                icon="fas fa-headphones text-blue-600"
+                color="#3b82f6"
+                label="Listening Practice"
+                onClick={() => navigateTo('/flashcards/listening')}
+                darkMode={darkMode}
+              />
+              <Flashcard
+                icon="fas fa-comment-alt text-green-600"
+                color="#10b981"
+                label="Speaking Prompts"
+                onClick={() => navigateTo('/flashcards/speaking')}
+                darkMode={darkMode}
               />
             </div>
           </div>
 
           {/* Recent Activity */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-6 dark:text-white">Recent Activity</h2>
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Recent Activity
+            </h2>
             <div className="space-y-4">
               {recentActivities.map((activity) => (
                 <ActivityItem key={activity.id} activity={activity} darkMode={darkMode} />
@@ -617,12 +801,23 @@ export default function HomeContent({
           </div>
 
           {/* Target Band */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-6 dark:text-white">Target Band Score</h2>
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Target Band Score
+            </h2>
             <div className="text-center">
               <div className="relative w-40 h-40 mx-auto mb-4">
                 <svg className="w-full h-full" viewBox="0 0 36 36">
-                  <circle cx="18" cy="18" r="16" fill="none" stroke="#e2e8f0" strokeWidth="2"></circle>
+                  <circle
+                    cx="18"
+                    cy="18"
+                    r="16"
+                    fill="none"
+                    stroke="#e2e8f0"
+                    strokeWidth="2"
+                  ></circle>
                   <circle
                     id="overall-progress"
                     className="progress-ring__circle"
@@ -642,24 +837,34 @@ export default function HomeContent({
                     fill="none"
                     stroke="#10b981"
                     strokeWidth="2"
-                    strokeDasharray="100 100"
-                    strokeDashoffset="17"
                   ></circle>
-                  <text x="18" y="18" textAnchor="middle" fontSize="12" fill={darkMode ? "#ffffff" : "#1f2937"} dy=".3em" fontWeight="bold">
+                  <text
+                    x="18"
+                    y="18"
+                    textAnchor="middle"
+                    fontSize="12"
+                    fill={darkMode ? "#f9fafb" : "#1f2937"}
+                    dy=".3em"
+                    fontWeight="bold"
+                  >
                     {userProgress.overall}
-                  </text>
-                  <text x="18" y="24" textAnchor="middle" fontSize="8" fill={darkMode ? "#d1d5db" : "#6b7280"} dy=".3em">
-                    Current
                   </text>
                 </svg>
               </div>
               <div className="mb-4">
-                <label htmlFor="targetBand" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label
+                  htmlFor="targetBand"
+                  className={`block text-sm font-medium mb-1 ${
+                    darkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}
+                >
                   Your Target Band
                 </label>
                 <select
                   id="targetBand"
-                  className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  className={`w-full px-3 py-2 border rounded-md ${
+                    darkMode ? 'bg-gray-700 border-gray-600 text-white' : 'bg-white border-gray-300 text-gray-800'
+                  }`}
                   value={userProgress.targetBand}
                   onChange={updateTargetBand}
                 >
@@ -672,7 +877,9 @@ export default function HomeContent({
                   <option value="9.0">9.0</option>
                 </select>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+              <div className={`text-sm mb-4 ${
+                darkMode ? 'text-gray-300' : 'text-gray-600'
+              }`}>
                 You're {(userProgress.overall / userProgress.targetBand * 100).toFixed(0)}% to your target
               </div>
               <button className="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded-md font-medium">
@@ -682,14 +889,25 @@ export default function HomeContent({
           </div>
 
           {/* Community Section */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-6 dark:text-white">Community Discussions</h2>
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Community Discussions
+            </h2>
             <div className="space-y-4">
               {communityPosts.map((post) => (
-                <CommunityPostItem key={post.id} post={post} navigateTo={navigateTo} />
+                <CommunityPostItem
+                  key={post.id}
+                  post={post}
+                  navigateTo={navigateTo}
+                  darkMode={darkMode}
+                />
               ))}
               <button
-                className="w-full mt-4 text-yellow-600 dark:text-yellow-400 font-medium text-sm"
+                className={`w-full mt-4 font-medium text-sm ${
+                  darkMode ? 'text-yellow-400' : 'text-yellow-600'
+                }`}
                 onClick={() => navigateTo('/community')}
               >
                 View all discussions →
@@ -698,14 +916,20 @@ export default function HomeContent({
           </div>
 
           {/* Mock Test History */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-            <h2 className="text-xl font-bold mb-6 dark:text-white">Mock Test History</h2>
+          <div className={`rounded-xl shadow-sm p-6 ${
+            darkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            <h2 className={`text-xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+              Mock Test History
+            </h2>
             <div className="space-y-3">
               {mockTests.map((test) => (
                 <MockTestItem key={test.id} test={test} darkMode={darkMode} />
               ))}
               <button
-                className="w-full mt-2 text-yellow-600 dark:text-yellow-400 font-medium text-sm"
+                className={`w-full mt-2 font-medium text-sm ${
+                  darkMode ? 'text-yellow-400' : 'text-yellow-600'
+                }`}
                 onClick={() => navigateTo('/mock-tests')}
               >
                 View full history →

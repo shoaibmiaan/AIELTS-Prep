@@ -2,8 +2,9 @@ import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import LoadingSpinner from './LoadingSpinner';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { ThemeProvider } from './ThemeProvider';
+import Breadcrumb from './Breadcrumb';
+import { useAuth } from '@/context/AuthContext';
+import { useTheme } from '@/context/ThemeContext';
 
 export default function Layout({
   children,
@@ -14,26 +15,26 @@ export default function Layout({
   user: any;
   isLoading?: boolean;
 }) {
+  const { user: authUser } = useAuth();
+  const { theme } = useTheme();
+  const currentUser = user || authUser;
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
 
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <ThemeProvider>
-        <div className="font-sans bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
-          <Header user={user} />
-          <main className="container mx-auto px-4 py-8">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </ThemeProvider>
-    </NextThemesProvider>
+    <div className={`font-sans min-h-screen transition-colors duration-200 flex flex-col ${
+      theme === 'dark' ? 'dark bg-gray-900' : 'bg-gray-50'
+    }`}>
+      <Header user={currentUser} />
+      <div className="container mx-auto px-4">
+        <Breadcrumb userId={currentUser?.id} />
+      </div>
+      <main className="container mx-auto px-4 py-4 flex-grow">
+        {children}
+      </main>
+      <Footer />
+    </div>
   );
 }

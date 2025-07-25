@@ -4,8 +4,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { supabase } from '@/lib/supabaseClient';
 import { useAuth } from '@/context/AuthContext';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import LoginModal from '@/components/home/LoginModal';
 
 interface WritingTask {
@@ -166,20 +164,6 @@ export default function WritingAssessmentRoom() {
         <title>Writing Assessment Room - IELTS Master</title>
         <meta name="description" content="Practice IELTS writing tasks with authentic prompts and detailed feedback" />
       </Head>
-
-      <Header
-        user={user}
-        profile={profile}
-        darkMode={darkMode}
-        mobileMenuOpen={mobileMenuOpen}
-        dropdownOpen={dropdownOpen}
-        toggleDarkMode={toggleDarkMode}
-        handleNavigation={handleNavigation}
-        handleProtectedClick={handleProtectedClick}
-        setMobileMenuOpen={setMobileMenuOpen}
-        setDropdownOpen={setDropdownOpen}
-        dropdownRef={dropdownRef}
-      />
 
       <main className="container mx-auto px-4 sm:px-6 py-8">
         <section className="mb-12">
@@ -381,17 +365,6 @@ export default function WritingAssessmentRoom() {
           </div>
         </section>
       </main>
-
-      <Footer />
-
-      <style jsx global>{`
-        html {
-          transition: background-color 0.3s ease;
-        }
-        body {
-          transition: background-color 0.3s ease;
-        }
-      `}</style>
     </div>
   );
 }

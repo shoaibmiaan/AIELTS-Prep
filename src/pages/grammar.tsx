@@ -4,13 +4,17 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
+import { useTheme } from '@/context/ThemeContext';
 import toast from 'react-hot-toast';
 import LoginModal from '@/components/home/LoginModal';
+import Container from '@/components/Container';
+import PageSection from '@/components/PageSection';
 
 export default function IELTSCoursePage() {
   const router = useRouter();
   const { courseId } = router.query;
   const { user } = useAuth();
+  const { theme } = useTheme();
 
   // UI State
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -68,16 +72,6 @@ export default function IELTSCoursePage() {
     },
   ]);
 
-  // Initialize dark mode (handled by ThemeProvider)
-  useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedMode === 'true' || (!savedMode && prefersDark)) {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
   const startLesson = (lessonId: number) => {
     const lesson = lessons.find(l => l.id === lessonId);
     if (lesson && !lesson.locked) {
@@ -98,110 +92,102 @@ export default function IELTSCoursePage() {
   };
 
   return (
-    <div className="font-sans bg-[rgb(var(--color-background))] dark:bg-[rgb(var(--color-card-dark-bg))] transition-colors duration-300 min-h-screen">
+    <div className="min-h-screen">
       <Head>
         <title>{course.title} | IELTS Master</title>
       </Head>
 
       <main className="container mx-auto px-4 py-8">
         {/* Course Header */}
-        <div className="flex flex-col md:flex-row gap-8 mb-12">
-          <div className="md:w-2/3">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="px-3 py-1 bg-[rgb(var(--color-secondary-light))] dark:bg-[rgb(var(--color-secondary-dark))] text-[rgb(var(--color-secondary))] dark:text-[rgb(var(--color-secondary-light))] rounded-full text-sm font-medium">
-                Grammar Course
-              </span>
-              <span className="text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))]">
-                {course.rating} ★ ({course.enrolled.toLocaleString()} students)
-              </span>
+        <PageSection title={course.title}>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="px-3 py-1 bg-primary-light dark:bg-primary-dark text-primary rounded-full text-sm font-medium">
+              Grammar Course
+            </span>
+            <span className="text-muted">
+              {course.rating} ★ ({course.enrolled.toLocaleString()} students)
+            </span>
+          </div>
+
+          <p className="text-lg text-muted mb-6">
+            {course.description}
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-6">
+            <div className="flex items-center gap-2">
+              <i className="fas fa-chalkboard-teacher text-primary"></i>
+              <span className="text-muted">{course.instructor}</span>
             </div>
-
-            <h1 className="text-3xl md:text-4xl font-bold text-[rgb(var(--color-foreground))] dark:text-[rgb(var(--color-foreground))] mb-4">
-              {course.title}
-            </h1>
-
-            <p className="text-lg text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))] mb-6">
-              {course.description}
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-6">
-              <div className="flex items-center gap-2">
-                <i className="fas fa-chalkboard-teacher text-[rgb(var(--color-secondary))]"></i>
-                <span className="text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))]">{course.instructor}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <i className="fas fa-book-open text-[rgb(var(--color-secondary))]"></i>
-                <span className="text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))]">{course.totalLessons} lessons</span>
-              </div>
-            </div>
-
-            {user ? (
-              <div className="w-full bg-[rgb(var(--color-muted-light))] dark:bg-[rgb(var(--color-muted))] rounded-full h-4 mb-4">
-                <div
-                  className="bg-[rgb(var(--color-secondary))] h-4 rounded-full"
-                  style={{ width: `${course.progress}%` }}
-                ></div>
-              </div>
-            ) : null}
-
-            <div className="flex gap-4">
-              {user ? (
-                <>
-                  {course.lastAccessed && (
-                    <button
-                      onClick={() => startLesson(lessons.find(l => l.title === course.lastAccessed)?.id || 0)}
-                      className="bg-[rgb(var(--color-primary))] text-white px-6 py-2 rounded-lg"
-                    >
-                      Continue Learning
-                    </button>
-                  )}
-                  <button className="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-lg">
-                    Save for Later
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    onClick={enrollCourse}
-                    className="bg-[rgb(var(--color-primary))] text-white px-6 py-2 rounded-lg"
-                  >
-                    Enroll for Free
-                  </button>
-                  <button
-                    onClick={() => setShowLoginModal(true)}
-                    className="bg-gray-200 dark:bg-gray-600 text-gray-700 dark:text-gray-300 px-6 py-2 rounded-lg"
-                  >
-                    Preview Course
-                  </button>
-                </>
-              )}
+            <div className="flex items-center gap-2">
+              <i className="fas fa-book-open text-primary"></i>
+              <span className="text-muted">{course.totalLessons} lessons</span>
             </div>
           </div>
-        </div>
+
+          {user ? (
+            <div className="w-full bg-muted-light dark:bg-muted rounded-full h-4 mb-4">
+              <div
+                className="bg-primary h-4 rounded-full"
+                style={{ width: `${course.progress}%` }}
+              ></div>
+            </div>
+          ) : null}
+
+          <div className="flex gap-4">
+            {user ? (
+              <>
+                {course.lastAccessed && (
+                  <button
+                    onClick={() => startLesson(lessons.find(l => l.title === course.lastAccessed)?.id || 0)}
+                    className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg"
+                  >
+                    Continue Learning
+                  </button>
+                )}
+                <button className="bg-card hover:bg-card-hover text-foreground px-6 py-2 rounded-lg border border-border">
+                  Save for Later
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={enrollCourse}
+                  className="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-lg"
+                >
+                  Enroll for Free
+                </button>
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="bg-card hover:bg-card-hover text-foreground px-6 py-2 rounded-lg border border-border"
+                >
+                  Preview Course
+                </button>
+              </>
+            )}
+          </div>
+        </PageSection>
 
         {/* Course Content */}
-        <div className="mb-16">
-          <h2 className="text-2xl font-bold text-[rgb(var(--color-foreground))] dark:text-[rgb(var(--color-foreground))] mb-6">Course Content</h2>
-
-          <div className="bg-[rgb(var(--color-card))] dark:bg-[rgb(var(--color-card-dark))] rounded-xl shadow-md overflow-hidden">
+        <PageSection title="Course Content">
+          <Container className="overflow-hidden">
             {lessons.map((lesson, index) => (
               <div
                 key={lesson.id}
-                className={`border-b border-[rgb(var(--color-border))] dark:border-[rgb(var(--color-border-dark))] last:border-0 ${lesson.locked ? 'opacity-70' : ''}`}
+                className={`border-b border-border last:border-0 ${lesson.locked ? 'opacity-70' : ''}`}
               >
-                <div className="flex items-center p-4 hover:bg-[rgb(var(--color-background-light))] dark:hover:bg-[rgb(var(--color-card-dark))] transition-colors">
+                <div className="flex items-center p-4 hover:bg-card-hover transition-colors">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center mr-4">
                     {lesson.completed ? (
-                      <div className="w-full h-full rounded-full bg-[rgb(var(--color-success-light))] dark:bg-[rgb(var(--color-success-dark))] flex items-center justify-center">
-                        <i className="fas fa-check text-[rgb(var(--color-success))] dark:text-[rgb(var(--color-success-light))]"></i>
+                      <div className="w-full h-full rounded-full bg-success-light dark:bg-success-dark flex items-center justify-center">
+                        <i className="fas fa-check text-success"></i>
                       </div>
                     ) : (
                       <div className={`w-full h-full rounded-full flex items-center justify-center ${
-                        lesson.locked ? 'bg-[rgb(var(--color-muted-light))] dark:bg-[rgb(var(--color-muted))]' : 'bg-[rgb(var(--color-primary-light))] dark:bg-[rgb(var(--color-primary-dark))]'
+                        lesson.locked ? 'bg-muted-light dark:bg-muted' : 'bg-primary-light dark:bg-primary-dark'
                       }`}>
                         <i className={`fas ${
-                          lesson.locked ? 'fa-lock text-[rgb(var(--color-muted))]' :
-                          lesson.type === 'video' ? 'fa-play text-[rgb(var(--color-primary))]' : 'fa-mouse-pointer text-[rgb(var(--color-primary))]'
+                          lesson.locked ? 'fa-lock text-muted' :
+                          lesson.type === 'video' ? 'fa-play text-primary' : 'fa-mouse-pointer text-primary'
                         }`}></i>
                       </div>
                     )}
@@ -209,16 +195,16 @@ export default function IELTSCoursePage() {
 
                   <div className="flex-grow">
                     <h3 className={`font-medium ${
-                      lesson.locked ? 'text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))]' : 'text-[rgb(var(--color-foreground))] dark:text-[rgb(var(--color-foreground))]'
+                      lesson.locked ? 'text-muted' : 'text-foreground'
                     }`}>
                       {index + 1}. {lesson.title}
                       {lesson.preview && !lesson.locked && (
-                        <span className="ml-2 px-2 py-0.5 bg-[rgb(var(--color-primary-light))] dark:bg-[rgb(var(--color-primary-dark))] text-[rgb(var(--color-primary))] dark:text-[rgb(var(--color-primary-light))] rounded-full text-xs">
+                        <span className="ml-2 px-2 py-0.5 bg-primary-light dark:bg-primary-dark text-primary rounded-full text-xs">
                           Free Preview
                         </span>
                       )}
                     </h3>
-                    <p className="text-sm text-[rgb(var(--color-muted))] dark:text-[rgb(var(--color-muted-light))]">
+                    <p className="text-sm text-muted">
                       {lesson.duration} • {lesson.type === 'video' ? 'Video Lesson' : 'Interactive Exercise'}
                     </p>
                   </div>
@@ -228,8 +214,8 @@ export default function IELTSCoursePage() {
                     disabled={lesson.locked}
                     className={`px-4 py-2 rounded-lg text-sm font-medium ${
                       lesson.locked ?
-                        'text-[rgb(var(--color-muted))] cursor-not-allowed' :
-                        'text-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary-light))] dark:hover:bg-[rgb(var(--color-primary-dark))]'
+                        'text-muted cursor-not-allowed' :
+                        'text-primary hover:bg-primary-light dark:hover:bg-primary-dark'
                     }`}
                   >
                     {lesson.completed ? 'Review' : 'Start'}
@@ -237,8 +223,8 @@ export default function IELTSCoursePage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </Container>
+        </PageSection>
       </main>
 
       <LoginModal

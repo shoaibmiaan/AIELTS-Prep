@@ -1,8 +1,9 @@
-/* Import Tailwind */
+/* globals.css */
 @import "tailwindcss";
 
-/* Define colors */
+/* Define colors for light and dark modes */
 :root {
+  /* Light Theme */
   --color-background: 255, 255, 255;
   --color-card: 245, 247, 250;
   --color-foreground: 17, 24, 39;
@@ -11,11 +12,15 @@
   --color-accent: 255, 99, 71;
   --color-border: 229, 231, 235;
   --color-welcome: 255, 165, 0;
+
+  /* Dark Theme */
   --color-background-dark: 17, 24, 39;
   --color-card-dark: 31, 41, 55;
   --color-foreground-dark: 243, 244, 246;
   --color-muted-dark: 156, 163, 175;
   --color-border-dark: 55, 65, 81;
+
+  /* Additional Colors */
   --color-yellow50: 255, 250, 240;
   --color-yellow600: 214, 158, 46;
   --color-yellow400: 246, 224, 94;
@@ -31,8 +36,8 @@
   --color-red: 239, 68, 68;
 }
 
-/* Default theme (light mode) */
-@theme inline {
+/* Light theme variables */
+:root {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
   --color-card: var(--color-card);
@@ -41,19 +46,15 @@
   --color-border: var(--color-border);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--color-background-dark);
-    --color-foreground: var(--color-foreground-dark);
-    --color-card: var(--color-card-dark);
-    --color-primary: var(--color-primary);
-    --color-accent: var(--color-accent);
-    --color-border: var(--color-border-dark);
-  }
+/* Dark theme variables */
+.dark {
+  --color-background: var(--color-background-dark);
+  --color-foreground: var(--color-foreground-dark);
+  --color-card: var(--color-card-dark);
+  --color-border: var(--color-border-dark);
 }
 
-/* Smooth transitions */
+/* Global styles for body */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: rgb(var(--color-background));
@@ -63,11 +64,18 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* HTML class change when dark mode is toggled */
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Welcome Banner */
+/* Specific elements for dark mode adjustment */
+body.dark {
+  background-color: rgb(var(--color-background-dark));
+  color: rgb(var(--color-foreground-dark));
+}
+
+/* Other styles for specific elements */
 .welcome-banner {
   background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
   padding: 20px;
@@ -87,13 +95,14 @@ html {
   margin: 10px 0;
 }
 
-/* Progress Overview */
-.progress-overview {
-  padding: 20px;
-  margin: 20px;
-  background-color: rgb(var(--color-card));
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+/* Dark Mode Adjustments */
+body.dark .welcome-banner {
+  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
+}
+
+body.dark .progress-overview {
+  background-color: rgb(var(--color-card-dark));
+  border: 1px solid rgb(var(--color-border-dark));
 }
 
 /* Flashcard Flip Effect */
@@ -138,29 +147,6 @@ html {
 
 .flashcard:hover {
   cursor: pointer;
-}
-
-/* Dark Mode Adjustments */
-body.dark {
-  background-color: rgb(var(--color-background-dark));
-  color: rgb(var(--color-foreground-dark));
-}
-
-body.dark .welcome-banner {
-  background: linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-accent)));
-}
-
-body.dark .progress-overview {
-  background-color: rgb(var(--color-card-dark));
-  border: 1px solid rgb(var(--color-border-dark));
-}
-
-body.dark .flashcard .front {
-  background-color: rgb(var(--color-gray700));
-}
-
-body.dark .flashcard .back {
-  background-color: rgb(var(--color-gray900));
 }
 
 /* Animations */

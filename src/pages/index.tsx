@@ -2,20 +2,24 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/context/AuthContext';
+import { useTheme } from '@/context/ThemeContext';
 import toast from 'react-hot-toast';
 import HomeContent from '@/components/home/homeContent';
 import GuestContent from '@/components/home/GuestContent';
 import LoginModal from '@/components/home/LoginModal';
+import SkeletonLoader from '@/components/common/SkeletonLoader';
 
 export default function IELTSMaster() {
   const router = useRouter();
-  const { user, login, logout } = useAuth();
+  const { user, login, logout, isLoading: authLoading } = useAuth();
+  const { theme } = useTheme(); // Access the current theme
 
   // UI State
-  const [darkMode, setDarkMode] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [currentPage, setCurrentPage] = useState('');
-  const [activeTab, setActiveTab] = useState('');
+  const [isPageLoading, setIsPageLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Form State
   const [email, setEmail] = useState('');
@@ -23,71 +27,105 @@ export default function IELTSMaster() {
 
   // User Data State
   const userName = user?.name || user?.email?.split('@')[0] || '';
-  const userAvatar = user?.avatar || null; // Assume avatar is provided by useAuth, or null if not available
+  const userAvatar = user?.avatar || null;
 
   const [userProgress, setUserProgress] = useState({
-    writing: user ? 65 : 30,
-    listening: user ? 45 : 0,
-    speaking: user ? 30 : 0,
-    reading: user ? 70 : 45,
-    overall: user ? 6.5 : 5.0,
-    targetBand: user ? 7.5 : 6.0
+    writing: 0,
+    listening: 0,
+    speaking: 0,
+    reading: 0,
+    overall: 0,
+    targetBand: 0
   });
 
-  const [studyPlan, setStudyPlan] = useState([
-    { id: 1, title: 'Complex Sentences', module: 'Writing', duration: '25 min', progress: user ? 65 : 30, locked: false },
-    { id: 2, title: 'Map Labelling', module: 'Listening', duration: '35 min', progress: user ? 45 : 0, locked: !user },
-    { id: 3, title: 'Part 3 Strategies', module: 'Speaking', duration: '45 min', progress: user ? 30 : 0, locked: false },
-    { id: 4, title: 'True/False/Not Given', module: 'Reading', duration: '40 min', progress: 0, locked: true }
-  ]);
+  const [studyPlan, setStudyPlan] = useState([]);
+  const [recentActivities, setRecentActivities] = useState([]);
+  const [writingSamples, setWritingSamples] = useState([]);
+  const [communityPosts, setCommunityPosts] = useState([]);
+  const [mockTests, setMockTests] = useState([]);
 
-  const [recentActivities, setRecentActivities] = useState(
-    user ? [
-      { id: 1, type: 'writing', title: 'Writing Task 2 Evaluation', score: 6.0, date: '2 hours ago', improvement: '+0.5 from last' },
-      { id: 2, type: 'mock', title: 'Full Mock Test', score: 6.5, date: '1 day ago', improvement: '+1.0 from last' },
-      { id: 3, type: 'speaking', title: 'Speaking Part 2 Practice', score: 5.5, date: '3 days ago', improvement: '+0.5 from last' }
-    ] : []
-  );
-
-  const [writingSamples, setWritingSamples] = useState(
-    user ? [
-      { id: 1, task: 'Task 2 - Opinion Essay', band: 6.0, date: 'Jul 15', wordCount: 265, feedback: true },
-      { id: 2, task: 'Task 1 - Line Graph', band: 6.5, date: 'Jul 10', wordCount: 187, feedback: true },
-      { id: 3, task: 'Task 2 - Discussion Essay', band: 5.5, date: 'Jul 5', wordCount: 243, feedback: false }
-    ] : []
-  );
-
-  const [communityPosts, setCommunityPosts] = useState([
-    { id: 1, title: 'How to improve speaking fluency quickly?', comments: 42, author: 'Rajesh', time: '2 hours ago' },
-    { id: 2, title: 'Writing Task 2 sample answer review', comments: 18, author: 'Maria', time: '5 hours ago' },
-    { id: 3, title: 'Listening section 3 strategies', comments: 7, author: 'Ahmed', time: '1 day ago' }
-  ]);
-
-  const [mockTests, setMockTests] = useState(
-    user ? [
-      { id: 1, type: 'Full Test', date: 'Jul 16', score: 6.5, timeSpent: '2h 45m' },
-      { id: 2, type: 'Reading Only', date: 'Jul 12', score: 7.0, timeSpent: '1h 05m' },
-      { id: 3, type: 'Listening Only', date: 'Jul 8', score: 6.5, timeSpent: '40m' }
-    ] : []
-  );
-
-  // Initialize dark mode
+  // Simulate data fetching
   useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedMode === 'true' || (!savedMode && prefersDark)) {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
+    const fetchDashboardData = async () => {
+      if (!user) return;
 
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    const newMode = !darkMode;
-    setDarkMode(newMode);
-    localStorage.setItem('darkMode', String(newMode));
-    document.documentElement.classList.toggle('dark', newMode);
-  };
+      try {
+        setDataLoading(true);
+        setError(null);
+
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 800));
+
+        // Set actual data
+        setUserProgress({
+          writing: 65,
+          listening: 45,
+          speaking: 30,
+          reading: 70,
+          overall: 6.5,
+          targetBand: 7.5
+        });
+
+        setStudyPlan([
+          { id: 1, title: 'Complex Sentences', module: 'Writing', duration: '25 min', progress: 65, locked: false },
+          { id: 2, title: 'Map Labelling', module: 'Listening', duration: '35 min', progress: 45, locked: false },
+          { id: 3, title: 'Part 3 Strategies', module: 'Speaking', duration: '45 min', progress: 30, locked: false },
+          { id: 4, title: 'True/False/Not Given', module: 'Reading', duration: '40 min', progress: 0, locked: true }
+        ]);
+
+        setRecentActivities([
+          { id: 1, type: 'writing', title: 'Writing Task 2 Evaluation', score: 6.0, date: '2 hours ago', improvement: '+0.5 from last' },
+          { id: 2, type: 'mock', title: 'Full Mock Test', score: 6.5, date: '1 day ago', improvement: '+1.0 from last' },
+          { id: 3, type: 'speaking', title: 'Speaking Part 2 Practice', score: 5.5, date: '3 days ago', improvement: '+0.5 from last' }
+        ]);
+
+        setWritingSamples([
+          { id: 1, task: 'Task 2 - Opinion Essay', band: 6.0, date: 'Jul 15', wordCount: 265, feedback: true },
+          { id: 2, task: 'Task 1 - Line Graph', band: 6.5, date: 'Jul 10', wordCount: 187, feedback: true },
+          { id: 3, task: 'Task 2 - Discussion Essay', band: 5.5, date: 'Jul 5', wordCount: 243, feedback: false }
+        ]);
+
+        setCommunityPosts([
+          { id: 1, title: 'How to improve speaking fluency quickly?', comments: 42, author: 'Rajesh', time: '2 hours ago' },
+          { id: 2, title: 'Writing Task 2 sample answer review', comments: 18, author: 'Maria', time: '5 hours ago' },
+          { id: 3, title: 'Listening section 3 strategies', comments: 7, author: 'Ahmed', time: '1 day ago' }
+        ]);
+
+        setMockTests([
+          { id: 1, type: 'Full Test', date: 'Jul 16', score: 6.5, timeSpent: '2h 45m' },
+          { id: 2, type: 'Reading Only', date: 'Jul 12', score: 7.0, timeSpent: '1h 05m' },
+          { id: 3, type: 'Listening Only', date: 'Jul 8', score: 6.5, timeSpent: '40m' }
+        ]);
+
+      } catch (err) {
+        setError('Failed to load dashboard data');
+        toast.error('Could not load your data. Please try again later.');
+      } finally {
+        setDataLoading(false);
+        setIsPageLoading(false);
+      }
+    };
+
+    // Initial page load
+    if (authLoading) {
+      setIsPageLoading(true);
+    } else {
+      fetchDashboardData();
+    }
+
+    // For guest users
+    if (!user && !authLoading) {
+      setIsPageLoading(false);
+      setUserProgress({
+        writing: 30,
+        listening: 0,
+        speaking: 0,
+        reading: 45,
+        overall: 5.0,
+        targetBand: 6.0
+      });
+    }
+  }, [user, authLoading]);
 
   // Navigation Handlers
   const handleNavigation = (route: string) => {
@@ -122,12 +160,14 @@ export default function IELTSMaster() {
   const analyzeWriting = () => handleProtectedClick('/writing-evaluator');
   const startSpeakingPractice = () => handleProtectedClick('/speaking-simulator');
   const accessPremiumDashboard = () => handleProtectedClick('/premium-dashboard');
+
   const continueLesson = (id: number) => {
     const lesson = studyPlan.find(l => l.id === id);
     if (lesson && !lesson.locked) {
       router.push(`/lessons/${id}`);
     }
   };
+
   const viewWritingFeedback = (id: number) => handleProtectedClick(`/writing-feedback/${id}`);
 
   // Update target band
@@ -142,6 +182,7 @@ export default function IELTSMaster() {
   // Auth Handlers
   const handleLogin = async () => {
     try {
+      setDataLoading(true);
       await login(email, password);
       setShowLoginModal(false);
       const redirectUrl = sessionStorage.getItem('redirectUrl') || '/';
@@ -149,6 +190,8 @@ export default function IELTSMaster() {
       await router.push(redirectUrl);
     } catch (error) {
       toast.error('Invalid credentials. Please try again.');
+    } finally {
+      setDataLoading(false);
     }
   };
 
@@ -157,12 +200,40 @@ export default function IELTSMaster() {
     router.push(currentPage || '/');
   };
 
+  // Loading and error states
+  if (authLoading || isPageLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto"></div>
+          <p className="mt-4 text-muted">Loading your dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="bg-card p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+          <div className="text-red-500 text-5xl mb-4">⚠️</div>
+          <h2 className="text-xl font-bold mb-2 text-foreground">Error Loading Dashboard</h2>
+          <p className="text-muted mb-4">{error}</p>
+          <button
+            onClick={() => window.location.reload()}
+            className="bg-primary hover:bg-primary-dark text-white py-2 px-4 rounded-md transition duration-200"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="font-sans bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <div className={`min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
       <Head>
         <title>{user ? 'Home | IELTS Master' : 'IELTS Master - AI-Powered Preparation'}</title>
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
       </Head>
 
       {user ? (
@@ -173,7 +244,7 @@ export default function IELTSMaster() {
           writingSamples={writingSamples}
           communityPosts={communityPosts}
           mockTests={mockTests}
-          darkMode={darkMode}
+          theme={theme}
           navigateTo={navigateTo}
           startMockTest={startMockTest}
           analyzeWriting={analyzeWriting}
@@ -181,6 +252,7 @@ export default function IELTSMaster() {
           continueLesson={continueLesson}
           viewWritingFeedback={viewWritingFeedback}
           updateTargetBand={updateTargetBand}
+          isLoading={dataLoading}
         />
       ) : (
         <GuestContent
@@ -188,6 +260,7 @@ export default function IELTSMaster() {
           handleProtectedClick={handleProtectedClick}
           accessPremiumDashboard={accessPremiumDashboard}
           userProgress={userProgress}
+          isLoading={dataLoading}
         />
       )}
 
@@ -200,32 +273,8 @@ export default function IELTSMaster() {
         setPassword={setPassword}
         handleLogin={handleLogin}
         handleFreePlan={handleFreePlan}
-        darkMode={darkMode}
+        isLoading={dataLoading}
       />
-
-      <style jsx global>{`
-        html {
-          transition: background-color 0.3s ease;
-        }
-        body {
-          transition: background-color 0.3s ease;
-        }
-        .hero-bg {
-          background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                      url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-          background-size: cover;
-          background-position: center;
-        }
-        .feature-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .progress-ring__circle {
-          transition: stroke-dashoffset 0.35s;
-          transform: rotate(-90deg);
-          transform-origin: 50% 50%;
-        }
-      `}</style>
     </div>
   );
 }
